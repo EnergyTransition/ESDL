@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <esdl:EnergySystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esdl="http://www.tno.nl/esdl" xsi:schemaLocation="http://www.tno.nl/esdl esdl.ecore" id="ES1">
-  <asset xsi:type="esdl:WindMill" id="WindMill1">
-    <ports xsi:type="esdl:OutPort" id="WindMill1OP" connectedTo="IP_for_Windmills"/>
+  <asset xsi:type="esdl:WindTurbine" id="WindTurbine1">
+    <ports xsi:type="esdl:OutPort" id="WindTurbine1OP" connectedTo="IP_for_Windturbines"/>
     <productionProfile start="2015-01-01T00:00:00.000+0100">
-      <profileitem value="1.0E13"/>
+      <profileItem value="1.0E13"/>
       <duration value="1.0" durarionUnit="YEAR"/>
     </productionProfile>
   </asset>
   <asset xsi:type="esdl:ENetwork" id="MV_Network">
-    <ports xsi:type="esdl:InPort" id="IP_for_Windmills" connectedTo="WindMill1OP"/>
+    <ports xsi:type="esdl:InPort" id="IP_for_Windturbines" connectedTo="WindTurbine1OP"/>
     <ports xsi:type="esdl:OutPort" id="OP_for_LV_network" connectedTo="IP_for_MV_network"/>
     <ports xsi:type="esdl:InPort" id="IP_for_PVParc" connectedTo="PVParc1OP"/>
     <ports xsi:type="esdl:OutPort" id="OP_for_BoorEiland" connectedTo="BoorEilandIP"/>
@@ -23,35 +23,35 @@
   <asset xsi:type="esdl:PVParc" id="PVParc1">
     <ports xsi:type="esdl:OutPort" id="PVParc1OP" connectedTo="IP_for_PVParc"/>
     <productionProfile start="2015-01-01T00:00:00.000+0100">
-      <profileitem value="2.0E13"/>
+      <profileItem value="2.0E13"/>
       <duration value="1.0" durarionUnit="YEAR"/>
     </productionProfile>
   </asset>
   <asset xsi:type="esdl:GenericConsumer" id="BoorEiland1">
     <ports xsi:type="esdl:InPort" id="BoorEilandIP" connectedTo="OP_for_BoorEiland"/>
     <consumptionProfile start="2015-01-01T00:00:00.000+0100">
-      <profileitem value="1.89E14"/>
+      <profileItem value="1.89E14"/>
       <duration value="1.0" durarionUnit="YEAR"/>
     </consumptionProfile>
   </asset>
   <asset xsi:type="esdl:AggregatedConsumer" id="ResidentsBaseload1">
     <ports xsi:type="esdl:InPort" id="ResBL1IP" connectedTo="OP_for_Res"/>
     <consumptionProfile start="2015-01-01T00:00:00.000+0100">
-      <profileitem value="4.4E13"/>
+      <profileItem value="4.4E13"/>
       <duration value="1.0" durarionUnit="YEAR"/>
     </consumptionProfile>
   </asset>
   <asset xsi:type="esdl:AggregatedConsumer" id="TourismBaseload1">
     <ports xsi:type="esdl:InPort" id="TourBL1IP" connectedTo="OP_for_Tour"/>
     <consumptionProfile start="2015-01-01T00:00:00.000+0100">
-      <profileitem value="3.7E13"/>
+      <profileItem value="3.7E13"/>
       <duration value="1.0" durarionUnit="YEAR"/>
     </consumptionProfile>
   </asset>
   <asset xsi:type="esdl:PVParc" id="PVonRoofs1">
     <ports xsi:type="esdl:OutPort" id="PVonRoofs1OP" connectedTo="IP_for_PVonRoofs"/>
     <productionProfile start="2015-01-01T00:00:00.000+0100">
-      <profileitem value="2.0E12"/>
+      <profileItem value="2.0E12"/>
       <duration value="1.0" durarionUnit="YEAR"/>
     </productionProfile>
   </asset>
