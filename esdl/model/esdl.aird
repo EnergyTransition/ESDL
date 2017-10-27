@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis xmi:id="_L_kDsLryEeeIKeRLj9tspA" selectedViews="_MiCeoLryEeeIKeRLj9tspA" version="12.0.0.201704271200">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis xmi:id="_L_kDsLryEeeIKeRLj9tspA" selectedViews="_MiCeoLryEeeIKeRLj9tspA _Ww8lALsmEeeZZezrcapb6w" version="12.0.0.201704271200">
     <semanticResources>esdl.ecore</semanticResources>
     <semanticResources>esdl.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_MiCeoLryEeeIKeRLj9tspA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_MqgeILryEeeIKeRLj9tspA" name="esdl" repPath="#_MqZJYLryEeeIKeRLj9tspA">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+        <target xmi:type="ecore:EPackage" href="esdl.ecore#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+    <ownedViews xmi:type="viewpoint:DView" xmi:id="_Ww8lALsmEeeZZezrcapb6w">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_XjZ8sLsmEeeZZezrcapb6w" name="esdl documentation table" repPath="#_XjXgcLsmEeeZZezrcapb6w">
+        <description xmi:type="description_2:CrossTableDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']"/>
         <target xmi:type="ecore:EPackage" href="esdl.ecore#/"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
@@ -3056,4 +3063,474 @@
     <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Validation']"/>
     <target xmi:type="ecore:EPackage" href="esdl.ecore#/"/>
   </diagram:DSemanticDiagram>
+  <table:DTable xmi:id="_XjXgcLsmEeeZZezrcapb6w" name="esdl documentation table" headerColumnWidth="293">
+    <target xmi:type="ecore:EPackage" href="esdl.ecore#/"/>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHgbsmEeeZZezrcapb6w" label="EClass : EnergyAsset">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//EnergyAsset"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHgrsmEeeZZezrcapb6w" label="EReference : ports">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//EnergyAsset/ports"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//EnergyAsset/ports"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" xmi:id="_bxZnILsmEeeZZezrcapb6w" label="" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergyAsset/ports/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergyAsset/ports/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_bxefoLsmEeeZZezrcapb6w" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//EnergyAsset"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHg7smEeeZZezrcapb6w" label="EClass : Producer">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//Producer"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHhLsmEeeZZezrcapb6w" label="EAttribute : prodType">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Producer/prodType"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Producer/prodType"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Producer"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHhbsmEeeZZezrcapb6w" label="EClass : Consumer">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//Consumer"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHhrsmEeeZZezrcapb6w" label="EAttribute : consTYpe">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Consumer/consTYpe"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Consumer/consTYpe"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Consumer"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHh7smEeeZZezrcapb6w" label="EClass : Storage">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//Storage"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHiLsmEeeZZezrcapb6w" label="EAttribute : capacity">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Storage/capacity"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Storage/capacity"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHibsmEeeZZezrcapb6w" label="EAttribute : efficiency">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Storage/efficiency"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Storage/efficiency"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Storage"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHirsmEeeZZezrcapb6w" label="EClass : Conversion">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//Conversion"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Conversion"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" xmi:id="_c9HMULsmEeeZZezrcapb6w" label="Conversion Capability" column="_XjYH2rsmEeeZZezrcapb6w">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Conversion/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Conversion/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" xmi:id="_c9HMUbsmEeeZZezrcapb6w" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHi7smEeeZZezrcapb6w" label="EClass : Transmission">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//Transmission"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHjLsmEeeZZezrcapb6w" label="EAttribute : capacity">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Transmission/capacity"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Transmission/capacity"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Transmission"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHjbsmEeeZZezrcapb6w" label="EEnum : CommodityEnum">
+      <target xmi:type="ecore:EEnum" href="esdl.ecore#//CommodityEnum"/>
+      <semanticElements xmi:type="ecore:EEnum" href="esdl.ecore#//CommodityEnum"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHjrsmEeeZZezrcapb6w" label="EClass : EnergySystem">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//EnergySystem"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHj7smEeeZZezrcapb6w" label="EAttribute : energyUnit">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergySystem/energyUnit"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergySystem/energyUnit"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//EnergySystem"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHkLsmEeeZZezrcapb6w" label="EClass : WindTurbine">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//WindTurbine"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHkbsmEeeZZezrcapb6w" label="EAttribute : power">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//WindTurbine/power"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//WindTurbine/power"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHkrsmEeeZZezrcapb6w" label="EAttribute : rotorDiameter">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//WindTurbine/rotorDiameter"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//WindTurbine/rotorDiameter"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHk7smEeeZZezrcapb6w" label="EAttribute : height">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//WindTurbine/height"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//WindTurbine/height"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//WindTurbine"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHlLsmEeeZZezrcapb6w" label="EClass : WindParc">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//WindParc"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHlbsmEeeZZezrcapb6w" label="EReference : windTurbine">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//WindParc/windTurbine"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//WindParc/windTurbine"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHlrsmEeeZZezrcapb6w" label="EAttribute : numberOfMills">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//WindParc/numberOfMills"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//WindParc/numberOfMills"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//WindParc"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHl7smEeeZZezrcapb6w" label="EClass : PVPanel">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//PVPanel"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHmLsmEeeZZezrcapb6w" label="EAttribute : power">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//PVPanel/power"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//PVPanel/power"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//PVPanel"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHmbsmEeeZZezrcapb6w" label="EClass : PVParc">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//PVParc"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHmrsmEeeZZezrcapb6w" label="EReference : pvPanel">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//PVParc/pvPanel"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//PVParc/pvPanel"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHm7smEeeZZezrcapb6w" label="EAttribute : numberOfPanels">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//PVParc/numberOfPanels"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//PVParc/numberOfPanels"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//PVParc"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHnLsmEeeZZezrcapb6w" label="EClass : Battery">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//Battery"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHnbsmEeeZZezrcapb6w" label="EAttribute : selfDischarge">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Battery/selfDischarge"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Battery/selfDischarge"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Battery"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHnrsmEeeZZezrcapb6w" label="EClass : ENetwork">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//ENetwork"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//ENetwork"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHn7smEeeZZezrcapb6w" label="EClass : ECable">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//ECable"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//ECable"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHoLsmEeeZZezrcapb6w" label="EClass : AggregatedConsumer">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//AggregatedConsumer"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHobsmEeeZZezrcapb6w" label="EReference : aggregationOf">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedConsumer/aggregationOf"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedConsumer/aggregationOf"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//AggregatedConsumer"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHorsmEeeZZezrcapb6w" label="EClass : ProfileItem">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//ProfileItem"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHo7smEeeZZezrcapb6w" label="EAttribute : value">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//ProfileItem/value"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//ProfileItem/value"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//ProfileItem"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHpLsmEeeZZezrcapb6w" label="EClass : Profile">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//Profile"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHpbsmEeeZZezrcapb6w" label="EReference : profileItem">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//Profile/profileItem"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Profile/profileItem"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHprsmEeeZZezrcapb6w" label="EAttribute : start">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Profile/start"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Profile/start"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHp7smEeeZZezrcapb6w" label="EAttribute : profileType">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Profile/profileType"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Profile/profileType"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHqLsmEeeZZezrcapb6w" label="EReference : duration">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//Profile/duration"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Profile/duration"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHqbsmEeeZZezrcapb6w" label="EAttribute : profileRef">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Profile/profileRef"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Profile/profileRef"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Profile"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHqrsmEeeZZezrcapb6w" label="EClass : AssetCollection">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//AssetCollection"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHq7smEeeZZezrcapb6w" label="EReference : asset">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//AssetCollection/asset"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//AssetCollection/asset"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//AssetCollection"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHrLsmEeeZZezrcapb6w" label="EClass : Building">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//Building"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHrbsmEeeZZezrcapb6w" label="EAttribute : type">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Building/type"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Building/type"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Building"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHrrsmEeeZZezrcapb6w" label="EClass : Area">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//Area"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHr7smEeeZZezrcapb6w" label="EAttribute : name">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Area/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Area/name"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHsLsmEeeZZezrcapb6w" label="EAttribute : areaType">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Area/areaType"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Area/areaType"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHsbsmEeeZZezrcapb6w" label="EAttribute : aggrLevel">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Area/aggrLevel"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Area/aggrLevel"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Area"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHsrsmEeeZZezrcapb6w" label="EClass : Port">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//Port"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHs7smEeeZZezrcapb6w" label="EAttribute : commodity">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Port/commodity"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Port/commodity"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHtLsmEeeZZezrcapb6w" label="EReference : connectedTo">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//Port/connectedTo"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Port/connectedTo"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHtbsmEeeZZezrcapb6w" label="EAttribute : id">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Port/id"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Port/id"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHtrsmEeeZZezrcapb6w" label="EReference : profile">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//Port/profile"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Port/profile"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHt7smEeeZZezrcapb6w" label="EAttribute : maxPower">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Port/maxPower"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Port/maxPower"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Port"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHuLsmEeeZZezrcapb6w" label="EClass : AggregatedProducer">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//AggregatedProducer"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHubsmEeeZZezrcapb6w" label="EReference : aggregationOf">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedProducer/aggregationOf"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedProducer/aggregationOf"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//AggregatedProducer"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHursmEeeZZezrcapb6w" label="EEnum : AreaTypeEnum">
+      <target xmi:type="ecore:EEnum" href="esdl.ecore#//AreaTypeEnum"/>
+      <semanticElements xmi:type="ecore:EEnum" href="esdl.ecore#//AreaTypeEnum"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHu7smEeeZZezrcapb6w" label="EEnum : ProfileTypeEnum">
+      <target xmi:type="ecore:EEnum" href="esdl.ecore#//ProfileTypeEnum"/>
+      <semanticElements xmi:type="ecore:EEnum" href="esdl.ecore#//ProfileTypeEnum"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHvLsmEeeZZezrcapb6w" label="EClass : Duration">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//Duration"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHvbsmEeeZZezrcapb6w" label="EAttribute : value">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Duration/value"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Duration/value"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHvrsmEeeZZezrcapb6w" label="EAttribute : durarionUnit">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Duration/durarionUnit"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Duration/durarionUnit"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Duration"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHv7smEeeZZezrcapb6w" label="EEnum : DurationUnitEnum">
+      <target xmi:type="ecore:EEnum" href="esdl.ecore#//DurationUnitEnum"/>
+      <semanticElements xmi:type="ecore:EEnum" href="esdl.ecore#//DurationUnitEnum"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHwLsmEeeZZezrcapb6w" label="EClass : InPort">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//InPort"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//InPort"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHwbsmEeeZZezrcapb6w" label="EClass : OutPort">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//OutPort"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//OutPort"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHwrsmEeeZZezrcapb6w" label="EClass : Asset">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//Asset"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHw7smEeeZZezrcapb6w" label="EAttribute : id">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Asset/id"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Asset/id"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHxLsmEeeZZezrcapb6w" label="EAttribute : requiredSpaceInM2">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Asset/requiredSpaceInM2"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Asset/requiredSpaceInM2"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHxbsmEeeZZezrcapb6w" label="EAttribute : purchaseCosts">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Asset/purchaseCosts"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Asset/purchaseCosts"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHxrsmEeeZZezrcapb6w" label="EAttribute : operationalCosts">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Asset/operationalCosts"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Asset/operationalCosts"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHx7smEeeZZezrcapb6w" label="EAttribute : commissioningDate">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Asset/commissioningDate"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Asset/commissioningDate"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHyLsmEeeZZezrcapb6w" label="EAttribute : expectedDecommissioningDate">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Asset/expectedDecommissioningDate"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Asset/expectedDecommissioningDate"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Asset"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHybsmEeeZZezrcapb6w" label="EClass : GenericConsumer">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//GenericConsumer"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//GenericConsumer"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHyrsmEeeZZezrcapb6w" label="EClass : GenericProducer">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//GenericProducer"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//GenericProducer"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHy7smEeeZZezrcapb6w" label="EClass : GenericStorage">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//GenericStorage"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//GenericStorage"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHzLsmEeeZZezrcapb6w" label="EClass : GenericTransmission">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//GenericTransmission"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//GenericTransmission"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHzbsmEeeZZezrcapb6w" label="EClass : GenericConversion">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//GenericConversion"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//GenericConversion"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYHzrsmEeeZZezrcapb6w" label="EClass : AggregatedTransmission">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//AggregatedTransmission"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYHz7smEeeZZezrcapb6w" label="EReference : aggregationOf">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedTransmission/aggregationOf"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedTransmission/aggregationOf"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//AggregatedTransmission"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYH0LsmEeeZZezrcapb6w" label="EClass : AggregatedConversion">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//AggregatedConversion"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYH0bsmEeeZZezrcapb6w" label="EReference : aggregationOf">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedConversion/aggregationOf"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedConversion/aggregationOf"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//AggregatedConversion"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYH0rsmEeeZZezrcapb6w" label="EClass : AggregatedStorage">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//AggregatedStorage"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYH07smEeeZZezrcapb6w" label="EReference : aggregationOf">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedStorage/aggregationOf"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedStorage/aggregationOf"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//AggregatedStorage"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYH1LsmEeeZZezrcapb6w" label="EEnum : BuildingTypeEnum">
+      <target xmi:type="ecore:EEnum" href="esdl.ecore#//BuildingTypeEnum"/>
+      <semanticElements xmi:type="ecore:EEnum" href="esdl.ecore#//BuildingTypeEnum"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYH1bsmEeeZZezrcapb6w" label="EClass : AppartmentComplex">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//AppartmentComplex"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//AppartmentComplex"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYH1rsmEeeZZezrcapb6w" label="EEnum : ConsTypeEnum">
+      <target xmi:type="ecore:EEnum" href="esdl.ecore#//ConsTypeEnum"/>
+      <semanticElements xmi:type="ecore:EEnum" href="esdl.ecore#//ConsTypeEnum"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYH17smEeeZZezrcapb6w" label="EEnum : ProdTypeEnum">
+      <target xmi:type="ecore:EEnum" href="esdl.ecore#//ProdTypeEnum"/>
+      <semanticElements xmi:type="ecore:EEnum" href="esdl.ecore#//ProdTypeEnum"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" xmi:id="_XjYH2LsmEeeZZezrcapb6w" label="EClass : WaterBuffer">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//WaterBuffer"/>
+      <lines xmi:type="table:DLine" xmi:id="_XjYH2bsmEeeZZezrcapb6w" label="EAttribute : loss">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//WaterBuffer/loss"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//WaterBuffer/loss"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//WaterBuffer"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <columns xmi:type="table:DTargetColumn" xmi:id="_XjYH2rsmEeeZZezrcapb6w" label="Domain Documentation" cells="_bxZnILsmEeeZZezrcapb6w _c9HMULsmEeeZZezrcapb6w" width="171">
+      <target xmi:type="ecore:EPackage" href="esdl.ecore#/"/>
+      <semanticElements xmi:type="ecore:EPackage" href="esdl.ecore#/"/>
+      <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedColumnMappings.0"/>
+    </columns>
+    <description xmi:type="description_2:CrossTableDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']"/>
+  </table:DTable>
 </xmi:XMI>
