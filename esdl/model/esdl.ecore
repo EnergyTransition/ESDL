@@ -50,7 +50,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ENetwork" eSuperTypes="#//Transmission"/>
   <eClassifiers xsi:type="ecore:EClass" name="ECable" eSuperTypes="#//Transmission"/>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatedConsumer" eSuperTypes="#//Consumer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" eType="#//Consumer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"
+        eType="#//Consumer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProfileItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -86,7 +87,8 @@
         iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatedProducer" eSuperTypes="#//Producer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" eType="#//Producer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"
+        eType="#//Producer"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AreaTypeEnum">
     <eLiterals name="BUILDING"/>
@@ -144,13 +146,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="GenericTransmission" eSuperTypes="#//Transmission"/>
   <eClassifiers xsi:type="ecore:EClass" name="GenericConversion" eSuperTypes="#//Conversion"/>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatedTransmission" eSuperTypes="#//Transmission">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" eType="#//Transmission"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"
+        eType="#//Transmission"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatedConversion" eSuperTypes="#//Conversion">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" eType="#//Conversion"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"
+        eType="#//Conversion"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatedStorage" eSuperTypes="#//Storage">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" eType="#//Storage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"
+        eType="#//Storage"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="BuildingTypeEnum">
     <eLiterals name="RESIDENTIAL"/>

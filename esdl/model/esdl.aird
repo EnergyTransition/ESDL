@@ -2658,7 +2658,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_HC0hQLsQEeeZZezrcapb6w" name="[0..1] aggregationOf" sourceNode="_2jsikLryEeeIKeRLj9tspA" targetNode="_2jS58LryEeeIKeRLj9tspA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_HC0hQLsQEeeZZezrcapb6w" name="[0..*] aggregationOf" sourceNode="_2jsikLryEeeIKeRLj9tspA" targetNode="_2jS58LryEeeIKeRLj9tspA">
       <target xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedConsumer/aggregationOf"/>
       <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedConsumer/aggregationOf"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_HC1vYLsQEeeZZezrcapb6w" routingStyle="manhattan" strokeColor="0,0,0">
@@ -2672,7 +2672,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_Uq-ZALsQEeeZZezrcapb6w" name="[0..1] aggregationOf" sourceNode="_2j9BQLryEeeIKeRLj9tspA" targetNode="_2jRr0LryEeeIKeRLj9tspA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_Uq-ZALsQEeeZZezrcapb6w" name="[0..*] aggregationOf" sourceNode="_2j9BQLryEeeIKeRLj9tspA" targetNode="_2jRr0LryEeeIKeRLj9tspA">
       <target xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedProducer/aggregationOf"/>
       <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedProducer/aggregationOf"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_Uq_AELsQEeeZZezrcapb6w" routingStyle="manhattan" strokeColor="0,0,0">
@@ -2686,7 +2686,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_XN_IULsQEeeZZezrcapb6w" name="[0..1] aggregationOf" sourceNode="_LGgC0Lr0EeeD2opMIpUKeg" targetNode="_2jUvILryEeeIKeRLj9tspA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_XN_IULsQEeeZZezrcapb6w" name="[0..*] aggregationOf" sourceNode="_LGgC0Lr0EeeD2opMIpUKeg" targetNode="_2jUvILryEeeIKeRLj9tspA">
       <target xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedStorage/aggregationOf"/>
       <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedStorage/aggregationOf"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_XN_vYLsQEeeZZezrcapb6w" routingStyle="manhattan" strokeColor="0,0,0">
@@ -2700,7 +2700,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_aH4GkLsQEeeZZezrcapb6w" name="[0..1] aggregationOf" sourceNode="_3DvUkLryEeeIKeRLj9tspA" targetNode="_2jXycLryEeeIKeRLj9tspA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_aH4GkLsQEeeZZezrcapb6w" name="[0..*] aggregationOf" sourceNode="_3DvUkLryEeeIKeRLj9tspA" targetNode="_2jXycLryEeeIKeRLj9tspA">
       <target xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedTransmission/aggregationOf"/>
       <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedTransmission/aggregationOf"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_aH4toLsQEeeZZezrcapb6w" routingStyle="manhattan" strokeColor="0,0,0">
@@ -2714,7 +2714,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_eWusoLsQEeeZZezrcapb6w" name="[0..1] aggregationOf" sourceNode="_3DwisLryEeeIKeRLj9tspA" targetNode="_2jWkULryEeeIKeRLj9tspA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_eWusoLsQEeeZZezrcapb6w" name="[0..*] aggregationOf" sourceNode="_3DwisLryEeeIKeRLj9tspA" targetNode="_2jWkULryEeeIKeRLj9tspA">
       <target xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedConversion/aggregationOf"/>
       <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//AggregatedConversion/aggregationOf"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_eWvTsLsQEeeZZezrcapb6w" routingStyle="manhattan" strokeColor="0,0,0">
