@@ -63,17 +63,26 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BuildingTypeEnum/GREENHOUSE"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BuildingTypeEnum/OTHER"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//ConsTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ConsTypeEnum/PRIMARY"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ConsTypeEnum/FINAL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//ProdTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProdTypeEnum/RENEWABLE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProdTypeEnum/NONRENEWABLE"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/ports"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Producer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Producer/productionProfile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Producer/prodType"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Consumer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Consumer/consumptionProfile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Consumer/consTYpe"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Storage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Storage/capacity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Storage/efficiency"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Conversion"/>
     <genClasses image="false" ecoreClass="esdl.ecore#//Transmission">
@@ -88,17 +97,19 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindTurbine/height"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WindParc">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//WindParc/windturbine"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//WindParc/windTurbine"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindParc/numberOfMills"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//PVPanel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVPanel/power"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//PVParc">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//PVParc/pvpanel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//PVParc/pvPanel"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVParc/numberOfPanels"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//Battery"/>
+    <genClasses ecoreClass="esdl.ecore#//Battery">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Battery/selfDischarge"/>
+    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//ENetwork"/>
     <genClasses ecoreClass="esdl.ecore#//ECable"/>
     <genClasses ecoreClass="esdl.ecore#//AggregatedConsumer">
@@ -129,6 +140,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/commodity"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/connectedTo"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/profile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/maxPower"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AggregatedProducer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedProducer/aggregationOf"/>
@@ -140,10 +153,12 @@
     <genClasses ecoreClass="esdl.ecore#//InPort"/>
     <genClasses ecoreClass="esdl.ecore#//OutPort"/>
     <genClasses image="false" ecoreClass="esdl.ecore#//Asset">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/requiredSpaceInM2"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/purchaseCosts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/operationalCosts"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/commissioningDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/expectedDecommissioningDate"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GenericConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//GenericProducer"/>
@@ -160,5 +175,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedStorage/aggregationOf"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AppartmentComplex"/>
+    <genClasses ecoreClass="esdl.ecore#//WaterBuffer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WaterBuffer/loss"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

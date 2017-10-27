@@ -6,15 +6,14 @@
         eType="#//Port" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Producer" abstract="true" eSuperTypes="#//EnergyAsset">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="productionProfile" lowerBound="1"
-        eType="#//Profile" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prodType" eType="#//ProdTypeEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Consumer" abstract="true" eSuperTypes="#//EnergyAsset">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="consumptionProfile" lowerBound="1"
-        eType="#//Profile" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="consTYpe" eType="#//ConsTypeEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Storage" abstract="true" eSuperTypes="#//EnergyAsset">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="efficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Conversion" abstract="true" eSuperTypes="#//EnergyAsset"/>
   <eClassifiers xsi:type="ecore:EClass" name="Transmission" abstract="true" eSuperTypes="#//EnergyAsset">
@@ -34,7 +33,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WindParc" eSuperTypes="#//Producer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="windturbine" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="windTurbine" lowerBound="1"
         upperBound="-1" eType="#//WindTurbine" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfMills" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
@@ -42,11 +41,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PVParc" eSuperTypes="#//Producer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pvpanel" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pvPanel" lowerBound="1"
         upperBound="-1" eType="#//PVPanel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfPanels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Battery" eSuperTypes="#//Storage"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Battery" eSuperTypes="#//Storage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selfDischarge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ENetwork" eSuperTypes="#//Transmission"/>
   <eClassifiers xsi:type="ecore:EClass" name="ECable" eSuperTypes="#//Transmission"/>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatedConsumer" eSuperTypes="#//Consumer">
@@ -85,6 +86,8 @@
         eType="#//Port"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="profile" eType="#//Profile"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatedProducer" eSuperTypes="#//Producer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"
@@ -139,6 +142,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredSpaceInM2" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="purchaseCosts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationalCosts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="commissioningDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expectedDecommissioningDate"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericConsumer" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="GenericProducer" eSuperTypes="#//Producer"/>
@@ -171,4 +177,15 @@
     <eLiterals name="OTHER" value="10"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AppartmentComplex" eSuperTypes="#//AssetCollection"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConsTypeEnum">
+    <eLiterals name="PRIMARY"/>
+    <eLiterals name="FINAL" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ProdTypeEnum">
+    <eLiterals name="RENEWABLE"/>
+    <eLiterals name="NONRENEWABLE" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WaterBuffer" eSuperTypes="#//Storage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="loss" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
 </ecore:EPackage>
