@@ -13,7 +13,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prodType" eType="#//ProdTypeEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Consumer" abstract="true" eSuperTypes="#//EnergyAsset">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="consTYpe" eType="#//ConsTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="consType" eType="#//ConsTypeEnum"
+        defaultValueLiteral="PRIMARY"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Storage" abstract="true" eSuperTypes="#//EnergyAsset">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -57,8 +58,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Battery" eSuperTypes="#//Storage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selfDischarge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ENetwork" eSuperTypes="#//Transmission"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ECable" eSuperTypes="#//Transmission"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElectricityNetwork" eSuperTypes="#//Transmission"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElectricityCable" eSuperTypes="#//Transmission"/>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatedConsumer" eSuperTypes="#//Consumer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"
         eType="#//Consumer"/>
@@ -84,9 +85,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//BuildingTypeEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Area" eSuperTypes="#//AssetCollection">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="areaType" eType="#//AreaTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggrLevel" eType="#//AreaTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="area" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfInhabitants" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commodity" eType="#//CommodityEnum"
@@ -154,6 +156,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commissioningDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expectedDecommissioningDate"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericConsumer" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="GenericProducer" eSuperTypes="#//Producer"/>
@@ -198,4 +201,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="loss" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GasHeater" eSuperTypes="#//Conversion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HeatNetwork" eSuperTypes="#//Transmission"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GasNetwork" eSuperTypes="#//Transmission"/>
 </ecore:EPackage>
