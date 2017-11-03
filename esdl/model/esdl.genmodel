@@ -143,7 +143,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/commodity"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/connectedTo"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/id"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/profile"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/profile"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/maxPower"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AggregatedProducer">
