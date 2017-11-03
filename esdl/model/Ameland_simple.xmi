@@ -21,7 +21,7 @@
           id="WindTurbine1OP">
         <profile
             start="2015-01-01T00:00:00.000+0100"
-            profileRef="influxdb://app-iot03.hex.tno.nl/ameland2015/Wind">
+            profileRef="influxdb://app-iot03.hex.tno.nl:8086/energy_profiles/ameland2015/Wind">
           <profileItem
               value="1.85E14"/>
           <duration
@@ -75,7 +75,7 @@
           id="PVParc1OP">
         <profile
             start="2015-01-01T00:00:00.000+0100"
-            profileRef="influxdb://app-iot03.hex.tno.nl/ameland2015/Sun">
+            profileRef="influxdb://app-iot03.hex.tno.nl:8086/energy_profiles/ameland2015/Sun">
           <profileItem
               value="8.48E13"/>
           <duration
@@ -93,7 +93,7 @@
           id="BoorEilandIP">
         <profile
             start="2015-01-01T00:00:00.000+0100"
-            profileRef="influxdb://app-iot03.hex.tno.nl/ameland2015/BoorEiland">
+            profileRef="influxdb://app-iot03.hex.tno.nl:8086/energy_profiles/ameland2015/BoorEiland">
           <profileItem
               value="1.89E14"/>
           <duration
@@ -111,7 +111,7 @@
           id="ResTourBL1IP">
         <profile
             start="2015-01-01T00:00:00.000+0100"
-            profileRef="influxdb://app-iot03.hex.tno.nl/ameland2015/Edemand">
+            profileRef="influxdb://app-iot03.hex.tno.nl:8086/energy_profiles/ameland2015/Edemand">
           <profileItem
               value="8.0E13"/>
           <duration
