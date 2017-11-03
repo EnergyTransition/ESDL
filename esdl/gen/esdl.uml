@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
+  <uml:Model xmi:id="_0" name="esdl" URI="http://www.tno.nl/esdl">
+    <packagedElement xmi:type="uml:Class" xmi:id="EnergyAsset" name="EnergyAsset" isAbstract="true">
+      <generalization xmi:id="EnergyAsset-_generalization.0" general="Asset"/>
+      <ownedAttribute xmi:id="EnergyAsset-ports" name="ports" type="Port" isOrdered="true" aggregation="composite" association="_packagedElement.13">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EnergyAsset-ports-_upperValue" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Asset" name="Asset" isAbstract="true">
+      <ownedAttribute xmi:id="Asset-id" name="id" visibility="public" isOrdered="true" isID="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Asset-id-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Asset-requiredSpaceInM2" name="requiredSpaceInM2" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Asset-requiredSpaceInM2-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Asset-purchaseCosts" name="purchaseCosts" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Asset-purchaseCosts-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Asset-operationalCosts" name="operationalCosts" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Asset-operationalCosts-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Asset-commissioningDate" name="commissioningDate" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Asset-commissioningDate-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Asset-expectedDecommissioningDate" name="expectedDecommissioningDate" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Asset-expectedDecommissioningDate-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Asset-name" name="name" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Asset-name-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Port" name="Port" isAbstract="true">
+      <ownedAttribute xmi:id="Port-commodity" name="commodity" visibility="public" type="CommodityEnum" isOrdered="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Port-commodity-_lowerValue"/>
+        <defaultValue xmi:type="uml:InstanceValue" xmi:id="Port-commodity-_defaultValue" type="CommodityEnum" instance="CommodityEnum-ELECTRICITY"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Port-connectedTo" name="connectedTo" type="Port" isOrdered="true" association="_packagedElement.4">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Port-connectedTo-_lowerValue"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Port-connectedTo-_upperValue" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Port-id" name="id" visibility="public" isOrdered="true" isID="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Port-id-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Port-profile" name="profile" type="Profile" isOrdered="true" association="_packagedElement.12">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Port-profile-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Port-maxPower" name="maxPower" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Port-maxPower-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="CommodityEnum" name="CommodityEnum">
+      <ownedLiteral xmi:id="CommodityEnum-ELECTRICITY" name="ELECTRICITY"/>
+      <ownedLiteral xmi:id="CommodityEnum-GAS" name="GAS"/>
+      <ownedLiteral xmi:id="CommodityEnum-HEAT" name="HEAT"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.4" memberEnd="Port-connectedTo _packagedElement.4-_ownedEnd.0">
+      <ownedEnd xmi:id="_packagedElement.4-_ownedEnd.0" type="Port" association="_packagedElement.4"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Profile" name="Profile">
+      <ownedAttribute xmi:id="Profile-profileItem" name="profileItem" type="ProfileItem" isOrdered="true" aggregation="composite" association="_packagedElement.7">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="Profile-profileItem-_upperValue" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Profile-start" name="start" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Profile-start-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Profile-profileType" name="profileType" visibility="public" type="ProfileTypeEnum" isOrdered="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Profile-profileType-_lowerValue"/>
+        <defaultValue xmi:type="uml:InstanceValue" xmi:id="Profile-profileType-_defaultValue" type="ProfileTypeEnum" instance="ProfileTypeEnum-ENERGY_IN_J"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Profile-duration" name="duration" type="Duration" isOrdered="true" aggregation="composite" association="_packagedElement.11"/>
+      <ownedAttribute xmi:id="Profile-profileRef" name="profileRef" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Profile-profileRef-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ProfileItem" name="ProfileItem">
+      <ownedAttribute xmi:id="ProfileItem-value" name="value" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ProfileItem-value-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.7" memberEnd="Profile-profileItem _packagedElement.7-_ownedEnd.0">
+      <ownedEnd xmi:id="_packagedElement.7-_ownedEnd.0" type="Profile" association="_packagedElement.7"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="ProfileTypeEnum" name="ProfileTypeEnum">
+      <ownedLiteral xmi:id="ProfileTypeEnum-SOLARIRRADIANCE_IN_W_PER_M2" name="SOLARIRRADIANCE_IN_W_PER_M2">
+        <specification xmi:type="uml:LiteralInteger" xmi:id="ProfileTypeEnum-SOLARIRRADIANCE_IN_W_PER_M2-_specification" value="1"/>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="ProfileTypeEnum-WINDSPEED_IN_M_PER_S" name="WINDSPEED_IN_M_PER_S">
+        <specification xmi:type="uml:LiteralInteger" xmi:id="ProfileTypeEnum-WINDSPEED_IN_M_PER_S-_specification" value="2"/>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="ProfileTypeEnum-STATEOFCHARGE_IN_WS" name="STATEOFCHARGE_IN_WS">
+        <specification xmi:type="uml:LiteralInteger" xmi:id="ProfileTypeEnum-STATEOFCHARGE_IN_WS-_specification" value="3"/>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="ProfileTypeEnum-ENERGY_IN_WH" name="ENERGY_IN_WH">
+        <specification xmi:type="uml:LiteralInteger" xmi:id="ProfileTypeEnum-ENERGY_IN_WH-_specification" value="4"/>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="ProfileTypeEnum-ENERGY_IN_KWH" name="ENERGY_IN_KWH">
+        <specification xmi:type="uml:LiteralInteger" xmi:id="ProfileTypeEnum-ENERGY_IN_KWH-_specification" value="5"/>
+      </ownedLiteral>
+      <ownedLiteral xmi:id="ProfileTypeEnum-ENERGY_IN_MWH" name="ENERGY_IN_MWH"/>
+      <ownedLiteral xmi:id="ProfileTypeEnum-ENERGY_IN_GWH" name="ENERGY_IN_GWH"/>
+      <ownedLiteral xmi:id="ProfileTypeEnum-ENERGY_IN_J" name="ENERGY_IN_J"/>
+      <ownedLiteral xmi:id="ProfileTypeEnum-ENERGY_IN_KJ" name="ENERGY_IN_KJ"/>
+      <ownedLiteral xmi:id="ProfileTypeEnum-ENERGY_IN_MJ" name="ENERGY_IN_MJ"/>
+      <ownedLiteral xmi:id="ProfileTypeEnum-ENERGY_IN_GJ" name="ENERGY_IN_GJ"/>
+      <ownedLiteral xmi:id="ProfileTypeEnum-ENERGY_IN_TJ" name="ENERGY_IN_TJ"/>
+      <ownedLiteral xmi:id="ProfileTypeEnum-ENERGY_IN_PJ" name="ENERGY_IN_PJ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Duration" name="Duration">
+      <ownedAttribute xmi:id="Duration-value" name="value" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Duration-value-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Duration-durarionUnit" name="durarionUnit" visibility="public" type="DurationUnitEnum" isOrdered="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Duration-durarionUnit-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="DurationUnitEnum" name="DurationUnitEnum">
+      <ownedLiteral xmi:id="DurationUnitEnum-SECOND" name="SECOND"/>
+      <ownedLiteral xmi:id="DurationUnitEnum-MINUTE" name="MINUTE"/>
+      <ownedLiteral xmi:id="DurationUnitEnum-UUR" name="UUR"/>
+      <ownedLiteral xmi:id="DurationUnitEnum-DAY" name="DAY"/>
+      <ownedLiteral xmi:id="DurationUnitEnum-WEEK" name="WEEK"/>
+      <ownedLiteral xmi:id="DurationUnitEnum-MONTH" name="MONTH"/>
+      <ownedLiteral xmi:id="DurationUnitEnum-YEAR" name="YEAR"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.11" memberEnd="Profile-duration _packagedElement.11-_ownedEnd.0">
+      <ownedEnd xmi:id="_packagedElement.11-_ownedEnd.0" type="Profile" association="_packagedElement.11"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.12" memberEnd="Port-profile _packagedElement.12-_ownedEnd.0">
+      <ownedEnd xmi:id="_packagedElement.12-_ownedEnd.0" type="Port" association="_packagedElement.12"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.13" memberEnd="EnergyAsset-ports _packagedElement.13-_ownedEnd.0">
+      <ownedEnd xmi:id="_packagedElement.13-_ownedEnd.0" type="EnergyAsset" association="_packagedElement.13"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Producer" name="Producer" isAbstract="true">
+      <generalization xmi:id="Producer-_generalization.0" general="EnergyAsset"/>
+      <ownedAttribute xmi:id="Producer-prodType" name="prodType" visibility="public" type="ProdTypeEnum" isOrdered="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Producer-prodType-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="ProdTypeEnum" name="ProdTypeEnum">
+      <ownedLiteral xmi:id="ProdTypeEnum-RENEWABLE" name="RENEWABLE"/>
+      <ownedLiteral xmi:id="ProdTypeEnum-NONRENEWABLE" name="NONRENEWABLE"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Consumer" name="Consumer" isAbstract="true">
+      <generalization xmi:id="Consumer-_generalization.0" general="EnergyAsset"/>
+      <ownedAttribute xmi:id="Consumer-consType" name="consType" visibility="public" type="ConsTypeEnum" isOrdered="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Consumer-consType-_lowerValue"/>
+        <defaultValue xmi:type="uml:InstanceValue" xmi:id="Consumer-consType-_defaultValue" type="ConsTypeEnum" instance="ConsTypeEnum-PRIMARY"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="ConsTypeEnum" name="ConsTypeEnum">
+      <ownedLiteral xmi:id="ConsTypeEnum-PRIMARY" name="PRIMARY"/>
+      <ownedLiteral xmi:id="ConsTypeEnum-FINAL" name="FINAL"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Storage" name="Storage" isAbstract="true">
+      <generalization xmi:id="Storage-_generalization.0" general="EnergyAsset"/>
+      <ownedAttribute xmi:id="Storage-capacity" name="capacity" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Storage-capacity-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Storage-efficiency" name="efficiency" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Storage-efficiency-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Conversion" name="Conversion" isAbstract="true">
+      <ownedComment xmi:id="Conversion-_ownedComment.0" annotatedElement="Conversion">
+        <body>Conversion Capability</body>
+      </ownedComment>
+      <generalization xmi:id="Conversion-_generalization.0" general="EnergyAsset"/>
+      <ownedAttribute xmi:id="Conversion-efficiency" name="efficiency" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Conversion-efficiency-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Transmission" name="Transmission" isAbstract="true">
+      <generalization xmi:id="Transmission-_generalization.0" general="EnergyAsset"/>
+      <ownedAttribute xmi:id="Transmission-capacity" name="capacity" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Transmission-capacity-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="EnergySystem" name="EnergySystem">
+      <generalization xmi:id="EnergySystem-_generalization.0" general="AssetCollection"/>
+      <ownedAttribute xmi:id="EnergySystem-energyUnit" name="energyUnit" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="EnergySystem-energyUnit-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="AssetCollection" name="AssetCollection" isAbstract="true">
+      <generalization xmi:id="AssetCollection-_generalization.0" general="Asset"/>
+      <ownedAttribute xmi:id="AssetCollection-asset" name="asset" type="Asset" isOrdered="true" aggregation="composite" association="_packagedElement.23">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AssetCollection-asset-_upperValue" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.23" memberEnd="AssetCollection-asset _packagedElement.23-_ownedEnd.0">
+      <ownedEnd xmi:id="_packagedElement.23-_ownedEnd.0" type="AssetCollection" association="_packagedElement.23"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="WindTurbine" name="WindTurbine">
+      <generalization xmi:id="WindTurbine-_generalization.0" general="Producer"/>
+      <ownedAttribute xmi:id="WindTurbine-power" name="power" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="WindTurbine-power-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="WindTurbine-rotorDiameter" name="rotorDiameter" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="WindTurbine-rotorDiameter-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="WindTurbine-height" name="height" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="WindTurbine-height-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="WindParc" name="WindParc">
+      <generalization xmi:id="WindParc-_generalization.0" general="Producer"/>
+      <ownedAttribute xmi:id="WindParc-windTurbine" name="windTurbine" type="WindTurbine" isOrdered="true" aggregation="composite" association="_packagedElement.26">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="WindParc-windTurbine-_upperValue" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="WindParc-numberOfMills" name="numberOfMills" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="WindParc-numberOfMills-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.26" memberEnd="WindParc-windTurbine _packagedElement.26-_ownedEnd.0">
+      <ownedEnd xmi:id="_packagedElement.26-_ownedEnd.0" type="WindParc" association="_packagedElement.26"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="PVPanel" name="PVPanel">
+      <generalization xmi:id="PVPanel-_generalization.0" general="Producer"/>
+      <ownedAttribute xmi:id="PVPanel-power" name="power" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="PVPanel-power-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="PVParc" name="PVParc">
+      <generalization xmi:id="PVParc-_generalization.0" general="Producer"/>
+      <ownedAttribute xmi:id="PVParc-pvPanel" name="pvPanel" type="PVPanel" isOrdered="true" aggregation="composite" association="_packagedElement.29">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="PVParc-pvPanel-_upperValue" value="*"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="PVParc-numberOfPanels" name="numberOfPanels" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="PVParc-numberOfPanels-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.29" memberEnd="PVParc-pvPanel _packagedElement.29-_ownedEnd.0">
+      <ownedEnd xmi:id="_packagedElement.29-_ownedEnd.0" type="PVParc" association="_packagedElement.29"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Battery" name="Battery">
+      <generalization xmi:id="Battery-_generalization.0" general="Storage"/>
+      <ownedAttribute xmi:id="Battery-selfDischarge" name="selfDischarge" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Battery-selfDischarge-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ElectricityNetwork" name="ElectricityNetwork">
+      <generalization xmi:id="ElectricityNetwork-_generalization.0" general="Transmission"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="ElectricityCable" name="ElectricityCable">
+      <generalization xmi:id="ElectricityCable-_generalization.0" general="Transmission"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="AggregatedConsumer" name="AggregatedConsumer">
+      <generalization xmi:id="AggregatedConsumer-_generalization.0" general="Consumer"/>
+      <ownedAttribute xmi:id="AggregatedConsumer-aggregationOf" name="aggregationOf" type="Consumer" isOrdered="true" association="_packagedElement.34">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="AggregatedConsumer-aggregationOf-_lowerValue"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AggregatedConsumer-aggregationOf-_upperValue" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.34" memberEnd="AggregatedConsumer-aggregationOf _packagedElement.34-_ownedEnd.0">
+      <ownedEnd xmi:id="_packagedElement.34-_ownedEnd.0" type="AggregatedConsumer" association="_packagedElement.34"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Building" name="Building">
+      <generalization xmi:id="Building-_generalization.0" general="AssetCollection"/>
+      <ownedAttribute xmi:id="Building-type" name="type" visibility="public" type="BuildingTypeEnum" isOrdered="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Building-type-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="BuildingTypeEnum" name="BuildingTypeEnum">
+      <ownedLiteral xmi:id="BuildingTypeEnum-RESIDENTIAL" name="RESIDENTIAL"/>
+      <ownedLiteral xmi:id="BuildingTypeEnum-GATHERING" name="GATHERING"/>
+      <ownedLiteral xmi:id="BuildingTypeEnum-PRISON" name="PRISON"/>
+      <ownedLiteral xmi:id="BuildingTypeEnum-HEALTHCARE" name="HEALTHCARE"/>
+      <ownedLiteral xmi:id="BuildingTypeEnum-INDUSTRY" name="INDUSTRY"/>
+      <ownedLiteral xmi:id="BuildingTypeEnum-OFFICE" name="OFFICE"/>
+      <ownedLiteral xmi:id="BuildingTypeEnum-EDUCATION" name="EDUCATION"/>
+      <ownedLiteral xmi:id="BuildingTypeEnum-SPORTS" name="SPORTS"/>
+      <ownedLiteral xmi:id="BuildingTypeEnum-SHOPPING" name="SHOPPING"/>
+      <ownedLiteral xmi:id="BuildingTypeEnum-GREENHOUSE" name="GREENHOUSE"/>
+      <ownedLiteral xmi:id="BuildingTypeEnum-OTHER" name="OTHER"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="Area" name="Area">
+      <generalization xmi:id="Area-_generalization.0" general="AssetCollection"/>
+      <ownedAttribute xmi:id="Area-areaType" name="areaType" visibility="public" type="AreaTypeEnum" isOrdered="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Area-areaType-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Area-aggrLevel" name="aggrLevel" visibility="public" type="AreaTypeEnum" isOrdered="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Area-aggrLevel-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Area-area" name="area" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Area-area-_lowerValue"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="Area-numberOfInhabitants" name="numberOfInhabitants" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="Area-numberOfInhabitants-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="AreaTypeEnum" name="AreaTypeEnum">
+      <ownedLiteral xmi:id="AreaTypeEnum-BUILDING" name="BUILDING"/>
+      <ownedLiteral xmi:id="AreaTypeEnum-STREET" name="STREET"/>
+      <ownedLiteral xmi:id="AreaTypeEnum-NEIGHBOURHOOD" name="NEIGHBOURHOOD"/>
+      <ownedLiteral xmi:id="AreaTypeEnum-DISTRICT" name="DISTRICT"/>
+      <ownedLiteral xmi:id="AreaTypeEnum-VILLAGE" name="VILLAGE"/>
+      <ownedLiteral xmi:id="AreaTypeEnum-CITY" name="CITY"/>
+      <ownedLiteral xmi:id="AreaTypeEnum-MUNICIPALITY" name="MUNICIPALITY"/>
+      <ownedLiteral xmi:id="AreaTypeEnum-REGION" name="REGION"/>
+      <ownedLiteral xmi:id="AreaTypeEnum-PROVINCE" name="PROVINCE"/>
+      <ownedLiteral xmi:id="AreaTypeEnum-STATE" name="STATE"/>
+      <ownedLiteral xmi:id="AreaTypeEnum-COUNTRY" name="COUNTRY"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="AggregatedProducer" name="AggregatedProducer">
+      <generalization xmi:id="AggregatedProducer-_generalization.0" general="Producer"/>
+      <ownedAttribute xmi:id="AggregatedProducer-aggregationOf" name="aggregationOf" type="Producer" isOrdered="true" association="_packagedElement.40">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="AggregatedProducer-aggregationOf-_lowerValue"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AggregatedProducer-aggregationOf-_upperValue" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.40" memberEnd="AggregatedProducer-aggregationOf _packagedElement.40-_ownedEnd.0">
+      <ownedEnd xmi:id="_packagedElement.40-_ownedEnd.0" type="AggregatedProducer" association="_packagedElement.40"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="InPort" name="InPort">
+      <generalization xmi:id="InPort-_generalization.0" general="Port"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="OutPort" name="OutPort">
+      <generalization xmi:id="OutPort-_generalization.0" general="Port"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="GenericConsumer" name="GenericConsumer">
+      <generalization xmi:id="GenericConsumer-_generalization.0" general="Consumer"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="GenericProducer" name="GenericProducer">
+      <generalization xmi:id="GenericProducer-_generalization.0" general="Producer"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="GenericStorage" name="GenericStorage">
+      <generalization xmi:id="GenericStorage-_generalization.0" general="Storage"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="GenericTransmission" name="GenericTransmission">
+      <generalization xmi:id="GenericTransmission-_generalization.0" general="Transmission"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="GenericConversion" name="GenericConversion">
+      <generalization xmi:id="GenericConversion-_generalization.0" general="Conversion"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="AggregatedTransmission" name="AggregatedTransmission">
+      <generalization xmi:id="AggregatedTransmission-_generalization.0" general="Transmission"/>
+      <ownedAttribute xmi:id="AggregatedTransmission-aggregationOf" name="aggregationOf" type="Transmission" isOrdered="true" association="_packagedElement.49">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="AggregatedTransmission-aggregationOf-_lowerValue"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AggregatedTransmission-aggregationOf-_upperValue" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.49" memberEnd="AggregatedTransmission-aggregationOf _packagedElement.49-_ownedEnd.0">
+      <ownedEnd xmi:id="_packagedElement.49-_ownedEnd.0" type="AggregatedTransmission" association="_packagedElement.49"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="AggregatedConversion" name="AggregatedConversion">
+      <generalization xmi:id="AggregatedConversion-_generalization.0" general="Conversion"/>
+      <ownedAttribute xmi:id="AggregatedConversion-aggregationOf" name="aggregationOf" type="Conversion" isOrdered="true" association="_packagedElement.51">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="AggregatedConversion-aggregationOf-_lowerValue"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AggregatedConversion-aggregationOf-_upperValue" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.51" memberEnd="AggregatedConversion-aggregationOf _packagedElement.51-_ownedEnd.0">
+      <ownedEnd xmi:id="_packagedElement.51-_ownedEnd.0" type="AggregatedConversion" association="_packagedElement.51"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="AggregatedStorage" name="AggregatedStorage">
+      <generalization xmi:id="AggregatedStorage-_generalization.0" general="Storage"/>
+      <ownedAttribute xmi:id="AggregatedStorage-aggregationOf" name="aggregationOf" type="Storage" isOrdered="true" association="_packagedElement.53">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="AggregatedStorage-aggregationOf-_lowerValue"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="AggregatedStorage-aggregationOf-_upperValue" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_packagedElement.53" memberEnd="AggregatedStorage-aggregationOf _packagedElement.53-_ownedEnd.0">
+      <ownedEnd xmi:id="_packagedElement.53-_ownedEnd.0" type="AggregatedStorage" association="_packagedElement.53"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="AppartmentComplex" name="AppartmentComplex">
+      <generalization xmi:id="AppartmentComplex-_generalization.0" general="AssetCollection"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="HeatStorage" name="HeatStorage">
+      <generalization xmi:id="HeatStorage-_generalization.0" general="Storage"/>
+      <ownedAttribute xmi:id="HeatStorage-loss" name="loss" visibility="public" isOrdered="true">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="HeatStorage-loss-_lowerValue"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="GasHeater" name="GasHeater">
+      <generalization xmi:id="GasHeater-_generalization.0" general="Conversion"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="HeatNetwork" name="HeatNetwork">
+      <generalization xmi:id="HeatNetwork-_generalization.0" general="Transmission"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="GasNetwork" name="GasNetwork">
+      <generalization xmi:id="GasNetwork-_generalization.0" general="Transmission"/>
+    </packagedElement>
+    <profileApplication xmi:id="_profileApplication.0">
+      <eAnnotations xmi:id="_profileApplication.0-_http2F2Fwww.eclipse.org2Fuml22F2.0.02FUML" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <Ecore:EPackage xmi:id="_1" base_Package="_0" nsPrefix="esdl"/>
+  <Ecore:EClass xmi:id="_2" base_Class="EnergyAsset"/>
+  <Ecore:EReference xmi:id="_3" base_Property="EnergyAsset-ports"/>
+  <Ecore:EClass xmi:id="_4" base_Class="Asset"/>
+  <Ecore:EClass xmi:id="_5" base_Class="Port"/>
+  <Ecore:EReference xmi:id="_6" base_Property="Port-connectedTo"/>
+  <Ecore:EReference xmi:id="_7" base_Property="Port-profile"/>
+  <Ecore:EEnum xmi:id="_8" base_Enumeration="CommodityEnum"/>
+  <Ecore:EEnumLiteral xmi:id="_9" base_EnumerationLiteral="CommodityEnum-ELECTRICITY" literal="ELECTRICITY"/>
+  <Ecore:EEnumLiteral xmi:id="_10" base_EnumerationLiteral="CommodityEnum-GAS" literal="GAS"/>
+  <Ecore:EEnumLiteral xmi:id="_11" base_EnumerationLiteral="CommodityEnum-HEAT" literal="HEAT"/>
+  <Ecore:EClass xmi:id="_12" base_Class="Profile"/>
+  <Ecore:EReference xmi:id="_13" base_Property="Profile-profileItem"/>
+  <Ecore:EReference xmi:id="_14" base_Property="Profile-duration"/>
+  <Ecore:EClass xmi:id="_15" base_Class="ProfileItem"/>
+  <Ecore:EEnum xmi:id="_16" base_Enumeration="ProfileTypeEnum"/>
+  <Ecore:EEnumLiteral xmi:id="_17" base_EnumerationLiteral="ProfileTypeEnum-SOLARIRRADIANCE_IN_W_PER_M2" literal="SOLARIRRADIANCE_IN_W_PER_M2"/>
+  <Ecore:EEnumLiteral xmi:id="_18" base_EnumerationLiteral="ProfileTypeEnum-WINDSPEED_IN_M_PER_S" literal="WINDSPEED_IN_M_PER_S"/>
+  <Ecore:EEnumLiteral xmi:id="_19" base_EnumerationLiteral="ProfileTypeEnum-STATEOFCHARGE_IN_WS" literal="STATEOFCHARGE_IN_WS"/>
+  <Ecore:EEnumLiteral xmi:id="_20" base_EnumerationLiteral="ProfileTypeEnum-ENERGY_IN_WH" literal="ENERGY_IN_WH"/>
+  <Ecore:EEnumLiteral xmi:id="_21" base_EnumerationLiteral="ProfileTypeEnum-ENERGY_IN_KWH" literal="ENERGY_IN_KWH"/>
+  <Ecore:EEnumLiteral xmi:id="_22" base_EnumerationLiteral="ProfileTypeEnum-ENERGY_IN_MWH" literal="ENERGY_IN_MWH"/>
+  <Ecore:EEnumLiteral xmi:id="_23" base_EnumerationLiteral="ProfileTypeEnum-ENERGY_IN_GWH" literal="ENERGY_IN_GWH"/>
+  <Ecore:EEnumLiteral xmi:id="_24" base_EnumerationLiteral="ProfileTypeEnum-ENERGY_IN_J" literal="ENERGY_IN_J"/>
+  <Ecore:EEnumLiteral xmi:id="_25" base_EnumerationLiteral="ProfileTypeEnum-ENERGY_IN_KJ" literal="ENERGY_IN_KJ"/>
+  <Ecore:EEnumLiteral xmi:id="_26" base_EnumerationLiteral="ProfileTypeEnum-ENERGY_IN_MJ" literal="ENERGY_IN_MJ"/>
+  <Ecore:EEnumLiteral xmi:id="_27" base_EnumerationLiteral="ProfileTypeEnum-ENERGY_IN_GJ" literal="ENERGY_IN_GJ"/>
+  <Ecore:EEnumLiteral xmi:id="_28" base_EnumerationLiteral="ProfileTypeEnum-ENERGY_IN_TJ" literal="ENERGY_IN_TJ"/>
+  <Ecore:EEnumLiteral xmi:id="_29" base_EnumerationLiteral="ProfileTypeEnum-ENERGY_IN_PJ" literal="ENERGY_IN_PJ"/>
+  <Ecore:EClass xmi:id="_30" base_Class="Duration"/>
+  <Ecore:EEnum xmi:id="_31" base_Enumeration="DurationUnitEnum"/>
+  <Ecore:EEnumLiteral xmi:id="_32" base_EnumerationLiteral="DurationUnitEnum-SECOND" literal="SECOND"/>
+  <Ecore:EEnumLiteral xmi:id="_33" base_EnumerationLiteral="DurationUnitEnum-MINUTE" literal="MINUTE"/>
+  <Ecore:EEnumLiteral xmi:id="_34" base_EnumerationLiteral="DurationUnitEnum-UUR" literal="UUR"/>
+  <Ecore:EEnumLiteral xmi:id="_35" base_EnumerationLiteral="DurationUnitEnum-DAY" literal="DAY"/>
+  <Ecore:EEnumLiteral xmi:id="_36" base_EnumerationLiteral="DurationUnitEnum-WEEK" literal="WEEK"/>
+  <Ecore:EEnumLiteral xmi:id="_37" base_EnumerationLiteral="DurationUnitEnum-MONTH" literal="MONTH"/>
+  <Ecore:EEnumLiteral xmi:id="_38" base_EnumerationLiteral="DurationUnitEnum-YEAR" literal="YEAR"/>
+  <Ecore:EClass xmi:id="_39" base_Class="Producer"/>
+  <Ecore:EEnum xmi:id="_40" base_Enumeration="ProdTypeEnum"/>
+  <Ecore:EEnumLiteral xmi:id="_41" base_EnumerationLiteral="ProdTypeEnum-RENEWABLE" literal="RENEWABLE"/>
+  <Ecore:EEnumLiteral xmi:id="_42" base_EnumerationLiteral="ProdTypeEnum-NONRENEWABLE" literal="NONRENEWABLE"/>
+  <Ecore:EClass xmi:id="_43" base_Class="Consumer"/>
+  <Ecore:EEnum xmi:id="_44" base_Enumeration="ConsTypeEnum"/>
+  <Ecore:EEnumLiteral xmi:id="_45" base_EnumerationLiteral="ConsTypeEnum-PRIMARY" literal="PRIMARY"/>
+  <Ecore:EEnumLiteral xmi:id="_46" base_EnumerationLiteral="ConsTypeEnum-FINAL" literal="FINAL"/>
+  <Ecore:EClass xmi:id="_47" base_Class="Storage"/>
+  <Ecore:EClass xmi:id="_48" base_Class="Conversion"/>
+  <Ecore:EClass xmi:id="_49" base_Class="Transmission"/>
+  <Ecore:EClass xmi:id="_50" base_Class="EnergySystem"/>
+  <Ecore:EClass xmi:id="_51" base_Class="AssetCollection"/>
+  <Ecore:EReference xmi:id="_52" base_Property="AssetCollection-asset"/>
+  <Ecore:EClass xmi:id="_53" base_Class="WindTurbine"/>
+  <Ecore:EClass xmi:id="_54" base_Class="WindParc"/>
+  <Ecore:EReference xmi:id="_55" base_Property="WindParc-windTurbine"/>
+  <Ecore:EClass xmi:id="_56" base_Class="PVPanel"/>
+  <Ecore:EClass xmi:id="_57" base_Class="PVParc"/>
+  <Ecore:EReference xmi:id="_58" base_Property="PVParc-pvPanel"/>
+  <Ecore:EClass xmi:id="_59" base_Class="Battery"/>
+  <Ecore:EClass xmi:id="_60" base_Class="ElectricityNetwork"/>
+  <Ecore:EClass xmi:id="_61" base_Class="ElectricityCable"/>
+  <Ecore:EClass xmi:id="_62" base_Class="AggregatedConsumer"/>
+  <Ecore:EReference xmi:id="_63" base_Property="AggregatedConsumer-aggregationOf"/>
+  <Ecore:EClass xmi:id="_64" base_Class="Building"/>
+  <Ecore:EEnum xmi:id="_65" base_Enumeration="BuildingTypeEnum"/>
+  <Ecore:EEnumLiteral xmi:id="_66" base_EnumerationLiteral="BuildingTypeEnum-RESIDENTIAL" literal="RESIDENTIAL"/>
+  <Ecore:EEnumLiteral xmi:id="_67" base_EnumerationLiteral="BuildingTypeEnum-GATHERING" literal="GATHERING"/>
+  <Ecore:EEnumLiteral xmi:id="_68" base_EnumerationLiteral="BuildingTypeEnum-PRISON" literal="PRISON"/>
+  <Ecore:EEnumLiteral xmi:id="_69" base_EnumerationLiteral="BuildingTypeEnum-HEALTHCARE" literal="HEALTHCARE"/>
+  <Ecore:EEnumLiteral xmi:id="_70" base_EnumerationLiteral="BuildingTypeEnum-INDUSTRY" literal="INDUSTRY"/>
+  <Ecore:EEnumLiteral xmi:id="_71" base_EnumerationLiteral="BuildingTypeEnum-OFFICE" literal="OFFICE"/>
+  <Ecore:EEnumLiteral xmi:id="_72" base_EnumerationLiteral="BuildingTypeEnum-EDUCATION" literal="EDUCATION"/>
+  <Ecore:EEnumLiteral xmi:id="_73" base_EnumerationLiteral="BuildingTypeEnum-SPORTS" literal="SPORTS"/>
+  <Ecore:EEnumLiteral xmi:id="_74" base_EnumerationLiteral="BuildingTypeEnum-SHOPPING" literal="SHOPPING"/>
+  <Ecore:EEnumLiteral xmi:id="_75" base_EnumerationLiteral="BuildingTypeEnum-GREENHOUSE" literal="GREENHOUSE"/>
+  <Ecore:EEnumLiteral xmi:id="_76" base_EnumerationLiteral="BuildingTypeEnum-OTHER" literal="OTHER"/>
+  <Ecore:EClass xmi:id="_77" base_Class="Area"/>
+  <Ecore:EEnum xmi:id="_78" base_Enumeration="AreaTypeEnum"/>
+  <Ecore:EEnumLiteral xmi:id="_79" base_EnumerationLiteral="AreaTypeEnum-BUILDING" literal="BUILDING"/>
+  <Ecore:EEnumLiteral xmi:id="_80" base_EnumerationLiteral="AreaTypeEnum-STREET" literal="STREET"/>
+  <Ecore:EEnumLiteral xmi:id="_81" base_EnumerationLiteral="AreaTypeEnum-NEIGHBOURHOOD" literal="NEIGHBOURHOOD"/>
+  <Ecore:EEnumLiteral xmi:id="_82" base_EnumerationLiteral="AreaTypeEnum-DISTRICT" literal="DISTRICT"/>
+  <Ecore:EEnumLiteral xmi:id="_83" base_EnumerationLiteral="AreaTypeEnum-VILLAGE" literal="VILLAGE"/>
+  <Ecore:EEnumLiteral xmi:id="_84" base_EnumerationLiteral="AreaTypeEnum-CITY" literal="CITY"/>
+  <Ecore:EEnumLiteral xmi:id="_85" base_EnumerationLiteral="AreaTypeEnum-MUNICIPALITY" literal="MUNICIPALITY"/>
+  <Ecore:EEnumLiteral xmi:id="_86" base_EnumerationLiteral="AreaTypeEnum-REGION" literal="REGION"/>
+  <Ecore:EEnumLiteral xmi:id="_87" base_EnumerationLiteral="AreaTypeEnum-PROVINCE" literal="PROVINCE"/>
+  <Ecore:EEnumLiteral xmi:id="_88" base_EnumerationLiteral="AreaTypeEnum-STATE" literal="STATE"/>
+  <Ecore:EEnumLiteral xmi:id="_89" base_EnumerationLiteral="AreaTypeEnum-COUNTRY" literal="COUNTRY"/>
+  <Ecore:EClass xmi:id="_90" base_Class="AggregatedProducer"/>
+  <Ecore:EReference xmi:id="_91" base_Property="AggregatedProducer-aggregationOf"/>
+  <Ecore:EClass xmi:id="_92" base_Class="InPort"/>
+  <Ecore:EClass xmi:id="_93" base_Class="OutPort"/>
+  <Ecore:EClass xmi:id="_94" base_Class="GenericConsumer"/>
+  <Ecore:EClass xmi:id="_95" base_Class="GenericProducer"/>
+  <Ecore:EClass xmi:id="_96" base_Class="GenericStorage"/>
+  <Ecore:EClass xmi:id="_97" base_Class="GenericTransmission"/>
+  <Ecore:EClass xmi:id="_98" base_Class="GenericConversion"/>
+  <Ecore:EClass xmi:id="_99" base_Class="AggregatedTransmission"/>
+  <Ecore:EReference xmi:id="_100" base_Property="AggregatedTransmission-aggregationOf"/>
+  <Ecore:EClass xmi:id="_101" base_Class="AggregatedConversion"/>
+  <Ecore:EReference xmi:id="_102" base_Property="AggregatedConversion-aggregationOf"/>
+  <Ecore:EClass xmi:id="_103" base_Class="AggregatedStorage"/>
+  <Ecore:EReference xmi:id="_104" base_Property="AggregatedStorage-aggregationOf"/>
+  <Ecore:EClass xmi:id="_105" base_Class="AppartmentComplex"/>
+  <Ecore:EClass xmi:id="_106" base_Class="HeatStorage"/>
+  <Ecore:EClass xmi:id="_107" base_Class="GasHeater"/>
+  <Ecore:EClass xmi:id="_108" base_Class="HeatNetwork"/>
+  <Ecore:EClass xmi:id="_109" base_Class="GasNetwork"/>
+</xmi:XMI>
