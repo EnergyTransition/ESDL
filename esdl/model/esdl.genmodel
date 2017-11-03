@@ -143,7 +143,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/commodity"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/connectedTo"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/id"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/profile"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/profile"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/maxPower"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AggregatedProducer">
@@ -163,6 +163,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/commissioningDate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/expectedDecommissioningDate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/installationCosts"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GenericConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//GenericProducer"/>
@@ -185,5 +186,8 @@
     <genClasses ecoreClass="esdl.ecore#//GasHeater"/>
     <genClasses ecoreClass="esdl.ecore#//HeatNetwork"/>
     <genClasses ecoreClass="esdl.ecore#//GasNetwork"/>
+    <genClasses ecoreClass="esdl.ecore#//Insulation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Insulation/thermalInsulation"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
