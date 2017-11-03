@@ -8,7 +8,7 @@
     id="ES1">
   <asset xsi:type="esdl:Area"
       id="Ameland1"
-      name="The Island of Ameland"
+      name="The Simple Island of Ameland"
       areaType="MUNICIPALITY"
       aggrLevel="MUNICIPALITY"
       numberOfInhabitants="4000">
@@ -21,7 +21,7 @@
           id="WindTurbine1OP">
         <profile
             start="2015-01-01T00:00:00.000+0100"
-            profileRef="influxdb://app-iot03.hex.tno.nl/ameland2015/Sun">
+            profileRef="influxdb://app-iot03.hex.tno.nl/ameland2015/Wind">
           <profileItem
               value="1.0E13"/>
           <duration
@@ -63,16 +63,8 @@
           id="IP_for_MV_network"/>
       <ports
           xsi:type="esdl:OutPort"
-          connectedTo="TourBL1IP"
-          id="OP_for_Tour"/>
-      <ports
-          xsi:type="esdl:OutPort"
-          connectedTo="ResBL1IP"
-          id="OP_for_Res"/>
-      <ports
-          xsi:type="esdl:InPort"
-          connectedTo="PVonRoofs1OP"
-          id="IP_for_PVonRoofs"/>
+          connectedTo="ResTourBL1IP"
+          id="OP_for_ResTour"/>
     </asset>
     <asset xsi:type="esdl:PVParc"
         id="PVParc1"
@@ -82,7 +74,8 @@
           connectedTo="IP_for_PVParc"
           id="PVParc1OP">
         <profile
-            start="2015-01-01T00:00:00.000+0100">
+            start="2015-01-01T00:00:00.000+0100"
+            profileRef="influxdb://app-iot03.hex.tno.nl/ameland2015/Sun">
           <profileItem
               value="2.0E13"/>
           <duration
@@ -99,7 +92,8 @@
           connectedTo="OP_for_BoorEiland"
           id="BoorEilandIP">
         <profile
-            start="2015-01-01T00:00:00.000+0100">
+            start="2015-01-01T00:00:00.000+0100"
+            profileRef="influxdb://app-iot03.hex.tno.nl/ameland2015/BoorEiland">
           <profileItem
               value="1.89E14"/>
           <duration
@@ -109,50 +103,17 @@
       </ports>
     </asset>
     <asset xsi:type="esdl:AggregatedConsumer"
-        id="ResidentsBaseload1"
-        name="Residants Baseload">
+        id="ResTourBaseload1"
+        name="Residents and Tourists Baseload">
       <ports
           xsi:type="esdl:InPort"
-          connectedTo="OP_for_Res"
-          id="ResBL1IP">
+          connectedTo="OP_for_ResTour"
+          id="ResTourBL1IP">
         <profile
-            start="2015-01-01T00:00:00.000+0100">
+            start="2015-01-01T00:00:00.000+0100"
+            profileRef="influxdb://app-iot03.hex.tno.nl/ameland2015/Edemand">
           <profileItem
-              value="4.4E13"/>
-          <duration
-              value="1.0"
-              durarionUnit="YEAR"/>
-        </profile>
-      </ports>
-    </asset>
-    <asset xsi:type="esdl:AggregatedConsumer"
-        id="TourismBaseload1"
-        name="Tourism Baseload">
-      <ports
-          xsi:type="esdl:InPort"
-          connectedTo="OP_for_Tour"
-          id="TourBL1IP">
-        <profile
-            start="2015-01-01T00:00:00.000+0100">
-          <profileItem
-              value="3.7E13"/>
-          <duration
-              value="1.0"
-              durarionUnit="YEAR"/>
-        </profile>
-      </ports>
-    </asset>
-    <asset xsi:type="esdl:PVParc"
-        id="PVonRoofs1"
-        name="Solar Panels on Roofs">
-      <ports
-          xsi:type="esdl:OutPort"
-          connectedTo="IP_for_PVonRoofs"
-          id="PVonRoofs1OP">
-        <profile
-            start="2015-01-01T00:00:00.000+0100">
-          <profileItem
-              value="2.0E12"/>
+              value="8.0E13"/>
           <duration
               value="1.0"
               durarionUnit="YEAR"/>
