@@ -4,101 +4,126 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:esdl="http://www.tno.nl/esdl"
-    xsi:schemaLocation="http://www.tno.nl/esdl esdl.ecore">
-  <asset xsi:type="esdl:GenericProducer"
-      id="GenericProducer1"
-      name="Producer1">
-    <ports xsi:type="esdl:OutPort"
-        connectedTo="Alliander-IP1"
-        id="GP1-OP1"/>
-  </asset>
-  <asset xsi:type="esdl:ElectricityNetwork"
-      id="AllianderNetwork"
-      commissioningDate="2003-02-01T00:00:00.000+0100"
-      name="Alliander Network"
-      capacity="100.0">
-    <ports xsi:type="esdl:InPort"
-        connectedTo="GP1-OP1"
-        id="Alliander-IP1"/>
-    <ports xsi:type="esdl:OutPort"
-        connectedTo="Cable-IP1"
-        id="Alliander-OP1"/>
-  </asset>
-  <asset xsi:type="esdl:ElectricityCable"
-      id="Wadkabel1"
-      name="Wadkabel">
-    <ports xsi:type="esdl:InPort"
-        connectedTo="Alliander-OP1"
-        id="Cable-IP1"/>
-    <ports xsi:type="esdl:OutPort"
-        connectedTo="Enexis-IP1"
-        id="Cable-OP1"/>
-  </asset>
-  <asset xsi:type="esdl:ElectricityNetwork"
-      id="AmelandNetwork2"
-      name="AmelandNetwerk">
-    <ports xsi:type="esdl:InPort"
-        connectedTo="Cable-OP1"
-        id="Enexis-IP1"/>
-    <ports xsi:type="esdl:OutPort"
-        connectedTo="GC-IP1"
-        id="Enexis-OP1"/>
-  </asset>
-  <asset xsi:type="esdl:GenericConsumer"
-      id="GC1"
-      name="Consumer1">
-    <ports xsi:type="esdl:InPort"
-        connectedTo="GC-IP1"
-        id="GC-IP1"/>
-  </asset>
-  <asset xsi:type="esdl:GenericProducer"
-      id="HeatGP1"
-      name="Restwarmte Centrale">
-    <ports xsi:type="esdl:OutPort"
-        commodity="HEAT"
-        connectedTo="LoW-IP1"
-        id="Restwarmte"/>
-  </asset>
-  <asset xsi:type="esdl:HeatNetwork"
-      id="LeidingOverMidden1"
-      name="Leiding over Midden">
-    <ports xsi:type="esdl:InPort"
-        commodity="HEAT"
-        connectedTo="Restwarmte"
-        id="LoW-IP1"/>
-    <ports xsi:type="esdl:OutPort"
-        commodity="HEAT"
-        connectedTo="HH-IP1"
-        id="LoW-OP1"/>
-    <ports xsi:type="esdl:InPort"
-        commodity="HEAT"
-        connectedTo="Buffer1-HN-OP"
-        id="HN-Buffer1-IP"/>
-    <ports xsi:type="esdl:OutPort"
-        commodity="HEAT"
-        connectedTo="Buffer1-HN-IP"
-        id="HN-Buffer1-OP"/>
-  </asset>
-  <asset xsi:type="esdl:GenericConsumer"
-      id="HeatGC1"
-      name="Huishoudens">
-    <ports xsi:type="esdl:InPort"
-        commodity="HEAT"
-        connectedTo="LoW-OP1"
-        id="HH-IP1"/>
-  </asset>
-  <asset xsi:type="esdl:HeatStorage"
-      id="HeatStorage1"
-      name="Buffer1"
-      capacity="100.0"
-      efficiency="80.0">
-    <ports xsi:type="esdl:InPort"
-        commodity="HEAT"
-        connectedTo="HN-Buffer1-OP"
-        id="Buffer1-HN-IP"/>
-    <ports xsi:type="esdl:OutPort"
-        commodity="HEAT"
-        connectedTo="HN-Buffer1-IP"
-        id="Buffer1-HN-OP"/>
+    xsi:schemaLocation="http://www.tno.nl/esdl esdl.ecore"
+    id="MCSystem1"
+    name="Multi Commodity Energy System"
+    energyUnit="">
+  <asset xsi:type="esdl:Area"
+      id="MultiCommodityDistrict"
+      name="A Multi Commodity Energy System"
+      areaType="DISTRICT"
+      numberOfInhabitants="20000">
+    <asset xsi:type="esdl:GenericProducer"
+        id="GenericProducer1"
+        name="Producer1">
+      <ports
+          xsi:type="esdl:OutPort"
+          connectedTo="Alliander-IP1"
+          id="GP1-OP1"/>
+    </asset>
+    <asset xsi:type="esdl:ElectricityNetwork"
+        id="AllianderNetwork"
+        commissioningDate="2003-02-01T00:00:00.000+0100"
+        name="Alliander Network"
+        capacity="100.0">
+      <ports
+          xsi:type="esdl:InPort"
+          connectedTo="GP1-OP1"
+          id="Alliander-IP1"/>
+      <ports
+          xsi:type="esdl:OutPort"
+          connectedTo="Cable-IP1"
+          id="Alliander-OP1"/>
+    </asset>
+    <asset xsi:type="esdl:ElectricityCable"
+        id="Wadkabel1"
+        name="Wadkabel">
+      <ports
+          xsi:type="esdl:InPort"
+          connectedTo="Alliander-OP1"
+          id="Cable-IP1"/>
+      <ports
+          xsi:type="esdl:OutPort"
+          connectedTo="Enexis-IP1"
+          id="Cable-OP1"/>
+    </asset>
+    <asset xsi:type="esdl:ElectricityNetwork"
+        id="AmelandNetwork2"
+        name="AmelandNetwerk">
+      <ports
+          xsi:type="esdl:InPort"
+          connectedTo="Cable-OP1"
+          id="Enexis-IP1"/>
+      <ports
+          xsi:type="esdl:OutPort"
+          connectedTo="GC-IP1"
+          id="Enexis-OP1"/>
+    </asset>
+    <asset xsi:type="esdl:GenericConsumer"
+        id="GC1"
+        name="Consumer1">
+      <ports
+          xsi:type="esdl:InPort"
+          connectedTo="GC-IP1"
+          id="GC-IP1"/>
+    </asset>
+    <asset xsi:type="esdl:GenericProducer"
+        id="HeatGP1"
+        name="Restwarmte Centrale">
+      <ports
+          xsi:type="esdl:OutPort"
+          commodity="HEAT"
+          connectedTo="LoW-IP1"
+          id="Restwarmte"/>
+    </asset>
+    <asset xsi:type="esdl:HeatNetwork"
+        id="LeidingOverMidden1"
+        name="Leiding over Midden">
+      <ports
+          xsi:type="esdl:InPort"
+          commodity="HEAT"
+          connectedTo="Restwarmte"
+          id="LoW-IP1"/>
+      <ports
+          xsi:type="esdl:OutPort"
+          commodity="HEAT"
+          connectedTo="HH-IP1"
+          id="LoW-OP1"/>
+      <ports
+          xsi:type="esdl:InPort"
+          commodity="HEAT"
+          connectedTo="Buffer1-HN-OP"
+          id="HN-Buffer1-IP"/>
+      <ports
+          xsi:type="esdl:OutPort"
+          commodity="HEAT"
+          connectedTo="Buffer1-HN-IP"
+          id="HN-Buffer1-OP"/>
+    </asset>
+    <asset xsi:type="esdl:GenericConsumer"
+        id="HeatGC1"
+        name="Huishoudens">
+      <ports
+          xsi:type="esdl:InPort"
+          commodity="HEAT"
+          connectedTo="LoW-OP1"
+          id="HH-IP1"/>
+    </asset>
+    <asset xsi:type="esdl:HeatStorage"
+        id="HeatStorage1"
+        name="Buffer1"
+        capacity="100.0"
+        efficiency="80.0">
+      <ports
+          xsi:type="esdl:InPort"
+          commodity="HEAT"
+          connectedTo="HN-Buffer1-OP"
+          id="Buffer1-HN-IP"/>
+      <ports
+          xsi:type="esdl:OutPort"
+          commodity="HEAT"
+          connectedTo="HN-Buffer1-IP"
+          id="Buffer1-HN-OP"/>
+    </asset>
   </asset>
 </esdl:EnergySystem>
