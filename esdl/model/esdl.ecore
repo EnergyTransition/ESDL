@@ -102,6 +102,8 @@
         defaultValueLiteral="BUILDING"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggrType" eType="#//AggrTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfInhabitants" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="energypotential" upperBound="-1"
+        eType="#//EnergyPotential" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commodity" eType="#//CommodityEnum"
@@ -180,6 +182,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="installationCosts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="marginalCosts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contour" eType="#//Contour"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericConsumer" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="GenericProducer" eSuperTypes="#//Producer"/>
@@ -287,6 +291,8 @@
     <eLiterals name="UNDEFINED"/>
     <eLiterals name="PERCOMMODITY" value="1"/>
     <eLiterals name="TOTALENERGY" value="2"/>
+    <eLiterals name="TOTALCAPABILITY" value="3"/>
+    <eLiterals name="PERCAPIBILITY" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PublicArea" eSuperTypes="#//AssetCollection">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//PublicAreaType"/>
@@ -310,4 +316,20 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElectricityDemand" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="GasDemand" eSuperTypes="#//Consumer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EnergyPotential">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="commodity" eType="#//CommodityEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contour" eType="#//Contour"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Point">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Contour">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="point" lowerBound="3" upperBound="-1"
+        eType="#//Point" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

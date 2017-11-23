@@ -90,6 +90,8 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AggrTypeEnum/UNDEFINED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AggrTypeEnum/PERCOMMODITY"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AggrTypeEnum/TOTALENERGY"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AggrTypeEnum/TOTALCAPABILITY"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AggrTypeEnum/PERCAPIBILITY"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//PublicAreaType">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PublicAreaType/UNDEFINED"/>
@@ -180,6 +182,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/aggrArea"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/aggrType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/numberOfInhabitants"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/energypotential"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Port">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/commodity"/>
@@ -207,6 +210,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/installationCosts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/marginalCosts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/contour"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GenericConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//GenericProducer"/>
@@ -282,5 +286,19 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//ElectricityDemand"/>
     <genClasses ecoreClass="esdl.ecore#//GasDemand"/>
+    <genClasses ecoreClass="esdl.ecore#//EnergyPotential">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergyPotential/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergyPotential/commodity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergyPotential/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergyPotential/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyPotential/contour"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//Point">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Point/lat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Point/lon"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//Contour">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Contour/point"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
