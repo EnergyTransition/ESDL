@@ -110,8 +110,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="economicProperties" eType="#//EconomicProperties"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="specialPurposeArea" upperBound="-1"
-        eType="#//SpecialPurposeArea" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="legalArea" upperBound="-1"
+        eType="#//LegalArea" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commodity" eType="#//CommodityEnum"
@@ -382,7 +382,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="socialCohesion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="populationDensity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SpecialPurposeArea">
+  <eClassifiers xsi:type="ecore:EClass" name="LegalArea">
     <eStructuralFeatures xsi:type="ecore:EReference" name="contour" upperBound="-1"
         eType="#//Contour" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

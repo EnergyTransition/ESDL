@@ -6349,9 +6349,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_coB6MNwBEee4x6F7GaEFDQ" name="SpecialPurposeArea" tooltipText="" outgoingEdges="_lqCtQNwBEee4x6F7GaEFDQ" incomingEdges="_n_HuQNwBEee4x6F7GaEFDQ" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//SpecialPurposeArea"/>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//SpecialPurposeArea"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_coB6MNwBEee4x6F7GaEFDQ" name="LegalArea" tooltipText="" outgoingEdges="_lqCtQNwBEee4x6F7GaEFDQ" incomingEdges="_n_HuQNwBEee4x6F7GaEFDQ" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//LegalArea"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//LegalArea"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -6360,8 +6360,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_sOi8ENwBEee4x6F7GaEFDQ" name="purpose : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//SpecialPurposeArea/purpose"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//SpecialPurposeArea/purpose"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//LegalArea/purpose"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//LegalArea/purpose"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_tSPNsNwBEee4x6F7GaEFDQ" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -6369,8 +6369,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_lqCtQNwBEee4x6F7GaEFDQ" name="[0..*] contour" sourceNode="_coB6MNwBEee4x6F7GaEFDQ" targetNode="_B4AsgNBJEeeyk8ArTCBkBQ">
-      <target xmi:type="ecore:EReference" href="esdl.ecore#//SpecialPurposeArea/contour"/>
-      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//SpecialPurposeArea/contour"/>
+      <target xmi:type="ecore:EReference" href="esdl.ecore#//LegalArea/contour"/>
+      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//LegalArea/contour"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_lqCtQdwBEee4x6F7GaEFDQ" description="_-krrUMB1EeeJ9PYBAF2PgA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_lqCtQtwBEee4x6F7GaEFDQ" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -6381,9 +6381,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_n_HuQNwBEee4x6F7GaEFDQ" name="[0..*] specialPurposeArea" sourceNode="_2j5W4LryEeeIKeRLj9tspA" targetNode="_coB6MNwBEee4x6F7GaEFDQ">
-      <target xmi:type="ecore:EReference" href="esdl.ecore#//Area/specialPurposeArea"/>
-      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Area/specialPurposeArea"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_n_HuQNwBEee4x6F7GaEFDQ" name="[0..*] legalArea" sourceNode="_2j5W4LryEeeIKeRLj9tspA" targetNode="_coB6MNwBEee4x6F7GaEFDQ">
+      <target xmi:type="ecore:EReference" href="esdl.ecore#//Area/legalArea"/>
+      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Area/legalArea"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_n_IVUNwBEee4x6F7GaEFDQ" description="_-krrUMB1EeeJ9PYBAF2PgA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_n_IVUdwBEee4x6F7GaEFDQ" showIcon="false">
           <customFeatures>labelSize</customFeatures>

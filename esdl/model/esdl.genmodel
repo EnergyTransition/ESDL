@@ -221,7 +221,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/energyPotential"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/socialProperties"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/economicProperties"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/specialPurposeArea"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/legalArea"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Port">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/commodity"/>
@@ -367,9 +367,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SocialProperties/socialCohesion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SocialProperties/populationDensity"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//SpecialPurposeArea">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//SpecialPurposeArea/contour"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SpecialPurposeArea/purpose"/>
+    <genClasses ecoreClass="esdl.ecore#//LegalArea">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//LegalArea/contour"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//LegalArea/purpose"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EnergyService"/>
     <genClasses ecoreClass="esdl.ecore#//DemandResponseService"/>
