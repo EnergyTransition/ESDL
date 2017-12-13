@@ -96,6 +96,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="BuildingUnit" eSuperTypes="#//AssetCollection">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//BuildingTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="housingType" eType="#//HousingTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyLabel" eType="#//EnergyLabelEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Area" eSuperTypes="#//AssetCollection">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="areaType" eType="#//AreaTypeEnum"/>
@@ -139,6 +140,7 @@
     <eLiterals name="PROVINCE" value="8"/>
     <eLiterals name="STATE" value="9"/>
     <eLiterals name="COUNTRY" value="10"/>
+    <eLiterals name="CONTINENT" value="11"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ProfileTypeEnum">
     <eLiterals name="SOLARIRRADIANCE_IN_W_PER_M2" value="1"/>
@@ -193,6 +195,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//Location"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="owner" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericConsumer" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="GenericProducer" eSuperTypes="#//Producer"/>
@@ -231,6 +234,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="windowArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="perimeter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roofType" eType="#//RoofTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyLabel" eType="#//EnergyLabelEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ConsTypeEnum">
     <eLiterals name="PRIMARY"/>
@@ -256,7 +261,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SinkProducer" eSuperTypes="#//Producer"/>
   <eClassifiers xsi:type="ecore:EClass" name="SinkConsumer" eSuperTypes="#//Consumer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="HeatPipe" eSuperTypes="#//Transmission"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HeatPipe" eSuperTypes="#//Transmission">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="diameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HPort" eSuperTypes="#//Port">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minTemperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxTemperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -378,5 +386,35 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="contour" upperBound="-1"
         eType="#//Contour" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RoofTypeEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="FLATROOF" value="1"/>
+    <eLiterals name="SLANTEDROOF" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnergyLabelEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="LABELG" value="1"/>
+    <eLiterals name="LABELF" value="2"/>
+    <eLiterals name="LABELE" value="3"/>
+    <eLiterals name="LABELD" value="4"/>
+    <eLiterals name="LABELC" value="5"/>
+    <eLiterals name="LABELB" value="6"/>
+    <eLiterals name="LABELA" value="7"/>
+    <eLiterals name="LABELAP" value="8"/>
+    <eLiterals name="LABELAPP" value="9"/>
+    <eLiterals name="LABELAPPP" value="10"/>
+    <eLiterals name="LABELAPPPP" value="11"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnergyService" abstract="true" eSuperTypes="#//EnergyAsset"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DemandResponseService" eSuperTypes="#//EnergyService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Transformer" eSuperTypes="#//Transmission"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HeatExchange" eSuperTypes="#//Transmission"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ResidentialBuildingTypeEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="VRIJSTAANDE WONING" value="1"/>
+    <eLiterals name="RIJTJESHUIS" value="2"/>
+    <eLiterals name="HOEKWONING" value="3"/>
+    <eLiterals name="APPARTEMENT" value="4"/>
   </eClassifiers>
 </ecore:EPackage>
