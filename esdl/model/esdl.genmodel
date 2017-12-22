@@ -166,6 +166,7 @@
     <genClasses ecoreClass="esdl.ecore#//EnergySystem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystem/energyUnit"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/area"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/measures"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WindTurbine">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindTurbine/power"/>
@@ -208,8 +209,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Profile/duration"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Profile/profileRef"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="esdl.ecore#//AssetCollection">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AssetCollection/asset"/>
+    <genClasses image="false" ecoreClass="esdl.ecore#//ObjectCollection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//ObjectCollection/object"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//BuildingUnit">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUnit/type"/>
@@ -242,18 +243,16 @@
     <genClasses ecoreClass="esdl.ecore#//InPort"/>
     <genClasses ecoreClass="esdl.ecore#//OutPort"/>
     <genClasses image="false" ecoreClass="esdl.ecore#//Asset">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/surfaceArea"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/purchaseCosts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/operationalCosts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/commissioningDate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/expectedDecommissioningDate"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/installationCosts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/marginalCosts"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/owner"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/contour"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/location"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/owner"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GenericConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//GenericProducer"/>
@@ -376,5 +375,10 @@
     <genClasses ecoreClass="esdl.ecore#//DemandResponseService"/>
     <genClasses ecoreClass="esdl.ecore#//Transformer"/>
     <genClasses ecoreClass="esdl.ecore#//HeatExchange"/>
+    <genClasses ecoreClass="esdl.ecore#//Object">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Object/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Object/name"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//Measures"/>
   </genPackages>
 </genmodel:GenModel>

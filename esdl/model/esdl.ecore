@@ -36,9 +36,11 @@
     <eLiterals name="GAS" value="1"/>
     <eLiterals name="HEAT" value="2"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EnergySystem" eSuperTypes="#//AssetCollection">
+  <eClassifiers xsi:type="ecore:EClass" name="EnergySystem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyUnit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="area" upperBound="-1" eType="#//Area"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="measures" eType="#//Measures"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WindTurbine" eSuperTypes="#//Producer">
@@ -91,16 +93,16 @@
         eType="#//Duration" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="profileRef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AssetCollection" abstract="true" eSuperTypes="#//Asset">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="asset" lowerBound="1" upperBound="-1"
-        eType="#//Asset" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectCollection" abstract="true" eSuperTypes="#//Object">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="object" upperBound="-1"
+        eType="#//Object" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BuildingUnit" eSuperTypes="#//AssetCollection">
+  <eClassifiers xsi:type="ecore:EClass" name="BuildingUnit" eSuperTypes="#//ObjectCollection">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//BuildingTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="housingType" eType="#//HousingTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyLabel" eType="#//EnergyLabelEnum"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Area" eSuperTypes="#//AssetCollection">
+  <eClassifiers xsi:type="ecore:EClass" name="Area" eSuperTypes="#//ObjectCollection">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="areaType" eType="#//AreaTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggrArea" eType="#//AreaTypeEnum"
         defaultValueLiteral="BUILDING"/>
@@ -181,23 +183,20 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InPort" eSuperTypes="#//Port"/>
   <eClassifiers xsi:type="ecore:EClass" name="OutPort" eSuperTypes="#//Port"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Asset" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Asset" abstract="true" eSuperTypes="#//Object">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="surfaceArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="purchaseCosts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationalCosts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commissioningDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expectedDecommissioningDate"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="installationCosts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="marginalCosts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contour" eType="#//Contour"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="owner" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contour" upperBound="-1"
+        eType="#//Contour" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//Location"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="owner" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericConsumer" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="GenericProducer" eSuperTypes="#//Producer"/>
@@ -231,7 +230,7 @@
     <eLiterals name="OTHER" value="11"/>
     <eLiterals name="UTILITY" value="12"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Building" eSuperTypes="#//AssetCollection">
+  <eClassifiers xsi:type="ecore:EClass" name="Building" eSuperTypes="#//ObjectCollection">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="roofArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wallArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="windowArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -315,7 +314,7 @@
     <eLiterals name="TOTALCAPABILITY" value="3"/>
     <eLiterals name="PERCAPIBILITY" value="4"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PublicArea" eSuperTypes="#//AssetCollection">
+  <eClassifiers xsi:type="ecore:EClass" name="PublicArea" eSuperTypes="#//ObjectCollection">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//PublicAreaTypeEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PublicAreaTypeEnum">
@@ -359,7 +358,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Inhabitants" eSuperTypes="#//Asset">
+  <eClassifiers xsi:type="ecore:EClass" name="Inhabitants" eSuperTypes="#//Object">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfPeople" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="averageIncome" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
@@ -419,4 +418,10 @@
     <eLiterals name="HOEKWONING" value="3"/>
     <eLiterals name="APPARTEMENT" value="4"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Object" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Measures" eSuperTypes="#//ObjectCollection"/>
 </ecore:EPackage>
