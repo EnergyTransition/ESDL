@@ -14,6 +14,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CommodityEnum/HEAT"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//AreaTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AreaTypeEnum/UNDEFINED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AreaTypeEnum/BUILDING"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AreaTypeEnum/STREET"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AreaTypeEnum/NEIGHBOURHOOD"/>
@@ -59,6 +60,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//DurationUnitEnum/YEAR"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//BuildingTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BuildingTypeEnum/UNDEFINED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BuildingTypeEnum/RESIDENTIAL"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BuildingTypeEnum/GATHERING"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BuildingTypeEnum/PRISON"/>
@@ -158,11 +160,12 @@
     <genClasses image="false" ecoreClass="esdl.ecore#//Conversion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Conversion/efficiency"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="esdl.ecore#//Transmission">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Transmission/capacity"/>
+    <genClasses image="false" ecoreClass="esdl.ecore#//Transport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Transport/capacity"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EnergySystem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystem/energyUnit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/area"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WindTurbine">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindTurbine/power"/>
@@ -217,7 +220,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/areaType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/aggrArea"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/aggrType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/numberOfInhabitants"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/energyPotential"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/socialProperties"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/economicProperties"/>
@@ -256,10 +258,10 @@
     <genClasses ecoreClass="esdl.ecore#//GenericConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//GenericProducer"/>
     <genClasses ecoreClass="esdl.ecore#//GenericStorage"/>
-    <genClasses ecoreClass="esdl.ecore#//GenericTransmission"/>
+    <genClasses ecoreClass="esdl.ecore#//GenericTransport"/>
     <genClasses ecoreClass="esdl.ecore#//GenericConversion"/>
-    <genClasses ecoreClass="esdl.ecore#//AggregatedTransmission">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedTransmission/aggregationOf"/>
+    <genClasses ecoreClass="esdl.ecore#//AggregatedTransport">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedTransport/aggregationOf"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AggregatedConversion">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedConversion/aggregationOf"/>
@@ -317,8 +319,6 @@
     <genClasses ecoreClass="esdl.ecore#//GeothermalSource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalSource/wellDepth"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//HeatExchanger"/>
-    <genClasses ecoreClass="esdl.ecore#//Transformer"/>
     <genClasses ecoreClass="esdl.ecore#//CHP">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CHP/maxEfficiencyHeat"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CHP/maxEfficiencyElectricity"/>
@@ -366,6 +366,7 @@
     <genClasses ecoreClass="esdl.ecore#//SocialProperties">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SocialProperties/socialCohesion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SocialProperties/populationDensity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SocialProperties/numberOfInhabitants"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//LegalArea">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//LegalArea/contour"/>
@@ -373,7 +374,7 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EnergyService"/>
     <genClasses ecoreClass="esdl.ecore#//DemandResponseService"/>
-    <genClasses ecoreClass="esdl.ecore#//Transformer.1"/>
+    <genClasses ecoreClass="esdl.ecore#//Transformer"/>
     <genClasses ecoreClass="esdl.ecore#//HeatExchange"/>
   </genPackages>
 </genmodel:GenModel>
