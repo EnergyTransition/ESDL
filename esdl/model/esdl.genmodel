@@ -109,6 +109,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatDemandTypeEnum/UNDEFINED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatDemandTypeEnum/SPACEHEATING"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatDemandTypeEnum/HOTTAPWATER"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatDemandTypeEnum/SHANDHTW"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatDemandTypeEnum/OTHER"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//HousingTypeEnum">
@@ -209,8 +210,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Profile/duration"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Profile/profileRef"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="esdl.ecore#//ObjectCollection">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//ObjectCollection/object"/>
+    <genClasses image="false" ecoreClass="esdl.ecore#//ItemCollection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//ItemCollection/item"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//BuildingUnit">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUnit/type"/>
@@ -388,9 +389,9 @@
     <genClasses ecoreClass="esdl.ecore#//DemandResponseService"/>
     <genClasses ecoreClass="esdl.ecore#//Transformer"/>
     <genClasses ecoreClass="esdl.ecore#//HeatExchange"/>
-    <genClasses ecoreClass="esdl.ecore#//Object">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Object/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Object/name"/>
+    <genClasses ecoreClass="esdl.ecore#//Item">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Item/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Item/name"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Measures"/>
   </genPackages>
