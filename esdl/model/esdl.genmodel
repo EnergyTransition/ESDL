@@ -144,7 +144,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/APPARTEMENT"/>
     </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/ports"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Producer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Producer/prodType"/>
@@ -228,10 +228,10 @@
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Port">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/commodity"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/connectedTo"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/id"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/profile"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/maxPower"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/energyasset"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AggregatedProducer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedProducer/aggregationOf"/>
@@ -240,8 +240,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Duration/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Duration/durarionUnit"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//InPort"/>
-    <genClasses ecoreClass="esdl.ecore#//OutPort"/>
+    <genClasses ecoreClass="esdl.ecore#//InPort">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//InPort/connectedToOut"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//OutPort">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//OutPort/connectedToIn"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Asset">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/surfaceArea"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/purchaseCosts"/>
@@ -294,27 +298,36 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPipe/diameter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPipe/length"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//HPort">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HPort/minTemperature"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HPort/maxTemperature"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HPort/temperature"/>
+    <genClasses ecoreClass="esdl.ecore#//OutHPort">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//OutHPort/minTemperature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//OutHPort/maxTemperature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//OutHPort/temperature"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//EPort">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EPort/minVoltage"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EPort/maxVoltage"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EPort/voltage"/>
+    <genClasses ecoreClass="esdl.ecore#//InHPort">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//InHPort/minTemperature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//InHPort/maxTemperature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//InHPort/temperature"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//GPort">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GPort/minPressure"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GPort/maxPressure"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GPort/pressure"/>
+    <genClasses ecoreClass="esdl.ecore#//OutEPort">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//OutEPort/minVoltage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//OutEPort/maxVoltage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//OutEPort/voltage"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//OutHPort"/>
-    <genClasses ecoreClass="esdl.ecore#//InHPort"/>
-    <genClasses ecoreClass="esdl.ecore#//OutEPort"/>
-    <genClasses ecoreClass="esdl.ecore#//InEPort"/>
-    <genClasses ecoreClass="esdl.ecore#//OutGPort"/>
-    <genClasses ecoreClass="esdl.ecore#//InGPort"/>
+    <genClasses ecoreClass="esdl.ecore#//InEPort">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//InEPort/minVoltage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//InEPort/maxVoltage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//InEPort/voltage"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//OutGPort">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//OutGPort/maxPressure"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//OutGPort/minPressure"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//OutGPort/pressure"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//InGPort">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//InGPort/maxPressure"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//InGPort/minPressure"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//InGPort/pressure"/>
+    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GeothermalSource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalSource/wellDepth"/>
     </genClasses>
