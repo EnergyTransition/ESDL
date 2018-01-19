@@ -58,14 +58,12 @@
             <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </endLabelStyleDescription>
         </computedStyleDescriptions>
-        <computedStyleDescriptions xmi:type="style:EdgeStyleDescription" xmi:id="_IHIosP0hEeetPb7u0L-rtg" sourceArrow="InputArrow" targetArrow="FillDiamond" routingStyle="manhattan">
+        <computedStyleDescriptions xmi:type="style:EdgeStyleDescription" xmi:id="_0A2oMP0mEee3NKn9ijv7lw" sourceArrow="InputArrow" targetArrow="FillDiamond" routingStyle="manhattan">
           <strokeColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-          <beginLabelStyleDescription xmi:type="style:BeginLabelStyleDescription" xmi:id="_IHIosf0hEeetPb7u0L-rtg" showIcon="false" labelExpression="service:renderEOpposite">
-            <labelFormat>bold</labelFormat>
+          <beginLabelStyleDescription xmi:type="style:BeginLabelStyleDescription" xmi:id="_0A2oMf0mEee3NKn9ijv7lw" showIcon="false" labelExpression="service:renderEOpposite">
             <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </beginLabelStyleDescription>
-          <endLabelStyleDescription xmi:type="style:EndLabelStyleDescription" xmi:id="_IHIosv0hEeetPb7u0L-rtg" showIcon="false" labelExpression="service:render">
-            <labelFormat>bold</labelFormat>
+          <endLabelStyleDescription xmi:type="style:EndLabelStyleDescription" xmi:id="_0A2oMv0mEee3NKn9ijv7lw" showIcon="false" labelExpression="service:render">
             <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </endLabelStyleDescription>
         </computedStyleDescriptions>
@@ -7013,31 +7011,23 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_AM0dgP0hEeetPb7u0L-rtg" sourceNode="_2jcD4LryEeeIKeRLj9tspA" targetNode="_2jdSALryEeeIKeRLj9tspA" beginLabel="[1..*] windTurbine" endLabel="[1..1] windParc">
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_AM0dgP0hEeetPb7u0L-rtg" sourceNode="_2jcD4LryEeeIKeRLj9tspA" targetNode="_2jdSALryEeeIKeRLj9tspA" beginLabel="[1..*] windTurbine" endLabel="[0..1] windParc">
       <target xmi:type="ecore:EReference" href="esdl.ecore#//WindTurbine/windParc"/>
       <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//WindTurbine/windParc"/>
       <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//WindParc/windTurbine"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_IHIos_0hEeetPb7u0L-rtg" description="_IHIosP0hEeetPb7u0L-rtg" sourceArrow="InputArrow" targetArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_IHIotP0hEeetPb7u0L-rtg" showIcon="false">
-          <labelFormat>bold</labelFormat>
-        </beginLabelStyle>
-        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_IHIotf0hEeetPb7u0L-rtg" showIcon="false">
-          <labelFormat>bold</labelFormat>
-        </endLabelStyle>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_75A3QP0mEee3NKn9ijv7lw" description="_0A2oMP0mEee3NKn9ijv7lw" sourceArrow="InputArrow" targetArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_75A3Qf0mEee3NKn9ijv7lw" showIcon="false"/>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_75A3Qv0mEee3NKn9ijv7lw" showIcon="false"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_rZb4sP0hEeetPb7u0L-rtg" sourceNode="_2jegILryEeeIKeRLj9tspA" targetNode="_2jg8YLryEeeIKeRLj9tspA" beginLabel="[0..*] pvPanel" endLabel="[1..1] pvParc">
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_rZb4sP0hEeetPb7u0L-rtg" sourceNode="_2jegILryEeeIKeRLj9tspA" targetNode="_2jg8YLryEeeIKeRLj9tspA" beginLabel="[1..*] pvPanel" endLabel="[0..1] pvParc">
       <target xmi:type="ecore:EReference" href="esdl.ecore#//PVPanel/pvParc"/>
       <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//PVParc/pvPanel"/>
       <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//PVPanel/pvParc"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_wELwkP0hEeetPb7u0L-rtg" description="_IHIosP0hEeetPb7u0L-rtg" sourceArrow="InputArrow" targetArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_wELwkf0hEeetPb7u0L-rtg" showIcon="false">
-          <labelFormat>bold</labelFormat>
-        </beginLabelStyle>
-        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_wELwkv0hEeetPb7u0L-rtg" showIcon="false">
-          <labelFormat>bold</labelFormat>
-        </endLabelStyle>
+      <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_0A3PQP0mEee3NKn9ijv7lw" description="_0A2oMP0mEee3NKn9ijv7lw" sourceArrow="InputArrow" targetArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_0A3PQf0mEee3NKn9ijv7lw" showIcon="false"/>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" xmi:id="_0A3PQv0mEee3NKn9ijv7lw" showIcon="false"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>

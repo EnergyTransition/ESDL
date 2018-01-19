@@ -44,8 +44,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rotorDiameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="windParc" lowerBound="1"
-        eType="#//WindParc" eOpposite="#//WindParc/windTurbine"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="windParc" eType="#//WindParc"
+        eOpposite="#//WindParc/windTurbine"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WindParc" eSuperTypes="#//Producer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfMills" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -58,13 +58,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inverterEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="angle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pvParc" lowerBound="1"
-        eType="#//PVParc" eOpposite="#//PVParc/pvPanel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pvParc" eType="#//PVParc"
+        eOpposite="#//PVParc/pvPanel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PVParc" eSuperTypes="#//Producer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfPanels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pvPanel" upperBound="-1"
-        eType="#//PVPanel" containment="true" eOpposite="#//PVPanel/pvParc"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pvPanel" lowerBound="1"
+        upperBound="-1" eType="#//PVPanel" containment="true" eOpposite="#//PVPanel/pvParc"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Battery" eSuperTypes="#//Storage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selfDischarge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
