@@ -50,6 +50,10 @@
               xsi:type="esdl:OutEPort"
               id="OutEC"
               connectedToIn="InED"/>
+          <port
+              xsi:type="esdl:InEPort"
+              id="InPV"
+              connectedToOut="OutPV"/>
         </item>
         <item
             xsi:type="esdl:HConnection">
@@ -60,10 +64,6 @@
               xsi:type="esdl:OutHPort"
               id="OutHC"
               connectedToIn="InGH"/>
-          <port
-              xsi:type="esdl:InEPort"
-              id="InPV"
-              connectedToOut="OutPV"/>
         </item>
         <item
             xsi:type="esdl:PVPanel">
