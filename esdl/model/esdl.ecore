@@ -38,6 +38,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="measures" eType="#//Measures"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WindTurbine" eSuperTypes="#//Producer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -425,7 +426,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="HeatExchange" eSuperTypes="#//Transport"/>
   <eClassifiers xsi:type="ecore:EEnum" name="ResidentialBuildingTypeEnum">
     <eLiterals name="UNDEFINED"/>
-    <eLiterals name="VRIJSTAANDE WONING" value="1"/>
+    <eLiterals name="VRIJSTAANDE_WONING" value="1"/>
     <eLiterals name="RIJTJESHUIS" value="2"/>
     <eLiterals name="HOEKWONING" value="3"/>
     <eLiterals name="APPARTEMENT" value="4"/>

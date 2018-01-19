@@ -139,7 +139,7 @@
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//ResidentialBuildingTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/UNDEFINED"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/VRIJSTAANDE%20WONING"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/VRIJSTAANDE_WONING"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/RIJTJESHUIS"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/HOEKWONING"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/APPARTEMENT"/>
@@ -168,6 +168,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystem/energyUnit"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/area"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/measures"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystem/name"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WindTurbine">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindTurbine/power"/>
