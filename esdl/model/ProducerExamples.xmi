@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esdl:EnergySystem
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:esdl="http://www.tno.nl/esdl"
+    xsi:schemaLocation="http://www.tno.nl/esdl esdl.ecore">
+  <area>
+    <item xsi:type="esdl:PowerPlant"
+        id="MV4"
+        name="EON - Maasvlakte 4"
+        shortName="MV4"
+        commissioningDate="2013-01-01T00:00:00.000+0100"
+        expectedDecommissioningDate="2053-01-01T00:00:00.000+0100"
+        owner="EON"
+        prodType="NONRENEWABLE"
+        fuel="COAL"
+        maxLoad="535000000"
+        minLoad="321000000"
+        effMaxLoad="45.0"
+        effMinLoad="40.0"/>
+    <item xsi:type="esdl:WindParc"
+        name="WP1">
+      <windTurbine
+          name="WT1"/>
+      <windTurbine
+          name="WT2"/>
+    </item>
+    <item xsi:type="esdl:WindParc"
+        name="WP2">
+      <windTurbine
+          name="WT3"/>
+    </item>
+  </area>
+</esdl:EnergySystem>

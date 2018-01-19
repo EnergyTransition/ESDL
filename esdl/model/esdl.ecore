@@ -44,11 +44,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rotorDiameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="windParc" lowerBound="1"
+        eType="#//WindParc" eOpposite="#//WindParc/windTurbine"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WindParc" eSuperTypes="#//Producer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="windTurbine" lowerBound="1"
-        upperBound="-1" eType="#//WindTurbine" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfMills" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="windTurbine" lowerBound="1"
+        upperBound="-1" eType="#//WindTurbine" containment="true" eOpposite="#//WindTurbine/windParc"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PVPanel" eSuperTypes="#//Producer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -56,11 +58,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inverterEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="angle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pvParc" lowerBound="1"
+        eType="#//PVParc" eOpposite="#//PVParc/pvPanel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PVParc" eSuperTypes="#//Producer">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pvPanel" lowerBound="1"
-        upperBound="-1" eType="#//PVPanel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfPanels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pvPanel" upperBound="-1"
+        eType="#//PVPanel" containment="true" eOpposite="#//PVPanel/pvParc"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Battery" eSuperTypes="#//Storage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selfDischarge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -92,7 +96,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ItemCollection" abstract="true" eSuperTypes="#//Item">
     <eStructuralFeatures xsi:type="ecore:EReference" name="item" upperBound="-1" eType="#//Item"
-        containment="true"/>
+        containment="true" eOpposite="#//Item/itemCollection"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuildingUnit" eSuperTypes="#//ItemCollection">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//BuildingTypeEnum"/>
@@ -241,6 +245,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="roofType" eType="#//RoofTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyLabel" eType="#//EnergyLabelEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ConsTypeEnum">
     <eLiterals name="PRIMARY"/>
@@ -435,9 +440,26 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemCollection" eType="#//ItemCollection"
+        eOpposite="#//ItemCollection/item"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Measures" eSuperTypes="#//ItemCollection"/>
   <eClassifiers xsi:type="ecore:EClass" name="EConnection" eSuperTypes="#//Transport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="GConnection" eSuperTypes="#//Transport"/>
   <eClassifiers xsi:type="ecore:EClass" name="HConnection" eSuperTypes="#//Transport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GConnection" eSuperTypes="#//Transport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PowerPlant" eSuperTypes="#//Producer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fuel" eType="#//PowerPlantFuelEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMaxLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMinLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PowerPlantFuelEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="COAL" value="1"/>
+    <eLiterals name="BLASTFURNACEGAS" value="2"/>
+    <eLiterals name="NATURALGAS" value="3"/>
+    <eLiterals name="URANIUM" value="4"/>
+  </eClassifiers>
 </ecore:EPackage>

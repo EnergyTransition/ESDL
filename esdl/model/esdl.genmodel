@@ -144,6 +144,13 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/HOEKWONING"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/APPARTEMENT"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//PowerPlantFuelEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PowerPlantFuelEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PowerPlantFuelEnum/COAL"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PowerPlantFuelEnum/BLASTFURNACEGAS"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PowerPlantFuelEnum/NATURALGAS"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PowerPlantFuelEnum/URANIUM"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>
     </genClasses>
@@ -174,10 +181,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindTurbine/power"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindTurbine/rotorDiameter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindTurbine/height"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//WindTurbine/windParc"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WindParc">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//WindParc/windTurbine"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindParc/numberOfMills"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//WindParc/windTurbine"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//PVPanel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVPanel/power"/>
@@ -185,10 +193,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVPanel/inverterEfficiency"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVPanel/angle"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVPanel/orientation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//PVPanel/pvParc"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//PVParc">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//PVParc/pvPanel"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVParc/numberOfPanels"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//PVParc/pvPanel"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Battery">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Battery/selfDischarge"/>
@@ -212,7 +221,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Profile/profileRef"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//ItemCollection">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//ItemCollection/item"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//ItemCollection/item"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//BuildingUnit">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUnit/type"/>
@@ -282,6 +291,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/height"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/roofType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/energyLabel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/orientation"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HeatStorage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatStorage/heatLoss"/>
@@ -393,10 +403,19 @@
     <genClasses ecoreClass="esdl.ecore#//Item">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Item/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Item/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Item/shortName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Item/itemCollection"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Measures"/>
     <genClasses ecoreClass="esdl.ecore#//EConnection"/>
-    <genClasses ecoreClass="esdl.ecore#//GConnection"/>
     <genClasses ecoreClass="esdl.ecore#//HConnection"/>
+    <genClasses ecoreClass="esdl.ecore#//GConnection"/>
+    <genClasses ecoreClass="esdl.ecore#//PowerPlant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PowerPlant/fuel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PowerPlant/maxLoad"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PowerPlant/minLoad"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PowerPlant/effMaxLoad"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PowerPlant/effMinLoad"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
