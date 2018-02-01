@@ -5,14 +5,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:esdl="http://www.tno.nl/esdl"
     xsi:schemaLocation="http://www.tno.nl/esdl esdl.ecore">
-  <area>
+  <instance>
+  <item xsi:type="esdl:Area">
     <item xsi:type="esdl:Building"
         name="SimpleHouseWithGasHeater"
         roofType="SLANTEDROOF">
-      <item
+      <asset
           xsi:type="esdl:BuildingUnit"
           type="RESIDENTIAL">
-        <item
+        <asset
             xsi:type="esdl:ElectricityDemand"
             id="Baseload"
             name="Baseload Electricity">
@@ -20,8 +21,8 @@
               xsi:type="esdl:InEPort"
               id="InED"
               connectedToOut="OutEC"/>
-        </item>
-        <item
+        </asset>
+        <asset
             xsi:type="esdl:GasHeater"
             name="GH">
           <port
@@ -32,16 +33,16 @@
               xsi:type="esdl:OutHPort"
               id="OutGH"
               connectedToIn="InHD"/>
-        </item>
-        <item
+        </asset>
+        <asset
             xsi:type="esdl:HeatDemand"
             name="Baseload Heat">
           <port
               xsi:type="esdl:InHPort"
               id="InHD"
               connectedToOut="OutGH"/>
-        </item>
-        <item
+        </asset>
+        <asset
             xsi:type="esdl:EConnection">
           <port
               xsi:type="esdl:InEPort"
@@ -54,8 +55,8 @@
               xsi:type="esdl:InEPort"
               id="InPV"
               connectedToOut="OutPV"/>
-        </item>
-        <item
+        </asset>
+        <asset
             xsi:type="esdl:HConnection">
           <port
               xsi:type="esdl:InHPort"
@@ -64,23 +65,23 @@
               xsi:type="esdl:OutHPort"
               id="OutHC"
               connectedToIn="InGH"/>
-        </item>
-        <item
+        </asset>
+        <asset
             xsi:type="esdl:PVPanel">
           <port
               xsi:type="esdl:OutEPort"
               id="OutPV"
               connectedToIn="InPV"/>
-        </item>
-      </item>
+        </asset>
+      </asset>
     </item>
     <item xsi:type="esdl:Building"
         name="BuildingWithTwoBuildingUnits">
-      <item
+      <asset
           xsi:type="esdl:BuildingUnit"
           name="GroundFloorShop"
           type="SHOPPING"/>
-      <item
+      <asset
           xsi:type="esdl:BuildingUnit"
           name="FirstFloorAppartment"
           type="RESIDENTIAL"/>
@@ -88,26 +89,27 @@
     <item xsi:type="esdl:Building"
         name="AppartmentComplex"
         roofType="FLATROOF">
-      <item
+      <asset
           xsi:type="esdl:BuildingUnit"
           name="Appartment1A"
           type="RESIDENTIAL"/>
-      <item
+      <asset
           xsi:type="esdl:BuildingUnit"
           name="Appartment1B"
           type="RESIDENTIAL"/>
-      <item
+      <asset
           xsi:type="esdl:BuildingUnit"
           name="Appartment1C"
           type="RESIDENTIAL"/>
-      <item
+      <asset
           xsi:type="esdl:BuildingUnit"
           name="Appartment2A"
           type="RESIDENTIAL"/>
-      <item
+      <asset
           xsi:type="esdl:BuildingUnit"
           name="Appartment2C"
           type="RESIDENTIAL"/>
     </item>
-  </area>
+  </item>
+  </instance>
 </esdl:EnergySystem>

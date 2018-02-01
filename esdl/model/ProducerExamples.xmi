@@ -5,7 +5,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:esdl="http://www.tno.nl/esdl"
     xsi:schemaLocation="http://www.tno.nl/esdl esdl.ecore">
-  <area>
+  <instance>
+  <item xsi:type="esdl:Area">
     <item xsi:type="esdl:PowerPlant"
         id="MV4"
         name="EON - Maasvlakte 4"
@@ -31,5 +32,6 @@
       <windTurbine
           name="WT3"/>
     </item>
-  </area>
+  </item>
+  </instance>
 </esdl:EnergySystem>
