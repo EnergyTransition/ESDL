@@ -33,11 +33,16 @@
     <eLiterals name="HEAT" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergySystem">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="geographicalScope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sector" eType="#//SectorEnum"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="measures" eType="#//Measures"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="instance" upperBound="-1"
         eType="#//Instance" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="potential" upperBound="-1"
+        eType="#//Potential" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WindTurbine" eSuperTypes="#//Producer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -101,17 +106,22 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//BuildingTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="housingType" eType="#//HousingTypeEnum"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Area" eSuperTypes="#//ItemCollection">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scope" eType="#//AreaTypeEnum"
+  <eClassifiers xsi:type="ecore:EClass" name="Area">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scope" eType="#//AreaScopeEnum"
         defaultValueLiteral="UNDEFINED"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="energyPotential" upperBound="-1"
-        eType="#//EnergyPotential" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="socialProperties" eType="#//SocialProperties"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="economicProperties" eType="#//EconomicProperties"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="legalArea" upperBound="-1"
-        eType="#//LegalArea" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//AreaTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//Location"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contour" eType="#//Contour"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="potentials" upperBound="-1"
+        eType="#//Potential" eOpposite="#//Potential/areas"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="area" upperBound="-1" eType="#//Area"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commodity" eType="#//CommodityEnum"
@@ -128,7 +138,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"
         eType="#//Producer"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="AreaTypeEnum">
+  <eClassifiers xsi:type="ecore:EEnum" name="AreaScopeEnum">
     <eLiterals name="UNDEFINED"/>
     <eLiterals name="BUILDING" value="1"/>
     <eLiterals name="STREET" value="2"/>
@@ -198,10 +208,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="owner" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contour" upperBound="-1"
         eType="#//Contour" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//Location"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="assetCollection" eType="#//AssetCollection"
         eOpposite="#//AssetCollection/asset"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" upperBound="-1"
+        eType="#//Location" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericConsumer" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="GenericProducer" eSuperTypes="#//Producer"/>
@@ -316,73 +326,61 @@
   <eClassifiers xsi:type="ecore:EEnum" name="SourceTypeEnum">
     <eLiterals name="UNDEFINED"/>
     <eLiterals name="AIR" value="1"/>
-    <eLiterals name="SUBSURFACE" value="2"/>
+    <eLiterals name="SUB_SURFACE" value="2"/>
     <eLiterals name="AQUIFER" value="3"/>
-    <eLiterals name="SURFACEWATER" value="4"/>
-    <eLiterals name="HEATNETWORK" value="5"/>
+    <eLiterals name="SURFACE_WATER" value="4"/>
+    <eLiterals name="HEAT_NETWORK" value="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AggrTypeEnum">
     <eLiterals name="UNDEFINED"/>
-    <eLiterals name="PERCOMMODITY" value="1"/>
-    <eLiterals name="TOTALENERGY" value="2"/>
-    <eLiterals name="TOTALCAPABILITY" value="3"/>
-    <eLiterals name="PERCAPIBILITY" value="4"/>
+    <eLiterals name="PER_COMMODITY" value="1"/>
+    <eLiterals name="TOTAL_ENERGY" value="2"/>
+    <eLiterals name="TOTAL_CAPABILITY" value="3"/>
+    <eLiterals name="PER_CAPIBILITY" value="4"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PublicArea" eSuperTypes="#//ItemCollection">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//PublicAreaTypeEnum"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="PublicAreaTypeEnum">
+  <eClassifiers xsi:type="ecore:EEnum" name="AreaTypeEnum">
     <eLiterals name="UNDEFINED"/>
     <eLiterals name="ROAD" value="1"/>
     <eLiterals name="RAILWAY" value="2"/>
-    <eLiterals name="WATER" value="3"/>
-    <eLiterals name="TERRAIN" value="4"/>
-    <eLiterals name="RURALAREA" value="5"/>
+    <eLiterals name="TERRAIN" value="3"/>
+    <eLiterals name="RURAL_AREA" value="4"/>
+    <eLiterals name="BUILT" value="5"/>
+    <eLiterals name="WATER" value="6"/>
+    <eLiterals name="SEA" value="7"/>
+    <eLiterals name="RIVER" value="8"/>
+    <eLiterals name="CANAL" value="9"/>
+    <eLiterals name="LAKE" value="10"/>
+    <eLiterals name="WATER" value="11"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HeatDemand" eSuperTypes="#//Consumer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//HeatDemandTypeEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="HeatDemandTypeEnum">
     <eLiterals name="UNDEFINED"/>
-    <eLiterals name="SPACEHEATING" value="1"/>
-    <eLiterals name="HOTTAPWATER" value="2"/>
-    <eLiterals name="SHANDHTW" value="3"/>
+    <eLiterals name="SPACE_HEATING" value="1"/>
+    <eLiterals name="HOT_TAPWATER" value="2"/>
+    <eLiterals name="SH_AND_HTW" value="3"/>
     <eLiterals name="OTHER" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElectricityDemand" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="GasDemand" eSuperTypes="#//Consumer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="EnergyPotential">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="commodity" eType="#//CommodityEnum"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contour" eType="#//Contour"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GeothermalPotential" eSuperTypes="#//Potential">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="depth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Point">
+  <eClassifiers xsi:type="ecore:EClass" name="Location">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Contour">
     <eStructuralFeatures xsi:type="ecore:EReference" name="point" lowerBound="3" upperBound="-1"
-        eType="#//Point" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Location">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0.0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0.0"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InhabitantsProperty" abstract="true"
-      eSuperTypes="#//Property">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfPeople" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="averageIncome" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+        eType="#//Location" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="HousingTypeEnum">
     <eLiterals name="UNDEFINED"/>
-    <eLiterals name="OWNEROCCUPIEDPROPERTY" value="1"/>
-    <eLiterals name="PRIVATERENTAL" value="2"/>
-    <eLiterals name="HOUSINGASSOCIATION" value="3"/>
+    <eLiterals name="OWNER_OCCUPIED_PROPERTY" value="1"/>
+    <eLiterals name="PRIVATE_RENTAL" value="2"/>
+    <eLiterals name="HOUSING_ASSOCIATION" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EconomicProperties">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="averageIncome" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -399,9 +397,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="populationDensity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfInhabitants" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LegalArea">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contour" eType="#//Contour"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LegalArea" eSuperTypes="#//Potential">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="RoofTypeEnum">
@@ -411,17 +407,17 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EnergyLabelEnum">
     <eLiterals name="UNDEFINED"/>
-    <eLiterals name="LABELG" value="1"/>
-    <eLiterals name="LABELF" value="2"/>
-    <eLiterals name="LABELE" value="3"/>
-    <eLiterals name="LABELD" value="4"/>
-    <eLiterals name="LABELC" value="5"/>
-    <eLiterals name="LABELB" value="6"/>
-    <eLiterals name="LABELA" value="7"/>
-    <eLiterals name="LABELAP" value="8"/>
-    <eLiterals name="LABELAPP" value="9"/>
-    <eLiterals name="LABELAPPP" value="10"/>
-    <eLiterals name="LABELAPPPP" value="11"/>
+    <eLiterals name="LABEL_G" value="1"/>
+    <eLiterals name="LABEL_F" value="2"/>
+    <eLiterals name="LABEL_E" value="3"/>
+    <eLiterals name="LABEL_D" value="4"/>
+    <eLiterals name="LABEL_C" value="5"/>
+    <eLiterals name="LABEL_B" value="6"/>
+    <eLiterals name="LABEL_A" value="7"/>
+    <eLiterals name="LABEL_AP" value="8"/>
+    <eLiterals name="LABEL_APP" value="9"/>
+    <eLiterals name="LABEL_APPP" value="10"/>
+    <eLiterals name="LABEL_APPPP" value="11"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyService" abstract="true" eSuperTypes="#//Service"/>
   <eClassifiers xsi:type="ecore:EClass" name="DemandResponseService" eSuperTypes="#//EnergyService"/>
@@ -456,8 +452,8 @@
   <eClassifiers xsi:type="ecore:EEnum" name="PowerPlantFuelEnum">
     <eLiterals name="UNDEFINED"/>
     <eLiterals name="COAL" value="1"/>
-    <eLiterals name="BLASTFURNACEGAS" value="2"/>
-    <eLiterals name="NATURALGAS" value="3"/>
+    <eLiterals name="BLAST_FURNACE_GAS" value="2"/>
+    <eLiterals name="NATURAL_GAS" value="3"/>
     <eLiterals name="URANIUM" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Property" abstract="true" eSuperTypes="#//Item"/>
@@ -468,12 +464,40 @@
   <eClassifiers xsi:type="ecore:EClass" name="AbstractBuilding" abstract="true" eSuperTypes="#//AssetCollection">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyLabel" eType="#//EnergyLabelEnum"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Instance" eSuperTypes="#//ItemCollection">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="detailLevel" eType="#//AreaTypeEnum"
+  <eClassifiers xsi:type="ecore:EClass" name="Instance">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="detailLevel" eType="#//AreaScopeEnum"
         defaultValueLiteral="UNDEFINED"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggrType" eType="#//AggrTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="area" eType="#//Area" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Service" abstract="true" eSuperTypes="#//Item"/>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatorService" eSuperTypes="#//EnergyService"/>
   <eClassifiers xsi:type="ecore:EClass" name="EVChargingStation" eSuperTypes="#//Consumer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Potential" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contour" eType="#//Contour"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="areas" upperBound="-1"
+        eType="#//Area" eOpposite="#//Area/potentials"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WindPotential" eSuperTypes="#//Potential">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="windspeed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AggregatedBuilding" eSuperTypes="#//AbstractBuilding">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"
+        eType="#//AbstractBuilding"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfBuildings" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SectorEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="GEBOUWDE_OMGEVING" value="1"/>
+    <eLiterals name="ZAKELIJKE_DIENSTVERLENING" value="2"/>
+    <eLiterals name="INDUSTRIE" value="3"/>
+    <eLiterals name="AGRO_TUINBOUW" value="4"/>
+  </eClassifiers>
 </ecore:EPackage>
