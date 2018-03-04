@@ -105,6 +105,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="BuildingUnit" eSuperTypes="#//AbstractBuilding">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//BuildingTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="housingType" eType="#//HousingTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="building" lowerBound="1"
+        eType="#//Building" eOpposite="#//Building/buildingUnits"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Area">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scope" eType="#//AreaScopeEnum"
@@ -122,6 +124,8 @@
         eType="#//Potential" eOpposite="#//Potential/areas"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="area" upperBound="-1" eType="#//Area"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assets" upperBound="-1"
+        eType="#//Asset" containment="true" eOpposite="#//Asset/area"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commodity" eType="#//CommodityEnum"
@@ -212,6 +216,8 @@
         eOpposite="#//AssetCollection/asset"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="location" upperBound="-1"
         eType="#//Location" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="area" lowerBound="1" eType="#//Area"
+        eOpposite="#//Area/assets"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericConsumer" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="GenericProducer" eSuperTypes="#//Producer"/>
@@ -253,6 +259,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="roofType" eType="#//RoofTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buildingUnits" upperBound="-1"
+        eType="#//BuildingUnit" containment="true" eOpposite="#//BuildingUnit/building"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ConsTypeEnum">
     <eLiterals name="PRIMARY"/>
@@ -333,10 +341,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AggrTypeEnum">
     <eLiterals name="UNDEFINED"/>
-    <eLiterals name="PER_COMMODITY" value="1"/>
-    <eLiterals name="TOTAL_ENERGY" value="2"/>
-    <eLiterals name="TOTAL_CAPABILITY" value="3"/>
-    <eLiterals name="PER_CAPIBILITY" value="4"/>
+    <eLiterals name="NOT_AGGREGATED" value="1"/>
+    <eLiterals name="PER_COMMODITY" value="2"/>
+    <eLiterals name="TOTAL_ENERGY" value="3"/>
+    <eLiterals name="TOTAL_CAPABILITY" value="4"/>
+    <eLiterals name="PER_CAPIBILITY" value="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AreaTypeEnum">
     <eLiterals name="UNDEFINED"/>
@@ -438,7 +447,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="itemCollection" eType="#//ItemCollection"
         eOpposite="#//ItemCollection/item"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Measures" eSuperTypes="#//ItemCollection"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Measures">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//Item" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EConnection" eSuperTypes="#//Transport"/>
   <eClassifiers xsi:type="ecore:EClass" name="HConnection" eSuperTypes="#//Transport"/>
   <eClassifiers xsi:type="ecore:EClass" name="GConnection" eSuperTypes="#//Transport"/>
@@ -461,8 +473,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
         eType="#//Asset" containment="true" eOpposite="#//Asset/assetCollection"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractBuilding" abstract="true" eSuperTypes="#//AssetCollection">
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractBuilding" abstract="true" eSuperTypes="#//Asset">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyLabel" eType="#//EnergyLabelEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
+        eType="#//Asset" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Instance">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
