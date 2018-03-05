@@ -5,17 +5,24 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:esdl="http://www.tno.nl/esdl"
     xsi:schemaLocation="http://www.tno.nl/esdl esdl.ecore">
+  <sector>GEBOUWDE_OMGEVING</sector>
+  <sector>INDUSTRIE</sector>
+  <measures>
+    <items xsi:type="esdl:GeothermalSource"/>
+  </measures>
   <instance
       id=""
       detailLevel="BUILDING">
-    <area scope="STREET"
-        type="BUILT">
-      <assets
+    <area id="area1"
+        name="Area_with_three_buildings"
+        scope="STREET"
+        type="BUILT"
+        potentials="//@potentials/@potential.0">
+      <asset
           xsi:type="esdl:Building"
           name="SimpleHouseWithGasHeater"
           roofType="SLANTEDROOF">
-        <asset
-            xsi:type="esdl:BuildingUnit">
+        <buildingUnits>
           <asset
               xsi:type="esdl:ElectricityDemand"
               id="Baseload"
@@ -77,45 +84,44 @@
                 id="OutPV"
                 connectedToIn="InPV"/>
           </asset>
-        </asset>
-      </assets>
-      <assets
+        </buildingUnits>
+      </asset>
+      <asset
           xsi:type="esdl:Building"
           name="BuildingWithTwoBuildingUnits">
-        <asset
-            xsi:type="esdl:BuildingUnit"
+        <buildingUnits
             name="GroundFloorShop"
             type="SHOPPING"/>
-        <asset
-            xsi:type="esdl:BuildingUnit"
+        <buildingUnits
             name="FirstFloorAppartment"
             type="RESIDENTIAL"/>
-      </assets>
-      <assets
+      </asset>
+      <asset
           xsi:type="esdl:Building"
           name="AppartmentComplex"
           roofType="FLATROOF">
-        <asset
-            xsi:type="esdl:BuildingUnit"
+        <buildingUnits
             name="Appartment1A"
             type="RESIDENTIAL"/>
-        <asset
-            xsi:type="esdl:BuildingUnit"
-            name="Appartment1B"
-            type="RESIDENTIAL"/>
-        <asset
-            xsi:type="esdl:BuildingUnit"
-            name="Appartment1C"
-            type="RESIDENTIAL"/>
-        <asset
-            xsi:type="esdl:BuildingUnit"
-            name="Appartment2A"
-            type="RESIDENTIAL"/>
-        <asset
-            xsi:type="esdl:BuildingUnit"
+        <buildingUnits
             name="Appartment2C"
             type="RESIDENTIAL"/>
-      </assets>
+        <buildingUnits
+            name="Appartment2A"
+            type="RESIDENTIAL"/>
+        <buildingUnits
+            name="Appartment1C"
+            type="RESIDENTIAL"/>
+        <buildingUnits
+            name="Appartment1B"
+            type="RESIDENTIAL"/>
+      </asset>
     </area>
   </instance>
+  <potentials>
+    <potential
+        xsi:type="esdl:GeothermalPotential"
+        areas="//@instance.0/@area"
+        id=""/>
+  </potentials>
 </esdl:EnergySystem>
