@@ -121,10 +121,12 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="potentials" upperBound="-1"
         eType="#//Potential" eOpposite="#//Potential/areas"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="area" upperBound="-1" eType="#//Area"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
         eType="#//Asset" containment="true" eOpposite="#//Asset/area"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="area" upperBound="-1" eType="#//Area"
+        containment="true" eOpposite="#//Area/containingArea"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containingArea" eType="#//Area"
+        eOpposite="#//Area/area"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commodity" eType="#//CommodityEnum"
@@ -214,6 +216,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="location" upperBound="-1"
         eType="#//Location" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="area" eType="#//Area" eOpposite="#//Area/asset"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containingBuilding" eType="#//AbstractBuilding"
+        eOpposite="#//AbstractBuilding/asset"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericConsumer" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="GenericProducer" eSuperTypes="#//Producer"/>
@@ -465,7 +469,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="AbstractBuilding" abstract="true" eSuperTypes="#//Asset">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyLabel" eType="#//EnergyLabelEnum"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
-        eType="#//Asset" containment="true"/>
+        eType="#//Asset" containment="true" eOpposite="#//Asset/containingBuilding"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Instance">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
