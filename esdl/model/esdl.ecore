@@ -31,6 +31,9 @@
     <eLiterals name="ELECTRICITY"/>
     <eLiterals name="GAS" value="1"/>
     <eLiterals name="HEAT" value="2"/>
+    <eLiterals name="H2" value="3"/>
+    <eLiterals name="BIOGAS" value="4"/>
+    <eLiterals name="CO2" value="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergySystem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -44,18 +47,13 @@
         eType="#//Instance" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="potentials" eType="#//Potentials"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="availableEnergyCarriers"
+        eType="#//AvailableEnergyCarriers" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WindTurbine" eSuperTypes="#//Producer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rotorDiameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="windParc" eType="#//WindParc"
-        eOpposite="#//WindParc/windTurbine"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="WindParc" eSuperTypes="#//Producer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfMills" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="windTurbine" lowerBound="1"
-        upperBound="-1" eType="#//WindTurbine" containment="true" eOpposite="#//WindTurbine/windParc"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PVPanel" eSuperTypes="#//Producer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -63,13 +61,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inverterEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="angle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pvParc" eType="#//PVParc"
-        eOpposite="#//PVParc/pvPanel"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PVParc" eSuperTypes="#//Producer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfPanels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pvPanel" lowerBound="1"
-        upperBound="-1" eType="#//PVPanel" containment="true" eOpposite="#//PVPanel/pvParc"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Battery" eSuperTypes="#//Storage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selfDischarge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -359,6 +350,7 @@
     <eLiterals name="RIVER" value="8"/>
     <eLiterals name="CANAL" value="9"/>
     <eLiterals name="LAKE" value="10"/>
+    <eLiterals name="LAND" value="11"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HeatDemand" eSuperTypes="#//Consumer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//HeatDemandTypeEnum"/>
@@ -457,6 +449,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMaxLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMinLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="energyCarrier" eType="#//EnergyCarrier"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PowerPlantFuelEnum">
     <eLiterals name="UNDEFINED"/>
@@ -510,5 +503,41 @@
   <eClassifiers xsi:type="ecore:EClass" name="Potentials">
     <eStructuralFeatures xsi:type="ecore:EReference" name="potential" upperBound="-1"
         eType="#//Potential" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnergyCarrier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyContentPerUnit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emissionPerUnit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyCarrierType" eType="#//EnergyCarrierTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateOfMatter" eType="#//StateOfMatterEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Losses" eSuperTypes="#//Consumer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PowerToX" eSuperTypes="#//Conversion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CCS" eSuperTypes="#//Storage"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnergyCarrierTypeEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="RENEWABLE" value="1"/>
+    <eLiterals name="FOSSIL" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="StateOfMatterEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="SOLID" value="1"/>
+    <eLiterals name="LIQUID" value="2"/>
+    <eLiterals name="GASEOUS" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AvailableEnergyCarriers">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="energyCarrier" upperBound="-1"
+        eType="#//EnergyCarrier" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FuelCell" eSuperTypes="#//Conversion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="XToPower" eSuperTypes="#//Conversion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="WindParc" eSuperTypes="#//WindTurbine">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfTurbines" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PVParc" eSuperTypes="#//PVPanel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfPanels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
 </ecore:EPackage>
