@@ -2360,7 +2360,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_Irrrgi6KEeiWjLxha38UbA"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_IrdpES6KEeiWjLxha38UbA" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IrdpEi6KEeiWjLxha38UbA" x="1776" y="-647" width="120" height="100"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IrdpEi6KEeiWjLxha38UbA" x="1699" y="-650" width="120" height="100"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_Mvo1wrryEeeIKeRLj9tspA"/>
         <edges xmi:type="notation:Edge" xmi:id="_3HqLRLryEeeIKeRLj9tspA" type="4001" element="_A8fkxP0SEeeeKZnzyFWydQ" source="_3GlNMLryEeeIKeRLj9tspA" target="_3Gj_FLryEeeIKeRLj9tspA">
@@ -8600,6 +8600,9 @@
     <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_IoDIsC6KEeiWjLxha38UbA" name="EnergyPrices" tooltipText="" incomingEdges="_LfkIYC6KEeiWjLxha38UbA" width="12" height="10">
       <target xmi:type="ecore:EClass" href="esdl.ecore#//EnergyPrices"/>
       <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//EnergyPrices"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_IoE94C6KEeiWjLxha38UbA" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
