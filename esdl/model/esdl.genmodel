@@ -205,7 +205,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/measures"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/instance"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/potentials"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/availableEnergyCarriers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/energySystemInformation"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WindTurbine">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindTurbine/power"/>
@@ -426,6 +426,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PowerPlant/minLoad"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PowerPlant/effMaxLoad"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PowerPlant/effMinLoad"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//PowerPlant/energyCarrier"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Property"/>
     <genClasses image="false" ecoreClass="esdl.ecore#//AbstractBuilding">
@@ -482,5 +483,11 @@
     <genClasses ecoreClass="esdl.ecore#//PVParc">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVParc/numberOfPanels"/>
     </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//EnergySystemInformation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/availableEnergyCarriers"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//Pump"/>
+    <genClasses ecoreClass="esdl.ecore#//Valve"/>
+    <genClasses ecoreClass="esdl.ecore#//EnergyPrices"/>
   </genPackages>
 </genmodel:GenModel>

@@ -47,8 +47,8 @@
         eType="#//Instance" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="potentials" eType="#//Potentials"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="availableEnergyCarriers"
-        eType="#//AvailableEnergyCarriers" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="energySystemInformation"
+        eType="#//EnergySystemInformation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WindTurbine" eSuperTypes="#//Producer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -540,4 +540,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="PVParc" eSuperTypes="#//PVPanel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfPanels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnergySystemInformation" eSuperTypes="#//EnergyPrices">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="availableEnergyCarriers"
+        eType="#//AvailableEnergyCarriers" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pump" eSuperTypes="#//Transport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Valve" eSuperTypes="#//Transport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EnergyPrices"/>
 </ecore:EPackage>
