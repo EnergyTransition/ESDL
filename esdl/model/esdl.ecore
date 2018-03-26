@@ -77,16 +77,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"
         eType="#//Consumer"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Profile">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="profileItem" lowerBound="1"
-        upperBound="-1" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="start" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="profileType" eType="#//ProfileTypeEnum"
-        defaultValueLiteral="ENERGY_IN_J"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="duration" lowerBound="1"
-        eType="#//Duration" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="profileRef" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuildingUnit" eSuperTypes="#//AbstractBuilding">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//BuildingTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="housingType" eType="#//HousingTypeEnum"/>
@@ -153,21 +143,21 @@
     <eLiterals name="STATEOFCHARGE_IN_WS" value="3"/>
     <eLiterals name="ENERGY_IN_WH" value="4"/>
     <eLiterals name="ENERGY_IN_KWH" value="5"/>
-    <eLiterals name="ENERGY_IN_MWH" value="5"/>
-    <eLiterals name="ENERGY_IN_GWH" value="6"/>
-    <eLiterals name="ENERGY_IN_J" value="7"/>
-    <eLiterals name="ENERGY_IN_KJ" value="8"/>
-    <eLiterals name="ENERGY_IN_MJ" value="9"/>
-    <eLiterals name="ENERGY_IN_GJ" value="10"/>
-    <eLiterals name="ENERGY_IN_TJ" value="11"/>
-    <eLiterals name="ENERGY_IN_PJ" value="12"/>
-    <eLiterals name="TEMPERATURE_IN_C" value="13"/>
-    <eLiterals name="TEMPERATURE_IN_K" value="14"/>
-    <eLiterals name="POWER_IN_W" value="15"/>
-    <eLiterals name="POWER_IN_KW" value="16"/>
-    <eLiterals name="POWER_IN_MW" value="17"/>
-    <eLiterals name="POWER_IN_GW" value="18"/>
-    <eLiterals name="POWER_IN_TW" value="19"/>
+    <eLiterals name="ENERGY_IN_MWH" value="6"/>
+    <eLiterals name="ENERGY_IN_GWH" value="7"/>
+    <eLiterals name="ENERGY_IN_J" value="8"/>
+    <eLiterals name="ENERGY_IN_KJ" value="9"/>
+    <eLiterals name="ENERGY_IN_MJ" value="10"/>
+    <eLiterals name="ENERGY_IN_GJ" value="11"/>
+    <eLiterals name="ENERGY_IN_TJ" value="12"/>
+    <eLiterals name="ENERGY_IN_PJ" value="13"/>
+    <eLiterals name="TEMPERATURE_IN_C" value="14"/>
+    <eLiterals name="TEMPERATURE_IN_K" value="15"/>
+    <eLiterals name="POWER_IN_W" value="16"/>
+    <eLiterals name="POWER_IN_KW" value="17"/>
+    <eLiterals name="POWER_IN_MW" value="18"/>
+    <eLiterals name="POWER_IN_GW" value="19"/>
+    <eLiterals name="POWER_IN_TW" value="20"/>
     <eLiterals name="MONEY_IN_EUR" value="21"/>
     <eLiterals name="MONEY_IN_KEUR" value="22"/>
     <eLiterals name="MONEY_IN_MEUR" value="23"/>
@@ -561,7 +551,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="GenericProfile" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="profileType" eType="#//ProfileTypeEnum"
-        defaultValueLiteral=""/>
+        defaultValueLiteral="UNDEFINED"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StaticProfile" abstract="true" eSuperTypes="#//GenericProfile"/>
   <eClassifiers xsi:type="ecore:EClass" name="DateTimeProfile" eSuperTypes="#//StaticProfile">

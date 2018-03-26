@@ -8881,7 +8881,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_ukpb8C6vEeiK6b1j6uagLA" name="GenericProfile" tooltipText="&#xA;WARNING : The default value literal '' must be a valid literal of the attribute's type" incomingEdges="_XYiFMC6wEeiK6b1j6uagLA _ep4y8C6wEeiK6b1j6uagLA _FAugEC6zEeiK6b1j6uagLA _dooNcC60EeiK6b1j6uagLA _EbZdsDDdEei26a1mJzLtNQ _I8MIUDDdEei26a1mJzLtNQ _kAj-gDDmEei26a1mJzLtNQ" width="12" height="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_ukpb8C6vEeiK6b1j6uagLA" name="GenericProfile" tooltipText="" incomingEdges="_XYiFMC6wEeiK6b1j6uagLA _ep4y8C6wEeiK6b1j6uagLA _FAugEC6zEeiK6b1j6uagLA _dooNcC60EeiK6b1j6uagLA _EbZdsDDdEei26a1mJzLtNQ _I8MIUDDdEei26a1mJzLtNQ _kAj-gDDmEei26a1mJzLtNQ" width="12" height="10">
       <target xmi:type="ecore:EClass" href="esdl.ecore#//GenericProfile"/>
       <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//GenericProfile"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -8900,7 +8900,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_IwV3UC6xEeiK6b1j6uagLA" name="profileType : ProfileTypeEnum" tooltipText="&#xA;WARNING : The default value literal '' must be a valid literal of the attribute's type">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_IwV3UC6xEeiK6b1j6uagLA" name="profileType : ProfileTypeEnum = UNDEFINED" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericProfile/profileType"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericProfile/profileType"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_KgNScC6xEeiK6b1j6uagLA" labelAlignment="LEFT">
@@ -9483,16 +9483,6 @@
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//AggregatedConsumer"/>
-      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
-    </lines>
-    <lines xmi:type="table:DLine" xmi:id="_XjYHorsmEeeZZezrcapb6w" label="EClass : ProfileItem">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//ProfileItem"/>
-      <lines xmi:type="table:DLine" xmi:id="_XjYHo7smEeeZZezrcapb6w" label="EAttribute : value">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//ProfileItem/value"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//ProfileItem/value"/>
-        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
-      </lines>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//ProfileItem"/>
       <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
     </lines>
     <lines xmi:type="table:DLine" xmi:id="_XjYHqrsmEeeZZezrcapb6w" label="EClass : ItemCollection">
