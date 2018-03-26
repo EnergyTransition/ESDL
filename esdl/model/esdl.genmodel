@@ -30,6 +30,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AreaScopeEnum/CONTINENT"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//ProfileTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/UNDEFINED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/SOLARIRRADIANCE_IN_W_PER_M2"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/WINDSPEED_IN_M_PER_S"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/STATEOFCHARGE_IN_WS"/>
@@ -50,6 +51,12 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/POWER_IN_MW"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/POWER_IN_GW"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/POWER_IN_TW"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/MONEY_IN_EUR"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/MONEY_IN_KEUR"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/MONEY_IN_MEUR"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/PERCENTAGE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/MONEY_IN_EUR_PER_KW"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/MONEY_IN_EUR_PER_KWH"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//DurationUnitEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//DurationUnitEnum/SECOND"/>
@@ -230,16 +237,6 @@
     <genClasses ecoreClass="esdl.ecore#//AggregatedConsumer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedConsumer/aggregationOf"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//ProfileItem">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ProfileItem/value"/>
-    </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//Profile">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Profile/profileItem"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Profile/start"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Profile/profileType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Profile/duration"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Profile/profileRef"/>
-    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//BuildingUnit">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUnit/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUnit/housingType"/>
@@ -262,9 +259,9 @@
     <genClasses image="false" ecoreClass="esdl.ecore#//Port">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/commodity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/id"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/profile"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/maxPower"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference esdl.ecore#//Port/energyasset"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/profile"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AggregatedProducer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedProducer/aggregationOf"/>
@@ -485,9 +482,43 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EnergySystemInformation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/availableEnergyCarriers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/energyPrices"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Pump"/>
     <genClasses ecoreClass="esdl.ecore#//Valve"/>
-    <genClasses ecoreClass="esdl.ecore#//EnergyPrices"/>
+    <genClasses ecoreClass="esdl.ecore#//EnergyPrices">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyPrices/elecPrice"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyPrices/gasPrice"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//GenericProfile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericProfile/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericProfile/profileType"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//StaticProfile"/>
+    <genClasses ecoreClass="esdl.ecore#//DateTimeProfile">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//DateTimeProfile/pitem"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//StartEndProfile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StartEndProfile/start"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StartEndProfile/end"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StartEndProfile/item"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//StartDurationProfile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StartDurationProfile/start"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//StartDurationProfile/duration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StartDurationProfile/item"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//PItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PItem/dateTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PItem/value"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//ExternalProfile"/>
+    <genClasses ecoreClass="esdl.ecore#//MultiplierProfile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MultiplierProfile/multiplier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MultiplierProfile/staticprofile"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//Literal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Literal/value"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
