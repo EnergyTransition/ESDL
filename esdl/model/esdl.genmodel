@@ -517,8 +517,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MultiplierProfile/multiplier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MultiplierProfile/staticprofile"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//Literal">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Literal/value"/>
+    <genClasses ecoreClass="esdl.ecore#//SingleValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SingleValue/value"/>
     </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//GenericDistribution"/>
+    <genClasses ecoreClass="esdl.ecore#//Percentile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Percentile/percentile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Percentile/value"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//PercentileDistribution">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//PercentileDistribution/percentile"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//CoolDemand"/>
+    <genClasses ecoreClass="esdl.ecore#//Airco"/>
   </genPackages>
 </genmodel:GenModel>

@@ -579,7 +579,18 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="staticprofile" lowerBound="1"
         eType="#//StaticProfile" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Literal" eSuperTypes="#//StaticProfile">
+  <eClassifiers xsi:type="ecore:EClass" name="SingleValue" eSuperTypes="#//StaticProfile">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GenericDistribution" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Percentile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PercentileDistribution" eSuperTypes="#//GenericDistribution">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="percentile" upperBound="-1"
+        eType="#//Percentile" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CoolDemand" eSuperTypes="#//Consumer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Airco" eSuperTypes="#//Conversion"/>
 </ecore:EPackage>
