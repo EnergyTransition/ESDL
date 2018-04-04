@@ -312,6 +312,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxEfficiencyHeat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxEfficiencyElectricity"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="energycarrier" eType="#//EnergyCarrier"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HeatPump" eSuperTypes="#//Conversion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="#//SourceTypeEnum"/>
@@ -526,7 +527,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="energyCarrier" upperBound="-1"
         eType="#//EnergyCarrier" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FuelCell" eSuperTypes="#//Conversion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FuelCell" eSuperTypes="#//Conversion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="energycarrier" eType="#//EnergyCarrier"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="XToPower" eSuperTypes="#//Conversion"/>
   <eClassifiers xsi:type="ecore:EClass" name="WindParc" eSuperTypes="#//WindTurbine">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfTurbines" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>

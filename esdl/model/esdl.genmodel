@@ -367,6 +367,7 @@
     <genClasses ecoreClass="esdl.ecore#//CHP">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CHP/maxEfficiencyHeat"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CHP/maxEfficiencyElectricity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//CHP/energycarrier"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HeatPump">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/source"/>
@@ -472,7 +473,9 @@
     <genClasses ecoreClass="esdl.ecore#//AvailableEnergyCarriers">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AvailableEnergyCarriers/energyCarrier"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//FuelCell"/>
+    <genClasses ecoreClass="esdl.ecore#//FuelCell">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//FuelCell/energycarrier"/>
+    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//XToPower"/>
     <genClasses ecoreClass="esdl.ecore#//WindParc">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindParc/numberOfTurbines"/>
