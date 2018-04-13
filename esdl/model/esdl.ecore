@@ -203,8 +203,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="area" eType="#//Area" eOpposite="#//Area/asset"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containingBuilding" eType="#//AbstractBuilding"
         eOpposite="#//AbstractBuilding/asset"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="costInformation" upperBound="-1"
-        eType="#//CostInformation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="costInformation" eType="#//CostInformation"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericConsumer" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="GenericProducer" eSuperTypes="#//Producer"/>
@@ -564,8 +564,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StaticProfile" abstract="true" eSuperTypes="#//GenericProfile"/>
   <eClassifiers xsi:type="ecore:EClass" name="DateTimeProfile" eSuperTypes="#//StaticProfile">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pitem" upperBound="-1"
-        eType="#//PItem" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="item" upperBound="-1" eType="#//PItem"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StartEndProfile" eSuperTypes="#//StaticProfile">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="start" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
@@ -660,5 +660,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PItemStat">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sigma" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
 </ecore:EPackage>
