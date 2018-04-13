@@ -203,6 +203,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="area" eType="#//Area" eOpposite="#//Area/asset"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containingBuilding" eType="#//AbstractBuilding"
         eOpposite="#//AbstractBuilding/asset"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="costInformation" upperBound="-1"
+        eType="#//CostInformation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericConsumer" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="GenericProducer" eSuperTypes="#//Producer"/>
@@ -487,6 +489,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"
         eType="#//AbstractBuilding"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfBuildings" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="energyLabelDistribution"
+        eType="#//EnergyLabelDistribution" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buildingYearDistribution"
+        eType="#//FromToDistribution" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SectorEnum">
     <eLiterals name="UNDEFINED"/>
@@ -585,7 +591,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="SingleValue" eSuperTypes="#//StaticProfile">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GenericDistribution" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GenericDistribution" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Percentile">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -596,4 +604,61 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CoolDemand" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="Airco" eSuperTypes="#//Conversion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CostInformation" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ActualCostInformation" eSuperTypes="#//CostInformation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="investmentCosts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="installationCosts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="O_and_MCosts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="costUnit" eType="#//CostUnitEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PotentialCostInformation" eSuperTypes="#//CostInformation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="investmentCosts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="installationCosts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="O_and_MCosts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="costUnit" eType="#//CostUnitEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CostUnitEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="MONEY_IN_EUR" value="1"/>
+    <eLiterals name="MONEY_IN_KEUR" value="2"/>
+    <eLiterals name="MONEY_IN_MEUR" value="3"/>
+    <eLiterals name="MONEY_IN_EUR_PER_KW" value="4"/>
+    <eLiterals name="MONEY_IN_EUR_PER_KWH" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PotentialCostProfileInformation" eSuperTypes="#//CostInformation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="investmentCosts" eType="#//GenericProfile"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="installationCosts" eType="#//GenericProfile"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="O_and_MCosts" eType="#//GenericProfile"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="costUnit" eType="#//CostUnitEnum"
+        defaultValueLiteral="UNDEFINED"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LabelDistribution" abstract="true" eSuperTypes="#//GenericDistribution"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringLabelDistribution" eSuperTypes="#//LabelDistribution">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stringPerc" upperBound="-1"
+        eType="#//StringPerc" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnergyLabelDistribution" eSuperTypes="#//LabelDistribution">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="labelPerc" upperBound="-1"
+        eType="#//EnergyLabelPerc" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringPerc">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnergyLabelPerc">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyLabel" eType="#//EnergyLabelEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FromToDistribution" eSuperTypes="#//LabelDistribution">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fromToPerc" upperBound="-1"
+        eType="#//FromToPerc" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FromToPerc">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
 </ecore:EPackage>
