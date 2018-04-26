@@ -535,6 +535,7 @@
     <genClasses ecoreClass="esdl.ecore#//GenericProfile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericProfile/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericProfile/profileType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericProfile/multiplier"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//StaticProfile"/>
     <genClasses ecoreClass="esdl.ecore#//DateTimeProfile">
@@ -551,14 +552,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StartDurationProfile/item"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//PItem">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PItem/dateTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PItem/startDateTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PItem/endDateTime"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PItem/value"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//ExternalProfile"/>
-    <genClasses ecoreClass="esdl.ecore#//MultiplierProfile">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MultiplierProfile/multiplier"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MultiplierProfile/staticprofile"/>
-    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//SingleValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SingleValue/value"/>
     </genClasses>
