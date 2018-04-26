@@ -323,7 +323,7 @@
         defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pumpPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CHP" eSuperTypes="#//Conversion">
+  <eClassifiers xsi:type="ecore:EClass" name="CoGeneration" abstract="true" eSuperTypes="#//Conversion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxEfficiencyHeat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxEfficiencyElectricity"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -331,7 +331,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerHeat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerElectricity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="HERatio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CHPType" eType="#//CHPTypeEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HeatPump" eSuperTypes="#//Conversion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="#//SourceTypeEnum"/>
@@ -552,9 +551,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="energyCarrier" upperBound="-1"
         eType="#//EnergyCarrier" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FuelCell" eSuperTypes="#//Conversion">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="energycarrier" eType="#//EnergyCarrier"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FuelCell" eSuperTypes="#//CoGeneration"/>
   <eClassifiers xsi:type="ecore:EClass" name="XToPower" eSuperTypes="#//Conversion"/>
   <eClassifiers xsi:type="ecore:EClass" name="WindParc" eSuperTypes="#//WindTurbine">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfTurbines" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -708,5 +705,8 @@
     <eLiterals name="STEG" value="1"/>
     <eLiterals name="GAS_TURBINE" value="2"/>
     <eLiterals name="GAS_MOTOR" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CHP" eSuperTypes="#//CoGeneration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CHPType" eType="#//CHPTypeEnum"/>
   </eClassifiers>
 </ecore:EPackage>
