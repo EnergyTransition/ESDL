@@ -533,28 +533,27 @@
     <genClasses ecoreClass="esdl.ecore#//GenericProfile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericProfile/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericProfile/profileType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericProfile/multiplier"/>
+      <genOperations ecoreOperation="esdl.ecore#//GenericProfile/getProfile">
+        <genParameters ecoreParameter="esdl.ecore#//GenericProfile/getProfile/from"/>
+        <genParameters ecoreParameter="esdl.ecore#//GenericProfile/getProfile/to"/>
+        <genParameters ecoreParameter="esdl.ecore#//GenericProfile/getProfile/aggregationPrecision"/>
+      </genOperations>
+      <genOperations ecoreOperation="esdl.ecore#//GenericProfile/setProfile">
+        <genParameters ecoreParameter="esdl.ecore#//GenericProfile/setProfile/profileElementList"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//StaticProfile"/>
     <genClasses ecoreClass="esdl.ecore#//DateTimeProfile">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//DateTimeProfile/item"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//DateTimeProfile/element"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//StartEndProfile">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StartEndProfile/start"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StartEndProfile/end"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StartEndProfile/item"/>
+    <genClasses ecoreClass="esdl.ecore#//ProfileElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ProfileElement/from"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ProfileElement/to"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ProfileElement/value"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//StartDurationProfile">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StartDurationProfile/start"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//StartDurationProfile/duration"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StartDurationProfile/item"/>
+    <genClasses ecoreClass="esdl.ecore#//ExternalProfile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ExternalProfile/multiplier"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//PItem">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PItem/startDateTime"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PItem/endDateTime"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PItem/value"/>
-    </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//ExternalProfile"/>
     <genClasses ecoreClass="esdl.ecore#//SingleValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SingleValue/value"/>
     </genClasses>
@@ -640,6 +639,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Party/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Party/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Party/shortName"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//URIProfile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//URIProfile/URI"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//DatabaseProfile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseProfile/host"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseProfile/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseProfile/database"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//InfluxDBProfile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//InfluxDBProfile/measurement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//InfluxDBProfile/field"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
