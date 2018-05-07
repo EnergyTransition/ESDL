@@ -53,6 +53,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="energySystemInformation"
         eType="#//EnergySystemInformation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="party" upperBound="-1"
+        eType="#//Party" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WindTurbine" eSuperTypes="#//Producer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -202,8 +204,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="owner" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contour" upperBound="-1"
         eType="#//Contour" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="location" upperBound="-1"
-        eType="#//Location" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//Location"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="area" eType="#//Area" eOpposite="#//Area/asset"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containingBuilding" eType="#//AbstractBuilding"
         eOpposite="#//AbstractBuilding/asset"/>
@@ -448,6 +450,8 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isOwnedBy" eType="#//Party"
+        eOpposite="#//Party/owns"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Measures">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
@@ -456,7 +460,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="EConnection" eSuperTypes="#//Transport"/>
   <eClassifiers xsi:type="ecore:EClass" name="HConnection" eSuperTypes="#//Transport"/>
   <eClassifiers xsi:type="ecore:EClass" name="GConnection" eSuperTypes="#//Transport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PowerPlant" eSuperTypes="#//Producer">
+  <eClassifiers xsi:type="ecore:EClass" name="PowerPlant" eSuperTypes="#//Conversion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fuel" eType="#//PowerPlantFuelEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -473,7 +477,6 @@
     <eLiterals name="NATURAL_GAS" value="3"/>
     <eLiterals name="URANIUM" value="4"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Property" abstract="true" eSuperTypes="#//Item"/>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractBuilding" abstract="true" eSuperTypes="#//Asset">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyLabel" eType="#//EnergyLabelEnum"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
@@ -708,5 +711,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CHP" eSuperTypes="#//CoGeneration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CHPType" eType="#//CHPTypeEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Party">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owns" upperBound="-1" eType="#//Item"
+        eOpposite="#//Item/isOwnedBy"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
