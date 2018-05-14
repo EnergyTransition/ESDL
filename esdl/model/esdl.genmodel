@@ -88,7 +88,7 @@
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//ProdTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProdTypeEnum/RENEWABLE"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProdTypeEnum/NONRENEWABLE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProdTypeEnum/NON_RENEWABLE"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//SourceTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//SourceTypeEnum/UNDEFINED"/>
@@ -292,7 +292,7 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Duration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Duration/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Duration/durarionUnit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Duration/durationUnit"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//InPort">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//InPort/connectedToOut"/>
@@ -346,6 +346,7 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GasHeater">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasHeater/power"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasHeater/minBurnRate"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HeatNetwork"/>
     <genClasses ecoreClass="esdl.ecore#//GasNetwork"/>
@@ -407,6 +408,9 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HeatPump">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/power"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/stages"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/COP"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HeatDemand">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatDemand/type"/>

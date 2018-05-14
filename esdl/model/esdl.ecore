@@ -173,7 +173,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Duration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="durarionUnit" eType="#//DurationUnitEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="durationUnit" eType="#//DurationUnitEnum"
+        defaultValueLiteral="SECOND"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DurationUnitEnum">
     <eLiterals name="SECOND"/>
@@ -261,7 +262,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ProdTypeEnum">
     <eLiterals name="RENEWABLE"/>
-    <eLiterals name="NONRENEWABLE" value="1"/>
+    <eLiterals name="NON_RENEWABLE" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HeatStorage" eSuperTypes="#//Storage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatLoss" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
@@ -273,6 +274,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GasHeater" eSuperTypes="#//Conversion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minBurnRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HeatNetwork" eSuperTypes="#//Transport"/>
   <eClassifiers xsi:type="ecore:EClass" name="GasNetwork" eSuperTypes="#//Transport"/>
@@ -336,6 +339,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HeatPump" eSuperTypes="#//Conversion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="#//SourceTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stages" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="COP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SourceTypeEnum">
     <eLiterals name="UNDEFINED"/>
@@ -580,7 +587,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="All profiles should describe these fields: a name and a ProfileType. There are two different profile types: static, with static values stored in the ESDL model itself. And External, which allows you to refer to an externally defined profile (e.g. in an Energy Information System or a timeseries database)"/>
     </eAnnotations>
-    <eOperations name="getProfile" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+    <eOperations name="getProfile" upperBound="-1" eType="#//ProfileElement">
       <eParameters name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       <eParameters name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       <eParameters name="aggregationPrecision" eType="#//Duration"/>
