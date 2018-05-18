@@ -2395,7 +2395,11 @@
           <styles xmi:type="notation:TextStyle" xmi:id="_Q9iPsyLTEeiK8Zr8Km6pyQ" textAlignment="Center"/>
           <styles xmi:type="notation:LineTypeStyle" xmi:id="_Q9iPtCLTEeiK8Zr8Km6pyQ"/>
           <element xsi:nil="true"/>
+<<<<<<< HEAD
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Q9iPtSLTEeiK8Zr8Km6pyQ" x="2280" y="-396" width="209"/>
+=======
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Q9iPtSLTEeiK8Zr8Km6pyQ" x="2196" y="-612" width="209"/>
+>>>>>>> branch 'master' of https://ci.tno.nl/gitlab/ESDL/esdlspec.git
         </children>
         <children xmi:type="notation:Shape" xmi:id="_VaCQMCLTEeiK8Zr8Km6pyQ" type="Note" fontName="Segoe UI" description="Gebaseerd op lijst van RVO met emissie. PS. Ontwikkelingen over meerdere jaren nog niet mogelijk" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
           <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_VaCQMSLTEeiK8Zr8Km6pyQ" source="specificStyles">
@@ -5457,17 +5461,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_Imdu8FppEeirtq8MZbgEng" type="4001" element="_IkkRgFppEeirtq8MZbgEng" source="_3GnCYLryEeeIKeRLj9tspA" target="_xwyskE7UEeiDE8eB-JYDvg">
           <children xmi:type="notation:Node" xmi:id="_ImeWAFppEeirtq8MZbgEng" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ImeWAVppEeirtq8MZbgEng" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ImeWAVppEeirtq8MZbgEng" x="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_ImeWAlppEeirtq8MZbgEng" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ImeWA1ppEeirtq8MZbgEng" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ImeWA1ppEeirtq8MZbgEng" x="-25" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_Ime9EFppEeirtq8MZbgEng" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ime9EVppEeirtq8MZbgEng" x="88" y="-13"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ime9EVppEeirtq8MZbgEng" x="10" y="-64"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_Imdu8VppEeirtq8MZbgEng" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_Imdu8lppEeirtq8MZbgEng" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Imdu81ppEeirtq8MZbgEng" points="[0, 0, 85, 610]$[0, -305, 85, 305]$[-85, -305, 0, 305]$[-85, -610, 0, 0]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Imdu81ppEeirtq8MZbgEng" points="[0, 0, 85, 610]$[0, -326, 85, 284]$[72, -326, 157, 284]$[72, -658, 157, -48]$[-60, -658, 25, -48]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ime9ElppEeirtq8MZbgEng" id="(0.6327433628318584,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ime9E1ppEeirtq8MZbgEng" id="(0.788135593220339,1.0)"/>
         </edges>
@@ -11636,7 +11640,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_IkkRgFppEeirtq8MZbgEng" sourceNode="_2j5W4LryEeeIKeRLj9tspA" targetNode="_xuaG8E7UEeiDE8eB-JYDvg" beginLabel="[0..1] ownsArea" endLabel="[0..1] isOwnedBy">
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_IkkRgFppEeirtq8MZbgEng" sourceNode="_2j5W4LryEeeIKeRLj9tspA" targetNode="_xuaG8E7UEeiDE8eB-JYDvg" beginLabel="[0..*] ownsArea" endLabel="[0..1] isOwnedBy">
       <target xmi:type="ecore:EReference" href="esdl.ecore#//Area/isOwnedBy"/>
       <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Area/isOwnedBy"/>
       <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Party/ownsArea"/>
