@@ -764,8 +764,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownsArea" eType="#//Area"
-        eOpposite="#//Area/isOwnedBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownsArea" upperBound="-1"
+        eType="#//Area" eOpposite="#//Area/isOwnedBy"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="URIProfile" eSuperTypes="#//ExternalProfile">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
