@@ -119,6 +119,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AreaTypeEnum/CANAL"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AreaTypeEnum/LAKE"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AreaTypeEnum/LAND"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AreaTypeEnum/PARCEL"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//HeatDemandTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatDemandTypeEnum/UNDEFINED"/>
@@ -137,6 +138,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//RoofTypeEnum/UNDEFINED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//RoofTypeEnum/FLATROOF"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//RoofTypeEnum/SLANTEDROOF"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//RoofTypeEnum/COMBINATION"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//EnergyLabelEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//EnergyLabelEnum/UNDEFINED"/>
@@ -155,9 +157,16 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//ResidentialBuildingTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/UNDEFINED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/VRIJSTAANDE_WONING"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/RIJTJESHUIS"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/2_ONDER_1_KAP_WONING"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/RIJWONING"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/MAISONNETTEWONING"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/GALERIJWONING"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/PORTIEKWONING"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/FLATWONING"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/TUSSENWONING"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/HOEKWONING"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/APPARTEMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/GALERIJCOMPLEX"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidentialBuildingTypeEnum/APPARTEMENTENCOMPLEX"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//PowerPlantFuelEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PowerPlantFuelEnum/UNDEFINED"/>
@@ -202,6 +211,46 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CHPTypeEnum/STEG"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CHPTypeEnum/GAS_TURBINE"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CHPTypeEnum/GAS_MOTOR"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//GlasTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlasTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlasTypeEnum/ENKEL_GLAS"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlasTypeEnum/DUBBEL_GLAS"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlasTypeEnum/HR_GLAS"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlasTypeEnum/HRP_GLAS"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlasTypeEnum/HRPP_GLAS"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlasTypeEnum/HRPPP_GLAS"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//VentilationTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VentilationTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VentilationTypeEnum/NATURAL"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VentilationTypeEnum/MECHANIC_IN"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VentilationTypeEnum/MECHANIC_OUT"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VentilationTypeEnum/MECHANIC_INOUT"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VentilationTypeEnum/BALANCED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VentilationTypeEnum/BALANCED_WITH_HEATRECUPERATION"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//GasHeaterTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GasHeaterTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GasHeaterTypeEnum/CR"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GasHeaterTypeEnum/VR"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GasHeaterTypeEnum/HR100"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GasHeaterTypeEnum/HR104"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GasHeaterTypeEnum/HR107"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GasHeaterTypeEnum/HRE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GasHeaterTypeEnum/HRWW"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//InhabitantsTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//InhabitantsTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//InhabitantsTypeEnum/ALLEENSTAAND"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//InhabitantsTypeEnum/TWEEVERDIENERS"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//InhabitantsTypeEnum/GEZIN_MET_KINDEREN"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//InhabitantsTypeEnum/BEJAARD_ECHTPAAR"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//AdditionalHeatingSourceTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AdditionalHeatingSourceTypeEnum/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AdditionalHeatingSourceTypeEnum/ELECTRIC"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AdditionalHeatingSourceTypeEnum/GAS"/>
     </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>
@@ -256,8 +305,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Battery/chargeEfficiency"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Battery/dischargeEfficiency"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//ElectricityNetwork"/>
-    <genClasses ecoreClass="esdl.ecore#//ElectricityCable"/>
+    <genClasses ecoreClass="esdl.ecore#//ElectricityNetwork">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ElectricityNetwork/voltage"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//ElectricityCable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ElectricityCable/length"/>
+    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AggregatedConsumer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedConsumer/aggregationOf"/>
     </genClasses>
@@ -265,6 +318,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUnit/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUnit/housingType"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference esdl.ecore#//BuildingUnit/building"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUnit/numberOfInhabitants"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUnit/inhabitantsType"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Area">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/id"/>
@@ -303,18 +358,14 @@
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Asset">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/surfaceArea"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/purchaseCosts"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/operationalCosts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/commissioningDate"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/expectedDecommissioningDate"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/installationCosts"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/marginalCosts"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/decommissioningDate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/owner"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/contour"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/location"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference esdl.ecore#//Asset/area"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference esdl.ecore#//Asset/containingBuilding"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/shape"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/costInformation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/technicalLifetime"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GenericConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//GenericProducer"/>
@@ -331,14 +382,25 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedStorage/aggregationOf"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Building">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/roofArea"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/buildingYear"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/residentialBuildingType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/floorArea"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/numberOfFloors"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/slantedRoofArea"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/flatRoofArea"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/roofType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/wallArea"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/windowArea"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/perimeter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/height"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/roofType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/rcFloor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/rcWall"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/rcRoof"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/uWindow"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/orientation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Building/buildingUnits"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/glasType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/ventilationType"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HeatStorage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatStorage/heatLoss"/>
@@ -348,9 +410,14 @@
     <genClasses ecoreClass="esdl.ecore#//GasHeater">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasHeater/power"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasHeater/minimumBurnRate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasHeater/type"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//HeatNetwork"/>
-    <genClasses ecoreClass="esdl.ecore#//GasNetwork"/>
+    <genClasses ecoreClass="esdl.ecore#//HeatNetwork">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatNetwork/temperature"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//GasNetwork">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasNetwork/pressure"/>
+    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Insulation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Insulation/thermalInsulation"/>
     </genClasses>
@@ -412,6 +479,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/stages"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/power"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/COP"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/additionalHeatingSourceType"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HeatDemand">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatDemand/type"/>
@@ -446,7 +514,10 @@
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyService"/>
     <genClasses ecoreClass="esdl.ecore#//DemandResponseService"/>
-    <genClasses ecoreClass="esdl.ecore#//Transformer"/>
+    <genClasses ecoreClass="esdl.ecore#//Transformer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Transformer/voltagePrimary"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Transformer/voltageSecundary"/>
+    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HeatExchange"/>
     <genClasses image="false" ecoreClass="esdl.ecore#//Item">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Item/id"/>
@@ -473,6 +544,7 @@
     <genClasses image="false" ecoreClass="esdl.ecore#//AbstractBuilding">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractBuilding/energyLabel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AbstractBuilding/asset"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractBuilding/energyIndex"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Instance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Instance/id"/>
@@ -578,24 +650,11 @@
     <genClasses ecoreClass="esdl.ecore#//Airco">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Airco/power"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//CostInformation"/>
-    <genClasses ecoreClass="esdl.ecore#//ActualCostInformation">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ActualCostInformation/investmentCosts"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ActualCostInformation/installationCosts"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ActualCostInformation/O_and_MCosts"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ActualCostInformation/costUnit"/>
-    </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//PotentialCostInformation">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PotentialCostInformation/investmentCosts"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PotentialCostInformation/installationCosts"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PotentialCostInformation/O_and_MCosts"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PotentialCostInformation/costUnit"/>
-    </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//PotentialCostProfileInformation">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//PotentialCostProfileInformation/investmentCosts"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//PotentialCostProfileInformation/installationCosts"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//PotentialCostProfileInformation/O_and_MCosts"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PotentialCostProfileInformation/costUnit"/>
+    <genClasses ecoreClass="esdl.ecore#//CostInformation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/investmentCosts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/installationCosts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/O_and_MCosts"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CostInformation/costUnit"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//LabelDistribution"/>
     <genClasses ecoreClass="esdl.ecore#//StringLabelDistribution">
