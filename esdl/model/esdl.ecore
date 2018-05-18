@@ -6,7 +6,8 @@
         containment="true" eOpposite="#//Port/energyasset"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Producer" abstract="true" eSuperTypes="#//EnergyAsset">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prodType" eType="#//ProdTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prodType" eType="#//RenewableTypeEnum"
+        defaultValueLiteral="RENEWABLE"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationalHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullLoadHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
@@ -195,12 +196,12 @@
     <eLiterals name="YEAR" value="6"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InPort" eSuperTypes="#//Port">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="connectedToOut" upperBound="-1"
-        eType="#//OutPort" eOpposite="#//OutPort/connectedToIn"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectedTo" upperBound="-1"
+        eType="#//OutPort" eOpposite="#//OutPort/connectedTo"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutPort" eSuperTypes="#//Port">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="connectedToIn" upperBound="-1"
-        eType="#//InPort" eOpposite="#//InPort/connectedToOut"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectedTo" upperBound="-1"
+        eType="#//InPort" eOpposite="#//InPort/connectedTo"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Asset" abstract="true" eSuperTypes="#//Item">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="surfaceArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -212,8 +213,8 @@
         eOpposite="#//AbstractBuilding/asset"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="shape" eType="#//Shape"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="costInformation" upperBound="-1"
-        eType="#//CostInformation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="costInformation" eType="#//CostInformation"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="technicalLifetime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericConsumer" eSuperTypes="#//Consumer"/>
@@ -274,10 +275,6 @@
   <eClassifiers xsi:type="ecore:EEnum" name="ConsTypeEnum">
     <eLiterals name="PRIMARY"/>
     <eLiterals name="FINAL" value="1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ProdTypeEnum">
-    <eLiterals name="RENEWABLE"/>
-    <eLiterals name="NON_RENEWABLE" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HeatStorage" eSuperTypes="#//Storage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatLoss" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
@@ -578,7 +575,7 @@
         defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="emissionPerUnit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyCarrierType" eType="#//EnergyCarrierTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyCarrierType" eType="#//RenewableTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateOfMatter" eType="#//StateOfMatterEnum"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="costPerUnit" eType="#//GenericProfile"
         containment="true"/>
@@ -586,7 +583,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Losses" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="PowerToX" eSuperTypes="#//Conversion"/>
   <eClassifiers xsi:type="ecore:EClass" name="CCS" eSuperTypes="#//Storage"/>
-  <eClassifiers xsi:type="ecore:EEnum" name="EnergyCarrierTypeEnum">
+  <eClassifiers xsi:type="ecore:EEnum" name="RenewableTypeEnum">
     <eLiterals name="UNDEFINED"/>
     <eLiterals name="RENEWABLE" value="1"/>
     <eLiterals name="FOSSIL" value="2"/>

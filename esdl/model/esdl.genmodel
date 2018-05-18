@@ -86,10 +86,6 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ConsTypeEnum/PRIMARY"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ConsTypeEnum/FINAL"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//ProdTypeEnum">
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProdTypeEnum/RENEWABLE"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProdTypeEnum/NON_RENEWABLE"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//SourceTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//SourceTypeEnum/UNDEFINED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//SourceTypeEnum/AIR"/>
@@ -182,10 +178,10 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//SectorEnum/INDUSTRIE"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//SectorEnum/AGRO_TUINBOUW"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//EnergyCarrierTypeEnum">
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//EnergyCarrierTypeEnum/UNDEFINED"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//EnergyCarrierTypeEnum/RENEWABLE"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//EnergyCarrierTypeEnum/FOSSIL"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//RenewableTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//RenewableTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//RenewableTypeEnum/RENEWABLE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//RenewableTypeEnum/FOSSIL"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//StateOfMatterEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//StateOfMatterEnum/UNDEFINED"/>
@@ -351,10 +347,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Duration/durationUnit"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//InPort">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//InPort/connectedToOut"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//InPort/connectedTo"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//OutPort">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//OutPort/connectedToIn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//OutPort/connectedTo"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Asset">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/surfaceArea"/>
@@ -414,6 +410,8 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HeatNetwork">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatNetwork/temperature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatNetwork/temperatureMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatNetwork/temperatureMax"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GasNetwork">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasNetwork/pressure"/>
