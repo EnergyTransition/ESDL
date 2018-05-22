@@ -6,7 +6,8 @@
         containment="true" eOpposite="#//Port/energyasset"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Producer" abstract="true" eSuperTypes="#//EnergyAsset">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prodType" eType="#//ProdTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prodType" eType="#//RenewableTypeEnum"
+        defaultValueLiteral="RENEWABLE"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationalHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullLoadHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
@@ -40,6 +41,9 @@
     <eLiterals name="CO2" value="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergySystem">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="This is the entry class to describe an EnergySystem in ESDL"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="geographicalScope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -195,12 +199,12 @@
     <eLiterals name="YEAR" value="6"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InPort" eSuperTypes="#//Port">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="connectedToOut" upperBound="-1"
-        eType="#//OutPort" eOpposite="#//OutPort/connectedToIn"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectedTo" upperBound="-1"
+        eType="#//OutPort" eOpposite="#//OutPort/connectedTo"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutPort" eSuperTypes="#//Port">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="connectedToIn" upperBound="-1"
-        eType="#//InPort" eOpposite="#//InPort/connectedToOut"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectedTo" upperBound="-1"
+        eType="#//InPort" eOpposite="#//InPort/connectedTo"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Asset" abstract="true" eSuperTypes="#//Item">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="surfaceArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -212,8 +216,8 @@
         eOpposite="#//AbstractBuilding/asset"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="geometry" eType="#//Geometry"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="costInformation" upperBound="-1"
-        eType="#//CostInformation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="costInformation" eType="#//CostInformation"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="technicalLifetime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericConsumer" eSuperTypes="#//Consumer"/>
@@ -274,10 +278,6 @@
   <eClassifiers xsi:type="ecore:EEnum" name="ConsTypeEnum">
     <eLiterals name="PRIMARY"/>
     <eLiterals name="FINAL" value="1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ProdTypeEnum">
-    <eLiterals name="RENEWABLE"/>
-    <eLiterals name="NON_RENEWABLE" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HeatStorage" eSuperTypes="#//Storage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatLoss" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
@@ -477,7 +477,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="ResidentialBuildingTypeEnum">
     <eLiterals name="UNDEFINED"/>
     <eLiterals name="VRIJSTAANDE_WONING" value="1"/>
-    <eLiterals name="2_ONDER_1_KAP_WONING" value="2"/>
+    <eLiterals name="TWEE_ONDER_EEN_KAP_WONING" value="2"/>
     <eLiterals name="RIJWONING" value="3"/>
     <eLiterals name="MAISONNETTEWONING" value="4"/>
     <eLiterals name="GALERIJWONING" value="5"/>
@@ -578,7 +578,7 @@
         defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="emissionPerUnit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyCarrierType" eType="#//EnergyCarrierTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyCarrierType" eType="#//RenewableTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateOfMatter" eType="#//StateOfMatterEnum"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="costPerUnit" eType="#//GenericProfile"
         containment="true"/>
@@ -586,7 +586,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Losses" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="PowerToX" eSuperTypes="#//Conversion"/>
   <eClassifiers xsi:type="ecore:EClass" name="CCS" eSuperTypes="#//Storage"/>
-  <eClassifiers xsi:type="ecore:EEnum" name="EnergyCarrierTypeEnum">
+  <eClassifiers xsi:type="ecore:EEnum" name="RenewableTypeEnum">
     <eLiterals name="UNDEFINED"/>
     <eLiterals name="RENEWABLE" value="1"/>
     <eLiterals name="FOSSIL" value="2"/>
@@ -782,7 +782,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Party">
     <eStructuralFeatures xsi:type="ecore:EReference" name="owns" upperBound="-1" eType="#//Item"
         eOpposite="#//Item/isOwnedBy"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownsArea" upperBound="-1"
