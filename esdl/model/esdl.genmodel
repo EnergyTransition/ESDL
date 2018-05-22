@@ -363,7 +363,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/owner"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference esdl.ecore#//Asset/area"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference esdl.ecore#//Asset/containingBuilding"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/shape"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/geometry"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/costInformation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/technicalLifetime"/>
     </genClasses>
@@ -414,6 +414,8 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HeatNetwork">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatNetwork/temperature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatNetwork/temperatureMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatNetwork/temperatureMax"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GasNetwork">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasNetwork/pressure"/>
@@ -490,12 +492,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalPotential/temperature"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalPotential/depth"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//Location">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Location/lat"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Location/lon"/>
+    <genClasses ecoreClass="esdl.ecore#//Point">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Point/lat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Point/lon"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//Contour">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Contour/point"/>
+    <genClasses ecoreClass="esdl.ecore#//Polygon">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Polygon/point"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EconomicProperties">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EconomicProperties/averageIncome"/>
@@ -722,6 +724,6 @@
     <genClasses ecoreClass="esdl.ecore#//Line">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Line/point"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//Shape"/>
+    <genClasses ecoreClass="esdl.ecore#//Geometry"/>
   </genPackages>
 </genmodel:GenModel>

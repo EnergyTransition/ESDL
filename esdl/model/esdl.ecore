@@ -101,9 +101,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scope" eType="#//AreaScopeEnum"
         defaultValueLiteral="UNDEFINED"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//AreaTypeEnum"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//Location"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//Point"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contour" eType="#//Contour"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contour" eType="#//Polygon"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="socialProperties" eType="#//SocialProperties"
         containment="true"/>
@@ -210,7 +210,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="area" eType="#//Area" eOpposite="#//Area/asset"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containingBuilding" eType="#//AbstractBuilding"
         eOpposite="#//AbstractBuilding/asset"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="shape" eType="#//Shape"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="geometry" eType="#//Geometry"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="costInformation" upperBound="-1"
         eType="#//CostInformation" containment="true"/>
@@ -415,13 +415,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="depth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Location" eSuperTypes="#//Shape">
+  <eClassifiers xsi:type="ecore:EClass" name="Point" eSuperTypes="#//Geometry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Contour" eSuperTypes="#//Shape">
+  <eClassifiers xsi:type="ecore:EClass" name="Polygon" eSuperTypes="#//Geometry">
     <eStructuralFeatures xsi:type="ecore:EReference" name="point" lowerBound="3" upperBound="-1"
-        eType="#//Location" containment="true"/>
+        eType="#//Point" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="HousingTypeEnum">
     <eLiterals name="UNDEFINED"/>
@@ -540,7 +540,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="AggregatorService" eSuperTypes="#//EnergyService"/>
   <eClassifiers xsi:type="ecore:EClass" name="EVChargingStation" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="Potential" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contour" eType="#//Contour"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contour" eType="#//Polygon"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="areas" upperBound="-1"
         eType="#//Area" eOpposite="#//Area/potentials"/>
@@ -809,11 +809,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="measurement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Line" eSuperTypes="#//Shape">
+  <eClassifiers xsi:type="ecore:EClass" name="Line" eSuperTypes="#//Geometry">
     <eStructuralFeatures xsi:type="ecore:EReference" name="point" lowerBound="2" upperBound="-1"
-        eType="#//Location" containment="true"/>
+        eType="#//Point" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Shape" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Geometry" abstract="true"/>
   <eClassifiers xsi:type="ecore:EEnum" name="GlasTypeEnum">
     <eLiterals name="UNDEFINED"/>
     <eLiterals name="ENKEL_GLAS" value="1"/>
