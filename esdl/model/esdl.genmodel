@@ -248,6 +248,18 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AdditionalHeatingSourceTypeEnum/ELECTRIC"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AdditionalHeatingSourceTypeEnum/GAS"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//GeothermalPotentialEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GeothermalPotentialEnum/UNKNOWN"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GeothermalPotentialEnum/POSSIBLE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GeothermalPotentialEnum/GOOD"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//GeothermalPowerEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GeothermalPowerEnum/UNKNOWN"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GeothermalPowerEnum/POSSIBLE_GT5MWTH"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GeothermalPowerEnum/GOOD_GT5MWTH"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GeothermalPowerEnum/GOOD_GT7P5MWTH"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GeothermalPowerEnum/GOOD_GT10MWTH"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>
     </genClasses>
@@ -487,6 +499,8 @@
     <genClasses ecoreClass="esdl.ecore#//GeothermalPotential">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalPotential/temperature"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalPotential/depth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalPotential/potential"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalPotential/powerPerDoublet"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Point">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Point/lat"/>

@@ -414,6 +414,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="GeothermalPotential" eSuperTypes="#//Potential">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="depth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="potential" eType="#//GeothermalPotentialEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerPerDoublet" eType="#//GeothermalPowerEnum"
+        defaultValueLiteral="UNKNOWN"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Point" eSuperTypes="#//Geometry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -854,5 +857,17 @@
     <eLiterals name="NONE"/>
     <eLiterals name="ELECTRIC" value="1"/>
     <eLiterals name="GAS" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GeothermalPotentialEnum">
+    <eLiterals name="UNKNOWN"/>
+    <eLiterals name="POSSIBLE" value="1"/>
+    <eLiterals name="GOOD" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GeothermalPowerEnum">
+    <eLiterals name="UNKNOWN"/>
+    <eLiterals name="POSSIBLE_GT5MWTH" value="1"/>
+    <eLiterals name="GOOD_GT5MWTH" value="2"/>
+    <eLiterals name="GOOD_GT7P5MWTH" value="3"/>
+    <eLiterals name="GOOD_GT10MWTH" value="4"/>
   </eClassifiers>
 </ecore:EPackage>
