@@ -1249,13 +1249,17 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_CYwhgUiMEeiGTN66s9LSyw" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_CYwhgkiMEeiGTN66s9LSyw"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_DjIp8EiMEeiGTN66s9LSyw" type="3010" element="_DiBPoEiMEeiGTN66s9LSyw">
-              <styles xmi:type="notation:FontStyle" xmi:id="_DjIp8UiMEeiGTN66s9LSyw" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_DjIp8kiMEeiGTN66s9LSyw"/>
-            </children>
             <children xmi:type="notation:Node" xmi:id="_Gv3EoEiMEeiGTN66s9LSyw" type="3010" element="_GuvqUEiMEeiGTN66s9LSyw">
               <styles xmi:type="notation:FontStyle" xmi:id="_Gv3EoUiMEeiGTN66s9LSyw" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_Gv3EokiMEeiGTN66s9LSyw"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_e_LeMGP9Eei1TsFR8TL7bg" type="3010" element="_e9HBoGP9Eei1TsFR8TL7bg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_e_LeMWP9Eei1TsFR8TL7bg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_e_LeMmP9Eei1TsFR8TL7bg"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_kSr_MGP9Eei1TsFR8TL7bg" type="3010" element="_kRGq0GP9Eei1TsFR8TL7bg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_kSr_MWP9Eei1TsFR8TL7bg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_kSr_MmP9Eei1TsFR8TL7bg"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_hI9oUsumEee-24FuvtKjBw"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_hI9oU8umEee-24FuvtKjBw"/>
@@ -2971,7 +2975,7 @@
           <styles xmi:type="notation:TextStyle" xmi:id="_h4Bkw0iMEeiGTN66s9LSyw" textAlignment="Center"/>
           <styles xmi:type="notation:LineTypeStyle" xmi:id="_h4BkxEiMEeiGTN66s9LSyw"/>
           <element xsi:nil="true"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_h4BkxUiMEeiGTN66s9LSyw" x="4306" y="1177" width="195" height="96"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_h4BkxUiMEeiGTN66s9LSyw" x="4351" y="1188" width="195" height="96"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_ci34MElAEeil8f-cuRClTA" type="2003" element="_cgzboElAEeil8f-cuRClTA">
           <children xmi:type="notation:Node" xmi:id="_ci34M0lAEeil8f-cuRClTA" type="5007"/>
@@ -7564,34 +7568,26 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.1/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_A78LIv0SEeeeKZnzyFWydQ" name="maxEfficiencyHeat : EDouble = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/maxEfficiencyHeat"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/maxEfficiencyHeat"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_A78LIv0SEeeeKZnzyFWydQ" name="heatEfficiency : EDouble = 0.0" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/heatEfficiency"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/heatEfficiency"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_A78yMP0SEeeeKZnzyFWydQ" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_A78yMf0SEeeeKZnzyFWydQ" name="maxEfficiencyElectricity : EDouble = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/maxEfficiencyElectricity"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/maxEfficiencyElectricity"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_A78yMf0SEeeeKZnzyFWydQ" name="electricalEfficiency : EDouble = 0.0" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/electricalEfficiency"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/electricalEfficiency"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_A78yMv0SEeeeKZnzyFWydQ" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_CXogIEiMEeiGTN66s9LSyw" name="powerHeat : EDouble = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/powerHeat"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/powerHeat"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_CXogIEiMEeiGTN66s9LSyw" name="power : EDouble = 0.0" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/power"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/power"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_DPbq0EiMEeiGTN66s9LSyw" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
-      </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_DiBPoEiMEeiGTN66s9LSyw" name="powerElectricity : EDouble = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/powerElectricity"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/powerElectricity"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_EvH78EiMEeiGTN66s9LSyw" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
@@ -7600,6 +7596,22 @@
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/HERatio"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/HERatio"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_HoxCkEiMEeiGTN66s9LSyw" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_e9HBoGP9Eei1TsFR8TL7bg" name="fuelType : PowerPlantFuelEnum = UNDEFINED" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/fuelType"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/fuelType"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_e9HBoWP9Eei1TsFR8TL7bg" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_kRGq0GP9Eei1TsFR8TL7bg" name="leadCommodity : CommodityEnum = ELECTRICITY" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/leadCommodity"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/leadCommodity"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_kRGq0WP9Eei1TsFR8TL7bg" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
@@ -12899,13 +12911,13 @@
     <lines xmi:type="table:DLine" xmi:id="_BCvWvf0SEeeeKZnzyFWydQ" label="EClass : CHP">
       <target xmi:type="ecore:EClass" href="esdl.ecore#//CoGeneration"/>
       <lines xmi:type="table:DLine" xmi:id="_BCzoIf0SEeeeKZnzyFWydQ" label="EAttribute : maxEfficiencyHeat">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/maxEfficiencyHeat"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/maxEfficiencyHeat"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/heatEfficiency"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/heatEfficiency"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <lines xmi:type="table:DLine" xmi:id="_BCzoIv0SEeeeKZnzyFWydQ" label="EAttribute : maxEfficiencyElectricity">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/maxEfficiencyElectricity"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/maxEfficiencyElectricity"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/electricalEfficiency"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//CoGeneration/electricalEfficiency"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//CoGeneration"/>
