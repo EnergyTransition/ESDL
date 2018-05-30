@@ -134,6 +134,8 @@
         eType="#//EnergyAsset" eOpposite="#//EnergyAsset/port"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="profile" eType="#//GenericProfile"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="energyCarrierOrCommodity"
+        eType="#//EnergyCarrierOrCommodity"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatedProducer" eSuperTypes="#//Producer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"
@@ -574,9 +576,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="potential" upperBound="-1"
         eType="#//Potential" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EnergyCarrier">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EnergyCarrier" eSuperTypes="#//EnergyCarrierOrCommodity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyContentPerUnit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="emissionPerUnit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
@@ -616,6 +616,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="availableEnergyCarriers"
         eType="#//AvailableEnergyCarriers" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="energyPrices" eType="#//EnergyPrices"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="availableCommodities" eType="#//AvailableCommodities"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pump" eSuperTypes="#//Transport"/>
@@ -869,5 +871,28 @@
     <eLiterals name="GOOD_GT5MWTH" value="2"/>
     <eLiterals name="GOOD_GT7P5MWTH" value="3"/>
     <eLiterals name="GOOD_GT10MWTH" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractCommodity" abstract="true" eSuperTypes="#//EnergyCarrierOrCommodity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GasCommodity" eSuperTypes="#//AbstractCommodity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pressure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HeatCommodity" eSuperTypes="#//AbstractCommodity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElectricityCommodity" eSuperTypes="#//AbstractCommodity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="voltage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AvailableCommodities">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="commodity" upperBound="-1"
+        eType="#//AbstractCommodity" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnergyCarrierOrCommodity" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Range" eSuperTypes="#//StaticProfile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
 </ecore:EPackage>
