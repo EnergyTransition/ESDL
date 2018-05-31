@@ -3365,7 +3365,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_TF7WFmPuEeiH38yLtLPeNQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_TF7WEWPuEeiH38yLtLPeNQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TF7WEmPuEeiH38yLtLPeNQ" x="1170" y="-411" width="120" height="100"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TF7WEmPuEeiH38yLtLPeNQ" x="1172" y="-411" width="120" height="100"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_USi6MGPuEeiH38yLtLPeNQ" type="2003" element="_UQymsGPuEeiH38yLtLPeNQ">
           <children xmi:type="notation:Node" xmi:id="_USi6M2PuEeiH38yLtLPeNQ" type="5007"/>
@@ -3392,13 +3392,13 @@
         <children xmi:type="notation:Node" xmi:id="_4YKdgGPuEeiH38yLtLPeNQ" type="2003" element="_4XNbQGPuEeiH38yLtLPeNQ">
           <children xmi:type="notation:Node" xmi:id="_4YKdg2PuEeiH38yLtLPeNQ" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_4YKdhGPuEeiH38yLtLPeNQ" type="7004">
-            <children xmi:type="notation:Node" xmi:id="_8VMTwGPuEeiH38yLtLPeNQ" type="3010" element="_8T7IcGPuEeiH38yLtLPeNQ">
-              <styles xmi:type="notation:FontStyle" xmi:id="_8VMTwWPuEeiH38yLtLPeNQ" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_8VMTwmPuEeiH38yLtLPeNQ"/>
-            </children>
             <children xmi:type="notation:Node" xmi:id="_9aBN0GPuEeiH38yLtLPeNQ" type="3010" element="_9YvbcGPuEeiH38yLtLPeNQ">
               <styles xmi:type="notation:FontStyle" xmi:id="_9aBN0WPuEeiH38yLtLPeNQ" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_9aBN0mPuEeiH38yLtLPeNQ"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_yZYlUGTHEeiSQa-Rr38eYw" type="3010" element="_yVkcUGTHEeiSQa-Rr38eYw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_yZYlUWTHEeiSQa-Rr38eYw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_yZYlUmTHEeiSQa-Rr38eYw"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_4YKdhWPuEeiH38yLtLPeNQ"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_4YKdhmPuEeiH38yLtLPeNQ"/>
@@ -3432,6 +3432,21 @@
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_hmejgWPwEeiH38yLtLPeNQ" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hmejgmPwEeiH38yLtLPeNQ" x="1633" y="400" width="120" height="100"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_-4gYcGTHEeiSQa-Rr38eYw" type="Note" fontName="Segoe UI" description="Can be used for natural gas, CO2 and H2" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_-4g_gGTHEeiSQa-Rr38eYw" source="specificStyles">
+            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_-4g_gWTHEeiSQa-Rr38eYw" key="verticalAlignment" value="8"/>
+          </eAnnotations>
+          <children xmi:type="notation:BasicDecorationNode" xmi:id="_-4hmkGTHEeiSQa-Rr38eYw" type="DiagramName">
+            <element xsi:nil="true"/>
+          </children>
+          <children xmi:type="notation:BasicDecorationNode" xmi:id="_-4hmkWTHEeiSQa-Rr38eYw" type="Description">
+            <element xsi:nil="true"/>
+          </children>
+          <styles xmi:type="notation:TextStyle" xmi:id="_-4g_gmTHEeiSQa-Rr38eYw" textAlignment="Center"/>
+          <styles xmi:type="notation:LineTypeStyle" xmi:id="_-4g_g2THEeiSQa-Rr38eYw"/>
+          <element xsi:nil="true"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-4g_hGTHEeiSQa-Rr38eYw" x="1009" y="-336" width="128" height="84"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_Mvo1wrryEeeIKeRLj9tspA"/>
         <edges xmi:type="notation:Edge" xmi:id="_3HsngrryEeeIKeRLj9tspA" type="4001" element="_A84mUP0SEeeeKZnzyFWydQ" source="_3GNZwLryEeeIKeRLj9tspA" target="_3Gr65LryEeeIKeRLj9tspA">
@@ -12524,18 +12539,18 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@conditionnalStyles.0/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_8T7IcGPuEeiH38yLtLPeNQ" name="id : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyCarrierOrCommodity/id"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyCarrierOrCommodity/id"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_9AbCEGPuEeiH38yLtLPeNQ" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
-      </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_9YvbcGPuEeiH38yLtLPeNQ" name="name : EString" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyCarrierOrCommodity/name"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyCarrierOrCommodity/name"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_98We0GPuEeiH38yLtLPeNQ" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_yVkcUGTHEeiSQa-Rr38eYw" name="id : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyCarrierOrCommodity/id"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyCarrierOrCommodity/id"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_yVmRgGTHEeiSQa-Rr38eYw" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
