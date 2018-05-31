@@ -94,8 +94,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="BuildingUnit" eSuperTypes="#//AbstractBuilding">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//BuildingTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="housingType" eType="#//HousingTypeEnum"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="building" lowerBound="1"
-        eType="#//Building" eOpposite="#//Building/buildingUnits"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfInhabitants" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inhabitantsType" eType="#//InhabitantsTypeEnum"/>
   </eClassifiers>
@@ -273,8 +271,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rcRoof" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uWindow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="buildingUnits" upperBound="-1"
-        eType="#//BuildingUnit" containment="true" eOpposite="#//BuildingUnit/building"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="glasType" eType="#//GlasTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ventilationType" eType="#//VentilationTypeEnum"/>
   </eClassifiers>
