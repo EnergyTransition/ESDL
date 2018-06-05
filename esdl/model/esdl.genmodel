@@ -755,5 +755,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Range/minValue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Range/maxValue"/>
     </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//SolarFieldPotential">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SolarFieldPotential/solarIrradiance"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

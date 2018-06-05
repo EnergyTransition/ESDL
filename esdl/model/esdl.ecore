@@ -898,4 +898,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolarFieldPotential" eSuperTypes="#//Potential">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="solarIrradiance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
 </ecore:EPackage>
