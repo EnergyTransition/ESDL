@@ -170,6 +170,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PowerPlantFuelEnum/BLAST_FURNACE_GAS"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PowerPlantFuelEnum/NATURAL_GAS"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PowerPlantFuelEnum/URANIUM"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PowerPlantFuelEnum/HYDROGEN"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//SectorEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//SectorEnum/UNDEFINED"/>
@@ -312,6 +313,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Battery/maxChargeDischargeCycli"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Battery/chargeEfficiency"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Battery/dischargeEfficiency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Battery/maxChargeRate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Battery/maxDischargeRate"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//ElectricityNetwork">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ElectricityNetwork/voltage"/>
