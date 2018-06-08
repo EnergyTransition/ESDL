@@ -14,4 +14,11 @@
             genModel="model/esdl.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated esdl -->
+      <parser
+            type="esdl"
+            class="esdl.util.EsdlResourceFactoryImpl"/>
+   </extension>
+
 </plugin>

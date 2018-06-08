@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="TNO" modelDirectory="/esdl/src-gen" editDirectory="/esdl.edit/src-gen"
-    editorDirectory="/esdl.editor/src-gen" modelPluginID="esdl" modelName="Esdl" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    testsDirectory="" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
-    copyrightFields="false" operationReflection="true" importOrganizing="true">
+    editorDirectory="/esdl.editor/src-gen" modelPluginID="esdl" modelName="Esdl" generateSchema="true"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testsDirectory=""
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>model/esdl.ecore</foreignModel>
-  <genPackages prefix="Esdl" disposableProviderFactory="true" ecorePackage="esdl.ecore#/">
+  <genPackages prefix="Esdl" resource="XML" disposableProviderFactory="true" contentTypeIdentifier=""
+      ecorePackage="esdl.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//CommodityEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CommodityEnum/ELECTRICITY"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CommodityEnum/GAS"/>
