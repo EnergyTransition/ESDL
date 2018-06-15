@@ -317,8 +317,8 @@
       <nested inputs="esdl.ecore#//Battery/maxChargeDischargeCycli" outputs="EsdlXML.xsd#//Battery;XSDComplexTypeDefinition=9/XSDAttributeUse=1"/>
       <nested inputs="esdl.ecore#//Battery/chargeEfficiency" outputs="EsdlXML.xsd#//Battery;XSDComplexTypeDefinition=9/XSDAttributeUse=2"/>
       <nested inputs="esdl.ecore#//Battery/dischargeEfficiency" outputs="EsdlXML.xsd#//Battery;XSDComplexTypeDefinition=9/XSDAttributeUse=3"/>
-      <nested inputs="esdl.ecore#//Battery/maxChargeRate" outputs="EsdlXML.xsd#//Battery;XSDComplexTypeDefinition=9/XSDAttributeUse=4"/>
-      <nested inputs="esdl.ecore#//Battery/maxDischargeRate" outputs="EsdlXML.xsd#//Battery;XSDComplexTypeDefinition=9/XSDAttributeUse=5"/>
+      <nested inputs="esdl.ecore#//Battery/maxChargeRate" outputs="EsdlXML.xsd#//Battery;XSDComplexTypeDefinition=9/XSDAttributeUse=3"/>
+      <nested inputs="esdl.ecore#//Battery/maxDischargeRate" outputs="EsdlXML.xsd#//Battery;XSDComplexTypeDefinition=9/XSDAttributeUse=3"/>
     </nested>
     <nested inputs="esdl.ecore#//Battery" outputs="EsdlXML.xsd#//Battery;XSDElementDeclaration=3"/>
     <nested inputs="esdl.ecore#//ElectricityNetwork" outputs="EsdlXML.xsd#//ElectricityNetwork;XSDComplexTypeDefinition=10">
@@ -856,9 +856,9 @@
       <nested inputs="esdl.ecore#//Range/maxValue" outputs="EsdlXML.xsd#//Range;XSDComplexTypeDefinition=125/XSDAttributeUse=1"/>
     </nested>
     <nested inputs="esdl.ecore#//Range" outputs="EsdlXML.xsd#//Range;XSDElementDeclaration=101"/>
-    <nested inputs="esdl.ecore#//SolarFieldPotential" outputs="EsdlXML.xsd#//SolarFieldPotential;XSDComplexTypeDefinition=126">
-      <nested inputs="esdl.ecore#//SolarFieldPotential/solarIrradiance" outputs="EsdlXML.xsd#//SolarFieldPotential;XSDComplexTypeDefinition=126/XSDAttributeUse"/>
+    <nested inputs="esdl.ecore#//SolarFieldPotential" outputs="EsdlXML.xsd#//Range;XSDComplexTypeDefinition=125">
+      <nested inputs="esdl.ecore#//SolarFieldPotential/solarIrradiance" outputs="EsdlXML.xsd#//Range;XSDComplexTypeDefinition=125/XSDAttributeUse"/>
     </nested>
-    <nested inputs="esdl.ecore#//SolarFieldPotential" outputs="EsdlXML.xsd#//SolarFieldPotential;XSDElementDeclaration=102"/>
+    <nested inputs="esdl.ecore#//SolarFieldPotential" outputs="EsdlXML.xsd#//Range;XSDElementDeclaration=101"/>
   </nested>
 </xsd2ecore:XSD2EcoreMappingRoot>

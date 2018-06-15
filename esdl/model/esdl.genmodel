@@ -628,6 +628,7 @@
     <genClasses image="false" ecoreClass="esdl.ecore#//GenericProfile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericProfile/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericProfile/profileType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericProfile/id"/>
       <genOperations ecoreOperation="esdl.ecore#//GenericProfile/getProfile">
         <genParameters ecoreParameter="esdl.ecore#//GenericProfile/getProfile/from"/>
         <genParameters ecoreParameter="esdl.ecore#//GenericProfile/getProfile/to"/>
