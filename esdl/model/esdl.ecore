@@ -186,12 +186,6 @@
     <eLiterals name="MONEY_IN_EUR_PER_KW" value="25"/>
     <eLiterals name="MONEY_IN_EUR_PER_KWH" value="26"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Duration">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
-        defaultValueLiteral="0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="durationUnit" eType="#//DurationUnitEnum"
-        defaultValueLiteral="SECOND"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DurationUnitEnum">
     <eLiterals name="SECOND"/>
     <eLiterals name="MINUTE" value="1"/>
@@ -310,36 +304,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="HeatPipe" eSuperTypes="#//Transport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="diameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OutHPort" eSuperTypes="#//OutPort">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minTemperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxTemperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InHPort" eSuperTypes="#//InPort">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minTemperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxTemperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OutEPort" eSuperTypes="#//OutPort">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minVoltage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxVoltage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="voltage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InEPort" eSuperTypes="#//InPort">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minVoltage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxVoltage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="voltage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OutGPort" eSuperTypes="#//OutPort">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxPressure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minPressure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pressure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InGPort" eSuperTypes="#//InPort">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxPressure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minPressure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pressure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeothermalSource" eSuperTypes="#//Producer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wellDepth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -640,7 +604,7 @@
     <eOperations name="getProfile" upperBound="-1" eType="#//ProfileElement">
       <eParameters name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       <eParameters name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-      <eParameters name="aggregationPrecision" eType="#//Duration"/>
+      <eParameters name="aggregationPrecision"/>
     </eOperations>
     <eOperations name="setProfile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="profileElementList" upperBound="-1" eType="#//ProfileElement"/>
@@ -764,14 +728,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sigma" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractVariance" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SymetricVariance">
+  <eClassifiers xsi:type="ecore:EClass" name="SymetricVariance" eSuperTypes="#//AbstractVariance">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sigma" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AssymetricVariance">
+  <eClassifiers xsi:type="ecore:EClass" name="AssymetricVariance" eSuperTypes="#//AbstractVariance">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sigmaMin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sigmaPlus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NewEClass119">
+  <eClassifiers xsi:type="ecore:EClass" name="DoubleAssymetricVariance" eSuperTypes="#//AbstractVariance">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="plus34perc" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="plus48perc" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="min34perc" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -879,19 +843,19 @@
     <eLiterals name="GOOD_GT7P5MWTH" value="3"/>
     <eLiterals name="GOOD_GT10MWTH" value="4"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractCommodity" abstract="true" eSuperTypes="#//EnergyCarrierOrCommodity"/>
-  <eClassifiers xsi:type="ecore:EClass" name="GasCommodity" eSuperTypes="#//AbstractCommodity">
+  <eClassifiers xsi:type="ecore:EClass" name="Commodity" abstract="true" eSuperTypes="#//EnergyCarrierOrCommodity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GasCommodity" eSuperTypes="#//Commodity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pressure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HeatCommodity" eSuperTypes="#//AbstractCommodity">
+  <eClassifiers xsi:type="ecore:EClass" name="HeatCommodity" eSuperTypes="#//Commodity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ElectricityCommodity" eSuperTypes="#//AbstractCommodity">
+  <eClassifiers xsi:type="ecore:EClass" name="ElectricityCommodity" eSuperTypes="#//Commodity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="voltage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AvailableCommodities">
     <eStructuralFeatures xsi:type="ecore:EReference" name="commodity" upperBound="-1"
-        eType="#//AbstractCommodity" containment="true"/>
+        eType="#//Commodity" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyCarrierOrCommodity" abstract="true"
       interface="true">
