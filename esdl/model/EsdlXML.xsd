@@ -493,11 +493,6 @@
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="AggregatedProducer" type="esdl:AggregatedProducer"/>
-  <xsd:complexType name="Duration">
-    <xsd:attribute default="0" name="value" type="xsd:long"/>
-    <xsd:attribute default="SECOND" name="durationUnit" type="esdl:DurationUnitEnum"/>
-  </xsd:complexType>
-  <xsd:element name="Duration" type="esdl:Duration"/>
   <xsd:complexType name="InPort">
     <xsd:complexContent>
       <xsd:extension base="esdl:Port">
@@ -677,66 +672,6 @@
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="HeatPipe" type="esdl:HeatPipe"/>
-  <xsd:complexType name="OutHPort">
-    <xsd:complexContent>
-      <xsd:extension base="esdl:OutPort">
-        <xsd:attribute name="minTemperature" type="xsd:double"/>
-        <xsd:attribute name="maxTemperature" type="xsd:double"/>
-        <xsd:attribute name="temperature" type="xsd:double"/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element name="OutHPort" type="esdl:OutHPort"/>
-  <xsd:complexType name="InHPort">
-    <xsd:complexContent>
-      <xsd:extension base="esdl:InPort">
-        <xsd:attribute name="minTemperature" type="xsd:double"/>
-        <xsd:attribute name="maxTemperature" type="xsd:double"/>
-        <xsd:attribute name="temperature" type="xsd:double"/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element name="InHPort" type="esdl:InHPort"/>
-  <xsd:complexType name="OutEPort">
-    <xsd:complexContent>
-      <xsd:extension base="esdl:OutPort">
-        <xsd:attribute name="minVoltage" type="xsd:double"/>
-        <xsd:attribute name="maxVoltage" type="xsd:double"/>
-        <xsd:attribute name="voltage" type="xsd:double"/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element name="OutEPort" type="esdl:OutEPort"/>
-  <xsd:complexType name="InEPort">
-    <xsd:complexContent>
-      <xsd:extension base="esdl:InPort">
-        <xsd:attribute name="minVoltage" type="xsd:double"/>
-        <xsd:attribute name="maxVoltage" type="xsd:double"/>
-        <xsd:attribute name="voltage" type="xsd:double"/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element name="InEPort" type="esdl:InEPort"/>
-  <xsd:complexType name="OutGPort">
-    <xsd:complexContent>
-      <xsd:extension base="esdl:OutPort">
-        <xsd:attribute name="maxPressure" type="xsd:double"/>
-        <xsd:attribute name="minPressure" type="xsd:double"/>
-        <xsd:attribute name="pressure" type="xsd:double"/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element name="OutGPort" type="esdl:OutGPort"/>
-  <xsd:complexType name="InGPort">
-    <xsd:complexContent>
-      <xsd:extension base="esdl:InPort">
-        <xsd:attribute name="maxPressure" type="xsd:double"/>
-        <xsd:attribute name="minPressure" type="xsd:double"/>
-        <xsd:attribute name="pressure" type="xsd:double"/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element name="InGPort" type="esdl:InGPort"/>
   <xsd:complexType name="GeothermalSource">
     <xsd:complexContent>
       <xsd:extension base="esdl:Producer">
@@ -1095,6 +1030,7 @@
     </xsd:annotation>
     <xsd:attribute name="name" type="xsd:string"/>
     <xsd:attribute default="UNDEFINED" name="profileType" type="esdl:ProfileTypeEnum"/>
+    <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="StaticProfile">
     <xsd:annotation>
@@ -1279,21 +1215,33 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="PItemStat" type="esdl:PItemStat"/>
   <xsd:complexType abstract="true" name="AbstractVariance"/>
   <xsd:complexType name="SymetricVariance">
-    <xsd:attribute name="sigma" type="xsd:double"/>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractVariance">
+        <xsd:attribute name="sigma" type="xsd:double"/>
+      </xsd:extension>
+    </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="SymetricVariance" type="esdl:SymetricVariance"/>
   <xsd:complexType name="AssymetricVariance">
-    <xsd:attribute name="sigmaMin" type="xsd:double"/>
-    <xsd:attribute name="sigmaPlus" type="xsd:double"/>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractVariance">
+        <xsd:attribute name="sigmaMin" type="xsd:double"/>
+        <xsd:attribute name="sigmaPlus" type="xsd:double"/>
+      </xsd:extension>
+    </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="AssymetricVariance" type="esdl:AssymetricVariance"/>
-  <xsd:complexType name="NewEClass119">
-    <xsd:attribute name="plus34perc" type="xsd:double"/>
-    <xsd:attribute name="plus48perc" type="xsd:double"/>
-    <xsd:attribute name="min34perc" type="xsd:double"/>
-    <xsd:attribute name="min48perc" type="xsd:double"/>
+  <xsd:complexType name="DoubleAssymetricVariance">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractVariance">
+        <xsd:attribute name="plus34perc" type="xsd:double"/>
+        <xsd:attribute name="plus48perc" type="xsd:double"/>
+        <xsd:attribute name="min34perc" type="xsd:double"/>
+        <xsd:attribute name="min48perc" type="xsd:double"/>
+      </xsd:extension>
+    </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="NewEClass119" type="esdl:NewEClass119"/>
+  <xsd:element name="DoubleAssymetricVariance" type="esdl:DoubleAssymetricVariance"/>
   <xsd:complexType name="CHP">
     <xsd:complexContent>
       <xsd:extension base="esdl:CoGeneration">
@@ -1364,14 +1312,14 @@ When a model queries for a value from a certain date (and to a certain date), th
   </xsd:complexType>
   <xsd:element name="Line" type="esdl:Line"/>
   <xsd:complexType abstract="true" name="Geometry"/>
-  <xsd:complexType abstract="true" name="AbstractCommodity">
+  <xsd:complexType abstract="true" name="Commodity">
     <xsd:complexContent>
       <xsd:extension base="esdl:EnergyCarrierOrCommodity"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="GasCommodity">
     <xsd:complexContent>
-      <xsd:extension base="esdl:AbstractCommodity">
+      <xsd:extension base="esdl:Commodity">
         <xsd:attribute name="pressure" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -1379,7 +1327,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="GasCommodity" type="esdl:GasCommodity"/>
   <xsd:complexType name="HeatCommodity">
     <xsd:complexContent>
-      <xsd:extension base="esdl:AbstractCommodity">
+      <xsd:extension base="esdl:Commodity">
         <xsd:attribute name="temperature" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -1387,7 +1335,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="HeatCommodity" type="esdl:HeatCommodity"/>
   <xsd:complexType name="ElectricityCommodity">
     <xsd:complexContent>
-      <xsd:extension base="esdl:AbstractCommodity">
+      <xsd:extension base="esdl:Commodity">
         <xsd:attribute name="voltage" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -1395,7 +1343,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="ElectricityCommodity" type="esdl:ElectricityCommodity"/>
   <xsd:complexType name="AvailableCommodities">
     <xsd:sequence>
-      <xsd:element maxOccurs="unbounded" minOccurs="0" name="commodity" type="esdl:AbstractCommodity"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="commodity" type="esdl:Commodity"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:element name="AvailableCommodities" type="esdl:AvailableCommodities"/>
@@ -1420,4 +1368,9 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="SolarFieldPotential" type="esdl:SolarFieldPotential"/>
+  <xsd:complexType name="Duration">
+    <xsd:attribute name="value" type="xsd:long"/>
+    <xsd:attribute default="SECOND" name="durationUnit" type="esdl:DurationUnitEnum"/>
+  </xsd:complexType>
+  <xsd:element name="Duration" type="esdl:Duration"/>
 </xsd:schema>

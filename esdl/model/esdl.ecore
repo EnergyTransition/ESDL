@@ -604,7 +604,7 @@
     <eOperations name="getProfile" upperBound="-1" eType="#//ProfileElement">
       <eParameters name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       <eParameters name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-      <eParameters name="aggregationPrecision"/>
+      <eParameters name="aggregationPrecision" eType="#//Duration"/>
     </eOperations>
     <eOperations name="setProfile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="profileElementList" upperBound="-1" eType="#//ProfileElement"/>
@@ -869,5 +869,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SolarFieldPotential" eSuperTypes="#//Potential">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="solarIrradiance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Duration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="durationUnit" eType="#//DurationUnitEnum"
+        defaultValueLiteral="SECOND"/>
   </eClassifiers>
 </ecore:EPackage>

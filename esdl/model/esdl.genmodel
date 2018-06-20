@@ -730,5 +730,9 @@
     <genClasses ecoreClass="esdl.ecore#//SolarFieldPotential">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SolarFieldPotential/solarIrradiance"/>
     </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//Duration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Duration/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Duration/durationUnit"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
