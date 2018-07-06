@@ -33,6 +33,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CommodityEnum/H2"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CommodityEnum/BIOGAS"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CommodityEnum/CO2"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CommodityEnum/ENERGY"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//AreaScopeEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AreaScopeEnum/UNDEFINED"/>
@@ -752,5 +753,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Duration/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Duration/durationUnit"/>
     </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//EnergyNetwork"/>
   </genPackages>
 </genmodel:GenModel>

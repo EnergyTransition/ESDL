@@ -33,12 +33,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CommodityEnum">
-    <eLiterals name="ELECTRICITY"/>
-    <eLiterals name="GAS" value="1"/>
-    <eLiterals name="HEAT" value="2"/>
-    <eLiterals name="H2" value="3"/>
-    <eLiterals name="BIOGAS" value="4"/>
-    <eLiterals name="CO2" value="5"/>
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="ELECTRICITY" value="1"/>
+    <eLiterals name="GAS" value="2"/>
+    <eLiterals name="HEAT" value="3"/>
+    <eLiterals name="H2" value="4"/>
+    <eLiterals name="BIOGAS" value="5"/>
+    <eLiterals name="CO2" value="6"/>
+    <eLiterals name="ENERGY" value="7"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergySystem">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -875,4 +877,5 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="durationUnit" eType="#//DurationUnitEnum"
         defaultValueLiteral="SECOND"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnergyNetwork" eSuperTypes="#//Transport"/>
 </ecore:EPackage>
