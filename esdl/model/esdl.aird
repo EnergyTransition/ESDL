@@ -175,6 +175,10 @@
         <children xmi:type="notation:Node" xmi:id="_3GYY4LryEeeIKeRLj9tspA" type="2003" element="_2jZnoLryEeeIKeRLj9tspA">
           <children xmi:type="notation:Node" xmi:id="_3GYY47ryEeeIKeRLj9tspA" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_3GZnALryEeeIKeRLj9tspA" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_nwSfYIEFEeimru9E5xsE_w" type="3010" element="_numdUIEFEeimru9E5xsE_w">
+              <styles xmi:type="notation:FontStyle" xmi:id="_nwSfYYEFEeimru9E5xsE_w" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_nwSfYoEFEeimru9E5xsE_w"/>
+            </children>
             <children xmi:type="notation:Node" xmi:id="_3G1r47ryEeeIKeRLj9tspA" type="3010" element="_A8JmgP0SEeeeKZnzyFWydQ">
               <styles xmi:type="notation:FontStyle" xmi:id="_3G1r5LryEeeIKeRLj9tspA" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_3G1r5bryEeeIKeRLj9tspA"/>
@@ -198,10 +202,6 @@
             <children xmi:type="notation:Node" xmi:id="_Hv0xsCLNEeiK8Zr8Km6pyQ" type="3010" element="_HuwasCLNEeiK8Zr8Km6pyQ">
               <styles xmi:type="notation:FontStyle" xmi:id="_Hv0xsSLNEeiK8Zr8Km6pyQ" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_Hv0xsiLNEeiK8Zr8Km6pyQ"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_nwSfYIEFEeimru9E5xsE_w" type="3010" element="_numdUIEFEeimru9E5xsE_w">
-              <styles xmi:type="notation:FontStyle" xmi:id="_nwSfYYEFEeimru9E5xsE_w" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_nwSfYoEFEeimru9E5xsE_w"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_Eok7UIDwEeimru9E5xsE_w" type="3010" element="_El4zsIDwEeimru9E5xsE_w">
               <styles xmi:type="notation:FontStyle" xmi:id="_Eok7UYDwEeimru9E5xsE_w" fontName="Segoe UI" fontHeight="8"/>
@@ -2450,21 +2450,6 @@
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_-O25cTJ9EeiKJdtoQukSuw" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-O25cjJ9EeiKJdtoQukSuw" x="710" y="1105" width="120" height="100"/>
-        </children>
-        <children xmi:type="notation:Shape" xmi:id="_FAe-QDJ-EeiKJdtoQukSuw" type="Note" fontName="Segoe UI" description="CoolingDemand?" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
-          <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FAe-QTJ-EeiKJdtoQukSuw" source="specificStyles">
-            <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FAe-QjJ-EeiKJdtoQukSuw" key="verticalAlignment" value="8"/>
-          </eAnnotations>
-          <children xmi:type="notation:BasicDecorationNode" xmi:id="_FAflUDJ-EeiKJdtoQukSuw" type="DiagramName">
-            <element xsi:nil="true"/>
-          </children>
-          <children xmi:type="notation:BasicDecorationNode" xmi:id="_FAflUTJ-EeiKJdtoQukSuw" type="Description">
-            <element xsi:nil="true"/>
-          </children>
-          <styles xmi:type="notation:TextStyle" xmi:id="_FAe-QzJ-EeiKJdtoQukSuw" textAlignment="Center"/>
-          <styles xmi:type="notation:LineTypeStyle" xmi:id="_FAe-RDJ-EeiKJdtoQukSuw"/>
-          <element xsi:nil="true"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FAe-RTJ-EeiKJdtoQukSuw" x="722" y="1152"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_Mk4bcDKMEeiKJdtoQukSuw" type="2003" element="_MjeGMDKMEeiKJdtoQukSuw">
           <children xmi:type="notation:Node" xmi:id="_Mk5CgDKMEeiKJdtoQukSuw" type="5007"/>
@@ -5899,6 +5884,14 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_numdUIEFEeimru9E5xsE_w" name="UNDEFINED" tooltipText="">
+        <target xmi:type="ecore:EEnumLiteral" href="esdl.ecore#//CommodityEnum/UNDEFINED"/>
+        <semanticElements xmi:type="ecore:EEnumLiteral" href="esdl.ecore#//CommodityEnum/UNDEFINED"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_numdUYEFEeimru9E5xsE_w" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
+      </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_A8JmgP0SEeeeKZnzyFWydQ" name="ELECTRICITY" tooltipText="">
         <target xmi:type="ecore:EEnumLiteral" href="esdl.ecore#//CommodityEnum/ELECTRICITY"/>
         <semanticElements xmi:type="ecore:EEnumLiteral" href="esdl.ecore#//CommodityEnum/ELECTRICITY"/>
@@ -5943,14 +5936,6 @@
         <target xmi:type="ecore:EEnumLiteral" href="esdl.ecore#//CommodityEnum/CO2"/>
         <semanticElements xmi:type="ecore:EEnumLiteral" href="esdl.ecore#//CommodityEnum/CO2"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_HuwasSLNEeiK8Zr8Km6pyQ" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
-      </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_numdUIEFEeimru9E5xsE_w" name="UNDEFINED" tooltipText="">
-        <target xmi:type="ecore:EEnumLiteral" href="esdl.ecore#//CommodityEnum/UNDEFINED"/>
-        <semanticElements xmi:type="ecore:EEnumLiteral" href="esdl.ecore#//CommodityEnum/UNDEFINED"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_numdUYEFEeimru9E5xsE_w" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
@@ -7366,9 +7351,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_jbIYwMq1Eee-24FuvtKjBw" name="HeatPipe" tooltipText="" outgoingEdges="_A9CXVP0SEeeeKZnzyFWydQ" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//HeatPipe"/>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//HeatPipe"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_jbIYwMq1Eee-24FuvtKjBw" name="Pipe" tooltipText="" outgoingEdges="_A9CXVP0SEeeeKZnzyFWydQ" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//Pipe"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Pipe"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -7377,16 +7362,16 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_A72EgP0SEeeeKZnzyFWydQ" name="diameter : EDouble = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//HeatPipe/diameter"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//HeatPipe/diameter"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Pipe/diameter"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Pipe/diameter"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_A72Egf0SEeeeKZnzyFWydQ" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_A72Egv0SEeeeKZnzyFWydQ" name="length : EDouble = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//HeatPipe/length"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//HeatPipe/length"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Pipe/length"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Pipe/length"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_A72rkP0SEeeeKZnzyFWydQ" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -7804,9 +7789,9 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_eo-eMMuuEee-24FuvtKjBw" name="HeatDemand" tooltipText="" outgoingEdges="_A9EzkP0SEeeeKZnzyFWydQ" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//HeatDemand"/>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//HeatDemand"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_eo-eMMuuEee-24FuvtKjBw" name="HeatingDemand" tooltipText="" outgoingEdges="_A9EzkP0SEeeeKZnzyFWydQ" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//HeatingDemand"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//HeatingDemand"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -7815,8 +7800,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_A7-AUf0SEeeeKZnzyFWydQ" name="type : HeatDemandTypeEnum = UNDEFINED" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//HeatDemand/type"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//HeatDemand/type"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//HeatingDemand/type"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//HeatingDemand/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_A7-AUv0SEeeeKZnzyFWydQ" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -8983,8 +8968,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_A9CXVP0SEeeeKZnzyFWydQ" sourceNode="_jbIYwMq1Eee-24FuvtKjBw" targetNode="_2jXycLryEeeIKeRLj9tspA">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//HeatPipe"/>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//HeatPipe"/>
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//Pipe"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Pipe"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_A9CXVf0SEeeeKZnzyFWydQ" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_A9CXVv0SEeeeKZnzyFWydQ" showIcon="false">
@@ -9031,8 +9016,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_A9EzkP0SEeeeKZnzyFWydQ" sourceNode="_eo-eMMuuEee-24FuvtKjBw" targetNode="_2jS58LryEeeIKeRLj9tspA">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//HeatDemand"/>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//HeatDemand"/>
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//HeatingDemand"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//HeatingDemand"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_A9Ezkf0SEeeeKZnzyFWydQ" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_A9Ezkv0SEeeeKZnzyFWydQ" showIcon="false">
@@ -10617,9 +10602,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_-NVPcDJ9EeiKJdtoQukSuw" name="CoolDemand" tooltipText="" outgoingEdges="_EJV64DJ-EeiKJdtoQukSuw" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//CoolDemand"/>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//CoolDemand"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_-NVPcDJ9EeiKJdtoQukSuw" name="CoolingDemand" tooltipText="" outgoingEdges="_EJV64DJ-EeiKJdtoQukSuw" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//CoolingDemand"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//CoolingDemand"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -10629,8 +10614,8 @@
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_EJV64DJ-EeiKJdtoQukSuw" sourceNode="_-NVPcDJ9EeiKJdtoQukSuw" targetNode="_2jS58LryEeeIKeRLj9tspA">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//CoolDemand"/>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//CoolDemand"/>
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//CoolingDemand"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//CoolingDemand"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_EJV64TJ-EeiKJdtoQukSuw" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_EJV64jJ-EeiKJdtoQukSuw" showIcon="false">
@@ -12924,18 +12909,18 @@
       <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
     </lines>
     <lines xmi:type="table:DLine" xmi:id="_BCvWtf0SEeeeKZnzyFWydQ" label="EClass : HeatPipe">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//HeatPipe"/>
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//Pipe"/>
       <lines xmi:type="table:DLine" xmi:id="_BCzBEv0SEeeeKZnzyFWydQ" label="EAttribute : diameter">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//HeatPipe/diameter"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//HeatPipe/diameter"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Pipe/diameter"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Pipe/diameter"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <lines xmi:type="table:DLine" xmi:id="_BCzBE_0SEeeeKZnzyFWydQ" label="EAttribute : length">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//HeatPipe/length"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//HeatPipe/length"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Pipe/length"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Pipe/length"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//HeatPipe"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Pipe"/>
       <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
     </lines>
     <lines xmi:type="table:DLine" xmi:id="_BCvWvP0SEeeeKZnzyFWydQ" label="EClass : GeothermalSource">
@@ -12989,13 +12974,13 @@
       <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
     </lines>
     <lines xmi:type="table:DLine" xmi:id="_BCvWw_0SEeeeKZnzyFWydQ" label="EClass : HeatDemand">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//HeatDemand"/>
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//HeatingDemand"/>
       <lines xmi:type="table:DLine" xmi:id="_BCzoJf0SEeeeKZnzyFWydQ" label="EAttribute : type">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//HeatDemand/type"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//HeatDemand/type"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//HeatingDemand/type"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//HeatingDemand/type"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//HeatDemand"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//HeatingDemand"/>
       <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
     </lines>
     <lines xmi:type="table:DLine" xmi:id="_BCvWxP0SEeeeKZnzyFWydQ" label="EEnum : HeatDemandTypeEnum">
