@@ -129,7 +129,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commodity" eType="#//CommodityEnum"
-        defaultValueLiteral="ELECTRICITY"/>
+        defaultValueLiteral="UNDEFINED"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
