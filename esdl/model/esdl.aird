@@ -12438,16 +12438,16 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_FD2UUIXNEei38bikTrOUvA" name="RefProfile" tooltipText="" outgoingEdges="_G-wh0IXNEei38bikTrOUvA _Oo_CkIXNEei38bikTrOUvA" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//RefProfile"/>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//RefProfile"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_FD2UUIXNEei38bikTrOUvA" name="ReferenceProfile" tooltipText="" outgoingEdges="_G-wh0IXNEei38bikTrOUvA _Oo_CkIXNEei38bikTrOUvA" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//ReferenceProfile"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//ReferenceProfile"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_FD3icIXNEei38bikTrOUvA" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_K9H00IXNEei38bikTrOUvA" name="multiplier : EDouble = 1" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//RefProfile/multiplier"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//RefProfile/multiplier"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//ReferenceProfile/multiplier"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//ReferenceProfile/multiplier"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_K9H00YXNEei38bikTrOUvA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -12455,8 +12455,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_G-wh0IXNEei38bikTrOUvA" sourceNode="_FD2UUIXNEei38bikTrOUvA" targetNode="_wu_MkC6vEeiK6b1j6uagLA">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//RefProfile"/>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//RefProfile"/>
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//ReferenceProfile"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//ReferenceProfile"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_G-xI4IXNEei38bikTrOUvA" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" xmi:id="_G-xI4YXNEei38bikTrOUvA" showIcon="false">
@@ -12467,8 +12467,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_Oo_CkIXNEei38bikTrOUvA" name="[1..1] reference" sourceNode="_FD2UUIXNEei38bikTrOUvA" targetNode="_ukpb8C6vEeiK6b1j6uagLA">
-      <target xmi:type="ecore:EReference" href="esdl.ecore#//RefProfile/reference"/>
-      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//RefProfile/reference"/>
+      <target xmi:type="ecore:EReference" href="esdl.ecore#//ReferenceProfile/reference"/>
+      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//ReferenceProfile/reference"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_Q_WdA4XNEei38bikTrOUvA" description="_Q_WdAIXNEei38bikTrOUvA" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_Q_WdBIXNEei38bikTrOUvA" showIcon="false">
           <labelFormat>bold</labelFormat>

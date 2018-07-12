@@ -880,7 +880,7 @@
         defaultValueLiteral="SECOND"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyNetwork" eSuperTypes="#//Transport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RefProfile" eSuperTypes="#//StaticProfile">
+  <eClassifiers xsi:type="ecore:EClass" name="ReferenceProfile" eSuperTypes="#//StaticProfile">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="reference" lowerBound="1"
