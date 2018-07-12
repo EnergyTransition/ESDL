@@ -27,6 +27,7 @@
       <genAnnotations source="../gen/esdl.uml"/>
     </genAnnotations>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//CommodityEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CommodityEnum/UNDEFINED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CommodityEnum/ELECTRICITY"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CommodityEnum/GAS"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CommodityEnum/HEAT"/>
@@ -603,6 +604,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/availableEnergyCarriers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/energyPrices"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/availableCommodities"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/profileCollection"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Pump"/>
     <genClasses ecoreClass="esdl.ecore#//Valve"/>
@@ -754,5 +756,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Duration/durationUnit"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EnergyNetwork"/>
+    <genClasses ecoreClass="esdl.ecore#//RefProfile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//RefProfile/multiplier"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//RefProfile/reference"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//ProfileCollection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//ProfileCollection/profile"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
