@@ -590,6 +590,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="availableCommodities" eType="#//AvailableCommodities"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="profileCollection" eType="#//ProfileCollection"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pump" eSuperTypes="#//Transport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Valve" eSuperTypes="#//Transport"/>
@@ -878,4 +880,14 @@
         defaultValueLiteral="SECOND"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyNetwork" eSuperTypes="#//Transport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReferenceProfile" eSuperTypes="#//StaticProfile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" lowerBound="1"
+        eType="#//GenericProfile"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProfileCollection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="profile" upperBound="-1"
+        eType="#//GenericProfile" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>
