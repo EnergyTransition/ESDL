@@ -316,7 +316,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/instance"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/potentials"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/energySystemInformation"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/party"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/parties"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WindTurbine">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindTurbine/power"/>
@@ -528,9 +528,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Item/shortName"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Item/isOwnedBy"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Item/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Item/datasource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Item/originalIdInSource"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Measures">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measures/item"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measures/measure"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EConnection"/>
     <genClasses ecoreClass="esdl.ecore#//HConnection"/>
@@ -605,6 +607,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/energyPrices"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/availableCommodities"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/profileCollection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/dataSources"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Pump"/>
     <genClasses ecoreClass="esdl.ecore#//Valve"/>
@@ -762,6 +765,18 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//ProfileCollection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//ProfileCollection/profile"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//Parties">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Parties/party"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//DataSources">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//DataSources/dataSource"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//DataSource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSource/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSource/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSource/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSource/reference"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

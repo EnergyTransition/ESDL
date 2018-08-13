@@ -59,8 +59,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="energySystemInformation"
         eType="#//EnergySystemInformation" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="party" upperBound="-1"
-        eType="#//Party" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parties" eType="#//Parties"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WindTurbine" eSuperTypes="#//Producer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -469,10 +469,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="isOwnedBy" eType="#//Party"
         eOpposite="#//Party/owns"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datasource" eType="#//DataSource"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="originalIdInSource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Measures">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="item" upperBound="-1" eType="#//Item"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="measure" upperBound="-1"
+        eType="#//Item" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EConnection" eSuperTypes="#//Transport"/>
   <eClassifiers xsi:type="ecore:EClass" name="HConnection" eSuperTypes="#//Transport"/>
@@ -591,6 +593,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="availableCommodities" eType="#//AvailableCommodities"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="profileCollection" eType="#//ProfileCollection"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSources" eType="#//DataSources"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pump" eSuperTypes="#//Transport"/>
@@ -889,5 +893,19 @@
   <eClassifiers xsi:type="ecore:EClass" name="ProfileCollection">
     <eStructuralFeatures xsi:type="ecore:EReference" name="profile" upperBound="-1"
         eType="#//GenericProfile" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parties">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="party" upperBound="-1"
+        eType="#//Party" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSources">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" upperBound="-1"
+        eType="#//DataSource" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSource">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reference" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
