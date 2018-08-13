@@ -283,6 +283,13 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GeothermalPowerEnum/GOOD_GT7P5MWTH"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GeothermalPowerEnum/GOOD_GT10MWTH"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//ResidualHeatSourceTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidualHeatSourceTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidualHeatSourceTypeEnum/INDUSTRIAL"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidualHeatSourceTypeEnum/DATACENTER"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidualHeatSourceTypeEnum/SEWAGE_TREATMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidualHeatSourceTypeEnum/OTHER"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>
     </genClasses>
@@ -778,5 +785,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSource/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSource/reference"/>
     </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//EnergyDemand"/>
+    <genClasses ecoreClass="esdl.ecore#//SolarCollector"/>
+    <genClasses ecoreClass="esdl.ecore#//ResidualHeatSource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ResidualHeatSource/type"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//FermentationPlant"/>
   </genPackages>
 </genmodel:GenModel>
