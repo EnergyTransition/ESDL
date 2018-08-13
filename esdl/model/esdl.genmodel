@@ -376,12 +376,11 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/isOwnedBy"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Port">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/commodity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/maxPower"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference esdl.ecore#//Port/energyasset"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/profile"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/energyCarrierOrCommodity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/carrier"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AggregatedProducer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedProducer/aggregationOf"/>
@@ -598,8 +597,8 @@
     <genClasses ecoreClass="esdl.ecore#//Losses"/>
     <genClasses ecoreClass="esdl.ecore#//PowerToX"/>
     <genClasses ecoreClass="esdl.ecore#//CCS"/>
-    <genClasses ecoreClass="esdl.ecore#//AvailableEnergyCarriers">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AvailableEnergyCarriers/energyCarrier"/>
+    <genClasses ecoreClass="esdl.ecore#//Carriers">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Carriers/carrier"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//FuelCell"/>
     <genClasses ecoreClass="esdl.ecore#//XToPower"/>
@@ -610,10 +609,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVParc/numberOfPanels"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EnergySystemInformation">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/availableEnergyCarriers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/carriers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/energyPrices"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/availableCommodities"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/profileCollection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/profiles"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/dataSources"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Pump"/>
@@ -747,12 +745,9 @@
     <genClasses ecoreClass="esdl.ecore#//ElectricityCommodity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ElectricityCommodity/voltage"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//AvailableCommodities">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AvailableCommodities/commodity"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="esdl.ecore#//EnergyCarrierOrCommodity">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergyCarrierOrCommodity/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergyCarrierOrCommodity/id"/>
+    <genClasses image="false" ecoreClass="esdl.ecore#//Carrier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Carrier/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Carrier/id"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Range">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Range/minValue"/>
@@ -770,8 +765,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ReferenceProfile/multiplier"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//ReferenceProfile/reference"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//ProfileCollection">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//ProfileCollection/profile"/>
+    <genClasses ecoreClass="esdl.ecore#//Profiles">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Profiles/profile"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Parties">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Parties/party"/>
@@ -791,5 +786,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ResidualHeatSource/type"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//FermentationPlant"/>
+    <genClasses ecoreClass="esdl.ecore#//EnergyCommodity"/>
   </genPackages>
 </genmodel:GenModel>
