@@ -2,6 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: esdl;singleton:=true
+Automatic-Module-Name: esdl
 Bundle-Version: 1.1.1.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
@@ -9,8 +10,12 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: esdl,
  esdl.impl,
- esdl.util
+ esdl.util,
+ gml,
+ gml.impl,
+ gml.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ esdl_gml;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy

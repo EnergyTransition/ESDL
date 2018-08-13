@@ -3,12 +3,14 @@
     xmlns:xsd2ecore="http://www.eclipse.org/emf/2002/XSD2Ecore" inputs="esdl.ecore#/" outputs="EsdlXML.xsd#/">
   <nested inputs="esdl.ecore#/" outputs="EsdlXML.xsd#/">
     <nested inputs="esdl.ecore#//CommodityEnum" outputs="EsdlXML.xsd#//CommodityEnum;XSDSimpleTypeDefinition">
-      <nested inputs="esdl.ecore#//CommodityEnum/ELECTRICITY" outputs="EsdlXML.xsd#//CommodityEnum;XSDSimpleTypeDefinition/XSDEnumerationFacet"/>
-      <nested inputs="esdl.ecore#//CommodityEnum/GAS" outputs="EsdlXML.xsd#//CommodityEnum;XSDSimpleTypeDefinition/XSDEnumerationFacet=1"/>
-      <nested inputs="esdl.ecore#//CommodityEnum/HEAT" outputs="EsdlXML.xsd#//CommodityEnum;XSDSimpleTypeDefinition/XSDEnumerationFacet=2"/>
-      <nested inputs="esdl.ecore#//CommodityEnum/H2" outputs="EsdlXML.xsd#//CommodityEnum;XSDSimpleTypeDefinition/XSDEnumerationFacet=3"/>
-      <nested inputs="esdl.ecore#//CommodityEnum/BIOGAS" outputs="EsdlXML.xsd#//CommodityEnum;XSDSimpleTypeDefinition/XSDEnumerationFacet=4"/>
-      <nested inputs="esdl.ecore#//CommodityEnum/CO2" outputs="EsdlXML.xsd#//CommodityEnum;XSDSimpleTypeDefinition/XSDEnumerationFacet=5"/>
+      <nested inputs="esdl.ecore#//CommodityEnum/UNDEFINED" outputs="EsdlXML.xsd#//CommodityEnum;XSDSimpleTypeDefinition/XSDEnumerationFacet"/>
+      <nested inputs="esdl.ecore#//CommodityEnum/ELECTRICITY" outputs="EsdlXML.xsd#//CommodityEnum;XSDSimpleTypeDefinition/XSDEnumerationFacet=1"/>
+      <nested inputs="esdl.ecore#//CommodityEnum/GAS" outputs="EsdlXML.xsd#//CommodityEnum;XSDSimpleTypeDefinition/XSDEnumerationFacet=2"/>
+      <nested inputs="esdl.ecore#//CommodityEnum/HEAT" outputs="EsdlXML.xsd#//CommodityEnum;XSDSimpleTypeDefinition/XSDEnumerationFacet=3"/>
+      <nested inputs="esdl.ecore#//CommodityEnum/H2" outputs="EsdlXML.xsd#//CommodityEnum;XSDSimpleTypeDefinition/XSDEnumerationFacet=4"/>
+      <nested inputs="esdl.ecore#//CommodityEnum/BIOGAS" outputs="EsdlXML.xsd#//CommodityEnum;XSDSimpleTypeDefinition/XSDEnumerationFacet=5"/>
+      <nested inputs="esdl.ecore#//CommodityEnum/CO2" outputs="EsdlXML.xsd#//CommodityEnum;XSDSimpleTypeDefinition/XSDEnumerationFacet=6"/>
+      <nested inputs="esdl.ecore#//CommodityEnum/ENERGY" outputs="EsdlXML.xsd#//CommodityEnum;XSDSimpleTypeDefinition/XSDEnumerationFacet=7"/>
     </nested>
     <nested inputs="esdl.ecore#//AreaScopeEnum" outputs="EsdlXML.xsd#//AreaScopeEnum;XSDSimpleTypeDefinition=1">
       <nested inputs="esdl.ecore#//AreaScopeEnum/UNDEFINED" outputs="EsdlXML.xsd#//AreaScopeEnum;XSDSimpleTypeDefinition=1/XSDEnumerationFacet"/>
@@ -354,6 +356,7 @@
       <nested inputs="esdl.ecore#//Area/area" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle=5"/>
       <nested inputs="esdl.ecore#//Area/containingArea" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDAttributeUse=5"/>
       <nested inputs="esdl.ecore#//Area/isOwnedBy" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDAttributeUse=6"/>
+      <nested inputs="esdl.ecore#//Area/gmlGeometry" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle=6"/>
     </nested>
     <nested inputs="esdl.ecore#//Area" outputs="EsdlXML.xsd#//Area;XSDElementDeclaration=8"/>
     <nested inputs="esdl.ecore#//Port" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15">
@@ -386,6 +389,7 @@
       <nested inputs="esdl.ecore#//Asset/containingBuilding" outputs="EsdlXML.xsd#//Asset;XSDComplexTypeDefinition=19/XSDAttributeUse=6"/>
       <nested inputs="esdl.ecore#//Asset/geometry" outputs="EsdlXML.xsd#//Asset;XSDComplexTypeDefinition=19/XSDParticle/XSDModelGroup/XSDParticle"/>
       <nested inputs="esdl.ecore#//Asset/costInformation" outputs="EsdlXML.xsd#//Asset;XSDComplexTypeDefinition=19/XSDParticle/XSDModelGroup/XSDParticle=1"/>
+      <nested inputs="esdl.ecore#//Asset/gmlGeometry" outputs="EsdlXML.xsd#//Asset;XSDComplexTypeDefinition=19/XSDParticle/XSDModelGroup/XSDParticle=2"/>
     </nested>
     <nested inputs="esdl.ecore#//GenericConsumer" outputs="EsdlXML.xsd#//GenericConsumer;XSDComplexTypeDefinition=20"/>
     <nested inputs="esdl.ecore#//GenericConsumer" outputs="EsdlXML.xsd#//GenericConsumer;XSDElementDeclaration=12"/>
@@ -460,11 +464,11 @@
     <nested inputs="esdl.ecore#//SinkProducer" outputs="EsdlXML.xsd#//SinkProducer;XSDElementDeclaration=26"/>
     <nested inputs="esdl.ecore#//SinkConsumer" outputs="EsdlXML.xsd#//SinkConsumer;XSDComplexTypeDefinition=35"/>
     <nested inputs="esdl.ecore#//SinkConsumer" outputs="EsdlXML.xsd#//SinkConsumer;XSDElementDeclaration=27"/>
-    <nested inputs="esdl.ecore#//HeatPipe" outputs="EsdlXML.xsd#//HeatPipe;XSDComplexTypeDefinition=36">
-      <nested inputs="esdl.ecore#//HeatPipe/diameter" outputs="EsdlXML.xsd#//HeatPipe;XSDComplexTypeDefinition=36/XSDAttributeUse"/>
-      <nested inputs="esdl.ecore#//HeatPipe/length" outputs="EsdlXML.xsd#//HeatPipe;XSDComplexTypeDefinition=36/XSDAttributeUse=1"/>
+    <nested inputs="esdl.ecore#//Pipe" outputs="EsdlXML.xsd#//Pipe;XSDComplexTypeDefinition=36">
+      <nested inputs="esdl.ecore#//Pipe/diameter" outputs="EsdlXML.xsd#//Pipe;XSDComplexTypeDefinition=36/XSDAttributeUse"/>
+      <nested inputs="esdl.ecore#//Pipe/length" outputs="EsdlXML.xsd#//Pipe;XSDComplexTypeDefinition=36/XSDAttributeUse=1"/>
     </nested>
-    <nested inputs="esdl.ecore#//HeatPipe" outputs="EsdlXML.xsd#//HeatPipe;XSDElementDeclaration=28"/>
+    <nested inputs="esdl.ecore#//Pipe" outputs="EsdlXML.xsd#//Pipe;XSDElementDeclaration=28"/>
     <nested inputs="esdl.ecore#//GeothermalSource" outputs="EsdlXML.xsd#//GeothermalSource;XSDComplexTypeDefinition=37">
       <nested inputs="esdl.ecore#//GeothermalSource/wellDepth" outputs="EsdlXML.xsd#//GeothermalSource;XSDComplexTypeDefinition=37/XSDAttributeUse"/>
       <nested inputs="esdl.ecore#//GeothermalSource/geothermalSourceType" outputs="EsdlXML.xsd#//GeothermalSource;XSDComplexTypeDefinition=37/XSDAttributeUse=1"/>
@@ -492,10 +496,10 @@
       <nested inputs="esdl.ecore#//HeatPump/additionalHeatingSourceType" outputs="EsdlXML.xsd#//HeatPump;XSDComplexTypeDefinition=39/XSDAttributeUse=4"/>
     </nested>
     <nested inputs="esdl.ecore#//HeatPump" outputs="EsdlXML.xsd#//HeatPump;XSDElementDeclaration=30"/>
-    <nested inputs="esdl.ecore#//HeatDemand" outputs="EsdlXML.xsd#//HeatDemand;XSDComplexTypeDefinition=40">
-      <nested inputs="esdl.ecore#//HeatDemand/type" outputs="EsdlXML.xsd#//HeatDemand;XSDComplexTypeDefinition=40/XSDAttributeUse"/>
+    <nested inputs="esdl.ecore#//HeatingDemand" outputs="EsdlXML.xsd#//HeatingDemand;XSDComplexTypeDefinition=40">
+      <nested inputs="esdl.ecore#//HeatingDemand/type" outputs="EsdlXML.xsd#//HeatingDemand;XSDComplexTypeDefinition=40/XSDAttributeUse"/>
     </nested>
-    <nested inputs="esdl.ecore#//HeatDemand" outputs="EsdlXML.xsd#//HeatDemand;XSDElementDeclaration=31"/>
+    <nested inputs="esdl.ecore#//HeatingDemand" outputs="EsdlXML.xsd#//HeatingDemand;XSDElementDeclaration=31"/>
     <nested inputs="esdl.ecore#//ElectricityDemand" outputs="EsdlXML.xsd#//ElectricityDemand;XSDComplexTypeDefinition=41"/>
     <nested inputs="esdl.ecore#//ElectricityDemand" outputs="EsdlXML.xsd#//ElectricityDemand;XSDElementDeclaration=32"/>
     <nested inputs="esdl.ecore#//GasDemand" outputs="EsdlXML.xsd#//GasDemand;XSDComplexTypeDefinition=42"/>
@@ -649,6 +653,7 @@
           outputs="EsdlXML.xsd#//EnergySystemInformation;XSDComplexTypeDefinition=77/XSDParticle/XSDModelGroup/XSDParticle"/>
       <nested inputs="esdl.ecore#//EnergySystemInformation/energyPrices" outputs="EsdlXML.xsd#//EnergySystemInformation;XSDComplexTypeDefinition=77/XSDParticle/XSDModelGroup/XSDParticle=1"/>
       <nested inputs="esdl.ecore#//EnergySystemInformation/availableCommodities" outputs="EsdlXML.xsd#//EnergySystemInformation;XSDComplexTypeDefinition=77/XSDParticle/XSDModelGroup/XSDParticle=2"/>
+      <nested inputs="esdl.ecore#//EnergySystemInformation/profileCollection" outputs="EsdlXML.xsd#//EnergySystemInformation;XSDComplexTypeDefinition=77/XSDParticle/XSDModelGroup/XSDParticle=3"/>
     </nested>
     <nested inputs="esdl.ecore#//EnergySystemInformation" outputs="EsdlXML.xsd#//EnergySystemInformation;XSDElementDeclaration=63"/>
     <nested inputs="esdl.ecore#//Pump" outputs="EsdlXML.xsd#//Pump;XSDComplexTypeDefinition=78"/>
@@ -695,8 +700,8 @@
       <nested inputs="esdl.ecore#//PercentileDistribution/percentile" outputs="EsdlXML.xsd#//PercentileDistribution;XSDComplexTypeDefinition=89/XSDParticle/XSDModelGroup/XSDParticle"/>
     </nested>
     <nested inputs="esdl.ecore#//PercentileDistribution" outputs="EsdlXML.xsd#//PercentileDistribution;XSDElementDeclaration=71"/>
-    <nested inputs="esdl.ecore#//CoolDemand" outputs="EsdlXML.xsd#//CoolDemand;XSDComplexTypeDefinition=90"/>
-    <nested inputs="esdl.ecore#//CoolDemand" outputs="EsdlXML.xsd#//CoolDemand;XSDElementDeclaration=72"/>
+    <nested inputs="esdl.ecore#//CoolingDemand" outputs="EsdlXML.xsd#//CoolingDemand;XSDComplexTypeDefinition=90"/>
+    <nested inputs="esdl.ecore#//CoolingDemand" outputs="EsdlXML.xsd#//CoolingDemand;XSDElementDeclaration=72"/>
     <nested inputs="esdl.ecore#//Airco" outputs="EsdlXML.xsd#//Airco;XSDComplexTypeDefinition=91">
       <nested inputs="esdl.ecore#//Airco/power" outputs="EsdlXML.xsd#//Airco;XSDComplexTypeDefinition=91/XSDAttributeUse"/>
     </nested>
@@ -825,5 +830,16 @@
       <nested inputs="esdl.ecore#//Duration/durationUnit" outputs="EsdlXML.xsd#//Duration;XSDComplexTypeDefinition=120/XSDAttributeUse=1"/>
     </nested>
     <nested inputs="esdl.ecore#//Duration" outputs="EsdlXML.xsd#//Duration;XSDElementDeclaration=96"/>
+    <nested inputs="esdl.ecore#//EnergyNetwork" outputs="EsdlXML.xsd#//EnergyNetwork;XSDComplexTypeDefinition=121"/>
+    <nested inputs="esdl.ecore#//EnergyNetwork" outputs="EsdlXML.xsd#//EnergyNetwork;XSDElementDeclaration=97"/>
+    <nested inputs="esdl.ecore#//ReferenceProfile" outputs="EsdlXML.xsd#//ReferenceProfile;XSDComplexTypeDefinition=122">
+      <nested inputs="esdl.ecore#//ReferenceProfile/multiplier" outputs="EsdlXML.xsd#//ReferenceProfile;XSDComplexTypeDefinition=122/XSDAttributeUse"/>
+      <nested inputs="esdl.ecore#//ReferenceProfile/reference" outputs="EsdlXML.xsd#//ReferenceProfile;XSDComplexTypeDefinition=122/XSDAttributeUse=1"/>
+    </nested>
+    <nested inputs="esdl.ecore#//ReferenceProfile" outputs="EsdlXML.xsd#//ReferenceProfile;XSDElementDeclaration=98"/>
+    <nested inputs="esdl.ecore#//ProfileCollection" outputs="EsdlXML.xsd#//ProfileCollection;XSDComplexTypeDefinition=123">
+      <nested inputs="esdl.ecore#//ProfileCollection/profile" outputs="EsdlXML.xsd#//ProfileCollection;XSDComplexTypeDefinition=123/XSDParticle/XSDModelGroup/XSDParticle"/>
+    </nested>
+    <nested inputs="esdl.ecore#//ProfileCollection" outputs="EsdlXML.xsd#//ProfileCollection;XSDElementDeclaration=99"/>
   </nested>
 </xsd2ecore:XSD2EcoreMappingRoot>

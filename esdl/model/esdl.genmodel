@@ -367,6 +367,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/area"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference esdl.ecore#//Area/containingArea"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/isOwnedBy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/gmlGeometry"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Port">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/commodity"/>
@@ -395,6 +396,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/geometry"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/costInformation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/technicalLifetime"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/gmlGeometry"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GenericConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//GenericProducer"/>
@@ -762,6 +764,51 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//ProfileCollection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//ProfileCollection/profile"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Gml" ecorePackage="../../esdl_gml/model/gml.ecore#/">
+    <genClasses ecoreClass="../../esdl_gml/model/gml.ecore#//LineStringType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../esdl_gml/model/gml.ecore#//LineStringType/pos"/>
+    </genClasses>
+    <genClasses ecoreClass="../../esdl_gml/model/gml.ecore#//MultiPolygonType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../esdl_gml/model/gml.ecore#//MultiPolygonType/polygonMember"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../esdl_gml/model/gml.ecore#//AbstractGMLType"/>
+    <genClasses image="false" ecoreClass="../../esdl_gml/model/gml.ecore#//AbstractGeometryType"/>
+    <genClasses image="false" ecoreClass="../../esdl_gml/model/gml.ecore#//AbstractGeometricPrimitiveType"/>
+    <genClasses image="false" ecoreClass="../../esdl_gml/model/gml.ecore#//AbstractCurveType"/>
+    <genClasses image="false" ecoreClass="../../esdl_gml/model/gml.ecore#//AbstractSurfaceType"/>
+    <genClasses image="false" ecoreClass="../../esdl_gml/model/gml.ecore#//AbstractGeometricAggregateType"/>
+    <genClasses ecoreClass="../../esdl_gml/model/gml.ecore#//PolygonPropertyType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../esdl_gml/model/gml.ecore#//PolygonPropertyType/Polygon"/>
+    </genClasses>
+    <genClasses ecoreClass="../../esdl_gml/model/gml.ecore#//PolygonType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../esdl_gml/model/gml.ecore#//PolygonType/exterior"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../esdl_gml/model/gml.ecore#//PolygonType/interior"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="../../esdl_gml/model/gml.ecore#//AbstractRingType"/>
+    <genClasses ecoreClass="../../esdl_gml/model/gml.ecore#//LinearRingType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../esdl_gml/model/gml.ecore#//LinearRingType/poslist"/>
+    </genClasses>
+    <genClasses ecoreClass="../../esdl_gml/model/gml.ecore#//DirectPositionListType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../esdl_gml/model/gml.ecore#//DirectPositionListType/pos"/>
+    </genClasses>
+    <genClasses ecoreClass="../../esdl_gml/model/gml.ecore#//Coord">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../esdl_gml/model/gml.ecore#//Coord/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../esdl_gml/model/gml.ecore#//Coord/y"/>
+    </genClasses>
+    <genClasses ecoreClass="../../esdl_gml/model/gml.ecore#//MultiLineStringType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../esdl_gml/model/gml.ecore#//MultiLineStringType/lineStringMember"/>
+    </genClasses>
+    <genClasses ecoreClass="../../esdl_gml/model/gml.ecore#//LineStringMemberType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../esdl_gml/model/gml.ecore#//LineStringMemberType/lineString"/>
+    </genClasses>
+    <genClasses ecoreClass="../../esdl_gml/model/gml.ecore#//MultiCurveType"/>
+    <genClasses ecoreClass="../../esdl_gml/model/gml.ecore#//PointType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../esdl_gml/model/gml.ecore#//PointType/pos"/>
+    </genClasses>
+    <genClasses ecoreClass="../../esdl_gml/model/gml.ecore#//TestClass">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../esdl_gml/model/gml.ecore#//TestClass/parts"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

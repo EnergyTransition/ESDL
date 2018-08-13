@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated esdl -->
       <package
-            uri="http://www.tno.nl/esdl/1806"
+            uri="http://www.tno.nl/esdl/1807"
             class="esdl.EsdlPackage"
             genModel="model/esdl.genmodel"/>
    </extension>
@@ -19,6 +19,14 @@
       <parser
             type="esdl"
             class="esdl.util.EsdlResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated esdl -->
+      <package
+            uri="http://www.tno.nl/esdl/gml"
+            class="gml.GmlPackage"
+            genModel="model/esdl.genmodel"/>
    </extension>
 
 </plugin>

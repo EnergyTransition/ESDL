@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:esdl="http://www.tno.nl/esdl/1806" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tno.nl/esdl/1806">
+<xsd:schema xmlns:esdl="http://www.tno.nl/esdl/1807" xmlns:gml="http://www.tno.nl/esdl/gml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tno.nl/esdl/1807">
+  <xsd:import namespace="http://www.tno.nl/esdl/gml" schemaLocation="gml.xsd"/>
   <xsd:simpleType name="CommodityEnum">
     <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
       <xsd:enumeration value="ELECTRICITY"/>
       <xsd:enumeration value="GAS"/>
       <xsd:enumeration value="HEAT"/>
       <xsd:enumeration value="H2"/>
       <xsd:enumeration value="BIOGAS"/>
       <xsd:enumeration value="CO2"/>
+      <xsd:enumeration value="ENERGY"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="AreaScopeEnum">
@@ -465,6 +468,7 @@
       <xsd:element maxOccurs="1" minOccurs="0" name="economicProperties" type="esdl:EconomicProperties"/>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset"/>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="area" type="esdl:Area"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="gmlGeometry" type="gml:AbstractGMLType"/>
     </xsd:sequence>
     <xsd:attribute name="id" type="xsd:string"/>
     <xsd:attribute name="name" type="xsd:string"/>
@@ -479,7 +483,7 @@
     <xsd:sequence>
       <xsd:element maxOccurs="1" minOccurs="0" name="profile" type="esdl:GenericProfile"/>
     </xsd:sequence>
-    <xsd:attribute default="ELECTRICITY" name="commodity" type="esdl:CommodityEnum"/>
+    <xsd:attribute default="UNDEFINED" name="commodity" type="esdl:CommodityEnum"/>
     <xsd:attribute name="id" type="xsd:string"/>
     <xsd:attribute name="maxPower" type="xsd:double"/>
     <xsd:attribute name="energyasset" type="xsd:string"/>
@@ -515,6 +519,7 @@
         <xsd:sequence>
           <xsd:element maxOccurs="1" minOccurs="0" name="geometry" type="esdl:Geometry"/>
           <xsd:element maxOccurs="1" minOccurs="0" name="costInformation" type="esdl:CostInformation"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="gmlGeometry" type="gml:AbstractGMLType"/>
         </xsd:sequence>
         <xsd:attribute name="surfaceArea" type="xsd:int"/>
         <xsd:attribute name="commissioningDate" type="xsd:string"/>
@@ -663,7 +668,7 @@
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="SinkConsumer" type="esdl:SinkConsumer"/>
-  <xsd:complexType name="HeatPipe">
+  <xsd:complexType name="Pipe">
     <xsd:complexContent>
       <xsd:extension base="esdl:Transport">
         <xsd:attribute name="diameter" type="xsd:double"/>
@@ -671,7 +676,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="HeatPipe" type="esdl:HeatPipe"/>
+  <xsd:element name="Pipe" type="esdl:Pipe"/>
   <xsd:complexType name="GeothermalSource">
     <xsd:complexContent>
       <xsd:extension base="esdl:Producer">
@@ -711,14 +716,14 @@
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="HeatPump" type="esdl:HeatPump"/>
-  <xsd:complexType name="HeatDemand">
+  <xsd:complexType name="HeatingDemand">
     <xsd:complexContent>
       <xsd:extension base="esdl:Consumer">
         <xsd:attribute name="type" type="esdl:HeatDemandTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="HeatDemand" type="esdl:HeatDemand"/>
+  <xsd:element name="HeatingDemand" type="esdl:HeatingDemand"/>
   <xsd:complexType name="ElectricityDemand">
     <xsd:complexContent>
       <xsd:extension base="esdl:Consumer"/>
@@ -1002,6 +1007,7 @@
       <xsd:element maxOccurs="1" minOccurs="0" name="availableEnergyCarriers" type="esdl:AvailableEnergyCarriers"/>
       <xsd:element maxOccurs="1" minOccurs="0" name="energyPrices" type="esdl:EnergyPrices"/>
       <xsd:element maxOccurs="1" minOccurs="0" name="availableCommodities" type="esdl:AvailableCommodities"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="profileCollection" type="esdl:ProfileCollection"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:element name="EnergySystemInformation" type="esdl:EnergySystemInformation"/>
@@ -1134,12 +1140,12 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="PercentileDistribution" type="esdl:PercentileDistribution"/>
-  <xsd:complexType name="CoolDemand">
+  <xsd:complexType name="CoolingDemand">
     <xsd:complexContent>
       <xsd:extension base="esdl:Consumer"/>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="CoolDemand" type="esdl:CoolDemand"/>
+  <xsd:element name="CoolingDemand" type="esdl:CoolingDemand"/>
   <xsd:complexType name="Airco">
     <xsd:complexContent>
       <xsd:extension base="esdl:Conversion">
@@ -1373,4 +1379,25 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:attribute default="SECOND" name="durationUnit" type="esdl:DurationUnitEnum"/>
   </xsd:complexType>
   <xsd:element name="Duration" type="esdl:Duration"/>
+  <xsd:complexType name="EnergyNetwork">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Transport"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EnergyNetwork" type="esdl:EnergyNetwork"/>
+  <xsd:complexType name="ReferenceProfile">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:StaticProfile">
+        <xsd:attribute default="1" name="multiplier" type="xsd:double"/>
+        <xsd:attribute name="reference" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ReferenceProfile" type="esdl:ReferenceProfile"/>
+  <xsd:complexType name="ProfileCollection">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="profile" type="esdl:GenericProfile"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ProfileCollection" type="esdl:ProfileCollection"/>
 </xsd:schema>
