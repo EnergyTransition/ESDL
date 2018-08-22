@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:esdl="http://www.tno.nl/esdl/1806" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tno.nl/esdl/1806">
+<xsd:schema xmlns:esdl="http://www.tno.nl/esdl/1807" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tno.nl/esdl/1807">
   <xsd:simpleType name="CommodityEnum">
     <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
       <xsd:enumeration value="ELECTRICITY"/>
       <xsd:enumeration value="GAS"/>
       <xsd:enumeration value="HEAT"/>
       <xsd:enumeration value="H2"/>
       <xsd:enumeration value="BIOGAS"/>
       <xsd:enumeration value="CO2"/>
+      <xsd:enumeration value="ENERGY"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="AreaScopeEnum">
@@ -311,6 +313,15 @@
       <xsd:enumeration value="GOOD_GT10MWTH"/>
     </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="ResidualHeatSourceTypeEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="INDUSTRIAL"/>
+      <xsd:enumeration value="DATACENTER"/>
+      <xsd:enumeration value="COOLING_HOUSE"/>
+      <xsd:enumeration value="OTHER"/>
+    </xsd:restriction>
+  </xsd:simpleType>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:complexContent>
       <xsd:extension base="esdl:Asset">
@@ -376,7 +387,7 @@
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="instance" type="esdl:Instance"/>
       <xsd:element maxOccurs="1" minOccurs="0" name="potentials" type="esdl:Potentials"/>
       <xsd:element maxOccurs="1" minOccurs="0" name="energySystemInformation" type="esdl:EnergySystemInformation"/>
-      <xsd:element maxOccurs="unbounded" minOccurs="0" name="party" type="esdl:Party"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="parties" type="esdl:Parties"/>
     </xsd:sequence>
     <xsd:attribute name="name" type="xsd:string"/>
     <xsd:attribute name="description" type="xsd:string"/>
@@ -470,6 +481,7 @@
     <xsd:attribute name="name" type="xsd:string"/>
     <xsd:attribute default="UNDEFINED" name="scope" type="esdl:AreaScopeEnum"/>
     <xsd:attribute name="type" type="esdl:AreaTypeEnum"/>
+    <xsd:attribute name="geometryReference" type="xsd:string"/>
     <xsd:attribute name="potentials" type="xsd:string"/>
     <xsd:attribute name="containingArea" type="xsd:string"/>
     <xsd:attribute name="isOwnedBy" type="xsd:string"/>
@@ -479,7 +491,7 @@
     <xsd:sequence>
       <xsd:element maxOccurs="1" minOccurs="0" name="profile" type="esdl:GenericProfile"/>
     </xsd:sequence>
-    <xsd:attribute default="ELECTRICITY" name="commodity" type="esdl:CommodityEnum"/>
+    <xsd:attribute default="UNDEFINED" name="commodity" type="esdl:CommodityEnum"/>
     <xsd:attribute name="id" type="xsd:string"/>
     <xsd:attribute name="maxPower" type="xsd:double"/>
     <xsd:attribute name="energyasset" type="xsd:string"/>
@@ -663,7 +675,7 @@
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="SinkConsumer" type="esdl:SinkConsumer"/>
-  <xsd:complexType name="HeatPipe">
+  <xsd:complexType name="Pipe">
     <xsd:complexContent>
       <xsd:extension base="esdl:Transport">
         <xsd:attribute name="diameter" type="xsd:double"/>
@@ -671,7 +683,7 @@
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="HeatPipe" type="esdl:HeatPipe"/>
+  <xsd:element name="Pipe" type="esdl:Pipe"/>
   <xsd:complexType name="GeothermalSource">
     <xsd:complexContent>
       <xsd:extension base="esdl:Producer">
@@ -711,14 +723,14 @@
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="HeatPump" type="esdl:HeatPump"/>
-  <xsd:complexType name="HeatDemand">
+  <xsd:complexType name="HeatingDemand">
     <xsd:complexContent>
       <xsd:extension base="esdl:Consumer">
         <xsd:attribute name="type" type="esdl:HeatDemandTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="HeatDemand" type="esdl:HeatDemand"/>
+  <xsd:element name="HeatingDemand" type="esdl:HeatingDemand"/>
   <xsd:complexType name="ElectricityDemand">
     <xsd:complexContent>
       <xsd:extension base="esdl:Consumer"/>
@@ -755,7 +767,8 @@
     <xsd:complexContent>
       <xsd:extension base="esdl:Geometry">
         <xsd:sequence>
-          <xsd:element maxOccurs="unbounded" minOccurs="3" name="point" type="esdl:Point"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="exterior" type="esdl:SubPolygon"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="interior" type="esdl:SubPolygon"/>
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -814,17 +827,21 @@
     <xsd:attribute name="name" type="xsd:string"/>
     <xsd:attribute name="shortName" type="xsd:string"/>
     <xsd:attribute name="description" type="xsd:string"/>
+    <xsd:attribute name="originalIdInSource" type="xsd:string"/>
     <xsd:attribute name="isOwnedBy" type="xsd:string"/>
+    <xsd:attribute name="datasource" type="xsd:string"/>
   </xsd:complexType>
   <xsd:complexType name="Measures">
     <xsd:sequence>
-      <xsd:element maxOccurs="unbounded" minOccurs="0" name="item" type="esdl:Item"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="measure" type="esdl:Item"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:element name="Measures" type="esdl:Measures"/>
   <xsd:complexType name="EConnection">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Transport"/>
+      <xsd:extension base="esdl:Transport">
+        <xsd:attribute name="EANCode" type="xsd:string"/>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="EConnection" type="esdl:EConnection"/>
@@ -897,7 +914,7 @@
   <xsd:element name="EVChargingStation" type="esdl:EVChargingStation"/>
   <xsd:complexType abstract="true" name="Potential">
     <xsd:sequence>
-      <xsd:element maxOccurs="1" minOccurs="0" name="contour" type="esdl:Polygon"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="geometry" type="esdl:Geometry"/>
     </xsd:sequence>
     <xsd:attribute name="id" type="xsd:string"/>
     <xsd:attribute name="name" type="xsd:string"/>
@@ -1002,6 +1019,8 @@
       <xsd:element maxOccurs="1" minOccurs="0" name="availableEnergyCarriers" type="esdl:AvailableEnergyCarriers"/>
       <xsd:element maxOccurs="1" minOccurs="0" name="energyPrices" type="esdl:EnergyPrices"/>
       <xsd:element maxOccurs="1" minOccurs="0" name="availableCommodities" type="esdl:AvailableCommodities"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="profileCollection" type="esdl:ProfileCollection"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="dataSources" type="esdl:DataSources"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:element name="EnergySystemInformation" type="esdl:EnergySystemInformation"/>
@@ -1134,12 +1153,12 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="PercentileDistribution" type="esdl:PercentileDistribution"/>
-  <xsd:complexType name="CoolDemand">
+  <xsd:complexType name="CoolingDemand">
     <xsd:complexContent>
       <xsd:extension base="esdl:Consumer"/>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="CoolDemand" type="esdl:CoolDemand"/>
+  <xsd:element name="CoolingDemand" type="esdl:CoolingDemand"/>
   <xsd:complexType name="Airco">
     <xsd:complexContent>
       <xsd:extension base="esdl:Conversion">
@@ -1373,4 +1392,94 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:attribute default="SECOND" name="durationUnit" type="esdl:DurationUnitEnum"/>
   </xsd:complexType>
   <xsd:element name="Duration" type="esdl:Duration"/>
+  <xsd:complexType name="EnergyNetwork">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Transport"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EnergyNetwork" type="esdl:EnergyNetwork"/>
+  <xsd:complexType name="ReferenceProfile">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:StaticProfile">
+        <xsd:attribute default="1" name="multiplier" type="xsd:double"/>
+        <xsd:attribute name="reference" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ReferenceProfile" type="esdl:ReferenceProfile"/>
+  <xsd:complexType name="ProfileCollection">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="profile" type="esdl:GenericProfile"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ProfileCollection" type="esdl:ProfileCollection"/>
+  <xsd:complexType name="Parties">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="party" type="esdl:Party"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="Parties" type="esdl:Parties"/>
+  <xsd:complexType name="DataSources">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="dataSource" type="esdl:DataSource"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="DataSources" type="esdl:DataSources"/>
+  <xsd:complexType name="DataSource">
+    <xsd:attribute name="id" type="xsd:string"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+    <xsd:attribute name="description" type="xsd:string"/>
+    <xsd:attribute name="reference" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="DataSource" type="esdl:DataSource"/>
+  <xsd:complexType name="EnergyDemand">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Consumer"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EnergyDemand" type="esdl:EnergyDemand"/>
+  <xsd:complexType name="SolarCollector">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Producer"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SolarCollector" type="esdl:SolarCollector"/>
+  <xsd:complexType name="ResidualHeatSource">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Producer">
+        <xsd:attribute name="type" type="esdl:ResidualHeatSourceTypeEnum"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ResidualHeatSource" type="esdl:ResidualHeatSource"/>
+  <xsd:complexType name="FermentationPlant">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Conversion"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="FermentationPlant" type="esdl:FermentationPlant"/>
+  <xsd:complexType name="ResidualHeatSourcePotential">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Potential">
+        <xsd:attribute name="power" type="xsd:double"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ResidualHeatSourcePotential" type="esdl:ResidualHeatSourcePotential"/>
+  <xsd:complexType name="SubPolygon">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="3" name="point" type="esdl:Point"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="SubPolygon" type="esdl:SubPolygon"/>
+  <xsd:complexType name="MultiPolygon">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Geometry">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="polygon" type="esdl:Polygon"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="MultiPolygon" type="esdl:MultiPolygon"/>
 </xsd:schema>

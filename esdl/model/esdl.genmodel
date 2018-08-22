@@ -287,7 +287,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidualHeatSourceTypeEnum/UNDEFINED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidualHeatSourceTypeEnum/INDUSTRIAL"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidualHeatSourceTypeEnum/DATACENTER"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidualHeatSourceTypeEnum/SEWAGE_TREATMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidualHeatSourceTypeEnum/COOLING_HOUSE"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidualHeatSourceTypeEnum/OTHER"/>
     </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
@@ -374,6 +374,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/area"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference esdl.ecore#//Area/containingArea"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/isOwnedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/geometryReference"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Port">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/commodity"/>
@@ -505,7 +506,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Point/lon"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Polygon">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Polygon/point"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Polygon/exterior"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Polygon/interior"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EconomicProperties">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EconomicProperties/averageIncome"/>
@@ -541,7 +543,9 @@
     <genClasses ecoreClass="esdl.ecore#//Measures">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measures/measure"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//EConnection"/>
+    <genClasses ecoreClass="esdl.ecore#//EConnection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EConnection/EANCode"/>
+    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HConnection"/>
     <genClasses ecoreClass="esdl.ecore#//GConnection"/>
     <genClasses ecoreClass="esdl.ecore#//PowerPlant">
@@ -570,10 +574,10 @@
     <genClasses ecoreClass="esdl.ecore#//AggregatorService"/>
     <genClasses ecoreClass="esdl.ecore#//EVChargingStation"/>
     <genClasses image="false" ecoreClass="esdl.ecore#//Potential">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Potential/contour"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Potential/areas"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Potential/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Potential/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Potential/geometry"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WindPotential">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindPotential/windspeed"/>
@@ -791,5 +795,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ResidualHeatSource/type"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//FermentationPlant"/>
+    <genClasses ecoreClass="esdl.ecore#//ResidualHeatSourcePotential">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ResidualHeatSourcePotential/power"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//SubPolygon">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//SubPolygon/point"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//MultiPolygon">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MultiPolygon/polygon"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

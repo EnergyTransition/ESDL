@@ -126,6 +126,7 @@
         eOpposite="#//Area/area"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="isOwnedBy" eType="#//Party"
         eOpposite="#//Party/ownsArea"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="geometryReference" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commodity" eType="#//CommodityEnum"
@@ -393,8 +394,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Polygon" eSuperTypes="#//Geometry">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="point" lowerBound="3" upperBound="-1"
-        eType="#//Point" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exterior" lowerBound="1"
+        eType="#//SubPolygon" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interior" upperBound="-1"
+        eType="#//SubPolygon" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="HousingTypeEnum">
     <eLiterals name="UNDEFINED"/>
@@ -476,7 +479,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="measure" upperBound="-1"
         eType="#//Item" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EConnection" eSuperTypes="#//Transport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EConnection" eSuperTypes="#//Transport">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EANCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HConnection" eSuperTypes="#//Transport"/>
   <eClassifiers xsi:type="ecore:EClass" name="GConnection" eSuperTypes="#//Transport"/>
   <eClassifiers xsi:type="ecore:EClass" name="PowerPlant" eSuperTypes="#//Conversion">
@@ -517,13 +522,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="AggregatorService" eSuperTypes="#//EnergyService"/>
   <eClassifiers xsi:type="ecore:EClass" name="EVChargingStation" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="Potential" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contour" eType="#//Polygon"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="areas" upperBound="-1"
         eType="#//Area" eOpposite="#//Area/potentials"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="geometry" eType="#//Geometry"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WindPotential" eSuperTypes="#//Potential">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="windspeed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -917,8 +922,19 @@
     <eLiterals name="UNDEFINED"/>
     <eLiterals name="INDUSTRIAL" value="1"/>
     <eLiterals name="DATACENTER" value="2"/>
-    <eLiterals name="SEWAGE_TREATMENT" value="3"/>
+    <eLiterals name="COOLING_HOUSE" value="3"/>
     <eLiterals name="OTHER" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FermentationPlant" eSuperTypes="#//Conversion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ResidualHeatSourcePotential" eSuperTypes="#//Potential">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubPolygon">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="point" lowerBound="3" upperBound="-1"
+        eType="#//Point" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MultiPolygon" eSuperTypes="#//Geometry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="polygon" lowerBound="1"
+        upperBound="-1" eType="#//Polygon" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>
