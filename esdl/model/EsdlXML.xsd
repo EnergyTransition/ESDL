@@ -322,6 +322,43 @@
       <xsd:enumeration value="OTHER"/>
     </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="MobilityFuelTypeEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="PETROL"/>
+      <xsd:enumeration value="DIESEL"/>
+      <xsd:enumeration value="HYDROGEN"/>
+      <xsd:enumeration value="LPG"/>
+      <xsd:enumeration value="BIOFUEL"/>
+      <xsd:enumeration value="ELECTRICITY"/>
+      <xsd:enumeration value="OIL"/>
+      <xsd:enumeration value="LNG"/>
+      <xsd:enumeration value="KEROSENE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="VehicleTypeEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="CAR"/>
+      <xsd:enumeration value="TRUCK"/>
+      <xsd:enumeration value="VAN"/>
+      <xsd:enumeration value="BUS"/>
+      <xsd:enumeration value="METRO"/>
+      <xsd:enumeration value="TRAM"/>
+      <xsd:enumeration value="TRAIN"/>
+      <xsd:enumeration value="PASSENGER_TRAIN"/>
+      <xsd:enumeration value="FREIGHT_TRAIN"/>
+      <xsd:enumeration value="SCOOTER"/>
+      <xsd:enumeration value="MOTOR_CYCLE"/>
+      <xsd:enumeration value="NONROAD_VEHICLE"/>
+      <xsd:enumeration value="AGRARIAN_VEHICLE"/>
+      <xsd:enumeration value="BARGE"/>
+      <xsd:enumeration value="INTERNATIONAL_SHIPPING"/>
+      <xsd:enumeration value="AIRCRAFT"/>
+      <xsd:enumeration value="OTHER"/>
+      <xsd:enumeration value="TOTAL"/>
+    </xsd:restriction>
+  </xsd:simpleType>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:complexContent>
       <xsd:extension base="esdl:Asset">
@@ -367,6 +404,7 @@
         <xsd:attribute name="efficiency" type="xsd:double"/>
         <xsd:attribute name="operationalHours" type="xsd:int"/>
         <xsd:attribute name="fullLoadHours" type="xsd:int"/>
+        <xsd:attribute name="power" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -476,6 +514,7 @@
       <xsd:element maxOccurs="1" minOccurs="0" name="economicProperties" type="esdl:EconomicProperties"/>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset"/>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="area" type="esdl:Area"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="mobilityProperties" type="esdl:MobilityProperties"/>
     </xsd:sequence>
     <xsd:attribute name="id" type="xsd:string"/>
     <xsd:attribute name="name" type="xsd:string"/>
@@ -630,7 +669,6 @@
   <xsd:complexType name="GasHeater">
     <xsd:complexContent>
       <xsd:extension base="esdl:Conversion">
-        <xsd:attribute name="power" type="xsd:double"/>
         <xsd:attribute default="0.0" name="minimumBurnRate" type="xsd:double"/>
         <xsd:attribute name="type" type="esdl:GasHeaterTypeEnum"/>
       </xsd:extension>
@@ -703,7 +741,6 @@
       <xsd:extension base="esdl:Conversion">
         <xsd:attribute default="0.0" name="heatEfficiency" type="xsd:double"/>
         <xsd:attribute default="0.0" name="electricalEfficiency" type="xsd:double"/>
-        <xsd:attribute default="0.0" name="power" type="xsd:double"/>
         <xsd:attribute name="HERatio" type="xsd:double"/>
         <xsd:attribute name="fuelType" type="esdl:PowerPlantFuelEnum"/>
         <xsd:attribute name="leadCommodity" type="esdl:CommodityEnum"/>
@@ -716,7 +753,6 @@
       <xsd:extension base="esdl:Conversion">
         <xsd:attribute name="source" type="esdl:SourceTypeEnum"/>
         <xsd:attribute default="1" name="stages" type="xsd:int"/>
-        <xsd:attribute name="power" type="xsd:double"/>
         <xsd:attribute name="COP" type="xsd:double"/>
         <xsd:attribute name="additionalHeatingSourceType" type="esdl:AdditionalHeatingSourceTypeEnum"/>
       </xsd:extension>
@@ -950,10 +986,7 @@
   <xsd:element name="Potentials" type="esdl:Potentials"/>
   <xsd:complexType name="EnergyCarrier">
     <xsd:complexContent>
-      <xsd:extension base="esdl:EnergyCarrierOrCommodity">
-        <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="0" name="costPerUnit" type="esdl:GenericProfile"/>
-        </xsd:sequence>
+      <xsd:extension base="esdl:Carrier">
         <xsd:attribute default="0.0" name="energyContentPerUnit" type="xsd:double"/>
         <xsd:attribute default="0.0" name="emissionPerUnit" type="xsd:double"/>
         <xsd:attribute name="energyCarrierType" type="esdl:RenewableTypeEnum"/>
@@ -980,12 +1013,12 @@
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="CCS" type="esdl:CCS"/>
-  <xsd:complexType name="AvailableEnergyCarriers">
+  <xsd:complexType name="Carriers">
     <xsd:sequence>
-      <xsd:element maxOccurs="unbounded" minOccurs="0" name="energyCarrier" type="esdl:EnergyCarrier"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="carrier" type="esdl:Carrier"/>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:element name="AvailableEnergyCarriers" type="esdl:AvailableEnergyCarriers"/>
+  <xsd:element name="Carriers" type="esdl:Carriers"/>
   <xsd:complexType name="FuelCell">
     <xsd:complexContent>
       <xsd:extension base="esdl:CoGeneration"/>
@@ -1016,11 +1049,10 @@
   <xsd:element name="PVParc" type="esdl:PVParc"/>
   <xsd:complexType name="EnergySystemInformation">
     <xsd:sequence>
-      <xsd:element maxOccurs="1" minOccurs="0" name="availableEnergyCarriers" type="esdl:AvailableEnergyCarriers"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="energyPrices" type="esdl:EnergyPrices"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="availableCommodities" type="esdl:AvailableCommodities"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="profileCollection" type="esdl:ProfileCollection"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="carriers" type="esdl:Carriers"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="profiles" type="esdl:Profiles"/>
       <xsd:element maxOccurs="1" minOccurs="0" name="dataSources" type="esdl:DataSources"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="mobilityFuelInformation" type="esdl:MobilityFuelInformation"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:element name="EnergySystemInformation" type="esdl:EnergySystemInformation"/>
@@ -1036,13 +1068,6 @@
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="Valve" type="esdl:Valve"/>
-  <xsd:complexType name="EnergyPrices">
-    <xsd:sequence>
-      <xsd:element maxOccurs="1" minOccurs="0" name="elecPrice" type="esdl:GenericProfile"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="gasPrice" type="esdl:GenericProfile"/>
-    </xsd:sequence>
-  </xsd:complexType>
-  <xsd:element name="EnergyPrices" type="esdl:EnergyPrices"/>
   <xsd:complexType abstract="true" name="GenericProfile">
     <xsd:annotation>
       <xsd:documentation>All profiles should describe these fields: a name and a ProfileType. There are two different profile types: static, with static values stored in the ESDL model itself. And External, which allows you to refer to an externally defined profile (e.g. in an Energy Information System or a timeseries database)</xsd:documentation>
@@ -1161,9 +1186,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="CoolingDemand" type="esdl:CoolingDemand"/>
   <xsd:complexType name="Airco">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Conversion">
-        <xsd:attribute name="power" type="xsd:double"/>
-      </xsd:extension>
+      <xsd:extension base="esdl:Conversion"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="Airco" type="esdl:Airco"/>
@@ -1333,7 +1356,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:complexType abstract="true" name="Geometry"/>
   <xsd:complexType abstract="true" name="Commodity">
     <xsd:complexContent>
-      <xsd:extension base="esdl:EnergyCarrierOrCommodity"/>
+      <xsd:extension base="esdl:Carrier"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="GasCommodity">
@@ -1360,13 +1383,10 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="ElectricityCommodity" type="esdl:ElectricityCommodity"/>
-  <xsd:complexType name="AvailableCommodities">
+  <xsd:complexType abstract="true" name="Carrier">
     <xsd:sequence>
-      <xsd:element maxOccurs="unbounded" minOccurs="0" name="commodity" type="esdl:Commodity"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="cost" type="esdl:GenericProfile"/>
     </xsd:sequence>
-  </xsd:complexType>
-  <xsd:element name="AvailableCommodities" type="esdl:AvailableCommodities"/>
-  <xsd:complexType abstract="true" name="EnergyCarrierOrCommodity">
     <xsd:attribute name="name" type="xsd:string"/>
     <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
@@ -1407,12 +1427,12 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="ReferenceProfile" type="esdl:ReferenceProfile"/>
-  <xsd:complexType name="ProfileCollection">
+  <xsd:complexType name="Profiles">
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="profile" type="esdl:GenericProfile"/>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:element name="ProfileCollection" type="esdl:ProfileCollection"/>
+  <xsd:element name="Profiles" type="esdl:Profiles"/>
   <xsd:complexType name="Parties">
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="party" type="esdl:Party"/>
@@ -1482,4 +1502,52 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="MultiPolygon" type="esdl:MultiPolygon"/>
+  <xsd:complexType name="EnergyCommodity">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Commodity"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EnergyCommodity" type="esdl:EnergyCommodity"/>
+  <xsd:complexType name="MobilityDemand">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Consumer">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="type" type="esdl:VehicleTypeEnum"/>
+        </xsd:sequence>
+        <xsd:attribute name="fuelType" type="esdl:MobilityFuelTypeEnum"/>
+        <xsd:attribute name="distance" type="xsd:int"/>
+        <xsd:attribute name="efficiency" type="xsd:double"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="MobilityDemand" type="esdl:MobilityDemand"/>
+  <xsd:complexType name="MobilityFuelInformation">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="vehiclefuelefficiency" type="esdl:VehicleFuelEfficiency"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="MobilityFuelInformation" type="esdl:MobilityFuelInformation"/>
+  <xsd:complexType name="VehicleFuelEfficiency">
+    <xsd:attribute name="vehicleType" type="esdl:VehicleTypeEnum"/>
+    <xsd:attribute name="fuel" type="esdl:MobilityFuelTypeEnum"/>
+    <xsd:attribute name="efficiency" type="xsd:double"/>
+  </xsd:complexType>
+  <xsd:element name="VehicleFuelEfficiency" type="esdl:VehicleFuelEfficiency"/>
+  <xsd:complexType name="MobilityProperties">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="numberOfVehicles" type="esdl:NumberOfVehicles"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="MobilityProperties" type="esdl:MobilityProperties"/>
+  <xsd:complexType name="NumberOfVehicles">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="vehicleCount" type="esdl:VehicleCount"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="NumberOfVehicles" type="esdl:NumberOfVehicles"/>
+  <xsd:complexType name="VehicleCount">
+    <xsd:attribute name="type" type="esdl:VehicleTypeEnum"/>
+    <xsd:attribute name="count" type="xsd:int"/>
+  </xsd:complexType>
+  <xsd:element name="VehicleCount" type="esdl:VehicleCount"/>
 </xsd:schema>

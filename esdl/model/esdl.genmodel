@@ -343,6 +343,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Conversion/efficiency"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Conversion/operationalHours"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Conversion/fullLoadHours"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Conversion/power"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Transport">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Transport/capacity"/>
@@ -478,7 +479,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatStorage/maxStorageTemperature"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GasHeater">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasHeater/power"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasHeater/minimumBurnRate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasHeater/type"/>
     </genClasses>
@@ -512,7 +512,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CoGeneration/heatEfficiency"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CoGeneration/electricalEfficiency"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//CoGeneration/energyCarrier"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CoGeneration/power"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CoGeneration/HERatio"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CoGeneration/fuelType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CoGeneration/leadCommodity"/>
@@ -520,7 +519,6 @@
     <genClasses ecoreClass="esdl.ecore#//HeatPump">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/source"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/stages"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/power"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/COP"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/additionalHeatingSourceType"/>
     </genClasses>
@@ -693,9 +691,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//PercentileDistribution/percentile"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//CoolingDemand"/>
-    <genClasses ecoreClass="esdl.ecore#//Airco">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Airco/power"/>
-    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//Airco"/>
     <genClasses ecoreClass="esdl.ecore#//CostInformation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/investmentCosts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/installationCosts"/>

@@ -28,6 +28,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="efficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationalHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullLoadHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transport" abstract="true" eSuperTypes="#//EnergyAsset">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -288,7 +289,6 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GasHeater" eSuperTypes="#//Conversion">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimumBurnRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//GasHeaterTypeEnum"/>
@@ -326,8 +326,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="electricalEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="energyCarrier" eType="#//EnergyCarrier"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="HERatio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fuelType" eType="#//PowerPlantFuelEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="leadCommodity" eType="#//CommodityEnum"/>
@@ -336,7 +334,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="#//SourceTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stages" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="1"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="COP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="additionalHeatingSourceType"
         eType="#//AdditionalHeatingSourceTypeEnum"/>
@@ -681,9 +678,7 @@
         eType="#//Percentile" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CoolingDemand" eSuperTypes="#//Consumer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Airco" eSuperTypes="#//Conversion">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Airco" eSuperTypes="#//Conversion"/>
   <eClassifiers xsi:type="ecore:EEnum" name="CostUnitEnum">
     <eLiterals name="UNDEFINED"/>
     <eLiterals name="MONEY_IN_EUR" value="1"/>
