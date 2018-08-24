@@ -127,6 +127,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="isOwnedBy" eType="#//Party"
         eOpposite="#//Party/ownsArea"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="geometryReference" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mobilityProperties" eType="#//MobilityProperties"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commodity" eType="#//CommodityEnum"
@@ -595,6 +597,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataSources" eType="#//DataSources"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mobilityFuelInformation"
+        eType="#//MobilityFuelInformation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pump" eSuperTypes="#//Transport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Valve" eSuperTypes="#//Transport"/>
@@ -923,4 +927,64 @@
         upperBound="-1" eType="#//Polygon" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyCommodity" eSuperTypes="#//Commodity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MobilityDemand" eSuperTypes="#//Consumer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" upperBound="-1" eType="#//VehicleTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fuelType" eType="#//MobilityFuelTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="efficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MobilityFuelTypeEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="PETROL" value="1"/>
+    <eLiterals name="DIESEL" value="2"/>
+    <eLiterals name="HYDROGEN" value="3"/>
+    <eLiterals name="LPG" value="4"/>
+    <eLiterals name="BIOFUEL" value="5"/>
+    <eLiterals name="ELECTRICITY" value="6"/>
+    <eLiterals name="OIL" value="7"/>
+    <eLiterals name="LNG" value="8"/>
+    <eLiterals name="KEROSENE" value="9"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="VehicleTypeEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="CAR"/>
+    <eLiterals name="TRUCK"/>
+    <eLiterals name="VAN" value="3"/>
+    <eLiterals name="BUS" value="4"/>
+    <eLiterals name="METRO" value="5"/>
+    <eLiterals name="TRAM" value="6"/>
+    <eLiterals name="TRAIN" value="7"/>
+    <eLiterals name="PASSENGER_TRAIN" value="8"/>
+    <eLiterals name="FREIGHT_TRAIN" value="9"/>
+    <eLiterals name="SCOOTER" value="10"/>
+    <eLiterals name="MOTOR_CYCLE" value="11"/>
+    <eLiterals name="NONROAD_VEHICLE" value="12"/>
+    <eLiterals name="AGRARIAN_VEHICLE" value="13"/>
+    <eLiterals name="BARGE" value="14"/>
+    <eLiterals name="INTERNATIONAL_SHIPPING" value="15"/>
+    <eLiterals name="AIRCRAFT" value="16"/>
+    <eLiterals name="OTHER" value="17"/>
+    <eLiterals name="TOTAL" value="18"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MobilityFuelInformation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vehiclefuelefficiency"
+        upperBound="-1" eType="#//VehicleFuelEfficiency" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VehicleFuelEfficiency">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vehicleType" eType="#//VehicleTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fuel" eType="#//MobilityFuelTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="efficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MobilityProperties">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="numberOfVehicles" eType="#//NumberOfVehicles"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberOfVehicles">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vehicleCount" upperBound="-1"
+        eType="#//VehicleCount" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VehicleCount">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//VehicleTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
 </ecore:EPackage>

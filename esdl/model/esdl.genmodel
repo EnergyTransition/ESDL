@@ -290,6 +290,39 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidualHeatSourceTypeEnum/COOLING_HOUSE"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ResidualHeatSourceTypeEnum/OTHER"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//MobilityFuelTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MobilityFuelTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MobilityFuelTypeEnum/PETROL"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MobilityFuelTypeEnum/DIESEL"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MobilityFuelTypeEnum/HYDROGEN"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MobilityFuelTypeEnum/LPG"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MobilityFuelTypeEnum/BIOFUEL"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MobilityFuelTypeEnum/ELECTRICITY"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MobilityFuelTypeEnum/OIL"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MobilityFuelTypeEnum/LNG"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MobilityFuelTypeEnum/KEROSENE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//VehicleTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/CAR"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/TRUCK"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/VAN"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/BUS"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/METRO"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/TRAM"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/TRAIN"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/PASSENGER_TRAIN"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/FREIGHT_TRAIN"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/SCOOTER"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/MOTOR_CYCLE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/NONROAD_VEHICLE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/AGRARIAN_VEHICLE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/BARGE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/INTERNATIONAL_SHIPPING"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/AIRCRAFT"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/OTHER"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VehicleTypeEnum/TOTAL"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>
     </genClasses>
@@ -375,6 +408,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference esdl.ecore#//Area/containingArea"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/isOwnedBy"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/geometryReference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/mobilityProperties"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Port">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/commodity"/>
@@ -616,6 +650,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/carriers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/profiles"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/dataSources"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/mobilityFuelInformation"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Pump"/>
     <genClasses ecoreClass="esdl.ecore#//Valve"/>
@@ -796,5 +831,29 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MultiPolygon/polygon"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EnergyCommodity"/>
+    <genClasses ecoreClass="esdl.ecore#//MobilityDemand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MobilityDemand/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MobilityDemand/fuelType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MobilityDemand/distance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MobilityDemand/efficiency"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//MobilityFuelInformation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MobilityFuelInformation/vehiclefuelefficiency"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//VehicleFuelEfficiency">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//VehicleFuelEfficiency/vehicleType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//VehicleFuelEfficiency/fuel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//VehicleFuelEfficiency/efficiency"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//MobilityProperties">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MobilityProperties/numberOfVehicles"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//NumberOfVehicles">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//NumberOfVehicles/vehicleCount"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//VehicleCount">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//VehicleCount/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//VehicleCount/count"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
