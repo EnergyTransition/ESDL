@@ -139,7 +139,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="profile" eType="#//GenericProfile"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="energyCarrierOrCommodity"
-        eType="#//EnergyCarrierOrCommodity"/>
+        eType="#//Carrier"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatedProducer" eSuperTypes="#//Producer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"
@@ -554,15 +554,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="potential" upperBound="-1"
         eType="#//Potential" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EnergyCarrier" eSuperTypes="#//EnergyCarrierOrCommodity">
+  <eClassifiers xsi:type="ecore:EClass" name="EnergyCarrier" eSuperTypes="#//Carrier">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyContentPerUnit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="emissionPerUnit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyCarrierType" eType="#//RenewableTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateOfMatter" eType="#//StateOfMatterEnum"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="costPerUnit" eType="#//GenericProfile"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Losses" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="PowerToX" eSuperTypes="#//Conversion"/>
@@ -578,9 +576,9 @@
     <eLiterals name="LIQUID" value="2"/>
     <eLiterals name="GASEOUS" value="3"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AvailableEnergyCarriers">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="energyCarrier" upperBound="-1"
-        eType="#//EnergyCarrier" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Carriers">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="carrier" upperBound="-1"
+        eType="#//Carrier" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FuelCell" eSuperTypes="#//CoGeneration"/>
   <eClassifiers xsi:type="ecore:EClass" name="XToPower" eSuperTypes="#//Conversion"/>
@@ -591,25 +589,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfPanels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergySystemInformation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="availableEnergyCarriers"
-        eType="#//AvailableEnergyCarriers" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="energyPrices" eType="#//EnergyPrices"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="carriers" eType="#//Carriers"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="availableCommodities" eType="#//AvailableCommodities"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="profileCollection" eType="#//ProfileCollection"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="profiles" eType="#//Profiles"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataSources" eType="#//DataSources"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pump" eSuperTypes="#//Transport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Valve" eSuperTypes="#//Transport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="EnergyPrices">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elecPrice" eType="#//GenericProfile"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="gasPrice" eType="#//GenericProfile"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericProfile" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="All profiles should describe these fields: a name and a ProfileType. There are two different profile types: static, with static values stored in the ESDL model itself. And External, which allows you to refer to an externally defined profile (e.g. in an Energy Information System or a timeseries database)"/>
@@ -856,7 +844,7 @@
     <eLiterals name="GOOD_GT7P5MWTH" value="3"/>
     <eLiterals name="GOOD_GT10MWTH" value="4"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Commodity" abstract="true" eSuperTypes="#//EnergyCarrierOrCommodity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Commodity" abstract="true" eSuperTypes="#//Carrier"/>
   <eClassifiers xsi:type="ecore:EClass" name="GasCommodity" eSuperTypes="#//Commodity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pressure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
@@ -866,15 +854,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="ElectricityCommodity" eSuperTypes="#//Commodity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="voltage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AvailableCommodities">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="commodity" upperBound="-1"
-        eType="#//Commodity" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EnergyCarrierOrCommodity" abstract="true"
-      interface="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Carrier" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cost" eType="#//GenericProfile"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Range" eSuperTypes="#//StaticProfile">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -895,7 +880,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="reference" lowerBound="1"
         eType="#//GenericProfile"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProfileCollection">
+  <eClassifiers xsi:type="ecore:EClass" name="Profiles">
     <eStructuralFeatures xsi:type="ecore:EReference" name="profile" upperBound="-1"
         eType="#//GenericProfile" containment="true"/>
   </eClassifiers>
@@ -937,4 +922,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="polygon" lowerBound="1"
         upperBound="-1" eType="#//Polygon" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnergyCommodity" eSuperTypes="#//Commodity"/>
 </ecore:EPackage>
