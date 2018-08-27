@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:esdl="http://www.tno.nl/esdl/1807" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tno.nl/esdl/1807">
+<xsd:schema xmlns:esdl="http://www.tno.nl/esdl/1808" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tno.nl/esdl/1808">
   <xsd:simpleType name="CommodityEnum">
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="UNDEFINED"/>
@@ -929,6 +929,7 @@
     <xsd:attribute name="description" type="xsd:string"/>
     <xsd:attribute default="UNDEFINED" name="detailLevel" type="esdl:AreaScopeEnum"/>
     <xsd:attribute name="aggrType" type="esdl:AggrTypeEnum"/>
+    <xsd:attribute name="date" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="Instance" type="esdl:Instance"/>
   <xsd:complexType abstract="true" name="Service">

@@ -631,6 +631,7 @@
       <nested inputs="esdl.ecore#//Instance/description" outputs="EsdlXML.xsd#//Instance;XSDComplexTypeDefinition=60/XSDAttributeUse=2"/>
       <nested inputs="esdl.ecore#//Instance/detailLevel" outputs="EsdlXML.xsd#//Instance;XSDComplexTypeDefinition=60/XSDAttributeUse=3"/>
       <nested inputs="esdl.ecore#//Instance/aggrType" outputs="EsdlXML.xsd#//Instance;XSDComplexTypeDefinition=60/XSDAttributeUse=4"/>
+      <nested inputs="esdl.ecore#//Instance/date" outputs="EsdlXML.xsd#//Instance;XSDComplexTypeDefinition=60/XSDAttributeUse=5"/>
       <nested inputs="esdl.ecore#//Instance/area" outputs="EsdlXML.xsd#//Instance;XSDComplexTypeDefinition=60/XSDParticle/XSDModelGroup/XSDParticle"/>
     </nested>
     <nested inputs="esdl.ecore#//Instance" outputs="EsdlXML.xsd#//Instance;XSDElementDeclaration=48"/>

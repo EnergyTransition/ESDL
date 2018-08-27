@@ -6,11 +6,13 @@
     <semanticResources>esdl.genmodel</semanticResources>
     <semanticResources>platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd</semanticResources>
     <semanticResources>http://www.w3.org/2001/xml.xsd</semanticResources>
-    <semanticResources>esdl.xsd</semanticResources>
     <semanticResources>platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd</semanticResources>
     <semanticResources>bundleentry://862.fwk1138107948/cache/www.w3.org/2001/XMLSchema-instance.xsd</semanticResources>
     <semanticResources>bundleentry://862.fwk1138107948/cache/www.w3.org/2001/XMLSchema.xsd</semanticResources>
     <semanticResources>bundleentry://862.fwk1138107948/cache/www.w3.org/2001/MagicXMLSchema.xsd</semanticResources>
+    <semanticResources>esdlXMI.xsd</semanticResources>
+    <semanticResources>bundleentry://868.fwk40207050/cache/www.w3.org/2001/XMLSchema-instance.xsd</semanticResources>
+    <semanticResources>bundleentry://868.fwk40207050/cache/www.w3.org/2001/XMLSchema.xsd</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_MiCeoLryEeeIKeRLj9tspA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_MqgeILryEeeIKeRLj9tspA" name="esdl" repPath="#_eLdDMP0bEeetPb7u0L-rtg">
@@ -1886,6 +1888,10 @@
             <children xmi:type="notation:Node" xmi:id="_VylWgAddEeiZf55kLJKudg" type="3010" element="_A7s6k_0SEeeeKZnzyFWydQ">
               <styles xmi:type="notation:FontStyle" xmi:id="_VylWgQddEeiZf55kLJKudg" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_VylWggddEeiZf55kLJKudg"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_RCXYMKnREeiaS7Sm-Kl6Nw" type="3010" element="_RBB7cKnREeiaS7Sm-Kl6Nw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_RCXYManREeiaS7Sm-Kl6Nw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_RCXYMqnREeiaS7Sm-Kl6Nw"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_MSv_AgddEeiZf55kLJKudg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_MSv_AwddEeiZf55kLJKudg"/>
@@ -10074,6 +10080,14 @@
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Instance/aggrType"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Instance/aggrType"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_A7thoP0SEeeeKZnzyFWydQ" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_RBB7cKnREeiaS7Sm-Kl6Nw" name="date : EDate" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Instance/date"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Instance/date"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_RBB7canREeiaS7Sm-Kl6Nw" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
