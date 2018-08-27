@@ -887,6 +887,10 @@
       <nested inputs="esdl.ecore#//DataSource/name" outputs="EsdlXML.xsd#//DataSource;XSDComplexTypeDefinition=124/XSDAttributeUse=1"/>
       <nested inputs="esdl.ecore#//DataSource/description" outputs="EsdlXML.xsd#//DataSource;XSDComplexTypeDefinition=124/XSDAttributeUse=2"/>
       <nested inputs="esdl.ecore#//DataSource/reference" outputs="EsdlXML.xsd#//DataSource;XSDComplexTypeDefinition=124/XSDAttributeUse=3"/>
+      <nested inputs="esdl.ecore#//DataSource/attribution" outputs="EsdlXML.xsd#//DataSource;XSDComplexTypeDefinition=124/XSDAttributeUse=4"/>
+      <nested inputs="esdl.ecore#//DataSource/releaseDate" outputs="EsdlXML.xsd#//DataSource;XSDComplexTypeDefinition=124/XSDAttributeUse=5"/>
+      <nested inputs="esdl.ecore#//DataSource/version" outputs="EsdlXML.xsd#//DataSource;XSDComplexTypeDefinition=124/XSDAttributeUse=6"/>
+      <nested inputs="esdl.ecore#//DataSource/licence" outputs="EsdlXML.xsd#//DataSource;XSDComplexTypeDefinition=124/XSDAttributeUse=7"/>
     </nested>
     <nested inputs="esdl.ecore#//DataSource" outputs="EsdlXML.xsd#//DataSource;XSDElementDeclaration=100"/>
     <nested inputs="esdl.ecore#//EnergyDemand" outputs="EsdlXML.xsd#//EnergyDemand;XSDComplexTypeDefinition=125"/>

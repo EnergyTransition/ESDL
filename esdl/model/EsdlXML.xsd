@@ -1451,6 +1451,10 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:attribute name="name" type="xsd:string"/>
     <xsd:attribute name="description" type="xsd:string"/>
     <xsd:attribute name="reference" type="xsd:string"/>
+    <xsd:attribute name="attribution" type="xsd:string"/>
+    <xsd:attribute name="releaseDate" type="xsd:string"/>
+    <xsd:attribute name="version" type="xsd:string"/>
+    <xsd:attribute name="licence" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="DataSource" type="esdl:DataSource"/>
   <xsd:complexType name="EnergyDemand">
