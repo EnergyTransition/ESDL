@@ -132,8 +132,6 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="commodity" eType="#//CommodityEnum"
-        defaultValueLiteral="UNDEFINED"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -141,8 +139,7 @@
         eType="#//EnergyAsset" eOpposite="#//EnergyAsset/port"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="profile" eType="#//GenericProfile"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="energyCarrierOrCommodity"
-        eType="#//Carrier"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="carrier" eType="#//Carrier"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatedProducer" eSuperTypes="#//Producer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"

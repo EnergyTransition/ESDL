@@ -530,11 +530,10 @@
     <xsd:sequence>
       <xsd:element maxOccurs="1" minOccurs="0" name="profile" type="esdl:GenericProfile"/>
     </xsd:sequence>
-    <xsd:attribute default="UNDEFINED" name="commodity" type="esdl:CommodityEnum"/>
     <xsd:attribute name="id" type="xsd:string"/>
     <xsd:attribute name="maxPower" type="xsd:double"/>
     <xsd:attribute name="energyasset" type="xsd:string"/>
-    <xsd:attribute name="energyCarrierOrCommodity" type="xsd:string"/>
+    <xsd:attribute name="carrier" type="xsd:string"/>
   </xsd:complexType>
   <xsd:complexType name="AggregatedProducer">
     <xsd:complexContent>

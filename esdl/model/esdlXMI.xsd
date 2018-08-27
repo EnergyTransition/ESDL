@@ -553,16 +553,15 @@
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="energyasset" type="esdl:EnergyAsset"/>
       <xsd:element name="profile" type="esdl:GenericProfile"/>
-      <xsd:element name="energyCarrierOrCommodity" type="esdl:Carrier"/>
+      <xsd:element name="carrier" type="esdl:Carrier"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
     <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
-    <xsd:attribute name="commodity" type="esdl:CommodityEnum"/>
     <xsd:attribute name="id" type="xsd:string"/>
     <xsd:attribute name="maxPower" type="xsd:double"/>
     <xsd:attribute name="energyasset" type="xsd:string"/>
-    <xsd:attribute name="energyCarrierOrCommodity" type="xsd:string"/>
+    <xsd:attribute name="carrier" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="Port" type="esdl:Port"/>
   <xsd:complexType name="AggregatedProducer">

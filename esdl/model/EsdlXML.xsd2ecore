@@ -402,12 +402,11 @@
     </nested>
     <nested inputs="esdl.ecore#//Area" outputs="EsdlXML.xsd#//Area;XSDElementDeclaration=8"/>
     <nested inputs="esdl.ecore#//Port" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15">
-      <nested inputs="esdl.ecore#//Port/commodity" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15/XSDAttributeUse"/>
-      <nested inputs="esdl.ecore#//Port/id" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15/XSDAttributeUse=1"/>
-      <nested inputs="esdl.ecore#//Port/maxPower" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15/XSDAttributeUse=2"/>
-      <nested inputs="esdl.ecore#//Port/energyasset" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15/XSDAttributeUse=3"/>
+      <nested inputs="esdl.ecore#//Port/id" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15/XSDAttributeUse"/>
+      <nested inputs="esdl.ecore#//Port/maxPower" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15/XSDAttributeUse=1"/>
+      <nested inputs="esdl.ecore#//Port/energyasset" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15/XSDAttributeUse=2"/>
       <nested inputs="esdl.ecore#//Port/profile" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle"/>
-      <nested inputs="esdl.ecore#//Port/energyCarrierOrCommodity" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15/XSDAttributeUse=4"/>
+      <nested inputs="esdl.ecore#//Port/carrier" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15/XSDAttributeUse=3"/>
     </nested>
     <nested inputs="esdl.ecore#//AggregatedProducer" outputs="EsdlXML.xsd#//AggregatedProducer;XSDComplexTypeDefinition=16">
       <nested inputs="esdl.ecore#//AggregatedProducer/aggregationOf" outputs="EsdlXML.xsd#//AggregatedProducer;XSDComplexTypeDefinition=16/XSDAttributeUse"/>
