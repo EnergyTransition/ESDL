@@ -20,6 +20,12 @@
     <details key="DOCUMENTATION_ANNOTATIONS" value="PROCESS"/>
     <details key="REDEFINES_ANNOTATIONS" value="PROCESS"/>
   </genAnnotations>
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter.xmi">
+    <genAnnotations source="selectedPackages">
+      <details key="http://www.tno.nl/esdl/1808" value="esdlXMI.xsd"/>
+    </genAnnotations>
+    <details key="directoryURI" value="."/>
+  </genAnnotations>
   <foreignModel>model/esdl.ecore</foreignModel>
   <genPackages prefix="Esdl" resource="XML" disposableProviderFactory="true" contentTypeIdentifier=""
       ecorePackage="esdl.ecore#/">
@@ -572,7 +578,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Item/originalIdInSource"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Measures">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measures/measure"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measures/asset"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EConnection">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EConnection/EANCode"/>

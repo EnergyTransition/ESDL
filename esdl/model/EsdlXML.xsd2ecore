@@ -598,7 +598,7 @@
       <nested inputs="esdl.ecore#//Item/datasource" outputs="EsdlXML.xsd#//Item;XSDComplexTypeDefinition=53/XSDAttributeUse=6"/>
     </nested>
     <nested inputs="esdl.ecore#//Measures" outputs="EsdlXML.xsd#//Measures;XSDComplexTypeDefinition=54">
-      <nested inputs="esdl.ecore#//Measures/measure" outputs="EsdlXML.xsd#//Measures;XSDComplexTypeDefinition=54/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="esdl.ecore#//Measures/asset" outputs="EsdlXML.xsd#//Measures;XSDComplexTypeDefinition=54/XSDParticle/XSDModelGroup/XSDParticle"/>
     </nested>
     <nested inputs="esdl.ecore#//Measures" outputs="EsdlXML.xsd#//Measures;XSDElementDeclaration=43"/>
     <nested inputs="esdl.ecore#//EConnection" outputs="EsdlXML.xsd#//EConnection;XSDComplexTypeDefinition=55">

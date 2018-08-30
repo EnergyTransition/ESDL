@@ -941,7 +941,7 @@
   <xsd:element name="Item" type="esdl:Item"/>
   <xsd:complexType name="Measures">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
-      <xsd:element name="measure" type="esdl:Item"/>
+      <xsd:element name="asset" type="esdl:Asset"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>

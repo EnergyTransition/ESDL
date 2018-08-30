@@ -868,7 +868,7 @@
   </xsd:complexType>
   <xsd:complexType name="Measures">
     <xsd:sequence>
-      <xsd:element maxOccurs="unbounded" minOccurs="0" name="measure" type="esdl:Item"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:element name="Measures" type="esdl:Measures"/>

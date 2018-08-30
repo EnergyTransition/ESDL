@@ -472,8 +472,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="originalIdInSource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Measures">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="measure" upperBound="-1"
-        eType="#//Item" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
+        eType="#//Asset" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EConnection" eSuperTypes="#//Transport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="EANCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
