@@ -130,6 +130,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="geometryReference" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mobilityProperties" eType="#//MobilityProperties"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildingDensity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -301,7 +302,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Insulation" eSuperTypes="#//Asset">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="thermalInsulation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SinkProducer" eSuperTypes="#//Producer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceProducer" eSuperTypes="#//Producer"/>
   <eClassifiers xsi:type="ecore:EClass" name="SinkConsumer" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="Pipe" eSuperTypes="#//Transport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="diameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -964,7 +965,7 @@
     <eLiterals name="TOTAL" value="18"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MobilityFuelInformation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="vehiclefuelefficiency"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vehicleFuelEfficiency"
         upperBound="-1" eType="#//VehicleFuelEfficiency" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VehicleFuelEfficiency">
@@ -984,4 +985,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//VehicleTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GasStorage" eSuperTypes="#//Storage"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Electrolyzer" eSuperTypes="#//PowerToX"/>
 </ecore:EPackage>

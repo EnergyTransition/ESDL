@@ -416,6 +416,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/isOwnedBy"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/geometryReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/mobilityProperties"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/buildingDensity"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Port">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/id"/>
@@ -498,7 +499,7 @@
     <genClasses ecoreClass="esdl.ecore#//Insulation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Insulation/thermalInsulation"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//SinkProducer"/>
+    <genClasses ecoreClass="esdl.ecore#//SourceProducer"/>
     <genClasses ecoreClass="esdl.ecore#//SinkConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//Pipe">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pipe/diameter"/>
@@ -844,7 +845,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MobilityDemand/efficiency"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//MobilityFuelInformation">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MobilityFuelInformation/vehiclefuelefficiency"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MobilityFuelInformation/vehicleFuelEfficiency"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//VehicleFuelEfficiency">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//VehicleFuelEfficiency/vehicleType"/>
@@ -861,5 +862,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//VehicleCount/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//VehicleCount/count"/>
     </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//GasStorage"/>
+    <genClasses ecoreClass="esdl.ecore#//Electrolyzer"/>
   </genPackages>
 </genmodel:GenModel>
