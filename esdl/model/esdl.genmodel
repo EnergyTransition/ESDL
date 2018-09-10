@@ -85,6 +85,8 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/PERCENTAGE"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/MONEY_IN_EUR_PER_KW"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/MONEY_IN_EUR_PER_KWH"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/VOLUME_IN_M3"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/VOLUME_IN_LITERS"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//DurationUnitEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//DurationUnitEnum/SECOND"/>
@@ -703,7 +705,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/investmentCosts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/installationCosts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/O_and_MCosts"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CostInformation/costUnit"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//LabelDistribution"/>
     <genClasses ecoreClass="esdl.ecore#//StringLabelDistribution">
@@ -763,6 +764,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseProfile/host"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseProfile/port"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseProfile/database"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseProfile/filters"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//InfluxDBProfile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//InfluxDBProfile/measurement"/>
@@ -845,7 +847,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MobilityDemand/efficiency"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//MobilityFuelInformation">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MobilityFuelInformation/vehicleFuelEfficiency"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MobilityFuelInformation/vehiclefuelefficiency"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//VehicleFuelEfficiency">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//VehicleFuelEfficiency/vehicleType"/>
@@ -862,7 +864,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//VehicleCount/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//VehicleCount/count"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//GasStorage"/>
     <genClasses ecoreClass="esdl.ecore#//Electrolyzer"/>
+    <genClasses ecoreClass="esdl.ecore#//GasStorage"/>
   </genPackages>
 </genmodel:GenModel>

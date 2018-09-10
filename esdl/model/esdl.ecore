@@ -189,6 +189,8 @@
     <eLiterals name="PERCENTAGE" value="24"/>
     <eLiterals name="MONEY_IN_EUR_PER_KW" value="25"/>
     <eLiterals name="MONEY_IN_EUR_PER_KWH" value="26"/>
+    <eLiterals name="VOLUME_IN_M3" value="27"/>
+    <eLiterals name="VOLUME_IN_LITERS" value="28"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DurationUnitEnum">
     <eLiterals name="SECOND"/>
@@ -693,8 +695,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="O_and_MCosts" eType="#//GenericProfile"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="costUnit" eType="#//CostUnitEnum"
-        defaultValueLiteral="UNDEFINED"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LabelDistribution" abstract="true" eSuperTypes="#//GenericDistribution"/>
   <eClassifiers xsi:type="ecore:EClass" name="StringLabelDistribution" eSuperTypes="#//LabelDistribution">
@@ -777,6 +777,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="host" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="database" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filters" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Can be used in the WHERE-clause of a query"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InfluxDBProfile" eSuperTypes="#//DatabaseProfile">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -965,7 +970,7 @@
     <eLiterals name="TOTAL" value="18"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MobilityFuelInformation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="vehicleFuelEfficiency"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vehiclefuelefficiency"
         upperBound="-1" eType="#//VehicleFuelEfficiency" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VehicleFuelEfficiency">
@@ -985,6 +990,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//VehicleTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GasStorage" eSuperTypes="#//Storage"/>
   <eClassifiers xsi:type="ecore:EClass" name="Electrolyzer" eSuperTypes="#//PowerToX"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GasStorage" eSuperTypes="#//Storage"/>
 </ecore:EPackage>

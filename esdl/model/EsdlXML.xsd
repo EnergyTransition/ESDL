@@ -521,7 +521,6 @@
     <xsd:attribute default="UNDEFINED" name="scope" type="esdl:AreaScopeEnum"/>
     <xsd:attribute name="type" type="esdl:AreaTypeEnum"/>
     <xsd:attribute name="geometryReference" type="xsd:string"/>
-    <xsd:attribute name="buildingDensity" type="xsd:double"/>
     <xsd:attribute name="potentials" type="xsd:string"/>
     <xsd:attribute name="containingArea" type="xsd:string"/>
     <xsd:attribute name="isOwnedBy" type="xsd:string"/>
@@ -701,12 +700,12 @@
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="Insulation" type="esdl:Insulation"/>
-  <xsd:complexType name="SourceProducer">
+  <xsd:complexType name="SinkProducer">
     <xsd:complexContent>
       <xsd:extension base="esdl:Producer"/>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="SourceProducer" type="esdl:SourceProducer"/>
+  <xsd:element name="SinkProducer" type="esdl:SinkProducer"/>
   <xsd:complexType name="SinkConsumer">
     <xsd:complexContent>
       <xsd:extension base="esdl:Consumer"/>
@@ -1528,7 +1527,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="MobilityDemand" type="esdl:MobilityDemand"/>
   <xsd:complexType name="MobilityFuelInformation">
     <xsd:sequence>
-      <xsd:element maxOccurs="unbounded" minOccurs="0" name="vehicleFuelEfficiency" type="esdl:VehicleFuelEfficiency"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="vehiclefuelefficiency" type="esdl:VehicleFuelEfficiency"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:element name="MobilityFuelInformation" type="esdl:MobilityFuelInformation"/>
@@ -1555,16 +1554,4 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:attribute name="count" type="xsd:int"/>
   </xsd:complexType>
   <xsd:element name="VehicleCount" type="esdl:VehicleCount"/>
-  <xsd:complexType name="GasStorage">
-    <xsd:complexContent>
-      <xsd:extension base="esdl:Storage"/>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element name="GasStorage" type="esdl:GasStorage"/>
-  <xsd:complexType name="Electrolyzer">
-    <xsd:complexContent>
-      <xsd:extension base="esdl:PowerToX"/>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element name="Electrolyzer" type="esdl:Electrolyzer"/>
 </xsd:schema>
