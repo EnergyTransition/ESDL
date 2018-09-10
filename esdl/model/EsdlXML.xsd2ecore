@@ -389,15 +389,16 @@
       <nested inputs="esdl.ecore#//Area/scope" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDAttributeUse=2"/>
       <nested inputs="esdl.ecore#//Area/type" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDAttributeUse=3"/>
       <nested inputs="esdl.ecore#//Area/geometryReference" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDAttributeUse=4"/>
+      <nested inputs="esdl.ecore#//Area/buildingDensity" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDAttributeUse=5"/>
       <nested inputs="esdl.ecore#//Area/location" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle"/>
       <nested inputs="esdl.ecore#//Area/contour" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle=1"/>
       <nested inputs="esdl.ecore#//Area/socialProperties" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle=2"/>
       <nested inputs="esdl.ecore#//Area/economicProperties" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle=3"/>
-      <nested inputs="esdl.ecore#//Area/potentials" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDAttributeUse=5"/>
+      <nested inputs="esdl.ecore#//Area/potentials" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDAttributeUse=6"/>
       <nested inputs="esdl.ecore#//Area/asset" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle=4"/>
       <nested inputs="esdl.ecore#//Area/area" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle=5"/>
-      <nested inputs="esdl.ecore#//Area/containingArea" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDAttributeUse=6"/>
-      <nested inputs="esdl.ecore#//Area/isOwnedBy" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDAttributeUse=7"/>
+      <nested inputs="esdl.ecore#//Area/containingArea" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDAttributeUse=7"/>
+      <nested inputs="esdl.ecore#//Area/isOwnedBy" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDAttributeUse=8"/>
       <nested inputs="esdl.ecore#//Area/mobilityProperties" outputs="EsdlXML.xsd#//Area;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle=6"/>
     </nested>
     <nested inputs="esdl.ecore#//Area" outputs="EsdlXML.xsd#//Area;XSDElementDeclaration=8"/>
@@ -499,8 +500,8 @@
       <nested inputs="esdl.ecore#//Insulation/thermalInsulation" outputs="EsdlXML.xsd#//Insulation;XSDComplexTypeDefinition=33/XSDAttributeUse"/>
     </nested>
     <nested inputs="esdl.ecore#//Insulation" outputs="EsdlXML.xsd#//Insulation;XSDElementDeclaration=25"/>
-    <nested inputs="esdl.ecore#//SinkProducer" outputs="EsdlXML.xsd#//SinkProducer;XSDComplexTypeDefinition=34"/>
-    <nested inputs="esdl.ecore#//SinkProducer" outputs="EsdlXML.xsd#//SinkProducer;XSDElementDeclaration=26"/>
+    <nested inputs="esdl.ecore#//SourceProducer" outputs="EsdlXML.xsd#//SourceProducer;XSDComplexTypeDefinition=34"/>
+    <nested inputs="esdl.ecore#//SourceProducer" outputs="EsdlXML.xsd#//SourceProducer;XSDElementDeclaration=26"/>
     <nested inputs="esdl.ecore#//SinkConsumer" outputs="EsdlXML.xsd#//SinkConsumer;XSDComplexTypeDefinition=35"/>
     <nested inputs="esdl.ecore#//SinkConsumer" outputs="EsdlXML.xsd#//SinkConsumer;XSDElementDeclaration=27"/>
     <nested inputs="esdl.ecore#//Pipe" outputs="EsdlXML.xsd#//Pipe;XSDComplexTypeDefinition=36">
@@ -924,7 +925,7 @@
     </nested>
     <nested inputs="esdl.ecore#//MobilityDemand" outputs="EsdlXML.xsd#//MobilityDemand;XSDElementDeclaration=109"/>
     <nested inputs="esdl.ecore#//MobilityFuelInformation" outputs="EsdlXML.xsd#//MobilityFuelInformation;XSDComplexTypeDefinition=134">
-      <nested inputs="esdl.ecore#//MobilityFuelInformation/vehiclefuelefficiency"
+      <nested inputs="esdl.ecore#//MobilityFuelInformation/vehicleFuelEfficiency"
           outputs="EsdlXML.xsd#//MobilityFuelInformation;XSDComplexTypeDefinition=134/XSDParticle/XSDModelGroup/XSDParticle"/>
     </nested>
     <nested inputs="esdl.ecore#//MobilityFuelInformation" outputs="EsdlXML.xsd#//MobilityFuelInformation;XSDElementDeclaration=110"/>
@@ -947,5 +948,9 @@
       <nested inputs="esdl.ecore#//VehicleCount/count" outputs="EsdlXML.xsd#//VehicleCount;XSDComplexTypeDefinition=138/XSDAttributeUse=1"/>
     </nested>
     <nested inputs="esdl.ecore#//VehicleCount" outputs="EsdlXML.xsd#//VehicleCount;XSDElementDeclaration=114"/>
+    <nested inputs="esdl.ecore#//GasStorage" outputs="EsdlXML.xsd#//GasStorage;XSDComplexTypeDefinition=139"/>
+    <nested inputs="esdl.ecore#//GasStorage" outputs="EsdlXML.xsd#//GasStorage;XSDElementDeclaration=115"/>
+    <nested inputs="esdl.ecore#//Electrolyzer" outputs="EsdlXML.xsd#//Electrolyzer;XSDComplexTypeDefinition=140"/>
+    <nested inputs="esdl.ecore#//Electrolyzer" outputs="EsdlXML.xsd#//Electrolyzer;XSDElementDeclaration=116"/>
   </nested>
 </xsd2ecore:XSD2EcoreMappingRoot>
