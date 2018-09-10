@@ -59,6 +59,8 @@
       <xsd:enumeration value="PERCENTAGE"/>
       <xsd:enumeration value="MONEY_IN_EUR_PER_KW"/>
       <xsd:enumeration value="MONEY_IN_EUR_PER_KWH"/>
+      <xsd:enumeration value="VOLUME_IN_M3"/>
+      <xsd:enumeration value="VOLUME_IN_LITERS"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="DurationUnitEnum">
@@ -544,6 +546,7 @@
     <xsd:attribute name="scope" type="esdl:AreaScopeEnum"/>
     <xsd:attribute name="type" type="esdl:AreaTypeEnum"/>
     <xsd:attribute name="geometryReference" type="xsd:string"/>
+    <xsd:attribute name="buildingDensity" type="xsd:double"/>
     <xsd:attribute name="potentials" type="xsd:string"/>
     <xsd:attribute name="containingArea" type="xsd:string"/>
     <xsd:attribute name="isOwnedBy" type="xsd:string"/>
@@ -750,12 +753,12 @@
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="Insulation" type="esdl:Insulation"/>
-  <xsd:complexType name="SinkProducer">
+  <xsd:complexType name="SourceProducer">
     <xsd:complexContent>
       <xsd:extension base="esdl:Producer"/>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="SinkProducer" type="esdl:SinkProducer"/>
+  <xsd:element name="SourceProducer" type="esdl:SourceProducer"/>
   <xsd:complexType name="SinkConsumer">
     <xsd:complexContent>
       <xsd:extension base="esdl:Consumer"/>
@@ -1333,7 +1336,6 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
     <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
-    <xsd:attribute name="costUnit" type="esdl:CostUnitEnum"/>
   </xsd:complexType>
   <xsd:element name="CostInformation" type="esdl:CostInformation"/>
   <xsd:complexType abstract="true" name="LabelDistribution">
@@ -1496,6 +1498,11 @@ When a model queries for a value from a certain date (and to a certain date), th
         <xsd:attribute name="host" type="xsd:string"/>
         <xsd:attribute name="port" type="xsd:int"/>
         <xsd:attribute name="database" type="xsd:string"/>
+        <xsd:attribute name="filters" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Can be used in the WHERE-clause of a query</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1787,4 +1794,16 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:attribute name="count" type="xsd:int"/>
   </xsd:complexType>
   <xsd:element name="VehicleCount" type="esdl:VehicleCount"/>
+  <xsd:complexType name="Electrolyzer">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:PowerToX"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Electrolyzer" type="esdl:Electrolyzer"/>
+  <xsd:complexType name="GasStorage">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Storage"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="GasStorage" type="esdl:GasStorage"/>
 </xsd:schema>
