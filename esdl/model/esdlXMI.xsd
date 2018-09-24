@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:esdl="http://www.tno.nl/esdl/1809" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tno.nl/esdl/1809">
+<xsd:schema xmlns:esdl="http://www.tno.nl/esdl/180901" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tno.nl/esdl/180901">
   <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
   <xsd:simpleType name="CommodityEnum">
     <xsd:restriction base="xsd:NCName">
@@ -362,6 +362,80 @@
       <xsd:enumeration value="TOTAL"/>
     </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="MultiplierEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="NONE"/>
+      <xsd:enumeration value="KILO"/>
+      <xsd:enumeration value="MEGA"/>
+      <xsd:enumeration value="GIGA"/>
+      <xsd:enumeration value="TERRA"/>
+      <xsd:enumeration value="PETA"/>
+      <xsd:enumeration value="MILLI"/>
+      <xsd:enumeration value="MICRO"/>
+      <xsd:enumeration value="NANO"/>
+      <xsd:enumeration value="PICO"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PhysicalQuantityEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="ENERGY"/>
+      <xsd:enumeration value="POWER"/>
+      <xsd:enumeration value="VOLTAGE"/>
+      <xsd:enumeration value="PRESSURE"/>
+      <xsd:enumeration value="TEMPERATURE"/>
+      <xsd:enumeration value="EMISSION"/>
+      <xsd:enumeration value="COST"/>
+      <xsd:enumeration value="TIME"/>
+      <xsd:enumeration value="LENGTH"/>
+      <xsd:enumeration value="DISTANCE"/>
+      <xsd:enumeration value="IRRADIANCE"/>
+      <xsd:enumeration value="SPEED"/>
+      <xsd:enumeration value="STATE_OF_CHARGE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="UnitEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="NONE"/>
+      <xsd:enumeration value="JOULE"/>
+      <xsd:enumeration value="WATTHOUR"/>
+      <xsd:enumeration value="WATT"/>
+      <xsd:enumeration value="VOLT"/>
+      <xsd:enumeration value="BAR"/>
+      <xsd:enumeration value="PSI"/>
+      <xsd:enumeration value="DEGREES_CELSIUS"/>
+      <xsd:enumeration value="KELVIN"/>
+      <xsd:enumeration value="GRAM"/>
+      <xsd:enumeration value="EURO"/>
+      <xsd:enumeration value="DOLLAR"/>
+      <xsd:enumeration value="SECOND"/>
+      <xsd:enumeration value="MINUTE"/>
+      <xsd:enumeration value="QUARTER"/>
+      <xsd:enumeration value="HOUR"/>
+      <xsd:enumeration value="DAY"/>
+      <xsd:enumeration value="WEEK"/>
+      <xsd:enumeration value="MONTH"/>
+      <xsd:enumeration value="YEAR"/>
+      <xsd:enumeration value="METRE"/>
+      <xsd:enumeration value="SQUARE_METRE"/>
+      <xsd:enumeration value="CUBIC_METRE"/>
+      <xsd:enumeration value="LITRE"/>
+      <xsd:enumeration value="WATTSECOND"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TimeUnit">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="NONE"/>
+      <xsd:enumeration value="SECOND"/>
+      <xsd:enumeration value="MINUTE"/>
+      <xsd:enumeration value="QUARTER"/>
+      <xsd:enumeration value="HOUR"/>
+      <xsd:enumeration value="DAY"/>
+      <xsd:enumeration value="WEEK"/>
+      <xsd:enumeration value="MONTH"/>
+      <xsd:enumeration value="YEAR"/>
+    </xsd:restriction>
+  </xsd:simpleType>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:complexContent>
       <xsd:extension base="esdl:Asset">
@@ -439,6 +513,7 @@
       <xsd:element name="potentials" type="esdl:Potentials"/>
       <xsd:element name="energySystemInformation" type="esdl:EnergySystemInformation"/>
       <xsd:element name="parties" type="esdl:Parties"/>
+      <xsd:element name="services" type="esdl:Services"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -537,6 +612,7 @@
       <xsd:element name="containingArea" type="esdl:Area"/>
       <xsd:element name="isOwnedBy" type="esdl:Party"/>
       <xsd:element name="mobilityProperties" type="esdl:MobilityProperties"/>
+      <xsd:element name="kpiList" type="esdl:KPIList"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -928,7 +1004,7 @@
   <xsd:complexType abstract="true" name="Item">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="isOwnedBy" type="esdl:Party"/>
-      <xsd:element name="datasource" type="esdl:DataSource"/>
+      <xsd:element name="dataSource" type="esdl:AbstractDataSource"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -937,9 +1013,12 @@
     <xsd:attribute name="name" type="xsd:string"/>
     <xsd:attribute name="shortName" type="xsd:string"/>
     <xsd:attribute name="description" type="xsd:string"/>
-    <xsd:attribute name="originalIdInSource" type="xsd:string"/>
+    <xsd:attribute name="originalIdInSource" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>ID of item in the original data source. Can be used to make links to the original data</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
     <xsd:attribute name="isOwnedBy" type="xsd:string"/>
-    <xsd:attribute name="datasource" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="Item" type="esdl:Item"/>
   <xsd:complexType name="Measures">
@@ -1037,6 +1116,8 @@
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="areas" type="esdl:Area"/>
       <xsd:element name="geometry" type="esdl:Geometry"/>
+      <xsd:element name="dataSource" type="esdl:AbstractDataSource"/>
+      <xsd:element name="asset" type="esdl:Asset"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -1044,6 +1125,7 @@
     <xsd:attribute name="id" type="xsd:string"/>
     <xsd:attribute name="name" type="xsd:string"/>
     <xsd:attribute name="areas" type="xsd:string"/>
+    <xsd:attribute name="asset" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="Potential" type="esdl:Potential"/>
   <xsd:complexType name="WindPotential">
@@ -1081,8 +1163,12 @@
   <xsd:complexType name="EnergyCarrier">
     <xsd:complexContent>
       <xsd:extension base="esdl:Carrier">
-        <xsd:attribute name="energyContentPerUnit" type="xsd:double"/>
-        <xsd:attribute name="emissionPerUnit" type="xsd:double"/>
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="energyContentUnit" type="esdl:AbstractQuantityAndUnit"/>
+          <xsd:element name="emissionUnit" type="esdl:AbstractQuantityAndUnit"/>
+        </xsd:choice>
+        <xsd:attribute name="energyContent" type="xsd:double"/>
+        <xsd:attribute name="emission" type="xsd:double"/>
         <xsd:attribute name="energyCarrierType" type="esdl:RenewableTypeEnum"/>
         <xsd:attribute name="stateOfMatter" type="esdl:StateOfMatterEnum"/>
       </xsd:extension>
@@ -1110,6 +1196,7 @@
   <xsd:complexType name="Carriers">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="carrier" type="esdl:Carrier"/>
+      <xsd:element name="dataSource" type="esdl:AbstractDataSource"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -1150,6 +1237,7 @@
       <xsd:element name="profiles" type="esdl:Profiles"/>
       <xsd:element name="dataSources" type="esdl:DataSources"/>
       <xsd:element name="mobilityFuelInformation" type="esdl:MobilityFuelInformation"/>
+      <xsd:element name="quantityAndUnitList" type="esdl:QuantityAndUnitList"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -1173,6 +1261,8 @@
       <xsd:documentation>All profiles should describe these fields: a name and a ProfileType. There are two different profile types: static, with static values stored in the ESDL model itself. And External, which allows you to refer to an externally defined profile (e.g. in an Energy Information System or a timeseries database)</xsd:documentation>
     </xsd:annotation>
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="dataSource" type="esdl:AbstractDataSource"/>
+      <xsd:element name="profileQuantityAndUnit" type="esdl:AbstractQuantityAndUnit"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -1578,6 +1668,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:complexType abstract="true" name="Carrier">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="cost" type="esdl:GenericProfile"/>
+      <xsd:element name="dataSource" type="esdl:AbstractDataSource"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -1619,7 +1710,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="EnergyNetwork" type="esdl:EnergyNetwork"/>
-  <xsd:complexType name="ReferenceProfile">
+  <xsd:complexType name="ProfileReference">
     <xsd:complexContent>
       <xsd:extension base="esdl:StaticProfile">
         <xsd:choice maxOccurs="unbounded" minOccurs="0">
@@ -1630,7 +1721,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="ReferenceProfile" type="esdl:ReferenceProfile"/>
+  <xsd:element name="ProfileReference" type="esdl:ProfileReference"/>
   <xsd:complexType name="Profiles">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="profile" type="esdl:GenericProfile"/>
@@ -1659,19 +1750,18 @@ When a model queries for a value from a certain date (and to a certain date), th
   </xsd:complexType>
   <xsd:element name="DataSources" type="esdl:DataSources"/>
   <xsd:complexType name="DataSource">
-    <xsd:choice maxOccurs="unbounded" minOccurs="0">
-      <xsd:element ref="xmi:Extension"/>
-    </xsd:choice>
-    <xsd:attribute ref="xmi:id"/>
-    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
-    <xsd:attribute name="id" type="xsd:string"/>
-    <xsd:attribute name="name" type="xsd:string"/>
-    <xsd:attribute name="description" type="xsd:string"/>
-    <xsd:attribute name="reference" type="xsd:string"/>
-    <xsd:attribute name="attribution" type="xsd:string"/>
-    <xsd:attribute name="releaseDate" type="xsd:string"/>
-    <xsd:attribute name="version" type="xsd:string"/>
-    <xsd:attribute name="licence" type="xsd:string"/>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractDataSource">
+        <xsd:attribute name="id" type="xsd:string"/>
+        <xsd:attribute name="name" type="xsd:string"/>
+        <xsd:attribute name="description" type="xsd:string"/>
+        <xsd:attribute name="reference" type="xsd:string"/>
+        <xsd:attribute name="attribution" type="xsd:string"/>
+        <xsd:attribute name="releaseDate" type="xsd:string"/>
+        <xsd:attribute name="version" type="xsd:string"/>
+        <xsd:attribute name="licence" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="DataSource" type="esdl:DataSource"/>
   <xsd:complexType name="EnergyDemand">
@@ -1748,7 +1838,8 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="MobilityDemand" type="esdl:MobilityDemand"/>
   <xsd:complexType name="MobilityFuelInformation">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
-      <xsd:element name="vehiclefuelefficiency" type="esdl:VehicleFuelEfficiency"/>
+      <xsd:element name="vehicleFuelEfficiency" type="esdl:VehicleFuelEfficiency"/>
+      <xsd:element name="dataSource" type="esdl:AbstractDataSource"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -1806,4 +1897,108 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="GasStorage" type="esdl:GasStorage"/>
+  <xsd:complexType name="Services">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="service" type="esdl:Service"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="Services" type="esdl:Services"/>
+  <xsd:complexType abstract="true" name="ControlStrategy">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:EnergyService"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ControlStrategy" type="esdl:ControlStrategy"/>
+  <xsd:complexType name="DrivenByDemand">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:ControlStrategy"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DrivenByDemand" type="esdl:DrivenByDemand"/>
+  <xsd:complexType name="QuantityAndUnitType">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractQuantityAndUnit">
+        <xsd:attribute name="physicalQuantity" type="esdl:PhysicalQuantityEnum"/>
+        <xsd:attribute name="multiplier" type="esdl:MultiplierEnum"/>
+        <xsd:attribute name="unit" type="esdl:UnitEnum"/>
+        <xsd:attribute name="perMultiplier" type="esdl:MultiplierEnum"/>
+        <xsd:attribute name="perUnit" type="esdl:UnitEnum"/>
+        <xsd:attribute name="description" type="xsd:string"/>
+        <xsd:attribute name="perTimeUnit" type="esdl:TimeUnit"/>
+        <xsd:attribute name="id" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="QuantityAndUnitType" type="esdl:QuantityAndUnitType"/>
+  <xsd:complexType abstract="true" name="AbstractDataSource">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="AbstractDataSource" type="esdl:AbstractDataSource"/>
+  <xsd:complexType name="DataSourceReference">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractDataSource">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="reference" type="esdl:DataSource"/>
+        </xsd:choice>
+        <xsd:attribute name="reference" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DataSourceReference" type="esdl:DataSourceReference"/>
+  <xsd:complexType name="KPIList">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="kpi" type="esdl:KPI"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="description" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="KPIList" type="esdl:KPIList"/>
+  <xsd:complexType name="KPI">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="quantityAndUnit" type="esdl:AbstractQuantityAndUnit"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+    <xsd:attribute name="value" type="xsd:double"/>
+  </xsd:complexType>
+  <xsd:element name="KPI" type="esdl:KPI"/>
+  <xsd:complexType name="QuantityAndUnitList">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="quantityAndUnit" type="esdl:QuantityAndUnitType"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="QuantityAndUnitList" type="esdl:QuantityAndUnitList"/>
+  <xsd:complexType abstract="true" name="AbstractQuantityAndUnit">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="AbstractQuantityAndUnit" type="esdl:AbstractQuantityAndUnit"/>
+  <xsd:complexType name="QuantityAndUnitReference">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractQuantityAndUnit">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="reference" type="esdl:QuantityAndUnitType"/>
+        </xsd:choice>
+        <xsd:attribute name="reference" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="QuantityAndUnitReference" type="esdl:QuantityAndUnitReference"/>
 </xsd:schema>

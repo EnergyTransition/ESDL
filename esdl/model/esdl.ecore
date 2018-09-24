@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="esdl" nsURI="http://www.tno.nl/esdl/1809" nsPrefix="esdl">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="esdl" nsURI="http://www.tno.nl/esdl/180901" nsPrefix="esdl">
   <eClassifiers xsi:type="ecore:EClass" name="EnergyAsset" abstract="true" eSuperTypes="#//Asset">
     <eStructuralFeatures xsi:type="ecore:EReference" name="port" upperBound="-1" eType="#//Port"
         containment="true" eOpposite="#//Port/energyasset"/>
@@ -61,6 +61,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="energySystemInformation"
         eType="#//EnergySystemInformation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parties" eType="#//Parties"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="services" eType="#//Services"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WindTurbine" eSuperTypes="#//Producer">
@@ -131,6 +133,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="mobilityProperties" eType="#//MobilityProperties"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildingDensity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kpiList" eType="#//KPIList"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -471,8 +475,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="isOwnedBy" eType="#//Party"
         eOpposite="#//Party/owns"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="datasource" eType="#//DataSource"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="originalIdInSource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="originalIdInSource" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="ID of item in the original data source. Can be used to make links to the original data"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Measures">
     <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
@@ -529,6 +538,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="geometry" eType="#//Geometry"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
+        eType="#//Asset"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WindPotential" eSuperTypes="#//Potential">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="windspeed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -555,12 +568,16 @@
         eType="#//Potential" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyCarrier" eSuperTypes="#//Carrier">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyContentPerUnit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyContent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emissionPerUnit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emission" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyCarrierType" eType="#//RenewableTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateOfMatter" eType="#//StateOfMatterEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="energyContentUnit" eType="#//AbstractQuantityAndUnit"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="emissionUnit" eType="#//AbstractQuantityAndUnit"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Losses" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="PowerToX" eSuperTypes="#//Conversion"/>
@@ -579,6 +596,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Carriers">
     <eStructuralFeatures xsi:type="ecore:EReference" name="carrier" upperBound="-1"
         eType="#//Carrier" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FuelCell" eSuperTypes="#//CoGeneration"/>
   <eClassifiers xsi:type="ecore:EClass" name="XToPower" eSuperTypes="#//Conversion"/>
@@ -597,6 +616,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mobilityFuelInformation"
         eType="#//MobilityFuelInformation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="quantityAndUnitList" eType="#//QuantityAndUnitList"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pump" eSuperTypes="#//Transport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Valve" eSuperTypes="#//Transport"/>
@@ -617,6 +638,10 @@
         defaultValueLiteral="UNDEFINED"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="profileQuantityAndUnit"
+        eType="#//AbstractQuantityAndUnit" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StaticProfile" abstract="true" eSuperTypes="#//GenericProfile">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -863,6 +888,8 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cost" eType="#//GenericProfile"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Range" eSuperTypes="#//StaticProfile">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -877,7 +904,7 @@
         defaultValueLiteral="SECOND"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyNetwork" eSuperTypes="#//Transport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ReferenceProfile" eSuperTypes="#//StaticProfile">
+  <eClassifiers xsi:type="ecore:EClass" name="ProfileReference" eSuperTypes="#//StaticProfile">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="reference" lowerBound="1"
@@ -895,8 +922,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" upperBound="-1"
         eType="#//DataSource" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataSource">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSource" eSuperTypes="#//AbstractDataSource">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="reference" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -970,8 +998,10 @@
     <eLiterals name="TOTAL" value="18"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MobilityFuelInformation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="vehiclefuelefficiency"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vehicleFuelEfficiency"
         upperBound="-1" eType="#//VehicleFuelEfficiency" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VehicleFuelEfficiency">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="vehicleType" eType="#//VehicleTypeEnum"/>
@@ -992,4 +1022,112 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Electrolyzer" eSuperTypes="#//PowerToX"/>
   <eClassifiers xsi:type="ecore:EClass" name="GasStorage" eSuperTypes="#//Storage"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Services">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="service" upperBound="-1"
+        eType="#//Service" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ControlStrategy" abstract="true" eSuperTypes="#//EnergyService"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DrivenByDemand" eSuperTypes="#//ControlStrategy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="QuantityAndUnitType" eSuperTypes="#//AbstractQuantityAndUnit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="physicalQuantity" eType="#//PhysicalQuantityEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplier" eType="#//MultiplierEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" eType="#//UnitEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="perMultiplier" eType="#//MultiplierEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="perUnit" eType="#//UnitEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="perTimeUnit" eType="#//TimeUnit"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MultiplierEnum">
+    <eLiterals name="NONE"/>
+    <eLiterals name="KILO" value="1"/>
+    <eLiterals name="MEGA" value="2"/>
+    <eLiterals name="GIGA" value="3"/>
+    <eLiterals name="TERRA" value="4"/>
+    <eLiterals name="PETA" value="5"/>
+    <eLiterals name="MILLI" value="6"/>
+    <eLiterals name="MICRO" value="7"/>
+    <eLiterals name="NANO" value="8"/>
+    <eLiterals name="PICO" value="9"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PhysicalQuantityEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="ENERGY" value="1"/>
+    <eLiterals name="POWER" value="2"/>
+    <eLiterals name="VOLTAGE" value="3"/>
+    <eLiterals name="PRESSURE" value="4"/>
+    <eLiterals name="TEMPERATURE" value="5"/>
+    <eLiterals name="EMISSION" value="6"/>
+    <eLiterals name="COST" value="7"/>
+    <eLiterals name="TIME" value="8"/>
+    <eLiterals name="LENGTH" value="9"/>
+    <eLiterals name="DISTANCE" value="10"/>
+    <eLiterals name="IRRADIANCE" value="11"/>
+    <eLiterals name="SPEED" value="12"/>
+    <eLiterals name="STATE_OF_CHARGE" value="13"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UnitEnum">
+    <eLiterals name="NONE"/>
+    <eLiterals name="JOULE" value="1"/>
+    <eLiterals name="WATTHOUR" value="2"/>
+    <eLiterals name="WATT" value="3"/>
+    <eLiterals name="VOLT" value="4"/>
+    <eLiterals name="BAR" value="5"/>
+    <eLiterals name="PSI" value="6"/>
+    <eLiterals name="DEGREES_CELSIUS" value="7"/>
+    <eLiterals name="KELVIN" value="8"/>
+    <eLiterals name="GRAM" value="9"/>
+    <eLiterals name="EURO" value="10"/>
+    <eLiterals name="DOLLAR" value="11"/>
+    <eLiterals name="SECOND" value="12"/>
+    <eLiterals name="MINUTE" value="13"/>
+    <eLiterals name="QUARTER" value="14"/>
+    <eLiterals name="HOUR" value="15"/>
+    <eLiterals name="DAY" value="16"/>
+    <eLiterals name="WEEK" value="17"/>
+    <eLiterals name="MONTH" value="18"/>
+    <eLiterals name="YEAR" value="19"/>
+    <eLiterals name="METRE" value="20"/>
+    <eLiterals name="SQUARE_METRE" value="21"/>
+    <eLiterals name="CUBIC_METRE" value="22"/>
+    <eLiterals name="LITRE" value="23"/>
+    <eLiterals name="WATTSECOND" value="24"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractDataSource" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSourceReference" eSuperTypes="#//AbstractDataSource">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" lowerBound="1"
+        eType="#//DataSource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TimeUnit">
+    <eLiterals name="NONE"/>
+    <eLiterals name="SECOND" value="1"/>
+    <eLiterals name="MINUTE" value="2"/>
+    <eLiterals name="QUARTER" value="3"/>
+    <eLiterals name="HOUR" value="4"/>
+    <eLiterals name="DAY" value="5"/>
+    <eLiterals name="WEEK" value="6"/>
+    <eLiterals name="MONTH" value="7"/>
+    <eLiterals name="YEAR" value="8"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KPIList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kpi" upperBound="-1" eType="#//KPI"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KPI">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="quantityAndUnit" eType="#//AbstractQuantityAndUnit"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QuantityAndUnitList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="quantityAndUnit" upperBound="-1"
+        eType="#//QuantityAndUnitType" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractQuantityAndUnit" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="QuantityAndUnitReference" eSuperTypes="#//AbstractQuantityAndUnit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" lowerBound="1"
+        eType="#//QuantityAndUnitType"/>
+  </eClassifiers>
 </ecore:EPackage>
