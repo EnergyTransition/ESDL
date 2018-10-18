@@ -436,6 +436,21 @@
       <xsd:enumeration value="YEAR"/>
     </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="GasConversionTypeEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="SMR"/>
+      <xsd:enumeration value="ATR"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ElectrolyzerTypeEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="PEM"/>
+      <xsd:enumeration value="SOEC"/>
+      <xsd:enumeration value="ALKALINE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:complexContent>
       <xsd:extension base="esdl:Asset">
@@ -471,7 +486,12 @@
           <xsd:element name="profile" type="esdl:GenericProfile"/>
         </xsd:choice>
         <xsd:attribute name="capacity" type="xsd:double"/>
-        <xsd:attribute name="efficiency" type="xsd:double"/>
+        <xsd:attribute name="chargeEfficiency" type="xsd:double"/>
+        <xsd:attribute name="dischargeEfficiency" type="xsd:double"/>
+        <xsd:attribute name="selfDischargeRate" type="xsd:double"/>
+        <xsd:attribute name="fillLevel" type="xsd:double"/>
+        <xsd:attribute name="maxChargeRate" type="xsd:double"/>
+        <xsd:attribute name="maxDischargeRate" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -521,6 +541,7 @@
     <xsd:attribute name="name" type="xsd:string"/>
     <xsd:attribute name="description" type="xsd:string"/>
     <xsd:attribute name="geographicalScope" type="xsd:string"/>
+    <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="EnergySystem" type="esdl:EnergySystem">
     <xsd:annotation>
@@ -552,12 +573,7 @@
   <xsd:complexType name="Battery">
     <xsd:complexContent>
       <xsd:extension base="esdl:Storage">
-        <xsd:attribute name="selfDischarge" type="xsd:double"/>
         <xsd:attribute name="maxChargeDischargeCycli" type="xsd:int"/>
-        <xsd:attribute name="chargeEfficiency" type="xsd:double"/>
-        <xsd:attribute name="dischargeEfficiency" type="xsd:double"/>
-        <xsd:attribute name="maxChargeRate" type="xsd:double"/>
-        <xsd:attribute name="maxDischargeRate" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -639,6 +655,7 @@
     <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
     <xsd:attribute name="id" type="xsd:string"/>
     <xsd:attribute name="maxPower" type="xsd:double"/>
+    <xsd:attribute name="simPower" type="xsd:double"/>
     <xsd:attribute name="energyasset" type="xsd:string"/>
     <xsd:attribute name="carrier" type="xsd:string"/>
   </xsd:complexType>
@@ -690,6 +707,8 @@
         <xsd:attribute name="decommissioningDate" type="xsd:string"/>
         <xsd:attribute name="owner" type="xsd:string"/>
         <xsd:attribute name="technicalLifetime" type="xsd:double"/>
+        <xsd:attribute name="aggregated" type="xsd:boolean"/>
+        <xsd:attribute name="aggregationNumber" type="xsd:int"/>
         <xsd:attribute name="area" type="xsd:string"/>
         <xsd:attribute name="containingBuilding" type="xsd:string"/>
       </xsd:extension>
@@ -787,7 +806,6 @@
   <xsd:complexType name="HeatStorage">
     <xsd:complexContent>
       <xsd:extension base="esdl:Storage">
-        <xsd:attribute name="heatLoss" type="xsd:double"/>
         <xsd:attribute name="minStorageTemperature" type="xsd:double"/>
         <xsd:attribute name="maxStorageTemperature" type="xsd:double"/>
       </xsd:extension>
@@ -1887,13 +1905,23 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="VehicleCount" type="esdl:VehicleCount"/>
   <xsd:complexType name="Electrolyzer">
     <xsd:complexContent>
-      <xsd:extension base="esdl:PowerToX"/>
+      <xsd:extension base="esdl:PowerToX">
+        <xsd:attribute name="type" type="esdl:ElectrolyzerTypeEnum"/>
+        <xsd:attribute name="minLoad" type="xsd:double"/>
+        <xsd:attribute name="maxLoad" type="xsd:double"/>
+        <xsd:attribute name="rampUpRate" type="xsd:double"/>
+        <xsd:attribute name="rampDownRate" type="xsd:double"/>
+        <xsd:attribute name="startupPeriod" type="xsd:double"/>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="Electrolyzer" type="esdl:Electrolyzer"/>
   <xsd:complexType name="GasStorage">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Storage"/>
+      <xsd:extension base="esdl:Storage">
+        <xsd:attribute name="minStoragePressure" type="xsd:double"/>
+        <xsd:attribute name="maxStoragePressure" type="xsd:double"/>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="GasStorage" type="esdl:GasStorage"/>
@@ -2001,4 +2029,85 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="QuantityAndUnitReference" type="esdl:QuantityAndUnitReference"/>
+  <xsd:complexType name="EnergyMarket">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:EnergyService">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="asset" type="esdl:Asset"/>
+          <xsd:element name="carrier" type="esdl:Carrier"/>
+          <xsd:element name="parameters" type="esdl:Parameters"/>
+        </xsd:choice>
+        <xsd:attribute name="asset" type="xsd:string"/>
+        <xsd:attribute name="carrier" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EnergyMarket" type="esdl:EnergyMarket"/>
+  <xsd:complexType name="GasConversion">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Conversion">
+        <xsd:attribute name="type" type="esdl:GasConversionTypeEnum"/>
+        <xsd:attribute name="minLoad" type="xsd:double"/>
+        <xsd:attribute name="maxLoad" type="xsd:double"/>
+        <xsd:attribute name="rampUpRate" type="xsd:double"/>
+        <xsd:attribute name="rampDownRate" type="xsd:double"/>
+        <xsd:attribute name="startupPeriod" type="xsd:double"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="GasConversion" type="esdl:GasConversion"/>
+  <xsd:complexType abstract="true" name="Parameters">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="abstractquantityandunit" type="esdl:AbstractQuantityAndUnit"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="Parameters" type="esdl:Parameters"/>
+  <xsd:complexType name="StringParameter">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Parameters">
+        <xsd:attribute name="value" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="StringParameter" type="esdl:StringParameter"/>
+  <xsd:complexType name="DoubleParameter">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Parameters">
+        <xsd:attribute name="value" type="xsd:double"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DoubleParameter" type="esdl:DoubleParameter"/>
+  <xsd:complexType name="IntegerParameter">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Parameters">
+        <xsd:attribute name="value" type="xsd:int"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IntegerParameter" type="esdl:IntegerParameter"/>
+  <xsd:complexType name="BooleanParameter">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Parameters">
+        <xsd:attribute name="value" type="xsd:boolean"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BooleanParameter" type="esdl:BooleanParameter"/>
+  <xsd:complexType name="DrivenBySupply">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:ControlStrategy"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DrivenBySupply" type="esdl:DrivenBySupply"/>
+  <xsd:complexType name="DrivenByProfile">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:ControlStrategy"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DrivenByProfile" type="esdl:DrivenByProfile"/>
 </xsd:schema>
