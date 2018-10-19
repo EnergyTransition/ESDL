@@ -442,12 +442,22 @@
       <xsd:enumeration value="ATR"/>
     </xsd:restriction>
   </xsd:simpleType>
-  <xsd:simpleType name="ElectrolyzerTypeEnum">
+  <xsd:simpleType name="PVInstallationTypeEnum">
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="UNDEFINED"/>
-      <xsd:enumeration value="PEM"/>
-      <xsd:enumeration value="SOEC"/>
-      <xsd:enumeration value="ALKALINE"/>
+      <xsd:enumeration value="ROOFTOP_PV"/>
+      <xsd:enumeration value="BUILDING_INTEGRATED_PV"/>
+      <xsd:enumeration value="WINDOW"/>
+      <xsd:enumeration value="ROAD"/>
+      <xsd:enumeration value="FIELD"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="WindTurbineTypeEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="WIND_ON_LAND"/>
+      <xsd:enumeration value="WIND_AT_SEA"/>
+      <xsd:enumeration value="WIND_ON_BUILDINGS"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:complexType abstract="true" name="EnergyAsset">
@@ -483,11 +493,11 @@
         </xsd:sequence>
         <xsd:attribute name="capacity" type="xsd:double"/>
         <xsd:attribute default="0.0" name="chargeEfficiency" type="xsd:double"/>
-        <xsd:attribute name="dischargeEfficiency" type="xsd:double"/>
+        <xsd:attribute default="0.0" name="dischargeEfficiency" type="xsd:double"/>
         <xsd:attribute default="0.0" name="selfDischargeRate" type="xsd:double"/>
         <xsd:attribute name="fillLevel" type="xsd:double"/>
-        <xsd:attribute name="maxChargeRate" type="xsd:double"/>
-        <xsd:attribute name="maxDischargeRate" type="xsd:double"/>
+        <xsd:attribute default="0.0" name="maxChargeRate" type="xsd:double"/>
+        <xsd:attribute default="0.0" name="maxDischargeRate" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -540,6 +550,7 @@
         <xsd:attribute name="power" type="xsd:double"/>
         <xsd:attribute name="rotorDiameter" type="xsd:double"/>
         <xsd:attribute name="height" type="xsd:double"/>
+        <xsd:attribute name="type" type="esdl:WindTurbineTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -626,8 +637,8 @@
       <xsd:element maxOccurs="1" minOccurs="0" name="profile" type="esdl:GenericProfile"/>
     </xsd:sequence>
     <xsd:attribute name="id" type="xsd:string"/>
-    <xsd:attribute default="0.0" name="maxPower" type="xsd:double"/>
-    <xsd:attribute name="simPower" type="xsd:double"/>
+    <xsd:attribute name="maxPower" type="xsd:double"/>
+    <xsd:attribute name="simultaneousPower" type="xsd:double"/>
     <xsd:attribute name="energyasset" type="xsd:string"/>
     <xsd:attribute name="carrier" type="xsd:string"/>
   </xsd:complexType>
@@ -667,8 +678,6 @@
         <xsd:attribute name="decommissioningDate" type="xsd:string"/>
         <xsd:attribute name="owner" type="xsd:string"/>
         <xsd:attribute name="technicalLifetime" type="xsd:double"/>
-        <xsd:attribute name="aggregated" type="xsd:boolean"/>
-        <xsd:attribute default="1" name="aggregationNumber" type="xsd:int"/>
         <xsd:attribute name="area" type="xsd:string"/>
         <xsd:attribute name="containingBuilding" type="xsd:string"/>
       </xsd:extension>
@@ -1681,14 +1690,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="VehicleCount" type="esdl:VehicleCount"/>
   <xsd:complexType name="Electrolyzer">
     <xsd:complexContent>
-      <xsd:extension base="esdl:PowerToX">
-        <xsd:attribute name="type" type="esdl:ElectrolyzerTypeEnum"/>
-        <xsd:attribute name="minLoad" type="xsd:double"/>
-        <xsd:attribute name="maxLoad" type="xsd:double"/>
-        <xsd:attribute default="0.0" name="rampUpRate" type="xsd:double"/>
-        <xsd:attribute name="rampDownRate" type="xsd:double"/>
-        <xsd:attribute name="startupPeriod" type="xsd:double"/>
-      </xsd:extension>
+      <xsd:extension base="esdl:PowerToX"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="Electrolyzer" type="esdl:Electrolyzer"/>
@@ -1696,7 +1698,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:complexContent>
       <xsd:extension base="esdl:Storage">
         <xsd:attribute name="minStoragePressure" type="xsd:double"/>
-        <xsd:attribute name="maxStoragePressure" type="xsd:double"/>
+        <xsd:attribute default="0.0" name="maxStoragePressure" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1788,11 +1790,6 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:complexContent>
       <xsd:extension base="esdl:Conversion">
         <xsd:attribute name="type" type="esdl:GasConversionTypeEnum"/>
-        <xsd:attribute name="minLoad" type="xsd:double"/>
-        <xsd:attribute name="maxLoad" type="xsd:double"/>
-        <xsd:attribute name="rampUpRate" type="xsd:double"/>
-        <xsd:attribute name="rampDownRate" type="xsd:double"/>
-        <xsd:attribute name="startupPeriod" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1847,4 +1844,19 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="DrivenByProfile" type="esdl:DrivenByProfile"/>
+  <xsd:complexType name="PVInstallation">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:PVPanel">
+        <xsd:attribute name="type" type="esdl:PVInstallationTypeEnum"/>
+        <xsd:attribute name="numberOfPanels" type="xsd:int"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PVInstallation" type="esdl:PVInstallation"/>
+  <xsd:complexType name="CircuitBraker">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Transport"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CircuitBraker" type="esdl:CircuitBraker"/>
 </xsd:schema>

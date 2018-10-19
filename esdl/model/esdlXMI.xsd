@@ -443,6 +443,24 @@
       <xsd:enumeration value="ATR"/>
     </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="PVInstallationTypeEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="ROOFTOP_PV"/>
+      <xsd:enumeration value="BUILDING_INTEGRATED_PV"/>
+      <xsd:enumeration value="WINDOW"/>
+      <xsd:enumeration value="ROAD"/>
+      <xsd:enumeration value="FIELD"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="WindTurbineTypeEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="WIND_ON_LAND"/>
+      <xsd:enumeration value="WIND_AT_SEA"/>
+      <xsd:enumeration value="WIND_ON_BUILDINGS"/>
+    </xsd:restriction>
+  </xsd:simpleType>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:complexContent>
       <xsd:extension base="esdl:Asset">
@@ -478,7 +496,12 @@
           <xsd:element name="profile" type="esdl:GenericProfile"/>
         </xsd:choice>
         <xsd:attribute name="capacity" type="xsd:double"/>
-        <xsd:attribute name="efficiency" type="xsd:double"/>
+        <xsd:attribute name="chargeEfficiency" type="xsd:double"/>
+        <xsd:attribute name="dischargeEfficiency" type="xsd:double"/>
+        <xsd:attribute name="selfDischargeRate" type="xsd:double"/>
+        <xsd:attribute name="fillLevel" type="xsd:double"/>
+        <xsd:attribute name="maxChargeRate" type="xsd:double"/>
+        <xsd:attribute name="maxDischargeRate" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -541,6 +564,7 @@
         <xsd:attribute name="power" type="xsd:double"/>
         <xsd:attribute name="rotorDiameter" type="xsd:double"/>
         <xsd:attribute name="height" type="xsd:double"/>
+        <xsd:attribute name="type" type="esdl:WindTurbineTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -560,12 +584,7 @@
   <xsd:complexType name="Battery">
     <xsd:complexContent>
       <xsd:extension base="esdl:Storage">
-        <xsd:attribute name="selfDischarge" type="xsd:double"/>
         <xsd:attribute name="maxChargeDischargeCycli" type="xsd:int"/>
-        <xsd:attribute name="chargeEfficiency" type="xsd:double"/>
-        <xsd:attribute name="dischargeEfficiency" type="xsd:double"/>
-        <xsd:attribute name="maxChargeRate" type="xsd:double"/>
-        <xsd:attribute name="maxDischargeRate" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -647,6 +666,7 @@
     <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
     <xsd:attribute name="id" type="xsd:string"/>
     <xsd:attribute name="maxPower" type="xsd:double"/>
+    <xsd:attribute name="simultaneousPower" type="xsd:double"/>
     <xsd:attribute name="energyasset" type="xsd:string"/>
     <xsd:attribute name="carrier" type="xsd:string"/>
   </xsd:complexType>
@@ -795,7 +815,6 @@
   <xsd:complexType name="HeatStorage">
     <xsd:complexContent>
       <xsd:extension base="esdl:Storage">
-        <xsd:attribute name="heatLoss" type="xsd:double"/>
         <xsd:attribute name="minStorageTemperature" type="xsd:double"/>
         <xsd:attribute name="maxStorageTemperature" type="xsd:double"/>
       </xsd:extension>
@@ -1901,7 +1920,10 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="Electrolyzer" type="esdl:Electrolyzer"/>
   <xsd:complexType name="GasStorage">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Storage"/>
+      <xsd:extension base="esdl:Storage">
+        <xsd:attribute name="minStoragePressure" type="xsd:double"/>
+        <xsd:attribute name="maxStoragePressure" type="xsd:double"/>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="GasStorage" type="esdl:GasStorage"/>
@@ -2085,4 +2107,19 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="DrivenByProfile" type="esdl:DrivenByProfile"/>
+  <xsd:complexType name="PVInstallation">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:PVPanel">
+        <xsd:attribute name="type" type="esdl:PVInstallationTypeEnum"/>
+        <xsd:attribute name="numberOfPanels" type="xsd:int"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PVInstallation" type="esdl:PVInstallation"/>
+  <xsd:complexType name="CircuitBraker">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Transport"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CircuitBraker" type="esdl:CircuitBraker"/>
 </xsd:schema>

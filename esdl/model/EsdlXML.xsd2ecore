@@ -377,11 +377,20 @@
       <nested inputs="esdl.ecore#//GasConversionTypeEnum/SMR" outputs="EsdlXML.xsd#//GasConversionTypeEnum;XSDSimpleTypeDefinition=35/XSDEnumerationFacet=1"/>
       <nested inputs="esdl.ecore#//GasConversionTypeEnum/ATR" outputs="EsdlXML.xsd#//GasConversionTypeEnum;XSDSimpleTypeDefinition=35/XSDEnumerationFacet=2"/>
     </nested>
-    <nested inputs="esdl.ecore#//ElectrolyzerTypeEnum" outputs="EsdlXML.xsd#//ElectrolyzerTypeEnum;XSDSimpleTypeDefinition=36">
-      <nested inputs="esdl.ecore#//ElectrolyzerTypeEnum/UNDEFINED" outputs="EsdlXML.xsd#//ElectrolyzerTypeEnum;XSDSimpleTypeDefinition=36/XSDEnumerationFacet"/>
-      <nested inputs="esdl.ecore#//ElectrolyzerTypeEnum/PEM" outputs="EsdlXML.xsd#//ElectrolyzerTypeEnum;XSDSimpleTypeDefinition=36/XSDEnumerationFacet=1"/>
-      <nested inputs="esdl.ecore#//ElectrolyzerTypeEnum/SOEC" outputs="EsdlXML.xsd#//ElectrolyzerTypeEnum;XSDSimpleTypeDefinition=36/XSDEnumerationFacet=2"/>
-      <nested inputs="esdl.ecore#//ElectrolyzerTypeEnum/ALKALINE" outputs="EsdlXML.xsd#//ElectrolyzerTypeEnum;XSDSimpleTypeDefinition=36/XSDEnumerationFacet=3"/>
+    <nested inputs="esdl.ecore#//PVInstallationTypeEnum" outputs="EsdlXML.xsd#//PVInstallationTypeEnum;XSDSimpleTypeDefinition=36">
+      <nested inputs="esdl.ecore#//PVInstallationTypeEnum/UNDEFINED" outputs="EsdlXML.xsd#//PVInstallationTypeEnum;XSDSimpleTypeDefinition=36/XSDEnumerationFacet"/>
+      <nested inputs="esdl.ecore#//PVInstallationTypeEnum/ROOFTOP_PV" outputs="EsdlXML.xsd#//PVInstallationTypeEnum;XSDSimpleTypeDefinition=36/XSDEnumerationFacet=1"/>
+      <nested inputs="esdl.ecore#//PVInstallationTypeEnum/BUILDING_INTEGRATED_PV"
+          outputs="EsdlXML.xsd#//PVInstallationTypeEnum;XSDSimpleTypeDefinition=36/XSDEnumerationFacet=2"/>
+      <nested inputs="esdl.ecore#//PVInstallationTypeEnum/WINDOW" outputs="EsdlXML.xsd#//PVInstallationTypeEnum;XSDSimpleTypeDefinition=36/XSDEnumerationFacet=3"/>
+      <nested inputs="esdl.ecore#//PVInstallationTypeEnum/ROAD" outputs="EsdlXML.xsd#//PVInstallationTypeEnum;XSDSimpleTypeDefinition=36/XSDEnumerationFacet=4"/>
+      <nested inputs="esdl.ecore#//PVInstallationTypeEnum/FIELD" outputs="EsdlXML.xsd#//PVInstallationTypeEnum;XSDSimpleTypeDefinition=36/XSDEnumerationFacet=5"/>
+    </nested>
+    <nested inputs="esdl.ecore#//WindTurbineTypeEnum" outputs="EsdlXML.xsd#//WindTurbineTypeEnum;XSDSimpleTypeDefinition=37">
+      <nested inputs="esdl.ecore#//WindTurbineTypeEnum/UNDEFINED" outputs="EsdlXML.xsd#//WindTurbineTypeEnum;XSDSimpleTypeDefinition=37/XSDEnumerationFacet"/>
+      <nested inputs="esdl.ecore#//WindTurbineTypeEnum/WIND_ON_LAND" outputs="EsdlXML.xsd#//WindTurbineTypeEnum;XSDSimpleTypeDefinition=37/XSDEnumerationFacet=1"/>
+      <nested inputs="esdl.ecore#//WindTurbineTypeEnum/WIND_AT_SEA" outputs="EsdlXML.xsd#//WindTurbineTypeEnum;XSDSimpleTypeDefinition=37/XSDEnumerationFacet=2"/>
+      <nested inputs="esdl.ecore#//WindTurbineTypeEnum/WIND_ON_BUILDINGS" outputs="EsdlXML.xsd#//WindTurbineTypeEnum;XSDSimpleTypeDefinition=37/XSDEnumerationFacet=3"/>
     </nested>
     <nested inputs="esdl.ecore#//EnergyAsset" outputs="EsdlXML.xsd#//EnergyAsset;XSDComplexTypeDefinition">
       <nested inputs="esdl.ecore#//EnergyAsset/port" outputs="EsdlXML.xsd#//EnergyAsset;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"/>
@@ -431,6 +440,7 @@
       <nested inputs="esdl.ecore#//WindTurbine/power" outputs="EsdlXML.xsd#//WindTurbine;XSDComplexTypeDefinition=7/XSDAttributeUse"/>
       <nested inputs="esdl.ecore#//WindTurbine/rotorDiameter" outputs="EsdlXML.xsd#//WindTurbine;XSDComplexTypeDefinition=7/XSDAttributeUse=1"/>
       <nested inputs="esdl.ecore#//WindTurbine/height" outputs="EsdlXML.xsd#//WindTurbine;XSDComplexTypeDefinition=7/XSDAttributeUse=2"/>
+      <nested inputs="esdl.ecore#//WindTurbine/type" outputs="EsdlXML.xsd#//WindTurbine;XSDComplexTypeDefinition=7/XSDAttributeUse=3"/>
     </nested>
     <nested inputs="esdl.ecore#//WindTurbine" outputs="EsdlXML.xsd#//WindTurbine;XSDElementDeclaration=1"/>
     <nested inputs="esdl.ecore#//PVPanel" outputs="EsdlXML.xsd#//PVPanel;XSDComplexTypeDefinition=8">
@@ -487,7 +497,7 @@
     <nested inputs="esdl.ecore#//Port" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15">
       <nested inputs="esdl.ecore#//Port/id" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15/XSDAttributeUse"/>
       <nested inputs="esdl.ecore#//Port/maxPower" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15/XSDAttributeUse=1"/>
-      <nested inputs="esdl.ecore#//Port/simPower" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15/XSDAttributeUse=2"/>
+      <nested inputs="esdl.ecore#//Port/simultaneousPower" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15/XSDAttributeUse=2"/>
       <nested inputs="esdl.ecore#//Port/energyasset" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15/XSDAttributeUse=3"/>
       <nested inputs="esdl.ecore#//Port/profile" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle"/>
       <nested inputs="esdl.ecore#//Port/carrier" outputs="EsdlXML.xsd#//Port;XSDComplexTypeDefinition=15/XSDAttributeUse=4"/>
@@ -510,10 +520,8 @@
       <nested inputs="esdl.ecore#//Asset/decommissioningDate" outputs="EsdlXML.xsd#//Asset;XSDComplexTypeDefinition=19/XSDAttributeUse=2"/>
       <nested inputs="esdl.ecore#//Asset/owner" outputs="EsdlXML.xsd#//Asset;XSDComplexTypeDefinition=19/XSDAttributeUse=3"/>
       <nested inputs="esdl.ecore#//Asset/technicalLifetime" outputs="EsdlXML.xsd#//Asset;XSDComplexTypeDefinition=19/XSDAttributeUse=4"/>
-      <nested inputs="esdl.ecore#//Asset/aggregated" outputs="EsdlXML.xsd#//Asset;XSDComplexTypeDefinition=19/XSDAttributeUse=5"/>
-      <nested inputs="esdl.ecore#//Asset/aggregationNumber" outputs="EsdlXML.xsd#//Asset;XSDComplexTypeDefinition=19/XSDAttributeUse=6"/>
-      <nested inputs="esdl.ecore#//Asset/area" outputs="EsdlXML.xsd#//Asset;XSDComplexTypeDefinition=19/XSDAttributeUse=7"/>
-      <nested inputs="esdl.ecore#//Asset/containingBuilding" outputs="EsdlXML.xsd#//Asset;XSDComplexTypeDefinition=19/XSDAttributeUse=8"/>
+      <nested inputs="esdl.ecore#//Asset/area" outputs="EsdlXML.xsd#//Asset;XSDComplexTypeDefinition=19/XSDAttributeUse=5"/>
+      <nested inputs="esdl.ecore#//Asset/containingBuilding" outputs="EsdlXML.xsd#//Asset;XSDComplexTypeDefinition=19/XSDAttributeUse=6"/>
       <nested inputs="esdl.ecore#//Asset/geometry" outputs="EsdlXML.xsd#//Asset;XSDComplexTypeDefinition=19/XSDParticle/XSDModelGroup/XSDParticle"/>
       <nested inputs="esdl.ecore#//Asset/costInformation" outputs="EsdlXML.xsd#//Asset;XSDComplexTypeDefinition=19/XSDParticle/XSDModelGroup/XSDParticle=1"/>
     </nested>
@@ -1042,14 +1050,7 @@
       <nested inputs="esdl.ecore#//VehicleCount/count" outputs="EsdlXML.xsd#//VehicleCount;XSDComplexTypeDefinition=138/XSDAttributeUse=1"/>
     </nested>
     <nested inputs="esdl.ecore#//VehicleCount" outputs="EsdlXML.xsd#//VehicleCount;XSDElementDeclaration=114"/>
-    <nested inputs="esdl.ecore#//Electrolyzer" outputs="EsdlXML.xsd#//Electrolyzer;XSDComplexTypeDefinition=139">
-      <nested inputs="esdl.ecore#//Electrolyzer/type" outputs="EsdlXML.xsd#//Electrolyzer;XSDComplexTypeDefinition=139/XSDAttributeUse"/>
-      <nested inputs="esdl.ecore#//Electrolyzer/minLoad" outputs="EsdlXML.xsd#//Electrolyzer;XSDComplexTypeDefinition=139/XSDAttributeUse=1"/>
-      <nested inputs="esdl.ecore#//Electrolyzer/maxLoad" outputs="EsdlXML.xsd#//Electrolyzer;XSDComplexTypeDefinition=139/XSDAttributeUse=2"/>
-      <nested inputs="esdl.ecore#//Electrolyzer/rampUpRate" outputs="EsdlXML.xsd#//Electrolyzer;XSDComplexTypeDefinition=139/XSDAttributeUse=3"/>
-      <nested inputs="esdl.ecore#//Electrolyzer/rampDownRate" outputs="EsdlXML.xsd#//Electrolyzer;XSDComplexTypeDefinition=139/XSDAttributeUse=4"/>
-      <nested inputs="esdl.ecore#//Electrolyzer/startupPeriod" outputs="EsdlXML.xsd#//Electrolyzer;XSDComplexTypeDefinition=139/XSDAttributeUse=5"/>
-    </nested>
+    <nested inputs="esdl.ecore#//Electrolyzer" outputs="EsdlXML.xsd#//Electrolyzer;XSDComplexTypeDefinition=139"/>
     <nested inputs="esdl.ecore#//Electrolyzer" outputs="EsdlXML.xsd#//Electrolyzer;XSDElementDeclaration=115"/>
     <nested inputs="esdl.ecore#//GasStorage" outputs="EsdlXML.xsd#//GasStorage;XSDComplexTypeDefinition=140">
       <nested inputs="esdl.ecore#//GasStorage/minStoragePressure" outputs="EsdlXML.xsd#//GasStorage;XSDComplexTypeDefinition=140/XSDAttributeUse"/>
@@ -1107,11 +1108,6 @@
     <nested inputs="esdl.ecore#//EnergyMarket" outputs="EsdlXML.xsd#//EnergyMarket;XSDElementDeclaration=125"/>
     <nested inputs="esdl.ecore#//GasConversion" outputs="EsdlXML.xsd#//GasConversion;XSDComplexTypeDefinition=153">
       <nested inputs="esdl.ecore#//GasConversion/type" outputs="EsdlXML.xsd#//GasConversion;XSDComplexTypeDefinition=153/XSDAttributeUse"/>
-      <nested inputs="esdl.ecore#//GasConversion/minLoad" outputs="EsdlXML.xsd#//GasConversion;XSDComplexTypeDefinition=153/XSDAttributeUse=1"/>
-      <nested inputs="esdl.ecore#//GasConversion/maxLoad" outputs="EsdlXML.xsd#//GasConversion;XSDComplexTypeDefinition=153/XSDAttributeUse=2"/>
-      <nested inputs="esdl.ecore#//GasConversion/rampUpRate" outputs="EsdlXML.xsd#//GasConversion;XSDComplexTypeDefinition=153/XSDAttributeUse=3"/>
-      <nested inputs="esdl.ecore#//GasConversion/rampDownRate" outputs="EsdlXML.xsd#//GasConversion;XSDComplexTypeDefinition=153/XSDAttributeUse=4"/>
-      <nested inputs="esdl.ecore#//GasConversion/startupPeriod" outputs="EsdlXML.xsd#//GasConversion;XSDComplexTypeDefinition=153/XSDAttributeUse=5"/>
     </nested>
     <nested inputs="esdl.ecore#//GasConversion" outputs="EsdlXML.xsd#//GasConversion;XSDElementDeclaration=126"/>
     <nested inputs="esdl.ecore#//Parameters" outputs="EsdlXML.xsd#//Parameters;XSDComplexTypeDefinition=154">
@@ -1138,5 +1134,12 @@
     <nested inputs="esdl.ecore#//DrivenBySupply" outputs="EsdlXML.xsd#//DrivenBySupply;XSDElementDeclaration=131"/>
     <nested inputs="esdl.ecore#//DrivenByProfile" outputs="EsdlXML.xsd#//DrivenByProfile;XSDComplexTypeDefinition=160"/>
     <nested inputs="esdl.ecore#//DrivenByProfile" outputs="EsdlXML.xsd#//DrivenByProfile;XSDElementDeclaration=132"/>
+    <nested inputs="esdl.ecore#//PVInstallation" outputs="EsdlXML.xsd#//PVInstallation;XSDComplexTypeDefinition=161">
+      <nested inputs="esdl.ecore#//PVInstallation/type" outputs="EsdlXML.xsd#//PVInstallation;XSDComplexTypeDefinition=161/XSDAttributeUse"/>
+      <nested inputs="esdl.ecore#//PVInstallation/numberOfPanels" outputs="EsdlXML.xsd#//PVInstallation;XSDComplexTypeDefinition=161/XSDAttributeUse=1"/>
+    </nested>
+    <nested inputs="esdl.ecore#//PVInstallation" outputs="EsdlXML.xsd#//PVInstallation;XSDElementDeclaration=133"/>
+    <nested inputs="esdl.ecore#//CircuitBraker" outputs="EsdlXML.xsd#//CircuitBraker;XSDComplexTypeDefinition=162"/>
+    <nested inputs="esdl.ecore#//CircuitBraker" outputs="EsdlXML.xsd#//CircuitBraker;XSDElementDeclaration=134"/>
   </nested>
 </xsd2ecore:XSD2EcoreMappingRoot>

@@ -408,11 +408,19 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GasConversionTypeEnum/SMR"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GasConversionTypeEnum/ATR"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//ElectrolyzerTypeEnum">
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ElectrolyzerTypeEnum/UNDEFINED"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ElectrolyzerTypeEnum/PEM"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ElectrolyzerTypeEnum/SOEC"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ElectrolyzerTypeEnum/ALKALINE"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//PVInstallationTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PVInstallationTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PVInstallationTypeEnum/ROOFTOP_PV"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PVInstallationTypeEnum/BUILDING_INTEGRATED_PV"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PVInstallationTypeEnum/WINDOW"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PVInstallationTypeEnum/ROAD"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PVInstallationTypeEnum/FIELD"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//WindTurbineTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//WindTurbineTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//WindTurbineTypeEnum/WIND_ON_LAND"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//WindTurbineTypeEnum/WIND_AT_SEA"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//WindTurbineTypeEnum/WIND_ON_BUILDINGS"/>
     </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>
@@ -461,6 +469,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindTurbine/power"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindTurbine/rotorDiameter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindTurbine/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindTurbine/type"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//PVPanel">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVPanel/power"/>
@@ -512,7 +521,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference esdl.ecore#//Port/energyasset"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/profile"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/carrier"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/simPower"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/simultaneousPower"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AggregatedProducer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedProducer/aggregationOf"/>
@@ -533,8 +542,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/geometry"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/costInformation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/technicalLifetime"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/aggregated"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/aggregationNumber"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GenericConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//GenericProducer"/>
@@ -962,14 +969,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//VehicleCount/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//VehicleCount/count"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//Electrolyzer">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Electrolyzer/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Electrolyzer/minLoad"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Electrolyzer/maxLoad"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Electrolyzer/rampUpRate"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Electrolyzer/rampDownRate"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Electrolyzer/startupPeriod"/>
-    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//Electrolyzer"/>
     <genClasses ecoreClass="esdl.ecore#//GasStorage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasStorage/minStoragePressure"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasStorage/maxStoragePressure"/>
@@ -1016,11 +1016,6 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GasConversion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasConversion/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasConversion/minLoad"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasConversion/maxLoad"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasConversion/rampUpRate"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasConversion/rampDownRate"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasConversion/startupPeriod"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Parameters">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Parameters/name"/>
@@ -1040,5 +1035,10 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//DrivenBySupply"/>
     <genClasses ecoreClass="esdl.ecore#//DrivenByProfile"/>
+    <genClasses ecoreClass="esdl.ecore#//PVInstallation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVInstallation/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVInstallation/numberOfPanels"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//CircuitBraker"/>
   </genPackages>
 </genmodel:GenModel>

@@ -17,9 +17,19 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Storage" abstract="true" eSuperTypes="#//EnergyAsset">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="efficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chargeEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="profile" eType="#//GenericProfile"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dischargeEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selfDischargeRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fillLevel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxChargeRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxDischargeRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Conversion" abstract="true" eSuperTypes="#//EnergyAsset">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -70,6 +80,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rotorDiameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//WindTurbineTypeEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PVPanel" eSuperTypes="#//Producer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -79,15 +90,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Battery" eSuperTypes="#//Storage">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="selfDischarge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxChargeDischargeCycli"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chargeEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0.0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dischargeEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0.0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxChargeRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxDischargeRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElectricityNetwork" eSuperTypes="#//Transport">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="voltage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -146,6 +150,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="profile" eType="#//GenericProfile"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="carrier" eType="#//Carrier"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="simultaneousPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatedProducer" eSuperTypes="#//Producer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"
@@ -286,8 +291,6 @@
     <eLiterals name="FINAL" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HeatStorage" eSuperTypes="#//Storage">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatLoss" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minStorageTemperature"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxStorageTemperature"
@@ -1022,7 +1025,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Electrolyzer" eSuperTypes="#//PowerToX"/>
-  <eClassifiers xsi:type="ecore:EClass" name="GasStorage" eSuperTypes="#//Storage"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GasStorage" eSuperTypes="#//Storage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minStoragePressure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxStoragePressure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Services">
     <eStructuralFeatures xsi:type="ecore:EReference" name="service" upperBound="-1"
         eType="#//Service" containment="true"/>
@@ -1165,4 +1172,23 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DrivenBySupply" eSuperTypes="#//ControlStrategy"/>
   <eClassifiers xsi:type="ecore:EClass" name="DrivenByProfile" eSuperTypes="#//ControlStrategy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PVInstallation" eSuperTypes="#//PVPanel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//PVInstallationTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfPanels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PVInstallationTypeEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="ROOFTOP_PV" value="1"/>
+    <eLiterals name="BUILDING_INTEGRATED_PV" value="2"/>
+    <eLiterals name="WINDOW" value="3"/>
+    <eLiterals name="ROAD" value="4"/>
+    <eLiterals name="FIELD" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="WindTurbineTypeEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="WIND_ON_LAND" value="1"/>
+    <eLiterals name="WIND_AT_SEA" value="2"/>
+    <eLiterals name="WIND_ON_BUILDINGS" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CircuitBraker" eSuperTypes="#//Transport"/>
 </ecore:EPackage>
