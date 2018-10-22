@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:esdl="http://www.tno.nl/esdl/180901" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tno.nl/esdl/180901">
+<xsd:schema xmlns:esdl="http://www.tno.nl/esdl" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.tno.nl/esdl">
   <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
   <xsd:simpleType name="CommodityEnum">
     <xsd:restriction base="xsd:NCName">
@@ -458,7 +458,17 @@
       <xsd:enumeration value="UNDEFINED"/>
       <xsd:enumeration value="WIND_ON_LAND"/>
       <xsd:enumeration value="WIND_AT_SEA"/>
-      <xsd:enumeration value="WIND_ON_BUILDINGS"/>
+      <xsd:enumeration value="WIND_ON_COAST"/>
+      <xsd:enumeration value="WIND_ON_BUILDING"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="WaterToPowerTypeEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="HYDRO_POWER"/>
+      <xsd:enumeration value="WAVE_POWER"/>
+      <xsd:enumeration value="TIDAL_POWER"/>
+      <xsd:enumeration value="OSMOTIC_POWER"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:complexType abstract="true" name="EnergyAsset">
@@ -477,6 +487,7 @@
         <xsd:attribute name="prodType" type="esdl:RenewableTypeEnum"/>
         <xsd:attribute name="operationalHours" type="xsd:int"/>
         <xsd:attribute name="fullLoadHours" type="xsd:int"/>
+        <xsd:attribute name="power" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -561,7 +572,6 @@
   <xsd:complexType name="WindTurbine">
     <xsd:complexContent>
       <xsd:extension base="esdl:Producer">
-        <xsd:attribute name="power" type="xsd:double"/>
         <xsd:attribute name="rotorDiameter" type="xsd:double"/>
         <xsd:attribute name="height" type="xsd:double"/>
         <xsd:attribute name="type" type="esdl:WindTurbineTypeEnum"/>
@@ -572,7 +582,6 @@
   <xsd:complexType name="PVPanel">
     <xsd:complexContent>
       <xsd:extension base="esdl:Producer">
-        <xsd:attribute name="power" type="xsd:double"/>
         <xsd:attribute name="panelEfficiency" type="xsd:double"/>
         <xsd:attribute name="inverterEfficiency" type="xsd:double"/>
         <xsd:attribute name="angle" type="xsd:int"/>
@@ -591,7 +600,7 @@
   <xsd:element name="Battery" type="esdl:Battery"/>
   <xsd:complexType name="ElectricityNetwork">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Transport">
+      <xsd:extension base="esdl:EnergyNetwork">
         <xsd:attribute name="voltage" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -599,7 +608,7 @@
   <xsd:element name="ElectricityNetwork" type="esdl:ElectricityNetwork"/>
   <xsd:complexType name="ElectricityCable">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Transport">
+      <xsd:extension base="esdl:AbstractConductor">
         <xsd:attribute name="length" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -633,13 +642,13 @@
       <xsd:element name="contour" type="esdl:Polygon"/>
       <xsd:element name="socialProperties" type="esdl:SocialProperties"/>
       <xsd:element name="economicProperties" type="esdl:EconomicProperties"/>
-      <xsd:element name="potentials" type="esdl:Potential"/>
       <xsd:element name="asset" type="esdl:Asset"/>
       <xsd:element name="area" type="esdl:Area"/>
       <xsd:element name="containingArea" type="esdl:Area"/>
       <xsd:element name="isOwnedBy" type="esdl:Party"/>
       <xsd:element name="mobilityProperties" type="esdl:MobilityProperties"/>
-      <xsd:element name="kpiList" type="esdl:KPIList"/>
+      <xsd:element name="KPIs" type="esdl:KPIs"/>
+      <xsd:element name="potential" type="esdl:AreaPotential"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -650,9 +659,9 @@
     <xsd:attribute name="type" type="esdl:AreaTypeEnum"/>
     <xsd:attribute name="geometryReference" type="xsd:string"/>
     <xsd:attribute name="buildingDensity" type="xsd:double"/>
-    <xsd:attribute name="potentials" type="xsd:string"/>
     <xsd:attribute name="containingArea" type="xsd:string"/>
     <xsd:attribute name="isOwnedBy" type="xsd:string"/>
+    <xsd:attribute name="potential" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="Area" type="esdl:Area"/>
   <xsd:complexType abstract="true" name="Port">
@@ -832,7 +841,7 @@
   <xsd:element name="GasHeater" type="esdl:GasHeater"/>
   <xsd:complexType name="HeatNetwork">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Transport">
+      <xsd:extension base="esdl:EnergyNetwork">
         <xsd:attribute name="temperature" type="xsd:double"/>
         <xsd:attribute name="temperatureMin" type="xsd:double"/>
         <xsd:attribute name="temperatureMax" type="xsd:double"/>
@@ -842,7 +851,7 @@
   <xsd:element name="HeatNetwork" type="esdl:HeatNetwork"/>
   <xsd:complexType name="GasNetwork">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Transport">
+      <xsd:extension base="esdl:EnergyNetwork">
         <xsd:attribute name="pressure" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -870,7 +879,7 @@
   <xsd:element name="SinkConsumer" type="esdl:SinkConsumer"/>
   <xsd:complexType name="Pipe">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Transport">
+      <xsd:extension base="esdl:AbstractConductor">
         <xsd:attribute name="diameter" type="xsd:double"/>
         <xsd:attribute name="length" type="xsd:double"/>
       </xsd:extension>
@@ -885,7 +894,6 @@
         <xsd:attribute name="COP" type="xsd:double"/>
         <xsd:attribute name="aquiferTemperature" type="xsd:double"/>
         <xsd:attribute name="flowRate" type="xsd:double"/>
-        <xsd:attribute name="outputPower" type="xsd:double"/>
         <xsd:attribute name="pumpPower" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -940,7 +948,7 @@
   <xsd:element name="GasDemand" type="esdl:GasDemand"/>
   <xsd:complexType name="GeothermalPotential">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Potential">
+      <xsd:extension base="esdl:AreaPotential">
         <xsd:attribute name="temperature" type="xsd:int"/>
         <xsd:attribute name="depth" type="xsd:int"/>
         <xsd:attribute name="potential" type="esdl:GeothermalPotentialEnum"/>
@@ -995,7 +1003,7 @@
   <xsd:element name="SocialProperties" type="esdl:SocialProperties"/>
   <xsd:complexType name="LegalArea">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Potential">
+      <xsd:extension base="esdl:AreaPotential">
         <xsd:attribute name="purpose" type="xsd:string"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -1015,7 +1023,7 @@
   <xsd:element name="DemandResponseService" type="esdl:DemandResponseService"/>
   <xsd:complexType name="Transformer">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Transport">
+      <xsd:extension base="esdl:AbstractTransformer">
         <xsd:attribute name="voltagePrimary" type="xsd:double"/>
         <xsd:attribute name="voltageSecundary" type="xsd:double"/>
       </xsd:extension>
@@ -1024,7 +1032,7 @@
   <xsd:element name="Transformer" type="esdl:Transformer"/>
   <xsd:complexType name="HeatExchange">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Transport"/>
+      <xsd:extension base="esdl:AbstractTransformer"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="HeatExchange" type="esdl:HeatExchange"/>
@@ -1032,6 +1040,7 @@
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="isOwnedBy" type="esdl:Party"/>
       <xsd:element name="dataSource" type="esdl:AbstractDataSource"/>
+      <xsd:element name="sector" type="esdl:Sector"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -1046,11 +1055,13 @@
       </xsd:annotation>
     </xsd:attribute>
     <xsd:attribute name="isOwnedBy" type="xsd:string"/>
+    <xsd:attribute name="sector" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="Item" type="esdl:Item"/>
   <xsd:complexType name="Measures">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="asset" type="esdl:Asset"/>
+      <xsd:element name="measuresCollection" type="esdl:MeasuresCollection"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -1059,7 +1070,7 @@
   <xsd:element name="Measures" type="esdl:Measures"/>
   <xsd:complexType name="EConnection">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Transport">
+      <xsd:extension base="esdl:AbstractConnection">
         <xsd:attribute name="EANCode" type="xsd:string"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -1067,13 +1078,13 @@
   <xsd:element name="EConnection" type="esdl:EConnection"/>
   <xsd:complexType name="HConnection">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Transport"/>
+      <xsd:extension base="esdl:AbstractConnection"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="HConnection" type="esdl:HConnection"/>
   <xsd:complexType name="GConnection">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Transport"/>
+      <xsd:extension base="esdl:AbstractConnection"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="GConnection" type="esdl:GConnection"/>
@@ -1082,7 +1093,7 @@
       <xsd:extension base="esdl:Conversion">
         <xsd:choice maxOccurs="unbounded" minOccurs="0">
           <xsd:element name="energyCarrier" type="esdl:EnergyCarrier"/>
-          <xsd:element name="mustRun" type="esdl:DateTimeProfile"/>
+          <xsd:element name="mustRun" type="esdl:GenericProfile"/>
         </xsd:choice>
         <xsd:attribute name="fuel" type="esdl:PowerPlantFuelEnum"/>
         <xsd:attribute name="maxLoad" type="xsd:int"/>
@@ -1141,23 +1152,19 @@
   <xsd:element name="EVChargingStation" type="esdl:EVChargingStation"/>
   <xsd:complexType abstract="true" name="Potential">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
-      <xsd:element name="areas" type="esdl:Area"/>
       <xsd:element name="geometry" type="esdl:Geometry"/>
       <xsd:element name="dataSource" type="esdl:AbstractDataSource"/>
-      <xsd:element name="asset" type="esdl:Asset"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
     <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
     <xsd:attribute name="id" type="xsd:string"/>
     <xsd:attribute name="name" type="xsd:string"/>
-    <xsd:attribute name="areas" type="xsd:string"/>
-    <xsd:attribute name="asset" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="Potential" type="esdl:Potential"/>
   <xsd:complexType name="WindPotential">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Potential">
+      <xsd:extension base="esdl:AreaPotential">
         <xsd:attribute name="windspeed" type="xsd:int"/>
         <xsd:attribute name="height" type="xsd:int"/>
       </xsd:extension>
@@ -1180,7 +1187,7 @@
   <xsd:element name="AggregatedBuilding" type="esdl:AggregatedBuilding"/>
   <xsd:complexType name="Potentials">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
-      <xsd:element name="potential" type="esdl:Potential"/>
+      <xsd:element name="potentials" type="esdl:PotentialsType"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -1264,7 +1271,8 @@
       <xsd:element name="profiles" type="esdl:Profiles"/>
       <xsd:element name="dataSources" type="esdl:DataSources"/>
       <xsd:element name="mobilityFuelInformation" type="esdl:MobilityFuelInformation"/>
-      <xsd:element name="quantityAndUnitList" type="esdl:QuantityAndUnitList"/>
+      <xsd:element name="quantityAndUnits" type="esdl:QuantityAndUnits"/>
+      <xsd:element name="sectors" type="esdl:Sectors"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -1273,13 +1281,13 @@
   <xsd:element name="EnergySystemInformation" type="esdl:EnergySystemInformation"/>
   <xsd:complexType name="Pump">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Transport"/>
+      <xsd:extension base="esdl:AbstractTransformer"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="Pump" type="esdl:Pump"/>
   <xsd:complexType name="Valve">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Transport"/>
+      <xsd:extension base="esdl:AbstractSwitch"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="Valve" type="esdl:Valve"/>
@@ -1580,6 +1588,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="owns" type="esdl:Item"/>
       <xsd:element name="ownsArea" type="esdl:Area"/>
+      <xsd:element name="sector" type="esdl:Sector"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -1589,6 +1598,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:attribute name="shortName" type="xsd:string"/>
     <xsd:attribute name="owns" type="xsd:string"/>
     <xsd:attribute name="ownsArea" type="xsd:string"/>
+    <xsd:attribute name="sector" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="Party" type="esdl:Party"/>
   <xsd:complexType name="URIProfile">
@@ -1715,7 +1725,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="Range" type="esdl:Range"/>
   <xsd:complexType name="SolarFieldPotential">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Potential">
+      <xsd:extension base="esdl:AreaPotential">
         <xsd:attribute name="solarIrradiance" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -1731,12 +1741,6 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:attribute name="durationUnit" type="esdl:DurationUnitEnum"/>
   </xsd:complexType>
   <xsd:element name="Duration" type="esdl:Duration"/>
-  <xsd:complexType name="EnergyNetwork">
-    <xsd:complexContent>
-      <xsd:extension base="esdl:Transport"/>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:element name="EnergyNetwork" type="esdl:EnergyNetwork"/>
   <xsd:complexType name="ProfileReference">
     <xsd:complexContent>
       <xsd:extension base="esdl:StaticProfile">
@@ -1819,8 +1823,9 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="FermentationPlant" type="esdl:FermentationPlant"/>
   <xsd:complexType name="ResidualHeatSourcePotential">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Potential">
+      <xsd:extension base="esdl:AssetPotential">
         <xsd:attribute name="power" type="xsd:double"/>
+        <xsd:attribute name="type" type="esdl:ResidualHeatSourceTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1938,13 +1943,23 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="Services" type="esdl:Services"/>
   <xsd:complexType abstract="true" name="ControlStrategy">
     <xsd:complexContent>
-      <xsd:extension base="esdl:EnergyService"/>
+      <xsd:extension base="esdl:EnergyService">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="energyAsset" type="esdl:EnergyAsset"/>
+        </xsd:choice>
+        <xsd:attribute name="energyAsset" type="xsd:string"/>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="ControlStrategy" type="esdl:ControlStrategy"/>
   <xsd:complexType name="DrivenByDemand">
     <xsd:complexContent>
-      <xsd:extension base="esdl:ControlStrategy"/>
+      <xsd:extension base="esdl:ControlStrategy">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="outport" type="esdl:OutPort"/>
+        </xsd:choice>
+        <xsd:attribute name="outport" type="xsd:string"/>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="DrivenByDemand" type="esdl:DrivenByDemand"/>
@@ -1982,7 +1997,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="DataSourceReference" type="esdl:DataSourceReference"/>
-  <xsd:complexType name="KPIList">
+  <xsd:complexType name="KPIs">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="kpi" type="esdl:KPI"/>
       <xsd:element ref="xmi:Extension"/>
@@ -1991,7 +2006,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
     <xsd:attribute name="description" type="xsd:string"/>
   </xsd:complexType>
-  <xsd:element name="KPIList" type="esdl:KPIList"/>
+  <xsd:element name="KPIs" type="esdl:KPIs"/>
   <xsd:complexType name="KPI">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="quantityAndUnit" type="esdl:AbstractQuantityAndUnit"/>
@@ -2003,7 +2018,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:attribute name="value" type="xsd:double"/>
   </xsd:complexType>
   <xsd:element name="KPI" type="esdl:KPI"/>
-  <xsd:complexType name="QuantityAndUnitList">
+  <xsd:complexType name="QuantityAndUnits">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="quantityAndUnit" type="esdl:QuantityAndUnitType"/>
       <xsd:element ref="xmi:Extension"/>
@@ -2011,7 +2026,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:attribute ref="xmi:id"/>
     <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
   </xsd:complexType>
-  <xsd:element name="QuantityAndUnitList" type="esdl:QuantityAndUnitList"/>
+  <xsd:element name="QuantityAndUnits" type="esdl:QuantityAndUnits"/>
   <xsd:complexType abstract="true" name="AbstractQuantityAndUnit">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element ref="xmi:Extension"/>
@@ -2097,13 +2112,22 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="BooleanParameter" type="esdl:BooleanParameter"/>
   <xsd:complexType name="DrivenBySupply">
     <xsd:complexContent>
-      <xsd:extension base="esdl:ControlStrategy"/>
+      <xsd:extension base="esdl:ControlStrategy">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="inport" type="esdl:InPort"/>
+        </xsd:choice>
+        <xsd:attribute name="inport" type="xsd:string"/>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="DrivenBySupply" type="esdl:DrivenBySupply"/>
   <xsd:complexType name="DrivenByProfile">
     <xsd:complexContent>
-      <xsd:extension base="esdl:ControlStrategy"/>
+      <xsd:extension base="esdl:ControlStrategy">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="profile" type="esdl:GenericProfile"/>
+        </xsd:choice>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="DrivenByProfile" type="esdl:DrivenByProfile"/>
@@ -2118,8 +2142,177 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="PVInstallation" type="esdl:PVInstallation"/>
   <xsd:complexType name="CircuitBraker">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Transport"/>
+      <xsd:extension base="esdl:AbstractSwitch"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="CircuitBraker" type="esdl:CircuitBraker"/>
+  <xsd:complexType name="MeasuresCollection">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="asset" type="esdl:Asset"/>
+      <xsd:element name="costInformation" type="esdl:CostInformation"/>
+      <xsd:element name="dataSource" type="esdl:AbstractDataSource"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="id" type="xsd:string"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+    <xsd:attribute name="description" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="MeasuresCollection" type="esdl:MeasuresCollection"/>
+  <xsd:complexType abstract="true" name="PotentialsType">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="dataSource" type="esdl:AbstractDataSource"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="id" type="xsd:string"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+    <xsd:attribute name="description" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="PotentialsType" type="esdl:PotentialsType"/>
+  <xsd:complexType name="SolarFieldPotentials">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:PotentialsType">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="potential" type="esdl:SolarFieldPotential"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SolarFieldPotentials" type="esdl:SolarFieldPotentials"/>
+  <xsd:complexType name="WindPotentials">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:PotentialsType">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="potential" type="esdl:WindPotential"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="WindPotentials" type="esdl:WindPotentials"/>
+  <xsd:complexType name="GeothermalPotentials">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:PotentialsType">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="potential" type="esdl:GeothermalPotential"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="GeothermalPotentials" type="esdl:GeothermalPotentials"/>
+  <xsd:complexType name="LegalAreas">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:PotentialsType">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="legalarea" type="esdl:LegalArea"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="LegalAreas" type="esdl:LegalAreas"/>
+  <xsd:complexType name="ResidualHeatSourcePotentials">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:PotentialsType">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="potential" type="esdl:ResidualHeatSourcePotential"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ResidualHeatSourcePotentials" type="esdl:ResidualHeatSourcePotentials"/>
+  <xsd:complexType abstract="true" name="AreaPotential">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Potential">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="area" type="esdl:Area"/>
+        </xsd:choice>
+        <xsd:attribute name="area" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AreaPotential" type="esdl:AreaPotential"/>
+  <xsd:complexType abstract="true" name="AssetPotential">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Potential">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="asset" type="esdl:Asset"/>
+        </xsd:choice>
+        <xsd:attribute name="asset" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AssetPotential" type="esdl:AssetPotential"/>
+  <xsd:complexType name="WaterToPower">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Producer">
+        <xsd:attribute name="type" type="esdl:WaterToPowerTypeEnum"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="WaterToPower" type="esdl:WaterToPower"/>
+  <xsd:complexType name="Sectors">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="sector" type="esdl:Sector"/>
+      <xsd:element name="dataSource" type="esdl:AbstractDataSource"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="Sectors" type="esdl:Sectors"/>
+  <xsd:complexType name="Sector">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="dataSource" type="esdl:AbstractDataSource"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="id" type="xsd:string"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+    <xsd:attribute name="description" type="xsd:string"/>
+    <xsd:attribute name="code" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="Sector" type="esdl:Sector"/>
+  <xsd:complexType name="EnergyNetwork">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Transport"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EnergyNetwork" type="esdl:EnergyNetwork"/>
+  <xsd:complexType abstract="true" name="AbstractConductor">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Transport"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AbstractConductor" type="esdl:AbstractConductor"/>
+  <xsd:complexType abstract="true" name="AbstractSwitch">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Transport"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AbstractSwitch" type="esdl:AbstractSwitch"/>
+  <xsd:complexType abstract="true" name="AbstractTransformer">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Transport"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AbstractTransformer" type="esdl:AbstractTransformer"/>
+  <xsd:complexType abstract="true" name="AbstractConnection">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Transport"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AbstractConnection" type="esdl:AbstractConnection"/>
+  <xsd:complexType name="MultiLine">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Geometry">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="line" type="esdl:Line"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="MultiLine" type="esdl:MultiLine"/>
 </xsd:schema>

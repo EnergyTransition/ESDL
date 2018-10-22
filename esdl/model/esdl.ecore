@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="esdl" nsURI="http://www.tno.nl/esdl/180901" nsPrefix="esdl">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="esdl" nsURI="http://www.tno.nl/esdl" nsPrefix="esdl">
   <eClassifiers xsi:type="ecore:EClass" name="EnergyAsset" abstract="true" eSuperTypes="#//Asset">
     <eStructuralFeatures xsi:type="ecore:EReference" name="port" upperBound="-1" eType="#//Port"
         containment="true" eOpposite="#//Port/energyasset"/>
@@ -10,6 +10,7 @@
         defaultValueLiteral="RENEWABLE"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationalHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullLoadHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Consumer" abstract="true" eSuperTypes="#//EnergyAsset">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="consType" eType="#//ConsTypeEnum"
@@ -77,13 +78,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WindTurbine" eSuperTypes="#//Producer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rotorDiameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//WindTurbineTypeEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PVPanel" eSuperTypes="#//Producer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="panelEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inverterEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="angle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -93,10 +92,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxChargeDischargeCycli"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ElectricityNetwork" eSuperTypes="#//Transport">
+  <eClassifiers xsi:type="ecore:EClass" name="ElectricityNetwork" eSuperTypes="#//EnergyNetwork">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="voltage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ElectricityCable" eSuperTypes="#//Transport">
+  <eClassifiers xsi:type="ecore:EClass" name="ElectricityCable" eSuperTypes="#//AbstractConductor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatedConsumer" eSuperTypes="#//Consumer">
@@ -124,8 +123,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="economicProperties" eType="#//EconomicProperties"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="potentials" upperBound="-1"
-        eType="#//Potential" eOpposite="#//Potential/areas"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
         eType="#//Asset" containment="true" eOpposite="#//Asset/area"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="area" upperBound="-1" eType="#//Area"
@@ -138,8 +135,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="mobilityProperties" eType="#//MobilityProperties"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildingDensity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="kpiList" eType="#//KPIList"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="KPIs" eType="#//KPIs" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="potential" upperBound="-1"
+        eType="#//AreaPotential" eOpposite="#//AreaPotential/area"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -301,12 +299,12 @@
         defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//GasHeaterTypeEnum"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HeatNetwork" eSuperTypes="#//Transport">
+  <eClassifiers xsi:type="ecore:EClass" name="HeatNetwork" eSuperTypes="#//EnergyNetwork">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperatureMin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperatureMax" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GasNetwork" eSuperTypes="#//Transport">
+  <eClassifiers xsi:type="ecore:EClass" name="GasNetwork" eSuperTypes="#//EnergyNetwork">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pressure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Insulation" eSuperTypes="#//Asset">
@@ -314,7 +312,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SourceProducer" eSuperTypes="#//Producer"/>
   <eClassifiers xsi:type="ecore:EClass" name="SinkConsumer" eSuperTypes="#//Consumer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Pipe" eSuperTypes="#//Transport">
+  <eClassifiers xsi:type="ecore:EClass" name="Pipe" eSuperTypes="#//AbstractConductor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="diameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
@@ -324,8 +322,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="COP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aquiferTemperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pumpPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CoGeneration" abstract="true" eSuperTypes="#//Conversion">
@@ -389,7 +385,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElectricityDemand" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="GasDemand" eSuperTypes="#//Consumer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="GeothermalPotential" eSuperTypes="#//Potential">
+  <eClassifiers xsi:type="ecore:EClass" name="GeothermalPotential" eSuperTypes="#//AreaPotential">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="depth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="potential" eType="#//GeothermalPotentialEnum"/>
@@ -427,7 +423,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="populationDensity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfInhabitants" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LegalArea" eSuperTypes="#//Potential">
+  <eClassifiers xsi:type="ecore:EClass" name="LegalArea" eSuperTypes="#//AreaPotential">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="RoofTypeEnum">
@@ -452,11 +448,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyService" abstract="true" eSuperTypes="#//Service"/>
   <eClassifiers xsi:type="ecore:EClass" name="DemandResponseService" eSuperTypes="#//EnergyService"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Transformer" eSuperTypes="#//Transport">
+  <eClassifiers xsi:type="ecore:EClass" name="Transformer" eSuperTypes="#//AbstractTransformer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="voltagePrimary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="voltageSecundary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HeatExchange" eSuperTypes="#//Transport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HeatExchange" eSuperTypes="#//AbstractTransformer"/>
   <eClassifiers xsi:type="ecore:EEnum" name="ResidentialBuildingTypeEnum">
     <eLiterals name="UNDEFINED"/>
     <eLiterals name="VRIJSTAANDE_WONING" value="1"/>
@@ -486,16 +482,19 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sector" eType="#//Sector"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Measures">
     <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
         eType="#//Asset" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="measuresCollection" upperBound="-1"
+        eType="#//MeasuresCollection" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EConnection" eSuperTypes="#//Transport">
+  <eClassifiers xsi:type="ecore:EClass" name="EConnection" eSuperTypes="#//AbstractConnection">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="EANCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HConnection" eSuperTypes="#//Transport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="GConnection" eSuperTypes="#//Transport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HConnection" eSuperTypes="#//AbstractConnection"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GConnection" eSuperTypes="#//AbstractConnection"/>
   <eClassifiers xsi:type="ecore:EClass" name="PowerPlant" eSuperTypes="#//Conversion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fuel" eType="#//PowerPlantFuelEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -503,7 +502,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMaxLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMinLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="energyCarrier" eType="#//EnergyCarrier"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mustRun" eType="#//DateTimeProfile"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mustRun" eType="#//GenericProfile"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PowerPlantFuelEnum">
@@ -535,8 +534,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="AggregatorService" eSuperTypes="#//EnergyService"/>
   <eClassifiers xsi:type="ecore:EClass" name="EVChargingStation" eSuperTypes="#//Consumer"/>
   <eClassifiers xsi:type="ecore:EClass" name="Potential" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="areas" upperBound="-1"
-        eType="#//Area" eOpposite="#//Area/potentials"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -544,10 +541,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
-        eType="#//Asset"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="WindPotential" eSuperTypes="#//Potential">
+  <eClassifiers xsi:type="ecore:EClass" name="WindPotential" eSuperTypes="#//AreaPotential">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="windspeed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
@@ -568,8 +563,8 @@
     <eLiterals name="AGRO_TUINBOUW" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Potentials">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="potential" upperBound="-1"
-        eType="#//Potential" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="potentials" upperBound="-1"
+        eType="#//PotentialsType" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyCarrier" eSuperTypes="#//Carrier">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyContent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
@@ -620,11 +615,13 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mobilityFuelInformation"
         eType="#//MobilityFuelInformation" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="quantityAndUnitList" eType="#//QuantityAndUnitList"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="quantityAndUnits" eType="#//QuantityAndUnits"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sectors" eType="#//Sectors"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Pump" eSuperTypes="#//Transport"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Valve" eSuperTypes="#//Transport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Pump" eSuperTypes="#//AbstractTransformer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Valve" eSuperTypes="#//AbstractSwitch"/>
   <eClassifiers xsi:type="ecore:EClass" name="GenericProfile" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="All profiles should describe these fields: a name and a ProfileType. There are two different profile types: static, with static values stored in the ESDL model itself. And External, which allows you to refer to an externally defined profile (e.g. in an Energy Information System or a timeseries database)"/>
@@ -792,6 +789,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ownsArea" upperBound="-1"
         eType="#//Area" eOpposite="#//Area/isOwnedBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sector" eType="#//Sector"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="URIProfile" eSuperTypes="#//ExternalProfile">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -899,7 +897,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SolarFieldPotential" eSuperTypes="#//Potential">
+  <eClassifiers xsi:type="ecore:EClass" name="SolarFieldPotential" eSuperTypes="#//AreaPotential">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="solarIrradiance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Duration">
@@ -907,7 +905,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="durationUnit" eType="#//DurationUnitEnum"
         defaultValueLiteral="SECOND"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EnergyNetwork" eSuperTypes="#//Transport"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProfileReference" eSuperTypes="#//StaticProfile">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="1"/>
@@ -950,8 +947,9 @@
     <eLiterals name="OTHER" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FermentationPlant" eSuperTypes="#//Conversion"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ResidualHeatSourcePotential" eSuperTypes="#//Potential">
+  <eClassifiers xsi:type="ecore:EClass" name="ResidualHeatSourcePotential" eSuperTypes="#//AssetPotential">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ResidualHeatSourceTypeEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SubPolygon">
     <eStructuralFeatures xsi:type="ecore:EReference" name="point" lowerBound="3" upperBound="-1"
@@ -1034,8 +1032,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="service" upperBound="-1"
         eType="#//Service" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ControlStrategy" abstract="true" eSuperTypes="#//EnergyService"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DrivenByDemand" eSuperTypes="#//ControlStrategy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ControlStrategy" abstract="true" eSuperTypes="#//EnergyService">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="energyAsset" eType="#//EnergyAsset"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DrivenByDemand" eSuperTypes="#//ControlStrategy">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outport" eType="#//OutPort"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QuantityAndUnitType" eSuperTypes="#//AbstractQuantityAndUnit">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="physicalQuantity" eType="#//PhysicalQuantityEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="multiplier" eType="#//MultiplierEnum"/>
@@ -1118,7 +1120,7 @@
     <eLiterals name="MONTH" value="7"/>
     <eLiterals name="YEAR" value="8"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="KPIList">
+  <eClassifiers xsi:type="ecore:EClass" name="KPIs">
     <eStructuralFeatures xsi:type="ecore:EReference" name="kpi" upperBound="-1" eType="#//KPI"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -1129,7 +1131,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="quantityAndUnit" eType="#//AbstractQuantityAndUnit"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="QuantityAndUnitList">
+  <eClassifiers xsi:type="ecore:EClass" name="QuantityAndUnits">
     <eStructuralFeatures xsi:type="ecore:EReference" name="quantityAndUnit" upperBound="-1"
         eType="#//QuantityAndUnitType" containment="true"/>
   </eClassifiers>
@@ -1170,8 +1172,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="BooleanParameter" eSuperTypes="#//Parameters">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DrivenBySupply" eSuperTypes="#//ControlStrategy"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DrivenByProfile" eSuperTypes="#//ControlStrategy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DrivenBySupply" eSuperTypes="#//ControlStrategy">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inport" eType="#//InPort"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DrivenByProfile" eSuperTypes="#//ControlStrategy">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="profile" eType="#//GenericProfile"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PVInstallation" eSuperTypes="#//PVPanel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//PVInstallationTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfPanels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -1188,7 +1195,91 @@
     <eLiterals name="UNDEFINED"/>
     <eLiterals name="WIND_ON_LAND" value="1"/>
     <eLiterals name="WIND_AT_SEA" value="2"/>
-    <eLiterals name="WIND_ON_BUILDINGS" value="3"/>
+    <eLiterals name="WIND_ON_COAST" value="3"/>
+    <eLiterals name="WIND_ON_BUILDING" value="4"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CircuitBraker" eSuperTypes="#//Transport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CircuitBraker" eSuperTypes="#//AbstractSwitch"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MeasuresCollection">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
+        eType="#//Asset" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="costInformation" eType="#//CostInformation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PotentialsType" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolarFieldPotentials" eSuperTypes="#//PotentialsType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="potential" upperBound="-1"
+        eType="#//SolarFieldPotential" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WindPotentials" eSuperTypes="#//PotentialsType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="potential" upperBound="-1"
+        eType="#//WindPotential" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeothermalPotentials" eSuperTypes="#//PotentialsType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="potential" upperBound="-1"
+        eType="#//GeothermalPotential" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LegalAreas" eSuperTypes="#//PotentialsType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="legalarea" upperBound="-1"
+        eType="#//LegalArea" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResidualHeatSourcePotentials" eSuperTypes="#//PotentialsType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="potential" upperBound="-1"
+        eType="#//ResidualHeatSourcePotential" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AreaPotential" abstract="true" eSuperTypes="#//Potential">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="area" upperBound="-1" eType="#//Area"
+        eOpposite="#//Area/potential"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssetPotential" abstract="true" eSuperTypes="#//Potential">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
+        eType="#//Asset"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WaterToPower" eSuperTypes="#//Producer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//WaterToPowerTypeEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="WaterToPowerTypeEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="HYDRO_POWER" value="1"/>
+    <eLiterals name="WAVE_POWER" value="2"/>
+    <eLiterals name="TIDAL_POWER" value="3"/>
+    <eLiterals name="OSMOTIC_POWER" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sectors">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sector" upperBound="-1"
+        eType="#//Sector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sector">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnergyNetwork" eSuperTypes="#//Transport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractConductor" abstract="true" eSuperTypes="#//Transport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractSwitch" abstract="true" eSuperTypes="#//Transport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractTransformer" abstract="true"
+      eSuperTypes="#//Transport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractConnection" abstract="true"
+      eSuperTypes="#//Transport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MultiLine" eSuperTypes="#//Geometry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="line" lowerBound="1" upperBound="-1"
+        eType="#//Line" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>
