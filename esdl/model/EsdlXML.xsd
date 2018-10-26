@@ -518,6 +518,15 @@
       <xsd:enumeration value="CHP"/>
     </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="UTESTypeEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="HEAT_OPEN"/>
+      <xsd:enumeration value="HEAT_CLOSED"/>
+      <xsd:enumeration value="COLD_OPEN"/>
+      <xsd:enumeration value="COLD_CLOSED"/>
+    </xsd:restriction>
+  </xsd:simpleType>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:complexContent>
       <xsd:extension base="esdl:Asset">
@@ -2089,15 +2098,20 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="UTESPotentials">
-    <xsd:sequence>
-      <xsd:element maxOccurs="unbounded" minOccurs="0" name="potential" type="esdl:UTESPotential"/>
-    </xsd:sequence>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:PotentialsType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="potential" type="esdl:UTESPotential"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="UTESPotentials" type="esdl:UTESPotentials"/>
   <xsd:complexType name="UTESPotential">
     <xsd:complexContent>
       <xsd:extension base="esdl:AreaPotential">
         <xsd:attribute name="value" type="xsd:double"/>
+        <xsd:attribute name="type" type="esdl:UTESTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>

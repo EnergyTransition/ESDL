@@ -439,6 +439,13 @@
       <nested inputs="esdl.ecore#//BiomassHeaterTypeEnum/PELLET_FIRED" outputs="EsdlXML.xsd#//BiomassHeaterTypeEnum;XSDSimpleTypeDefinition=43/XSDEnumerationFacet=3"/>
       <nested inputs="esdl.ecore#//BiomassHeaterTypeEnum/CHP" outputs="EsdlXML.xsd#//BiomassHeaterTypeEnum;XSDSimpleTypeDefinition=43/XSDEnumerationFacet=4"/>
     </nested>
+    <nested inputs="esdl.ecore#//UTESTypeEnum" outputs="EsdlXML.xsd#//UTESTypeEnum;XSDSimpleTypeDefinition=44">
+      <nested inputs="esdl.ecore#//UTESTypeEnum/UNDEFINED" outputs="EsdlXML.xsd#//UTESTypeEnum;XSDSimpleTypeDefinition=44/XSDEnumerationFacet"/>
+      <nested inputs="esdl.ecore#//UTESTypeEnum/HEAT_OPEN" outputs="EsdlXML.xsd#//UTESTypeEnum;XSDSimpleTypeDefinition=44/XSDEnumerationFacet=1"/>
+      <nested inputs="esdl.ecore#//UTESTypeEnum/HEAT_CLOSED" outputs="EsdlXML.xsd#//UTESTypeEnum;XSDSimpleTypeDefinition=44/XSDEnumerationFacet=2"/>
+      <nested inputs="esdl.ecore#//UTESTypeEnum/COLD_OPEN" outputs="EsdlXML.xsd#//UTESTypeEnum;XSDSimpleTypeDefinition=44/XSDEnumerationFacet=3"/>
+      <nested inputs="esdl.ecore#//UTESTypeEnum/COLD_CLOSED" outputs="EsdlXML.xsd#//UTESTypeEnum;XSDSimpleTypeDefinition=44/XSDEnumerationFacet=4"/>
+    </nested>
     <nested inputs="esdl.ecore#//EnergyAsset" outputs="EsdlXML.xsd#//EnergyAsset;XSDComplexTypeDefinition">
       <nested inputs="esdl.ecore#//EnergyAsset/port" outputs="EsdlXML.xsd#//EnergyAsset;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"/>
     </nested>
@@ -1283,6 +1290,7 @@
     <nested inputs="esdl.ecore#//UTESPotentials" outputs="EsdlXML.xsd#//UTESPotentials;XSDElementDeclaration=146"/>
     <nested inputs="esdl.ecore#//UTESPotential" outputs="EsdlXML.xsd#//UTESPotential;XSDComplexTypeDefinition=183">
       <nested inputs="esdl.ecore#//UTESPotential/value" outputs="EsdlXML.xsd#//UTESPotential;XSDComplexTypeDefinition=183/XSDAttributeUse"/>
+      <nested inputs="esdl.ecore#//UTESPotential/type" outputs="EsdlXML.xsd#//UTESPotential;XSDComplexTypeDefinition=183/XSDAttributeUse=1"/>
     </nested>
     <nested inputs="esdl.ecore#//UTESPotential" outputs="EsdlXML.xsd#//UTESPotential;XSDElementDeclaration=147"/>
     <nested inputs="esdl.ecore#//AbstractInstanceDate" outputs="EsdlXML.xsd#//AbstractInstanceDate;XSDComplexTypeDefinition=184"/>

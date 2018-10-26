@@ -1326,12 +1326,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractGTPotential" abstract="true"
       eSuperTypes="#//AreaPotential"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UTESPotentials">
+  <eClassifiers xsi:type="ecore:EClass" name="UTESPotentials" eSuperTypes="#//PotentialsType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="potential" upperBound="-1"
         eType="#//UTESPotential" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UTESPotential" eSuperTypes="#//AreaPotential">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//UTESTypeEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractInstanceDate" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="InstanceDate" eSuperTypes="#//AbstractInstanceDate">
@@ -1366,5 +1367,12 @@
     <eLiterals name="SEMI_AUTOMATED" value="2"/>
     <eLiterals name="PELLET_FIRED" value="3"/>
     <eLiterals name="CHP" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UTESTypeEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="HEAT_OPEN" value="1"/>
+    <eLiterals name="HEAT_CLOSED" value="2"/>
+    <eLiterals name="COLD_OPEN" value="3"/>
+    <eLiterals name="COLD_CLOSED" value="4"/>
   </eClassifiers>
 </ecore:EPackage>

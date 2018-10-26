@@ -468,6 +468,13 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BiomassHeaterTypeEnum/PELLET_FIRED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BiomassHeaterTypeEnum/CHP"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//UTESTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESTypeEnum/HEAT_OPEN"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESTypeEnum/HEAT_CLOSED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESTypeEnum/COLD_OPEN"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESTypeEnum/COLD_CLOSED"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>
     </genClasses>
@@ -1169,6 +1176,7 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//UTESPotential">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//UTESPotential/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//UTESPotential/type"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AbstractInstanceDate"/>
     <genClasses ecoreClass="esdl.ecore#//InstanceDate">
