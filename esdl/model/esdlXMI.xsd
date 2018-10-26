@@ -421,6 +421,8 @@
       <xsd:enumeration value="CUBIC_METRE"/>
       <xsd:enumeration value="LITRE"/>
       <xsd:enumeration value="WATTSECOND"/>
+      <xsd:enumeration value="ARE"/>
+      <xsd:enumeration value="HECTARE"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="TimeUnit">
@@ -451,6 +453,7 @@
       <xsd:enumeration value="WINDOW"/>
       <xsd:enumeration value="ROAD"/>
       <xsd:enumeration value="FIELD"/>
+      <xsd:enumeration value="WATER"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="WindTurbineTypeEnum">
@@ -469,6 +472,51 @@
       <xsd:enumeration value="WAVE_POWER"/>
       <xsd:enumeration value="TIDAL_POWER"/>
       <xsd:enumeration value="OSMOTIC_POWER"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="SolarCollectorTypeEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="ROOFTOP"/>
+      <xsd:enumeration value="BUILDING_INTEGRATED_SC"/>
+      <xsd:enumeration value="ROAD"/>
+      <xsd:enumeration value="FIELD"/>
+      <xsd:enumeration value="WATER"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="HeatRadiationDeviceTypeEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="HT_RADIATOR"/>
+      <xsd:enumeration value="LT_RADIATOR"/>
+      <xsd:enumeration value="FLOOR_HEATING"/>
+      <xsd:enumeration value="WALL_HEATING"/>
+      <xsd:enumeration value="INFRARED_PANEL"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CoolingDeviceType">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="FLOOR_COOLING"/>
+      <xsd:enumeration value="AIR_CONDITIONING"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RoomHeaterTypeEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="GAS_STOVE"/>
+      <xsd:enumeration value="WOOD_STOVE"/>
+      <xsd:enumeration value="ELECTRIC"/>
+      <xsd:enumeration value="INFRARED_PANEL"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BiomassHeaterTypeEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="FULLY_AUTOMATD"/>
+      <xsd:enumeration value="SEMI_AUTOMATED"/>
+      <xsd:enumeration value="PELLET_FIRED"/>
+      <xsd:enumeration value="CHP"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:complexType abstract="true" name="EnergyAsset">
@@ -593,7 +641,7 @@
   <xsd:complexType name="Battery">
     <xsd:complexContent>
       <xsd:extension base="esdl:Storage">
-        <xsd:attribute name="maxChargeDischargeCycli" type="xsd:int"/>
+        <xsd:attribute name="maxChargeDischargeCycles" type="xsd:int"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -930,6 +978,7 @@
     <xsd:complexContent>
       <xsd:extension base="esdl:Consumer">
         <xsd:attribute name="type" type="esdl:HeatDemandTypeEnum"/>
+        <xsd:attribute name="deviceType" type="esdl:HeatRadiationDeviceTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -948,7 +997,7 @@
   <xsd:element name="GasDemand" type="esdl:GasDemand"/>
   <xsd:complexType name="GeothermalPotential">
     <xsd:complexContent>
-      <xsd:extension base="esdl:AreaPotential">
+      <xsd:extension base="esdl:AbstractGTPotential">
         <xsd:attribute name="temperature" type="xsd:int"/>
         <xsd:attribute name="depth" type="xsd:int"/>
         <xsd:attribute name="potential" type="esdl:GeothermalPotentialEnum"/>
@@ -1120,6 +1169,7 @@
   <xsd:complexType name="Instance">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="area" type="esdl:Area"/>
+      <xsd:element name="date" type="esdl:AbstractInstanceDate"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -1129,7 +1179,6 @@
     <xsd:attribute name="description" type="xsd:string"/>
     <xsd:attribute name="detailLevel" type="esdl:AreaScopeEnum"/>
     <xsd:attribute name="aggrType" type="esdl:AggrTypeEnum"/>
-    <xsd:attribute name="date" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="Instance" type="esdl:Instance"/>
   <xsd:complexType abstract="true" name="Service">
@@ -1154,18 +1203,20 @@
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="geometry" type="esdl:Geometry"/>
       <xsd:element name="dataSource" type="esdl:AbstractDataSource"/>
+      <xsd:element name="quantityAndUnit" type="esdl:AbstractQuantityAndUnit"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
     <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
     <xsd:attribute name="id" type="xsd:string"/>
     <xsd:attribute name="name" type="xsd:string"/>
+    <xsd:attribute name="geometryReference" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="Potential" type="esdl:Potential"/>
   <xsd:complexType name="WindPotential">
     <xsd:complexContent>
       <xsd:extension base="esdl:AreaPotential">
-        <xsd:attribute name="windspeed" type="xsd:int"/>
+        <xsd:attribute name="value" type="xsd:double"/>
         <xsd:attribute name="height" type="xsd:int"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -1442,7 +1493,9 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="PercentileDistribution" type="esdl:PercentileDistribution"/>
   <xsd:complexType name="CoolingDemand">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Consumer"/>
+      <xsd:extension base="esdl:Consumer">
+        <xsd:attribute name="deviceType" type="esdl:CoolingDeviceType"/>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="CoolingDemand" type="esdl:CoolingDemand"/>
@@ -1726,7 +1779,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:complexType name="SolarFieldPotential">
     <xsd:complexContent>
       <xsd:extension base="esdl:AreaPotential">
-        <xsd:attribute name="solarIrradiance" type="xsd:double"/>
+        <xsd:attribute name="value" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1803,7 +1856,9 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="EnergyDemand" type="esdl:EnergyDemand"/>
   <xsd:complexType name="SolarCollector">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Producer"/>
+      <xsd:extension base="esdl:Producer">
+        <xsd:attribute name="type" type="esdl:SolarCollectorTypeEnum"/>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="SolarCollector" type="esdl:SolarCollector"/>
@@ -1824,7 +1879,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:complexType name="ResidualHeatSourcePotential">
     <xsd:complexContent>
       <xsd:extension base="esdl:AssetPotential">
-        <xsd:attribute name="power" type="xsd:double"/>
+        <xsd:attribute name="value" type="xsd:double"/>
         <xsd:attribute name="type" type="esdl:ResidualHeatSourceTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -2163,6 +2218,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:complexType abstract="true" name="PotentialsType">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
       <xsd:element name="dataSource" type="esdl:AbstractDataSource"/>
+      <xsd:element name="quantityAndUnit" type="esdl:AbstractQuantityAndUnit"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
@@ -2196,7 +2252,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:complexContent>
       <xsd:extension base="esdl:PotentialsType">
         <xsd:choice maxOccurs="unbounded" minOccurs="0">
-          <xsd:element name="potential" type="esdl:GeothermalPotential"/>
+          <xsd:element name="potential" type="esdl:AbstractGTPotential"/>
         </xsd:choice>
       </xsd:extension>
     </xsd:complexContent>
@@ -2315,4 +2371,94 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="MultiLine" type="esdl:MultiLine"/>
+  <xsd:complexType name="GeothermalEnergyPotential">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractGTPotential">
+        <xsd:attribute name="depth" type="xsd:int"/>
+        <xsd:attribute name="value" type="xsd:double"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="GeothermalEnergyPotential" type="esdl:GeothermalEnergyPotential"/>
+  <xsd:complexType abstract="true" name="AbstractGTPotential">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AreaPotential"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AbstractGTPotential" type="esdl:AbstractGTPotential"/>
+  <xsd:complexType name="UTESPotentials">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="potential" type="esdl:UTESPotential"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="UTESPotentials" type="esdl:UTESPotentials"/>
+  <xsd:complexType name="UTESPotential">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AreaPotential">
+        <xsd:attribute name="value" type="xsd:double"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="UTESPotential" type="esdl:UTESPotential"/>
+  <xsd:complexType abstract="true" name="AbstractInstanceDate">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="AbstractInstanceDate" type="esdl:AbstractInstanceDate"/>
+  <xsd:complexType name="InstanceDate">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractInstanceDate">
+        <xsd:attribute name="date" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="InstanceDate" type="esdl:InstanceDate"/>
+  <xsd:complexType name="InstancePeriod">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractInstanceDate">
+        <xsd:attribute name="fromDate" type="xsd:string"/>
+        <xsd:attribute name="toDate" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="InstancePeriod" type="esdl:InstancePeriod"/>
+  <xsd:complexType name="RoomHeater">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="type" type="esdl:RoomHeaterTypeEnum"/>
+  </xsd:complexType>
+  <xsd:element name="RoomHeater" type="esdl:RoomHeater"/>
+  <xsd:complexType name="BiomassPotentials">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:PotentialsType">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="potential" type="esdl:BiomassPotential"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BiomassPotentials" type="esdl:BiomassPotentials"/>
+  <xsd:complexType name="BiomassPotential">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AreaPotential">
+        <xsd:attribute name="value" type="xsd:double"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BiomassPotential" type="esdl:BiomassPotential"/>
+  <xsd:complexType name="BiomassHeater">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Conversion"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BiomassHeater" type="esdl:BiomassHeater"/>
 </xsd:schema>
