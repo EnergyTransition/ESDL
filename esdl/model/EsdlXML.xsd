@@ -1869,7 +1869,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="GasConversion" type="esdl:GasConversion"/>
   <xsd:complexType abstract="true" name="Parameters">
     <xsd:sequence>
-      <xsd:element maxOccurs="unbounded" minOccurs="0" name="abstractquantityandunit" type="esdl:AbstractQuantityAndUnit"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="parameterUnit" type="esdl:AbstractQuantityAndUnit"/>
     </xsd:sequence>
     <xsd:attribute name="name" type="xsd:string"/>
   </xsd:complexType>

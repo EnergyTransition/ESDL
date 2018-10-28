@@ -2134,7 +2134,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="GasConversion" type="esdl:GasConversion"/>
   <xsd:complexType abstract="true" name="Parameters">
     <xsd:choice maxOccurs="unbounded" minOccurs="0">
-      <xsd:element name="abstractquantityandunit" type="esdl:AbstractQuantityAndUnit"/>
+      <xsd:element name="parameterUnit" type="esdl:AbstractQuantityAndUnit"/>
       <xsd:element ref="xmi:Extension"/>
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>

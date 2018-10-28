@@ -1176,7 +1176,7 @@
     <nested inputs="esdl.ecore#//GasConversion" outputs="EsdlXML.xsd#//GasConversion;XSDElementDeclaration=125"/>
     <nested inputs="esdl.ecore#//Parameters" outputs="EsdlXML.xsd#//Parameters;XSDComplexTypeDefinition=153">
       <nested inputs="esdl.ecore#//Parameters/name" outputs="EsdlXML.xsd#//Parameters;XSDComplexTypeDefinition=153/XSDAttributeUse"/>
-      <nested inputs="esdl.ecore#//Parameters/abstractquantityandunit" outputs="EsdlXML.xsd#//Parameters;XSDComplexTypeDefinition=153/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="esdl.ecore#//Parameters/parameterUnit" outputs="EsdlXML.xsd#//Parameters;XSDComplexTypeDefinition=153/XSDParticle/XSDModelGroup/XSDParticle"/>
     </nested>
     <nested inputs="esdl.ecore#//StringParameter" outputs="EsdlXML.xsd#//StringParameter;XSDComplexTypeDefinition=154">
       <nested inputs="esdl.ecore#//StringParameter/value" outputs="EsdlXML.xsd#//StringParameter;XSDComplexTypeDefinition=154/XSDAttributeUse"/>
