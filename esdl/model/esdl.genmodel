@@ -394,6 +394,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/WATTSECOND"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/ARE"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/HECTARE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/PERCENT"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//TimeUnit">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnit/NONE"/>
@@ -469,15 +470,23 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BiomassHeaterTypeEnum/PELLET_FIRED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BiomassHeaterTypeEnum/CHP"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//UTESPotentialTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESPotentialTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESPotentialTypeEnum/HEAT_OPEN"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESPotentialTypeEnum/HEAT_CLOSED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESPotentialTypeEnum/COLD_OPEN"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESPotentialTypeEnum/COLD_CLOSED"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//UTESTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESTypeEnum/UNDEFINED"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESTypeEnum/HEAT_OPEN"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESTypeEnum/HEAT_CLOSED"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESTypeEnum/COLD_OPEN"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESTypeEnum/COLD_CLOSED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESTypeEnum/AQUIFER_TES"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESTypeEnum/BOREHOLE_TES"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESTypeEnum/CAVERN_TES"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESTypeEnum/OTHER"/>
     </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/controlStrategy"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Producer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Producer/prodType"/>
@@ -487,6 +496,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Consumer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Consumer/consType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Consumer/power"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Storage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Storage/capacity"/>
@@ -503,6 +513,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Conversion/operationalHours"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Conversion/fullLoadHours"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Conversion/power"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Conversion/residualHeatSourcePotential"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Transport">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Transport/capacity"/>
@@ -514,7 +525,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystem/sector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/measures"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/instance"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/potentials"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/energySystemInformation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/parties"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/services"/>
@@ -566,7 +576,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/mobilityProperties"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/buildingDensity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/KPIs"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/potential"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/potential"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Port">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/id"/>
@@ -595,6 +605,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/geometry"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/costInformation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/technicalLifetime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/aggregated"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GenericConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//GenericProducer"/>
@@ -662,6 +673,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalSource/aquiferTemperature"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalSource/flowRate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalSource/pumpPower"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//GeothermalSource/geothermalPotential"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//CoGeneration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CoGeneration/heatEfficiency"/>
@@ -765,10 +777,7 @@
     <genClasses ecoreClass="esdl.ecore#//AggregatorService"/>
     <genClasses ecoreClass="esdl.ecore#//EVChargingStation"/>
     <genClasses image="false" ecoreClass="esdl.ecore#//Potential">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Potential/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Potential/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Potential/geometry"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Potential/dataSource"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Potential/geometryReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Potential/quantityAndUnit"/>
     </genClasses>
@@ -781,9 +790,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AggregatedBuilding/numberOfBuildings"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedBuilding/energyLabelDistribution"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedBuilding/buildingYearDistribution"/>
-    </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//Potentials">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Potentials/potentials"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EnergyCarrier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergyCarrier/energyContent"/>
@@ -992,11 +998,14 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//ResidualHeatSource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ResidualHeatSource/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//ResidualHeatSource/residualHeatSourcePotential"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//FermentationPlant"/>
     <genClasses ecoreClass="esdl.ecore#//ResidualHeatSourcePotential">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ResidualHeatSourcePotential/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ResidualHeatSourcePotential/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//ResidualHeatSourcePotential/associatedConversionAsset"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//ResidualHeatSourcePotential/residualHeatSource"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//SubPolygon">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//SubPolygon/point"/>
@@ -1042,7 +1051,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//ControlStrategy/energyAsset"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//DrivenByDemand">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//DrivenByDemand/outport"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//DrivenByDemand/outPort"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//QuantityAndUnitType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//QuantityAndUnitType/physicalQuantity"/>
@@ -1099,7 +1108,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BooleanParameter/value"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//DrivenBySupply">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//DrivenBySupply/inport"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//DrivenBySupply/inPort"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//DrivenByProfile">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//DrivenByProfile/profile"/>
@@ -1116,34 +1125,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MeasuresCollection/costInformation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MeasuresCollection/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MeasuresCollection/dataSource"/>
-    </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//PotentialsType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PotentialsType/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PotentialsType/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PotentialsType/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//PotentialsType/dataSource"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//PotentialsType/quantityAndUnit"/>
-    </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//SolarFieldPotentials">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//SolarFieldPotentials/potential"/>
-    </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//WindPotentials">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//WindPotentials/potential"/>
-    </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//GeothermalPotentials">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//GeothermalPotentials/potential"/>
-    </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//LegalAreas">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//LegalAreas/legalarea"/>
-    </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//ResidualHeatSourcePotentials">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//ResidualHeatSourcePotentials/potential"/>
-    </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//AreaPotential">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//AreaPotential/area"/>
-    </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//AssetPotential">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//AssetPotential/asset"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WaterToPower">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WaterToPower/type"/>
@@ -1171,13 +1152,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalEnergyPotential/depth"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalEnergyPotential/value"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//AbstractGTPotential"/>
-    <genClasses ecoreClass="esdl.ecore#//UTESPotentials">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//UTESPotentials/potential"/>
+    <genClasses ecoreClass="esdl.ecore#//AbstractGTPotential">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//AbstractGTPotential/geothermalSource"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//UTESPotential">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//UTESPotential/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//UTESPotential/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//UTESPotential/UTES"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AbstractInstanceDate"/>
     <genClasses ecoreClass="esdl.ecore#//InstanceDate">
@@ -1190,12 +1171,14 @@
     <genClasses ecoreClass="esdl.ecore#//RoomHeater">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//RoomHeater/type"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//BiomassPotentials">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//BiomassPotentials/potential"/>
-    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//BiomassPotential">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BiomassPotential/value"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//BiomassHeater"/>
+    <genClasses ecoreClass="esdl.ecore#//UTES">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//UTES/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//UTES/UTESPotential"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//WaterBuffer"/>
   </genPackages>
 </genmodel:GenModel>
