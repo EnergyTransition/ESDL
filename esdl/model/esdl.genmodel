@@ -805,6 +805,7 @@
     <genClasses ecoreClass="esdl.ecore#//Carriers">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Carriers/carrier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Carriers/dataSource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Carriers/id"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//FuelCell"/>
     <genClasses ecoreClass="esdl.ecore#//XToPower"/>
@@ -821,6 +822,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/mobilityFuelInformation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/quantityAndUnits"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/sectors"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystemInformation/id"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Pump"/>
     <genClasses ecoreClass="esdl.ecore#//Valve"/>
@@ -981,6 +983,7 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//DataSources">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//DataSources/dataSource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSources/id"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//DataSource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSource/id"/>
@@ -1023,6 +1026,7 @@
     <genClasses ecoreClass="esdl.ecore#//MobilityFuelInformation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MobilityFuelInformation/vehicleFuelEfficiency"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MobilityFuelInformation/dataSource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MobilityFuelInformation/id"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//VehicleFuelEfficiency">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//VehicleFuelEfficiency/vehicleType"/>
@@ -1078,6 +1082,7 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//QuantityAndUnits">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//QuantityAndUnits/quantityAndUnit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//QuantityAndUnits/id"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AbstractQuantityAndUnit"/>
     <genClasses ecoreClass="esdl.ecore#//QuantityAndUnitReference">
@@ -1132,6 +1137,7 @@
     <genClasses ecoreClass="esdl.ecore#//Sectors">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Sectors/sector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Sectors/dataSource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Sectors/id"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Sector">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Sector/id"/>

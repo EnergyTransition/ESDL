@@ -1214,6 +1214,7 @@
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="carrier" type="esdl:Carrier"/>
       <xsd:element maxOccurs="1" minOccurs="0" name="dataSource" type="esdl:AbstractDataSource"/>
     </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="Carriers" type="esdl:Carriers"/>
   <xsd:complexType name="FuelCell">
@@ -1253,6 +1254,7 @@
       <xsd:element maxOccurs="1" minOccurs="0" name="quantityAndUnits" type="esdl:QuantityAndUnits"/>
       <xsd:element maxOccurs="1" minOccurs="0" name="sectors" type="esdl:Sectors"/>
     </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="EnergySystemInformation" type="esdl:EnergySystemInformation"/>
   <xsd:complexType name="Pump">
@@ -1648,6 +1650,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="dataSource" type="esdl:DataSource"/>
     </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="DataSources" type="esdl:DataSources"/>
   <xsd:complexType name="DataSource">
@@ -1745,6 +1748,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="vehicleFuelEfficiency" type="esdl:VehicleFuelEfficiency"/>
       <xsd:element maxOccurs="1" minOccurs="0" name="dataSource" type="esdl:AbstractDataSource"/>
     </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="MobilityFuelInformation" type="esdl:MobilityFuelInformation"/>
   <xsd:complexType name="VehicleFuelEfficiency">
@@ -1849,6 +1853,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="quantityAndUnit" type="esdl:QuantityAndUnitType"/>
     </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="QuantityAndUnits" type="esdl:QuantityAndUnits"/>
   <xsd:complexType abstract="true" name="AbstractQuantityAndUnit"/>
@@ -1975,6 +1980,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="sector" type="esdl:Sector"/>
       <xsd:element maxOccurs="1" minOccurs="0" name="dataSource" type="esdl:AbstractDataSource"/>
     </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="Sectors" type="esdl:Sectors"/>
   <xsd:complexType name="Sector">

@@ -601,6 +601,8 @@
         eType="#//Carrier" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FuelCell" eSuperTypes="#//CoGeneration"/>
   <eClassifiers xsi:type="ecore:EClass" name="XToPower" eSuperTypes="#//Conversion"/>
@@ -623,6 +625,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sectors" eType="#//Sectors"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pump" eSuperTypes="#//AbstractTransformer"/>
   <eClassifiers xsi:type="ecore:EClass" name="Valve" eSuperTypes="#//AbstractSwitch"/>
@@ -929,6 +933,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="DataSources">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" upperBound="-1"
         eType="#//DataSource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataSource" eSuperTypes="#//AbstractDataSource">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -1020,6 +1026,8 @@
         upperBound="-1" eType="#//VehicleFuelEfficiency" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VehicleFuelEfficiency">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="vehicleType" eType="#//VehicleTypeEnum"/>
@@ -1154,6 +1162,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="QuantityAndUnits">
     <eStructuralFeatures xsi:type="ecore:EReference" name="quantityAndUnit" upperBound="-1"
         eType="#//QuantityAndUnitType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractQuantityAndUnit" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="QuantityAndUnitReference" eSuperTypes="#//AbstractQuantityAndUnit">
@@ -1247,6 +1257,8 @@
         eType="#//Sector" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sector">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

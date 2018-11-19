@@ -833,6 +833,7 @@
     <nested inputs="esdl.ecore#//CCS" outputs="EsdlXML.xsd#//CCS;XSDComplexTypeDefinition=70"/>
     <nested inputs="esdl.ecore#//CCS" outputs="EsdlXML.xsd#//CCS;XSDElementDeclaration=56"/>
     <nested inputs="esdl.ecore#//Carriers" outputs="EsdlXML.xsd#//Carriers;XSDComplexTypeDefinition=71">
+      <nested inputs="esdl.ecore#//Carriers/id" outputs="EsdlXML.xsd#//Carriers;XSDComplexTypeDefinition=71/XSDAttributeUse"/>
       <nested inputs="esdl.ecore#//Carriers/carrier" outputs="EsdlXML.xsd#//Carriers;XSDComplexTypeDefinition=71/XSDParticle/XSDModelGroup/XSDParticle"/>
       <nested inputs="esdl.ecore#//Carriers/dataSource" outputs="EsdlXML.xsd#//Carriers;XSDComplexTypeDefinition=71/XSDParticle/XSDModelGroup/XSDParticle=1"/>
     </nested>
@@ -850,6 +851,7 @@
     </nested>
     <nested inputs="esdl.ecore#//PVParc" outputs="EsdlXML.xsd#//PVParc;XSDElementDeclaration=61"/>
     <nested inputs="esdl.ecore#//EnergySystemInformation" outputs="EsdlXML.xsd#//EnergySystemInformation;XSDComplexTypeDefinition=76">
+      <nested inputs="esdl.ecore#//EnergySystemInformation/id" outputs="EsdlXML.xsd#//EnergySystemInformation;XSDComplexTypeDefinition=76/XSDAttributeUse"/>
       <nested inputs="esdl.ecore#//EnergySystemInformation/carriers" outputs="EsdlXML.xsd#//EnergySystemInformation;XSDComplexTypeDefinition=76/XSDParticle/XSDModelGroup/XSDParticle"/>
       <nested inputs="esdl.ecore#//EnergySystemInformation/profiles" outputs="EsdlXML.xsd#//EnergySystemInformation;XSDComplexTypeDefinition=76/XSDParticle/XSDModelGroup/XSDParticle=1"/>
       <nested inputs="esdl.ecore#//EnergySystemInformation/dataSources" outputs="EsdlXML.xsd#//EnergySystemInformation;XSDComplexTypeDefinition=76/XSDParticle/XSDModelGroup/XSDParticle=2"/>
@@ -1043,6 +1045,7 @@
     </nested>
     <nested inputs="esdl.ecore#//Parties" outputs="EsdlXML.xsd#//Parties;XSDElementDeclaration=96"/>
     <nested inputs="esdl.ecore#//DataSources" outputs="EsdlXML.xsd#//DataSources;XSDComplexTypeDefinition=121">
+      <nested inputs="esdl.ecore#//DataSources/id" outputs="EsdlXML.xsd#//DataSources;XSDComplexTypeDefinition=121/XSDAttributeUse"/>
       <nested inputs="esdl.ecore#//DataSources/dataSource" outputs="EsdlXML.xsd#//DataSources;XSDComplexTypeDefinition=121/XSDParticle/XSDModelGroup/XSDParticle"/>
     </nested>
     <nested inputs="esdl.ecore#//DataSources" outputs="EsdlXML.xsd#//DataSources;XSDElementDeclaration=97"/>
@@ -1098,6 +1101,7 @@
     </nested>
     <nested inputs="esdl.ecore#//MobilityDemand" outputs="EsdlXML.xsd#//MobilityDemand;XSDElementDeclaration=107"/>
     <nested inputs="esdl.ecore#//MobilityFuelInformation" outputs="EsdlXML.xsd#//MobilityFuelInformation;XSDComplexTypeDefinition=132">
+      <nested inputs="esdl.ecore#//MobilityFuelInformation/id" outputs="EsdlXML.xsd#//MobilityFuelInformation;XSDComplexTypeDefinition=132/XSDAttributeUse"/>
       <nested inputs="esdl.ecore#//MobilityFuelInformation/vehicleFuelEfficiency"
           outputs="EsdlXML.xsd#//MobilityFuelInformation;XSDComplexTypeDefinition=132/XSDParticle/XSDModelGroup/XSDParticle"/>
       <nested inputs="esdl.ecore#//MobilityFuelInformation/dataSource" outputs="EsdlXML.xsd#//MobilityFuelInformation;XSDComplexTypeDefinition=132/XSDParticle/XSDModelGroup/XSDParticle=1"/>
@@ -1168,6 +1172,7 @@
     </nested>
     <nested inputs="esdl.ecore#//KPI" outputs="EsdlXML.xsd#//KPI;XSDElementDeclaration=120"/>
     <nested inputs="esdl.ecore#//QuantityAndUnits" outputs="EsdlXML.xsd#//QuantityAndUnits;XSDComplexTypeDefinition=147">
+      <nested inputs="esdl.ecore#//QuantityAndUnits/id" outputs="EsdlXML.xsd#//QuantityAndUnits;XSDComplexTypeDefinition=147/XSDAttributeUse"/>
       <nested inputs="esdl.ecore#//QuantityAndUnits/quantityAndUnit" outputs="EsdlXML.xsd#//QuantityAndUnits;XSDComplexTypeDefinition=147/XSDParticle/XSDModelGroup/XSDParticle"/>
     </nested>
     <nested inputs="esdl.ecore#//QuantityAndUnits" outputs="EsdlXML.xsd#//QuantityAndUnits;XSDElementDeclaration=121"/>
@@ -1235,6 +1240,7 @@
     </nested>
     <nested inputs="esdl.ecore#//WaterToPower" outputs="EsdlXML.xsd#//WaterToPower;XSDElementDeclaration=134"/>
     <nested inputs="esdl.ecore#//Sectors" outputs="EsdlXML.xsd#//Sectors;XSDComplexTypeDefinition=163">
+      <nested inputs="esdl.ecore#//Sectors/id" outputs="EsdlXML.xsd#//Sectors;XSDComplexTypeDefinition=163/XSDAttributeUse"/>
       <nested inputs="esdl.ecore#//Sectors/sector" outputs="EsdlXML.xsd#//Sectors;XSDComplexTypeDefinition=163/XSDParticle/XSDModelGroup/XSDParticle"/>
       <nested inputs="esdl.ecore#//Sectors/dataSource" outputs="EsdlXML.xsd#//Sectors;XSDComplexTypeDefinition=163/XSDParticle/XSDModelGroup/XSDParticle=1"/>
     </nested>

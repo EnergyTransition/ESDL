@@ -1305,6 +1305,7 @@
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
     <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="Carriers" type="esdl:Carriers"/>
   <xsd:complexType name="FuelCell">
@@ -1347,6 +1348,7 @@
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
     <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="EnergySystemInformation" type="esdl:EnergySystemInformation"/>
   <xsd:complexType name="Pump">
@@ -1850,6 +1852,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
     <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="DataSources" type="esdl:DataSources"/>
   <xsd:complexType name="DataSource">
@@ -1960,6 +1963,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
     <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="MobilityFuelInformation" type="esdl:MobilityFuelInformation"/>
   <xsd:complexType name="VehicleFuelEfficiency">
@@ -2109,6 +2113,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
     <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="QuantityAndUnits" type="esdl:QuantityAndUnits"/>
   <xsd:complexType abstract="true" name="AbstractQuantityAndUnit">
@@ -2260,6 +2265,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:choice>
     <xsd:attribute ref="xmi:id"/>
     <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="Sectors" type="esdl:Sectors"/>
   <xsd:complexType name="Sector">
