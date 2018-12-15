@@ -393,6 +393,8 @@
       <xsd:enumeration value="IRRADIANCE"/>
       <xsd:enumeration value="SPEED"/>
       <xsd:enumeration value="STATE_OF_CHARGE"/>
+      <xsd:enumeration value="VOLUME"/>
+      <xsd:enumeration value="AREA"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="UnitEnum">
@@ -801,6 +803,7 @@
         <xsd:attribute name="owner" type="xsd:string"/>
         <xsd:attribute name="technicalLifetime" type="xsd:double"/>
         <xsd:attribute name="aggregated" type="xsd:boolean"/>
+        <xsd:attribute name="aggregationCount" type="xsd:int"/>
         <xsd:attribute name="area" type="xsd:string"/>
         <xsd:attribute name="containingBuilding" type="xsd:string"/>
       </xsd:extension>
@@ -1111,7 +1114,9 @@
   <xsd:element name="Transformer" type="esdl:Transformer"/>
   <xsd:complexType name="HeatExchange">
     <xsd:complexContent>
-      <xsd:extension base="esdl:AbstractTransformer"/>
+      <xsd:extension base="esdl:AbstractTransformer">
+        <xsd:attribute name="LossDeltaT" type="xsd:double"/>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="HeatExchange" type="esdl:HeatExchange"/>
@@ -1237,6 +1242,8 @@
           <xsd:element name="quantityAndUnit" type="esdl:AbstractQuantityAndUnit"/>
         </xsd:choice>
         <xsd:attribute name="geometryReference" type="xsd:string"/>
+        <xsd:attribute name="aggregated" type="xsd:boolean"/>
+        <xsd:attribute name="aggregationCount" type="xsd:int"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -2419,4 +2426,13 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="WaterBuffer" type="esdl:WaterBuffer"/>
+  <xsd:complexType name="Glass">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Asset">
+        <xsd:attribute name="uWindow" type="xsd:double"/>
+        <xsd:attribute name="glasType" type="esdl:GlasTypeEnum"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Glass" type="esdl:Glass"/>
 </xsd:schema>

@@ -365,6 +365,8 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/IRRADIANCE"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/SPEED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/STATE_OF_CHARGE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/VOLUME"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/AREA"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//UnitEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/NONE"/>
@@ -606,6 +608,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/costInformation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/technicalLifetime"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/aggregated"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/aggregationCount"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GenericConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//GenericProducer"/>
@@ -730,7 +733,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Transformer/voltagePrimary"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Transformer/voltageSecundary"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//HeatExchange"/>
+    <genClasses ecoreClass="esdl.ecore#//HeatExchange">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatExchange/LossDeltaT"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Item">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Item/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Item/name"/>
@@ -780,6 +785,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Potential/geometry"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Potential/geometryReference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Potential/quantityAndUnit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Potential/aggregated"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Potential/aggregationCount"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WindPotential">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindPotential/value"/>
@@ -1186,5 +1193,9 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//UTES/UTESPotential"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WaterBuffer"/>
+    <genClasses ecoreClass="esdl.ecore#//Glass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Glass/uWindow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Glass/glasType"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
