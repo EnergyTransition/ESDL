@@ -486,6 +486,16 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESTypeEnum/CAVERN_TES"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESTypeEnum/OTHER"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//InterpolationMethodEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//InterpolationMethodEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//InterpolationMethodEnum/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//InterpolationMethodEnum/LINEAR"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//InterpolationMethodEnum/CUBIC"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//InterpolationMethodEnum/NEAREST"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//InterpolationMethodEnum/PREVIOUS"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//InterpolationMethodEnum/NEXT"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//InterpolationMethodEnum/OTHER"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/controlStrategy"/>
@@ -519,6 +529,7 @@
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Transport">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Transport/capacity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Transport/efficiency"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EnergySystem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystem/name"/>
@@ -587,6 +598,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/profile"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/carrier"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/simultaneousPower"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/name"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AggregatedProducer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedProducer/aggregationOf"/>
@@ -839,6 +851,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericProfile/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//GenericProfile/dataSource"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//GenericProfile/profileQuantityAndUnit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericProfile/interpolationMethod"/>
       <genOperations ecoreOperation="esdl.ecore#//GenericProfile/getProfile">
         <genParameters ecoreParameter="esdl.ecore#//GenericProfile/getProfile/from"/>
         <genParameters ecoreParameter="esdl.ecore#//GenericProfile/getProfile/to"/>
@@ -1197,5 +1210,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Glass/uWindow"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Glass/glasType"/>
     </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//WKT">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WKT/value"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//WKB">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WKB/value"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//SearchAreaWind"/>
+    <genClasses ecoreClass="esdl.ecore#//SearchAreaSolar"/>
+    <genClasses ecoreClass="esdl.ecore#//Joint"/>
   </genPackages>
 </genmodel:GenModel>

@@ -540,6 +540,21 @@
       <xsd:enumeration value="OTHER"/>
     </xsd:restriction>
   </xsd:simpleType>
+  <xsd:simpleType name="InterpolationMethodEnum">
+    <xsd:annotation>
+      <xsd:documentation>Type of interpolation between elements in the profile. See https://docs.scipy.org/doc/scipy/reference/tutorial/interpolate.html for additional documentation and figures</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="NONE"/>
+      <xsd:enumeration value="LINEAR"/>
+      <xsd:enumeration value="CUBIC"/>
+      <xsd:enumeration value="NEAREST"/>
+      <xsd:enumeration value="PREVIOUS"/>
+      <xsd:enumeration value="NEXT"/>
+      <xsd:enumeration value="OTHER"/>
+    </xsd:restriction>
+  </xsd:simpleType>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:complexContent>
       <xsd:extension base="esdl:Asset">
@@ -602,6 +617,11 @@
     <xsd:complexContent>
       <xsd:extension base="esdl:EnergyAsset">
         <xsd:attribute name="capacity" type="xsd:double"/>
+        <xsd:attribute name="efficiency" type="xsd:double">
+          <xsd:annotation>
+            <xsd:documentation>Allows to specify transmission losses as a percentage</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -720,6 +740,7 @@
     <xsd:attribute name="id" type="xsd:string"/>
     <xsd:attribute name="maxPower" type="xsd:double"/>
     <xsd:attribute name="simultaneousPower" type="xsd:double"/>
+    <xsd:attribute name="name" type="xsd:string"/>
     <xsd:attribute name="energyasset" type="xsd:string"/>
     <xsd:attribute name="carrier" type="xsd:string"/>
   </xsd:complexType>
@@ -1287,6 +1308,7 @@
     <xsd:attribute name="name" type="xsd:string"/>
     <xsd:attribute default="UNDEFINED" name="profileType" type="esdl:ProfileTypeEnum"/>
     <xsd:attribute name="id" type="xsd:string"/>
+    <xsd:attribute default="UNDEFINED" name="interpolationMethod" type="esdl:InterpolationMethodEnum"/>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="StaticProfile">
     <xsd:annotation>
@@ -2126,4 +2148,63 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="Glass" type="esdl:Glass"/>
+  <xsd:complexType name="WKT">
+    <xsd:annotation>
+      <xsd:documentation>Well-Known Text (see https://en.wikipedia.org/wiki/Well-known_text)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Geometry">
+        <xsd:attribute name="value" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="WKT" type="esdl:WKT">
+    <xsd:annotation>
+      <xsd:documentation>Well-Known Text (see https://en.wikipedia.org/wiki/Well-known_text)</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="WKB">
+    <xsd:annotation>
+      <xsd:documentation>Well-Known Binary (See https://en.wikipedia.org/wiki/Well-known_text#Well-known_binary)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Geometry">
+        <xsd:attribute name="value" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Base64 encoded WKB value</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="WKB" type="esdl:WKB">
+    <xsd:annotation>
+      <xsd:documentation>Well-Known Binary (See https://en.wikipedia.org/wiki/Well-known_text#Well-known_binary)</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="SearchAreaWind">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Potential"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SearchAreaWind" type="esdl:SearchAreaWind"/>
+  <xsd:complexType name="SearchAreaSolar">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Potential"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SearchAreaSolar" type="esdl:SearchAreaSolar"/>
+  <xsd:complexType name="Joint">
+    <xsd:annotation>
+      <xsd:documentation>A Joint is a means to connect AbstractConductors. This helps when these conductors have opposite Ports.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractConductor"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Joint" type="esdl:Joint">
+    <xsd:annotation>
+      <xsd:documentation>A Joint is a means to connect AbstractConductors. This helps when these conductors have opposite Ports.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
 </xsd:schema>

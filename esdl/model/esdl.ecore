@@ -48,6 +48,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transport" abstract="true" eSuperTypes="#//EnergyAsset">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="efficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Allows to specify transmission losses as a percentage"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CommodityEnum">
     <eLiterals name="UNDEFINED"/>
@@ -153,6 +158,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="carrier" eType="#//Carrier"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="simultaneousPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatedProducer" eSuperTypes="#//Producer">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"
@@ -659,6 +665,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="profileQuantityAndUnit"
         eType="#//AbstractQuantityAndUnit" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interpolationMethod" eType="#//InterpolationMethodEnum"
+        defaultValueLiteral="UNDEFINED"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StaticProfile" abstract="true" eSuperTypes="#//GenericProfile">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1381,5 +1389,41 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uWindow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="glasType" eType="#//GlasTypeEnum"
         defaultValueLiteral="UNDEFINED"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="InterpolationMethodEnum">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Type of interpolation between elements in the profile. See https://docs.scipy.org/doc/scipy/reference/tutorial/interpolate.html for additional documentation and figures"/>
+    </eAnnotations>
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="NONE" value="1"/>
+    <eLiterals name="LINEAR" value="2"/>
+    <eLiterals name="CUBIC" value="3"/>
+    <eLiterals name="NEAREST" value="4"/>
+    <eLiterals name="PREVIOUS" value="5"/>
+    <eLiterals name="NEXT" value="6"/>
+    <eLiterals name="OTHER" value="7"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WKT" eSuperTypes="#//Geometry">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Well-Known Text (see https://en.wikipedia.org/wiki/Well-known_text)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WKB" eSuperTypes="#//Geometry">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Well-Known Binary (See https://en.wikipedia.org/wiki/Well-known_text#Well-known_binary)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Base64 encoded WKB value"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SearchAreaWind" eSuperTypes="#//Potential"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SearchAreaSolar" eSuperTypes="#//Potential"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Joint" eSuperTypes="#//AbstractConductor">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A Joint is a means to connect AbstractConductors. This helps when these conductors have opposite Ports."/>
+    </eAnnotations>
   </eClassifiers>
 </ecore:EPackage>
