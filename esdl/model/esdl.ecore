@@ -576,6 +576,8 @@
         eType="#//EnergyLabelDistribution" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="buildingYearDistribution"
         eType="#//FromToDistribution" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="residentialBuildingType"
+        eType="#//ResidentialBuildingTypeEnum" defaultValueLiteral="UNDEFINED"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SectorEnum">
     <eLiterals name="UNDEFINED"/>
@@ -745,8 +747,12 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="installationCosts" eType="#//GenericProfile"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="O_and_MCosts" eType="#//GenericProfile"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fixedOperationalAndMaintenanceCosts"
+        eType="#//GenericProfile" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="marginalCosts" eType="#//GenericProfile"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variableOperationalAndMaintenanceCosts"
+        eType="#//GenericProfile" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LabelDistribution" abstract="true" eSuperTypes="#//GenericDistribution"/>
   <eClassifiers xsi:type="ecore:EClass" name="StringLabelDistribution" eSuperTypes="#//LabelDistribution">
@@ -905,7 +911,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pressure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HeatCommodity" eSuperTypes="#//Commodity">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="supplyTemperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnTemperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElectricityCommodity" eSuperTypes="#//Commodity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="voltage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -923,9 +931,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SolarFieldPotential" eSuperTypes="#//Potential">
+  <eClassifiers xsi:type="ecore:EClass" name="SolarPotential" eSuperTypes="#//Potential">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolarPotentialType" eType="#//PVInstallationTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullLoadHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="area" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Duration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
@@ -1419,11 +1430,23 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SearchAreaWind" eSuperTypes="#//Potential"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SearchAreaSolar" eSuperTypes="#//Potential"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SearchAreaWind" eSuperTypes="#//Potential">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullLoadHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="area" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SearchAreaSolar" eSuperTypes="#//Potential">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullLoadHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="area" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Joint" eSuperTypes="#//AbstractConductor">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A Joint is a means to connect AbstractConductors. This helps when these conductors have opposite Ports."/>
     </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StorageStrategy" eSuperTypes="#//ControlStrategy">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="marginalChargeCosts" eType="#//GenericProfile"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="marginalDischargeCosts"
+        eType="#//GenericProfile" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

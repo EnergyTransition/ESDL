@@ -809,6 +809,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AggregatedBuilding/numberOfBuildings"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedBuilding/energyLabelDistribution"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedBuilding/buildingYearDistribution"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AggregatedBuilding/residentialBuildingType"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EnergyCarrier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergyCarrier/energyContent"/>
@@ -893,7 +894,9 @@
     <genClasses ecoreClass="esdl.ecore#//CostInformation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/investmentCosts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/installationCosts"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/O_and_MCosts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/fixedOperationalAndMaintenanceCosts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/marginalCosts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/variableOperationalAndMaintenanceCosts"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//LabelDistribution"/>
     <genClasses ecoreClass="esdl.ecore#//StringLabelDistribution">
@@ -969,7 +972,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasCommodity/pressure"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HeatCommodity">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatCommodity/temperature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatCommodity/supplyTemperature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatCommodity/returnTemperature"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//ElectricityCommodity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ElectricityCommodity/voltage"/>
@@ -984,8 +988,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Range/minValue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Range/maxValue"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//SolarFieldPotential">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SolarFieldPotential/value"/>
+    <genClasses ecoreClass="esdl.ecore#//SolarPotential">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SolarPotential/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SolarPotential/SolarPotentialType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SolarPotential/fullLoadHours"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SolarPotential/area"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Duration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Duration/value"/>
@@ -1216,8 +1223,18 @@
     <genClasses ecoreClass="esdl.ecore#//WKB">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WKB/value"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//SearchAreaWind"/>
-    <genClasses ecoreClass="esdl.ecore#//SearchAreaSolar"/>
+    <genClasses ecoreClass="esdl.ecore#//SearchAreaWind">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SearchAreaWind/fullLoadHours"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SearchAreaWind/area"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//SearchAreaSolar">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SearchAreaSolar/fullLoadHours"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SearchAreaSolar/area"/>
+    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Joint"/>
+    <genClasses ecoreClass="esdl.ecore#//StorageStrategy">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//StorageStrategy/marginalChargeCosts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//StorageStrategy/marginalDischargeCosts"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

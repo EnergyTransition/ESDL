@@ -1199,6 +1199,7 @@
           <xsd:element maxOccurs="1" minOccurs="0" name="buildingYearDistribution" type="esdl:FromToDistribution"/>
         </xsd:sequence>
         <xsd:attribute name="numberOfBuildings" type="xsd:int"/>
+        <xsd:attribute default="UNDEFINED" name="residentialBuildingType" type="esdl:ResidentialBuildingTypeEnum"/>
         <xsd:attribute name="aggregationOf" type="xsd:string"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -1430,7 +1431,9 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:sequence>
       <xsd:element maxOccurs="1" minOccurs="0" name="investmentCosts" type="esdl:GenericProfile"/>
       <xsd:element maxOccurs="1" minOccurs="0" name="installationCosts" type="esdl:GenericProfile"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="O_and_MCosts" type="esdl:GenericProfile"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="fixedOperationalAndMaintenanceCosts" type="esdl:GenericProfile"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="marginalCosts" type="esdl:GenericProfile"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="variableOperationalAndMaintenanceCosts" type="esdl:GenericProfile"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:element name="CostInformation" type="esdl:CostInformation"/>
@@ -1611,7 +1614,8 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:complexType name="HeatCommodity">
     <xsd:complexContent>
       <xsd:extension base="esdl:Commodity">
-        <xsd:attribute name="temperature" type="xsd:double"/>
+        <xsd:attribute default="0.0" name="supplyTemperature" type="xsd:double"/>
+        <xsd:attribute name="returnTemperature" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1641,14 +1645,17 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="Range" type="esdl:Range"/>
-  <xsd:complexType name="SolarFieldPotential">
+  <xsd:complexType name="SolarPotential">
     <xsd:complexContent>
       <xsd:extension base="esdl:Potential">
         <xsd:attribute default="0.0" name="value" type="xsd:double"/>
+        <xsd:attribute name="SolarPotentialType" type="esdl:PVInstallationTypeEnum"/>
+        <xsd:attribute name="fullLoadHours" type="xsd:int"/>
+        <xsd:attribute name="area" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="SolarFieldPotential" type="esdl:SolarFieldPotential"/>
+  <xsd:element name="SolarPotential" type="esdl:SolarPotential"/>
   <xsd:complexType name="Duration">
     <xsd:attribute name="value" type="xsd:long"/>
     <xsd:attribute default="SECOND" name="durationUnit" type="esdl:DurationUnitEnum"/>
@@ -2184,13 +2191,19 @@ When a model queries for a value from a certain date (and to a certain date), th
   </xsd:element>
   <xsd:complexType name="SearchAreaWind">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Potential"/>
+      <xsd:extension base="esdl:Potential">
+        <xsd:attribute name="fullLoadHours" type="xsd:int"/>
+        <xsd:attribute name="area" type="xsd:double"/>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="SearchAreaWind" type="esdl:SearchAreaWind"/>
   <xsd:complexType name="SearchAreaSolar">
     <xsd:complexContent>
-      <xsd:extension base="esdl:Potential"/>
+      <xsd:extension base="esdl:Potential">
+        <xsd:attribute name="fullLoadHours" type="xsd:int"/>
+        <xsd:attribute name="area" type="xsd:double"/>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="SearchAreaSolar" type="esdl:SearchAreaSolar"/>
@@ -2207,4 +2220,15 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>A Joint is a means to connect AbstractConductors. This helps when these conductors have opposite Ports.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
+  <xsd:complexType name="StorageStrategy">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:ControlStrategy">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="marginalChargeCosts" type="esdl:GenericProfile"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="marginalDischargeCosts" type="esdl:GenericProfile"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="StorageStrategy" type="esdl:StorageStrategy"/>
 </xsd:schema>

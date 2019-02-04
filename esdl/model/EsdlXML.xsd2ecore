@@ -831,7 +831,8 @@
     <nested inputs="esdl.ecore#//WindPotential" outputs="EsdlXML.xsd#//WindPotential;XSDElementDeclaration=51"/>
     <nested inputs="esdl.ecore#//AggregatedBuilding" outputs="EsdlXML.xsd#//AggregatedBuilding;XSDComplexTypeDefinition=66">
       <nested inputs="esdl.ecore#//AggregatedBuilding/numberOfBuildings" outputs="EsdlXML.xsd#//AggregatedBuilding;XSDComplexTypeDefinition=66/XSDAttributeUse"/>
-      <nested inputs="esdl.ecore#//AggregatedBuilding/aggregationOf" outputs="EsdlXML.xsd#//AggregatedBuilding;XSDComplexTypeDefinition=66/XSDAttributeUse=1"/>
+      <nested inputs="esdl.ecore#//AggregatedBuilding/residentialBuildingType" outputs="EsdlXML.xsd#//AggregatedBuilding;XSDComplexTypeDefinition=66/XSDAttributeUse=1"/>
+      <nested inputs="esdl.ecore#//AggregatedBuilding/aggregationOf" outputs="EsdlXML.xsd#//AggregatedBuilding;XSDComplexTypeDefinition=66/XSDAttributeUse=2"/>
       <nested inputs="esdl.ecore#//AggregatedBuilding/energyLabelDistribution" outputs="EsdlXML.xsd#//AggregatedBuilding;XSDComplexTypeDefinition=66/XSDParticle/XSDModelGroup/XSDParticle"/>
       <nested inputs="esdl.ecore#//AggregatedBuilding/buildingYearDistribution" outputs="EsdlXML.xsd#//AggregatedBuilding;XSDComplexTypeDefinition=66/XSDParticle/XSDModelGroup/XSDParticle=1"/>
     </nested>
@@ -931,7 +932,11 @@
     <nested inputs="esdl.ecore#//CostInformation" outputs="EsdlXML.xsd#//CostInformation;XSDComplexTypeDefinition=90">
       <nested inputs="esdl.ecore#//CostInformation/investmentCosts" outputs="EsdlXML.xsd#//CostInformation;XSDComplexTypeDefinition=90/XSDParticle/XSDModelGroup/XSDParticle"/>
       <nested inputs="esdl.ecore#//CostInformation/installationCosts" outputs="EsdlXML.xsd#//CostInformation;XSDComplexTypeDefinition=90/XSDParticle/XSDModelGroup/XSDParticle=1"/>
-      <nested inputs="esdl.ecore#//CostInformation/O_and_MCosts" outputs="EsdlXML.xsd#//CostInformation;XSDComplexTypeDefinition=90/XSDParticle/XSDModelGroup/XSDParticle=2"/>
+      <nested inputs="esdl.ecore#//CostInformation/fixedOperationalAndMaintenanceCosts"
+          outputs="EsdlXML.xsd#//CostInformation;XSDComplexTypeDefinition=90/XSDParticle/XSDModelGroup/XSDParticle=2"/>
+      <nested inputs="esdl.ecore#//CostInformation/marginalCosts" outputs="EsdlXML.xsd#//CostInformation;XSDComplexTypeDefinition=90/XSDParticle/XSDModelGroup/XSDParticle=3"/>
+      <nested inputs="esdl.ecore#//CostInformation/variableOperationalAndMaintenanceCosts"
+          outputs="EsdlXML.xsd#//CostInformation;XSDComplexTypeDefinition=90/XSDParticle/XSDModelGroup/XSDParticle=4"/>
     </nested>
     <nested inputs="esdl.ecore#//CostInformation" outputs="EsdlXML.xsd#//CostInformation;XSDElementDeclaration=72"/>
     <nested inputs="esdl.ecore#//LabelDistribution" outputs="EsdlXML.xsd#//LabelDistribution;XSDComplexTypeDefinition=91"/>
@@ -1024,7 +1029,8 @@
     </nested>
     <nested inputs="esdl.ecore#//GasCommodity" outputs="EsdlXML.xsd#//GasCommodity;XSDElementDeclaration=88"/>
     <nested inputs="esdl.ecore#//HeatCommodity" outputs="EsdlXML.xsd#//HeatCommodity;XSDComplexTypeDefinition=112">
-      <nested inputs="esdl.ecore#//HeatCommodity/temperature" outputs="EsdlXML.xsd#//HeatCommodity;XSDComplexTypeDefinition=112/XSDAttributeUse"/>
+      <nested inputs="esdl.ecore#//HeatCommodity/supplyTemperature" outputs="EsdlXML.xsd#//HeatCommodity;XSDComplexTypeDefinition=112/XSDAttributeUse"/>
+      <nested inputs="esdl.ecore#//HeatCommodity/returnTemperature" outputs="EsdlXML.xsd#//HeatCommodity;XSDComplexTypeDefinition=112/XSDAttributeUse=1"/>
     </nested>
     <nested inputs="esdl.ecore#//HeatCommodity" outputs="EsdlXML.xsd#//HeatCommodity;XSDElementDeclaration=89"/>
     <nested inputs="esdl.ecore#//ElectricityCommodity" outputs="EsdlXML.xsd#//ElectricityCommodity;XSDComplexTypeDefinition=113">
@@ -1042,10 +1048,13 @@
       <nested inputs="esdl.ecore#//Range/maxValue" outputs="EsdlXML.xsd#//Range;XSDComplexTypeDefinition=115/XSDAttributeUse=1"/>
     </nested>
     <nested inputs="esdl.ecore#//Range" outputs="EsdlXML.xsd#//Range;XSDElementDeclaration=91"/>
-    <nested inputs="esdl.ecore#//SolarFieldPotential" outputs="EsdlXML.xsd#//SolarFieldPotential;XSDComplexTypeDefinition=116">
-      <nested inputs="esdl.ecore#//SolarFieldPotential/value" outputs="EsdlXML.xsd#//SolarFieldPotential;XSDComplexTypeDefinition=116/XSDAttributeUse"/>
+    <nested inputs="esdl.ecore#//SolarPotential" outputs="EsdlXML.xsd#//SolarPotential;XSDComplexTypeDefinition=116">
+      <nested inputs="esdl.ecore#//SolarPotential/value" outputs="EsdlXML.xsd#//SolarPotential;XSDComplexTypeDefinition=116/XSDAttributeUse"/>
+      <nested inputs="esdl.ecore#//SolarPotential/SolarPotentialType" outputs="EsdlXML.xsd#//SolarPotential;XSDComplexTypeDefinition=116/XSDAttributeUse=1"/>
+      <nested inputs="esdl.ecore#//SolarPotential/fullLoadHours" outputs="EsdlXML.xsd#//SolarPotential;XSDComplexTypeDefinition=116/XSDAttributeUse=2"/>
+      <nested inputs="esdl.ecore#//SolarPotential/area" outputs="EsdlXML.xsd#//SolarPotential;XSDComplexTypeDefinition=116/XSDAttributeUse=3"/>
     </nested>
-    <nested inputs="esdl.ecore#//SolarFieldPotential" outputs="EsdlXML.xsd#//SolarFieldPotential;XSDElementDeclaration=92"/>
+    <nested inputs="esdl.ecore#//SolarPotential" outputs="EsdlXML.xsd#//SolarPotential;XSDElementDeclaration=92"/>
     <nested inputs="esdl.ecore#//Duration" outputs="EsdlXML.xsd#//Duration;XSDComplexTypeDefinition=117">
       <nested inputs="esdl.ecore#//Duration/value" outputs="EsdlXML.xsd#//Duration;XSDComplexTypeDefinition=117/XSDAttributeUse"/>
       <nested inputs="esdl.ecore#//Duration/durationUnit" outputs="EsdlXML.xsd#//Duration;XSDComplexTypeDefinition=117/XSDAttributeUse=1"/>
@@ -1337,11 +1346,22 @@
       <nested inputs="esdl.ecore#//WKB/value" outputs="EsdlXML.xsd#//WKB;XSDComplexTypeDefinition=184/XSDAttributeUse"/>
     </nested>
     <nested inputs="esdl.ecore#//WKB" outputs="EsdlXML.xsd#//WKB;XSDElementDeclaration=150"/>
-    <nested inputs="esdl.ecore#//SearchAreaWind" outputs="EsdlXML.xsd#//SearchAreaWind;XSDComplexTypeDefinition=185"/>
+    <nested inputs="esdl.ecore#//SearchAreaWind" outputs="EsdlXML.xsd#//SearchAreaWind;XSDComplexTypeDefinition=185">
+      <nested inputs="esdl.ecore#//SearchAreaWind/fullLoadHours" outputs="EsdlXML.xsd#//SearchAreaWind;XSDComplexTypeDefinition=185/XSDAttributeUse"/>
+      <nested inputs="esdl.ecore#//SearchAreaWind/area" outputs="EsdlXML.xsd#//SearchAreaWind;XSDComplexTypeDefinition=185/XSDAttributeUse=1"/>
+    </nested>
     <nested inputs="esdl.ecore#//SearchAreaWind" outputs="EsdlXML.xsd#//SearchAreaWind;XSDElementDeclaration=151"/>
-    <nested inputs="esdl.ecore#//SearchAreaSolar" outputs="EsdlXML.xsd#//SearchAreaSolar;XSDComplexTypeDefinition=186"/>
+    <nested inputs="esdl.ecore#//SearchAreaSolar" outputs="EsdlXML.xsd#//SearchAreaSolar;XSDComplexTypeDefinition=186">
+      <nested inputs="esdl.ecore#//SearchAreaSolar/fullLoadHours" outputs="EsdlXML.xsd#//SearchAreaSolar;XSDComplexTypeDefinition=186/XSDAttributeUse"/>
+      <nested inputs="esdl.ecore#//SearchAreaSolar/area" outputs="EsdlXML.xsd#//SearchAreaSolar;XSDComplexTypeDefinition=186/XSDAttributeUse=1"/>
+    </nested>
     <nested inputs="esdl.ecore#//SearchAreaSolar" outputs="EsdlXML.xsd#//SearchAreaSolar;XSDElementDeclaration=152"/>
     <nested inputs="esdl.ecore#//Joint" outputs="EsdlXML.xsd#//Joint;XSDComplexTypeDefinition=187"/>
     <nested inputs="esdl.ecore#//Joint" outputs="EsdlXML.xsd#//Joint;XSDElementDeclaration=153"/>
+    <nested inputs="esdl.ecore#//StorageStrategy" outputs="EsdlXML.xsd#//StorageStrategy;XSDComplexTypeDefinition=188">
+      <nested inputs="esdl.ecore#//StorageStrategy/marginalChargeCosts" outputs="EsdlXML.xsd#//StorageStrategy;XSDComplexTypeDefinition=188/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="esdl.ecore#//StorageStrategy/marginalDischargeCosts" outputs="EsdlXML.xsd#//StorageStrategy;XSDComplexTypeDefinition=188/XSDParticle/XSDModelGroup/XSDParticle=1"/>
+    </nested>
+    <nested inputs="esdl.ecore#//StorageStrategy" outputs="EsdlXML.xsd#//StorageStrategy;XSDElementDeclaration=154"/>
   </nested>
 </xsd2ecore:XSD2EcoreMappingRoot>
