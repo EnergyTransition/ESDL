@@ -115,9 +115,10 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BuildingTypeEnum/EDUCATION"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BuildingTypeEnum/SPORTS"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BuildingTypeEnum/SHOPPING"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BuildingTypeEnum/HOTEL"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BuildingTypeEnum/GREENHOUSE"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BuildingTypeEnum/OTHER"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BuildingTypeEnum/UTILITY"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BuildingTypeEnum/OTHER"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//ConsTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ConsTypeEnum/PRIMARY"/>
@@ -571,6 +572,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUnit/housingType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUnit/numberOfInhabitants"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUnit/inhabitantsType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUnit/floorArea"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Area">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/id"/>
@@ -621,6 +623,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/technicalLifetime"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/aggregated"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/aggregationCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/installationDuration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/KPIs"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GenericConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//GenericProducer"/>
@@ -1070,7 +1074,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//VehicleCount/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//VehicleCount/count"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//Electrolyzer"/>
+    <genClasses ecoreClass="esdl.ecore#//Electrolyzer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Electrolyzer/outputPressure"/>
+    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GasStorage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasStorage/minStoragePressure"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasStorage/maxStoragePressure"/>
@@ -1122,6 +1128,7 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GasConversion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasConversion/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasConversion/outputPressure"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Parameters">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Parameters/name"/>
@@ -1235,6 +1242,9 @@
     <genClasses ecoreClass="esdl.ecore#//StorageStrategy">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//StorageStrategy/marginalChargeCosts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//StorageStrategy/marginalDischargeCosts"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//CurtailmentStrategy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CurtailmentStrategy/maxPower"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

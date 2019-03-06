@@ -86,9 +86,10 @@
       <xsd:enumeration value="EDUCATION"/>
       <xsd:enumeration value="SPORTS"/>
       <xsd:enumeration value="SHOPPING"/>
+      <xsd:enumeration value="HOTEL"/>
       <xsd:enumeration value="GREENHOUSE"/>
-      <xsd:enumeration value="OTHER"/>
       <xsd:enumeration value="UTILITY"/>
+      <xsd:enumeration value="OTHER"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="ConsTypeEnum">
@@ -707,6 +708,7 @@
         <xsd:attribute name="housingType" type="esdl:HousingTypeEnum"/>
         <xsd:attribute name="numberOfInhabitants" type="xsd:int"/>
         <xsd:attribute name="inhabitantsType" type="esdl:InhabitantsTypeEnum"/>
+        <xsd:attribute name="floorArea" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -774,6 +776,7 @@
         <xsd:sequence>
           <xsd:element maxOccurs="1" minOccurs="0" name="geometry" type="esdl:Geometry"/>
           <xsd:element maxOccurs="1" minOccurs="0" name="costInformation" type="esdl:CostInformation"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="KPIs" type="esdl:KPIs"/>
         </xsd:sequence>
         <xsd:attribute name="surfaceArea" type="xsd:int"/>
         <xsd:attribute name="commissioningDate" type="xsd:string"/>
@@ -782,6 +785,7 @@
         <xsd:attribute name="technicalLifetime" type="xsd:double"/>
         <xsd:attribute name="aggregated" type="xsd:boolean"/>
         <xsd:attribute default="1" name="aggregationCount" type="xsd:int"/>
+        <xsd:attribute name="installationDuration" type="xsd:double"/>
         <xsd:attribute name="area" type="xsd:string"/>
         <xsd:attribute name="containingBuilding" type="xsd:string"/>
       </xsd:extension>
@@ -1812,7 +1816,9 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:element name="VehicleCount" type="esdl:VehicleCount"/>
   <xsd:complexType name="Electrolyzer">
     <xsd:complexContent>
-      <xsd:extension base="esdl:PowerToX"/>
+      <xsd:extension base="esdl:PowerToX">
+        <xsd:attribute name="outputPressure" type="xsd:double"/>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="Electrolyzer" type="esdl:Electrolyzer"/>
@@ -1917,6 +1923,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:complexContent>
       <xsd:extension base="esdl:Conversion">
         <xsd:attribute name="type" type="esdl:GasConversionTypeEnum"/>
+        <xsd:attribute name="outputPressure" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -2231,4 +2238,12 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="StorageStrategy" type="esdl:StorageStrategy"/>
+  <xsd:complexType name="CurtailmentStrategy">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:ControlStrategy">
+        <xsd:attribute name="maxPower" type="xsd:double"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CurtailmentStrategy" type="esdl:CurtailmentStrategy"/>
 </xsd:schema>
