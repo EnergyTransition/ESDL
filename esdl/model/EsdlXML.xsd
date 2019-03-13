@@ -628,7 +628,8 @@
   </xsd:complexType>
   <xsd:complexType name="EnergySystem">
     <xsd:annotation>
-      <xsd:documentation>This is the entry class to describe an EnergySystem in ESDL</xsd:documentation>
+      <xsd:documentation>This is the entry class to describe an EnergySystem in ESDL
+</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="sector" type="esdl:SectorEnum"/>
@@ -645,7 +646,8 @@
   </xsd:complexType>
   <xsd:element name="EnergySystem" type="esdl:EnergySystem">
     <xsd:annotation>
-      <xsd:documentation>This is the entry class to describe an EnergySystem in ESDL</xsd:documentation>
+      <xsd:documentation>This is the entry class to describe an EnergySystem in ESDL
+</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
   <xsd:complexType name="WindTurbine">
@@ -715,8 +717,6 @@
   <xsd:element name="BuildingUnit" type="esdl:BuildingUnit"/>
   <xsd:complexType name="Area">
     <xsd:sequence>
-      <xsd:element maxOccurs="1" minOccurs="0" name="location" type="esdl:Point"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="contour" type="esdl:Polygon"/>
       <xsd:element maxOccurs="1" minOccurs="0" name="socialProperties" type="esdl:SocialProperties"/>
       <xsd:element maxOccurs="1" minOccurs="0" name="economicProperties" type="esdl:EconomicProperties"/>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset"/>
@@ -724,6 +724,7 @@
       <xsd:element maxOccurs="1" minOccurs="0" name="mobilityProperties" type="esdl:MobilityProperties"/>
       <xsd:element maxOccurs="1" minOccurs="0" name="KPIs" type="esdl:KPIs"/>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="potential" type="esdl:Potential"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="geometry" type="esdl:Geometry"/>
     </xsd:sequence>
     <xsd:attribute name="id" type="xsd:string"/>
     <xsd:attribute name="name" type="xsd:string"/>
@@ -1880,6 +1881,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="kpi" type="esdl:KPI"/>
     </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:string"/>
     <xsd:attribute name="description" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="KPIs" type="esdl:KPIs"/>
@@ -1887,6 +1889,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:sequence>
       <xsd:element maxOccurs="1" minOccurs="0" name="quantityAndUnit" type="esdl:AbstractQuantityAndUnit"/>
     </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:string"/>
     <xsd:attribute name="name" type="xsd:string"/>
     <xsd:attribute name="value" type="xsd:double"/>
   </xsd:complexType>

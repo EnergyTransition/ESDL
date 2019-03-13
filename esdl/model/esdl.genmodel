@@ -580,7 +580,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/scope"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/location"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/contour"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/socialProperties"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/economicProperties"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/asset"/>
@@ -592,6 +591,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/buildingDensity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/KPIs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/potential"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/geometry"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Port">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/id"/>
@@ -1106,12 +1106,14 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//KPIs">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//KPIs/kpi"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//KPIs/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//KPIs/description"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//KPI">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//KPI/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//KPI/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//KPI/value"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//KPI/quantityAndUnit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//KPI/value"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//QuantityAndUnits">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//QuantityAndUnits/quantityAndUnit"/>

@@ -127,8 +127,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//AreaTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//Point"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="contour" eType="#//Polygon"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="socialProperties" eType="#//SocialProperties"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="economicProperties" eType="#//EconomicProperties"
@@ -148,6 +146,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="KPIs" eType="#//KPIs" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="potential" upperBound="-1"
         eType="#//Potential" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="geometry" eType="#//Geometry"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -1186,13 +1186,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="KPIs">
     <eStructuralFeatures xsi:type="ecore:EReference" name="kpi" upperBound="-1" eType="#//KPI"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="KPI">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="quantityAndUnit" eType="#//AbstractQuantityAndUnit"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QuantityAndUnits">
     <eStructuralFeatures xsi:type="ecore:EReference" name="quantityAndUnit" upperBound="-1"
