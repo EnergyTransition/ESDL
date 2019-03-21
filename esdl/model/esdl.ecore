@@ -125,8 +125,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scope" eType="#//AreaScopeEnum"
         defaultValueLiteral="UNDEFINED"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//AreaTypeEnum"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="location" eType="#//Point"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="socialProperties" eType="#//SocialProperties"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="economicProperties" eType="#//EconomicProperties"
@@ -416,6 +414,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Point" eSuperTypes="#//Geometry">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="elevation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Polygon" eSuperTypes="#//Geometry">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exterior" lowerBound="1"
@@ -1079,6 +1078,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Electrolyzer" eSuperTypes="#//PowerToX">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputPressure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMaxLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMinLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GasStorage" eSuperTypes="#//Storage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minStoragePressure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -1461,4 +1464,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="CurtailmentStrategy" eSuperTypes="#//ControlStrategy">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PVTInstallation" eSuperTypes="#//Producer"/>
 </ecore:EPackage>

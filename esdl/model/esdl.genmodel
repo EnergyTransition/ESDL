@@ -579,7 +579,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/scope"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/location"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/socialProperties"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/economicProperties"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/asset"/>
@@ -723,6 +722,7 @@
     <genClasses ecoreClass="esdl.ecore#//Point">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Point/lat"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Point/lon"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Point/elevation"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Polygon">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Polygon/exterior"/>
@@ -1076,6 +1076,10 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Electrolyzer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Electrolyzer/outputPressure"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Electrolyzer/maxLoad"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Electrolyzer/minLoad"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Electrolyzer/effMaxLoad"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Electrolyzer/effMinLoad"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GasStorage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasStorage/minStoragePressure"/>
@@ -1248,5 +1252,6 @@
     <genClasses ecoreClass="esdl.ecore#//CurtailmentStrategy">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CurtailmentStrategy/maxPower"/>
     </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//PVTInstallation"/>
   </genPackages>
 </genmodel:GenModel>

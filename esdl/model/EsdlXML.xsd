@@ -628,8 +628,7 @@
   </xsd:complexType>
   <xsd:complexType name="EnergySystem">
     <xsd:annotation>
-      <xsd:documentation>This is the entry class to describe an EnergySystem in ESDL
-</xsd:documentation>
+      <xsd:documentation>This is the entry class to describe an EnergySystem in ESDL</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="sector" type="esdl:SectorEnum"/>
@@ -646,8 +645,7 @@
   </xsd:complexType>
   <xsd:element name="EnergySystem" type="esdl:EnergySystem">
     <xsd:annotation>
-      <xsd:documentation>This is the entry class to describe an EnergySystem in ESDL
-</xsd:documentation>
+      <xsd:documentation>This is the entry class to describe an EnergySystem in ESDL</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
   <xsd:complexType name="WindTurbine">
@@ -1010,6 +1008,7 @@
       <xsd:extension base="esdl:Geometry">
         <xsd:attribute name="lat" type="xsd:double"/>
         <xsd:attribute name="lon" type="xsd:double"/>
+        <xsd:attribute name="elevation" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1819,6 +1818,10 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:complexContent>
       <xsd:extension base="esdl:PowerToX">
         <xsd:attribute name="outputPressure" type="xsd:double"/>
+        <xsd:attribute name="maxLoad" type="xsd:int"/>
+        <xsd:attribute name="minLoad" type="xsd:int"/>
+        <xsd:attribute name="effMaxLoad" type="xsd:double"/>
+        <xsd:attribute name="effMinLoad" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -2249,4 +2252,10 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="CurtailmentStrategy" type="esdl:CurtailmentStrategy"/>
+  <xsd:complexType name="PVTInstallation">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Producer"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PVTInstallation" type="esdl:PVTInstallation"/>
 </xsd:schema>

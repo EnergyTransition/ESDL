@@ -728,6 +728,7 @@
     <nested inputs="esdl.ecore#//Point" outputs="EsdlXML.xsd#//Point;XSDComplexTypeDefinition=44">
       <nested inputs="esdl.ecore#//Point/lat" outputs="EsdlXML.xsd#//Point;XSDComplexTypeDefinition=44/XSDAttributeUse"/>
       <nested inputs="esdl.ecore#//Point/lon" outputs="EsdlXML.xsd#//Point;XSDComplexTypeDefinition=44/XSDAttributeUse=1"/>
+      <nested inputs="esdl.ecore#//Point/elevation" outputs="EsdlXML.xsd#//Point;XSDComplexTypeDefinition=44/XSDAttributeUse=2"/>
     </nested>
     <nested inputs="esdl.ecore#//Point" outputs="EsdlXML.xsd#//Point;XSDElementDeclaration=35"/>
     <nested inputs="esdl.ecore#//Polygon" outputs="EsdlXML.xsd#//Polygon;XSDComplexTypeDefinition=45">
@@ -1160,6 +1161,10 @@
     <nested inputs="esdl.ecore#//VehicleCount" outputs="EsdlXML.xsd#//VehicleCount;XSDElementDeclaration=112"/>
     <nested inputs="esdl.ecore#//Electrolyzer" outputs="EsdlXML.xsd#//Electrolyzer;XSDComplexTypeDefinition=137">
       <nested inputs="esdl.ecore#//Electrolyzer/outputPressure" outputs="EsdlXML.xsd#//Electrolyzer;XSDComplexTypeDefinition=137/XSDAttributeUse"/>
+      <nested inputs="esdl.ecore#//Electrolyzer/maxLoad" outputs="EsdlXML.xsd#//Electrolyzer;XSDComplexTypeDefinition=137/XSDAttributeUse=1"/>
+      <nested inputs="esdl.ecore#//Electrolyzer/minLoad" outputs="EsdlXML.xsd#//Electrolyzer;XSDComplexTypeDefinition=137/XSDAttributeUse=2"/>
+      <nested inputs="esdl.ecore#//Electrolyzer/effMaxLoad" outputs="EsdlXML.xsd#//Electrolyzer;XSDComplexTypeDefinition=137/XSDAttributeUse=3"/>
+      <nested inputs="esdl.ecore#//Electrolyzer/effMinLoad" outputs="EsdlXML.xsd#//Electrolyzer;XSDComplexTypeDefinition=137/XSDAttributeUse=4"/>
     </nested>
     <nested inputs="esdl.ecore#//Electrolyzer" outputs="EsdlXML.xsd#//Electrolyzer;XSDElementDeclaration=113"/>
     <nested inputs="esdl.ecore#//GasStorage" outputs="EsdlXML.xsd#//GasStorage;XSDComplexTypeDefinition=138">
@@ -1375,5 +1380,7 @@
       <nested inputs="esdl.ecore#//CurtailmentStrategy/maxPower" outputs="EsdlXML.xsd#//CurtailmentStrategy;XSDComplexTypeDefinition=189/XSDAttributeUse"/>
     </nested>
     <nested inputs="esdl.ecore#//CurtailmentStrategy" outputs="EsdlXML.xsd#//CurtailmentStrategy;XSDElementDeclaration=155"/>
+    <nested inputs="esdl.ecore#//PVTInstallation" outputs="EsdlXML.xsd#//PVTInstallation;XSDComplexTypeDefinition=190"/>
+    <nested inputs="esdl.ecore#//PVTInstallation" outputs="EsdlXML.xsd#//PVTInstallation;XSDElementDeclaration=156"/>
   </nested>
 </xsd2ecore:XSD2EcoreMappingRoot>
