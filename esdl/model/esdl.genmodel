@@ -247,14 +247,14 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CHPTypeEnum/GAS_TURBINE"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CHPTypeEnum/GAS_MOTOR"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//GlasTypeEnum">
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlasTypeEnum/UNDEFINED"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlasTypeEnum/ENKEL_GLAS"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlasTypeEnum/DUBBEL_GLAS"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlasTypeEnum/HR_GLAS"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlasTypeEnum/HRP_GLAS"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlasTypeEnum/HRPP_GLAS"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlasTypeEnum/HRPPP_GLAS"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//GlassTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlassTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlassTypeEnum/ENKEL_GLAS"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlassTypeEnum/DUBBEL_GLAS"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlassTypeEnum/HR_GLAS"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlassTypeEnum/HRP_GLAS"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlassTypeEnum/HRPP_GLAS"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GlassTypeEnum/HRPPP_GLAS"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//VentilationTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//VentilationTypeEnum/UNDEFINED"/>
@@ -656,7 +656,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/rcRoof"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/uWindow"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/orientation"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/glasType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/glassType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Building/ventilationType"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HeatStorage">
