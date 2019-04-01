@@ -904,6 +904,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
         eType="#//Asset" containment="true" eOpposite="#//Asset/containingBuilding"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buildingUsage" eType="#//AbstractBuildingUsage"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Instance">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -1010,6 +1012,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buildingUsageInformation"
+        eType="#//BuildingUsageInformation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pump" eSuperTypes="#//AbstractTransformer"/>
   <eClassifiers xsi:type="ecore:EClass" name="Valve" eSuperTypes="#//AbstractSwitch"/>
@@ -1829,4 +1833,57 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PVTInstallation" eSuperTypes="#//Producer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BuildingUsage" eSuperTypes="#//AbstractBuildingUsage">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coolingSetpoints" eType="#//WeekSchedule"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="heatingSetpoints" eType="#//WeekSchedule"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="openingHours" eType="#//WeekSchedule"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WeekSchedule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mon" eType="#//DaySchedule"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tue" eType="#//DaySchedule"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wed" eType="#//DaySchedule"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="thu" eType="#//DaySchedule"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fri" eType="#//DaySchedule"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sat" eType="#//DaySchedule"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sun" eType="#//DaySchedule"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="weekdays" eType="#//DaySchedule"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="weekenddays" eType="#//DaySchedule"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DaySchedule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="event" upperBound="-1"
+        eType="#//Event" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Event">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractBuildingUsage" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BuildingUsageReference" eSuperTypes="#//AbstractBuildingUsage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" lowerBound="1"
+        eType="#//BuildingUsage"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NewEClass198"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BuildingUsageInformation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buildingUsage" upperBound="-1"
+        eType="#//BuildingUsage" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
 </ecore:EPackage>

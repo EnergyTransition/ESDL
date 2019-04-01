@@ -39,6 +39,9 @@
     <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.uml2.uml.ecore.exporter">
       <genAnnotations source="../gen/esdl.uml"/>
     </genAnnotations>
+    <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter">
+      <genAnnotations source="esdl.xsd"/>
+    </genAnnotations>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//CommodityEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CommodityEnum/UNDEFINED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CommodityEnum/ELECTRICITY"/>
@@ -785,6 +788,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractBuilding/energyLabel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AbstractBuilding/asset"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractBuilding/energyIndex"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AbstractBuilding/buildingUsage"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Instance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Instance/id"/>
@@ -848,6 +852,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/quantityAndUnits"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/sectors"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystemInformation/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/buildingUsageInformation"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Pump"/>
     <genClasses ecoreClass="esdl.ecore#//Valve"/>
@@ -1254,5 +1259,41 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CurtailmentStrategy/maxPower"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//PVTInstallation"/>
+    <genClasses ecoreClass="esdl.ecore#//BuildingUsage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUsage/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUsage/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//BuildingUsage/coolingSetpoints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//BuildingUsage/heatingSetpoints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//BuildingUsage/openingHours"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//WeekSchedule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//WeekSchedule/mon"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//WeekSchedule/tue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//WeekSchedule/wed"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//WeekSchedule/thu"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//WeekSchedule/fri"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//WeekSchedule/sat"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//WeekSchedule/sun"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//WeekSchedule/weekdays"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//WeekSchedule/weekenddays"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//DaySchedule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//DaySchedule/event"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//Event">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Event/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Event/time"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Event/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Event/value"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//AbstractBuildingUsage"/>
+    <genClasses ecoreClass="esdl.ecore#//BuildingUsageReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//BuildingUsageReference/reference"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//NewEClass198"/>
+    <genClasses ecoreClass="esdl.ecore#//BuildingUsageInformation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//BuildingUsageInformation/buildingUsage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUsageInformation/id"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
