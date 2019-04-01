@@ -1,0 +1,32 @@
+# SETUP
+# 
+# To generate documentation install the "Nasdanika Ecore Documentation Generator v1.0.0" from the Eclipse Marketplace (Help->Eclipse marketplace)
+# For the generation of the class diagrams figures, PlantUML is used, which uses GraphWiz 2.38 internally. Install this from https://www.graphviz.org/ . Install it in its default directory for the plugin to let it find the dot.exe executable.
+# Configure your system's Environment variables to let the plugin generate larger images by setting PLANTUML_LIMIT_SIZE to e.g. 20000. (current image is about 10.000 pixels wide)
+#
+# 
+# USING
+# Right click this file and select "Generate Ecore Documentation" to start generating documentation.
+# The files are stored in gen/site
+#
+# In the gen/ folder a file called index_with_intro.html is stored, which contains a nicer intro than the default empty one. Copy this one over the index.html.
+# You have to do this every time because the plugin empties the folder before generating.
+#
+#
+# Model file to generate documentation from:
+models:
+  - model/esdl.ecore
+
+# Output location for the HTML site (eclipse help is also possible)
+output:
+  site: /esdl/gen/site   
+
+# Link the Ecore metamodel to the javadoc of EMF, otherwise it also generates files for that model
+modeldocs:
+  site:
+    http://www.eclipse.org/emf/2002/Ecore: https://download.eclipse.org/modeling/emf/emf/javadoc/2.11/ 
+
+# This only seems to work for Eclipse help documentation and can probably be removed for the HTML site:
+toc:
+  label: ESDL Documentation
+  link_to: "toc.xml#esdl"  
