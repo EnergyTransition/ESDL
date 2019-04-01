@@ -14,11 +14,16 @@ ESDL can be used for:
 * Monitoring evolution of an energy system: Furthermore, multiple ESDL snapshots of a certain area over time provide insight in the evolution of an energy system. 
 
 # Getting started
-Detailed documentation of ESDL can be found here:
+- Detailed documentation of ESDL can be found here:
 https://energytransition.gitbook.io/esdl/
 
-Information on tooling for ESDL can be found here:
+- The ESDL model reference documentation can be found here:
+https://energytransition.github.io/
+This website describes the classes, attributes and references in detail and is easy navigatable.
+
+- Information on tooling for ESDL can be found here:
 https://energytransition.gitbook.io/esdl/tooling-for-esdl
+Those pages describe (graphical)editors for ESDL, Java integration and Python integration examples
 
 # Contribute to ESDL
 Contriubtions to ESDL can be done by pull requests.

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="TNO" modelDirectory="/esdl/src-gen" editDirectory="/esdl.edit/src-gen"
-    editorDirectory="/esdl.editor/src-gen" modelPluginID="esdl" modelName="Esdl" generateSchema="true"
-    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" testsDirectory=""
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    operationReflection="true" importOrganizing="true">
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="TNO" modelDirectory="/esdl/src-gen" creationSubmenus="true"
+    editDirectory="/esdl.edit/src-gen" editorDirectory="/esdl.editor/src-gen" modelPluginID="esdl"
+    modelName="Esdl" generateSchema="true" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
+    operationReflection="true" importOrganizing="true" decoration="Live" autoResizeProperties="true"
+    findAction="true" expandAllAction="true" collapseAllAction="true" revertAction="true">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.uml2.uml.ecore.exporter">
     <genAnnotations source="selectedPackages">
       <details key="http://www.tno.nl/esdl" value="esdl.uml"/>
@@ -33,8 +34,8 @@
     <details key="directoryURI" value="."/>
   </genAnnotations>
   <foreignModel>model/esdl.ecore</foreignModel>
-  <genPackages prefix="Esdl" resource="XML" disposableProviderFactory="true" contentTypeIdentifier=""
-      ecorePackage="esdl.ecore#/">
+  <genPackages prefix="Esdl" resource="XML" disposableProviderFactory="true" multipleEditorPages="false"
+      contentTypeIdentifier="" ecorePackage="esdl.ecore#/" loadInitializationFileExtension="esdl">
     <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.uml2.uml.ecore.exporter">
       <genAnnotations source="../gen/esdl.uml"/>
     </genAnnotations>
