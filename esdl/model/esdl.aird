@@ -10362,8 +10362,8 @@
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_A7uIsP0SEeeeKZnzyFWydQ" name="id : EString" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Port/id"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Port/id"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_A7uIsf0SEeeeKZnzyFWydQ" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_GnY_0FuWEem-Ctg6fJChmg" labelAlignment="LEFT" description="_Kji3cFHpEeiQ2K8I8CIgdA">
+          <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
@@ -21398,51 +21398,131 @@
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergySystem/name"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergySystem/name"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_1N79gFuREem-Ctg6fJChmg" label="Name of the energy system" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_1N8kkFuREem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-Tn6oVFUEemdwPTMMldKDA" label="EAttribute : description">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergySystem/description"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergySystem/description"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_5Nva8FuREem-Ctg6fJChmg" label="A description of the energy system" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/description/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/description/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_5Nva8VuREem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-TohsVFUEemdwPTMMldKDA" label="EAttribute : geographicalScope">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergySystem/geographicalScope"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergySystem/geographicalScope"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_74ei4FuREem-Ctg6fJChmg" label="Geographical scope of the energy system as a text. In the area itself you can define the scope in more detail" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/geographicalScope/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/geographicalScope/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_74ei4VuREem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-Tohs1FUEemdwPTMMldKDA" label="EAttribute : sector">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergySystem/sector"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergySystem/sector"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_NiHTEFuSEem-Ctg6fJChmg" label="(experimental) A selection of sectors that is relevant for this energy system " column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/sector/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/sector/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_NiHTEVuSEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_BCxL4f0SEeeeKZnzyFWydQ" label="EReference : measures">
         <target xmi:type="ecore:EReference" href="esdl.ecore#//EnergySystem/measures"/>
         <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//EnergySystem/measures"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_eUbZsFuSEem-Ctg6fJChmg" label="The collection of measures that can be applied in this energy system by models and tools" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/measures/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/measures/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_eUbZsVuSEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-TohtlFUEemdwPTMMldKDA" label="EReference : instance">
         <target xmi:type="ecore:EReference" href="esdl.ecore#//EnergySystem/instance"/>
         <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//EnergySystem/instance"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_i-vMsFuSEem-Ctg6fJChmg" label=" Instances are used to represent different representations of the same EnergySystem. Most of the times only one Instance will be used. The primary use case for having more than one Instance is when you have different aggregations of the same EnergySystem in the same model (e.g. the same region on house level and aggregated on neighbourhood level). Another option would be to create different instances for different years (to describe the progress of the energy transition)." column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/instance/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/instance/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_i-vMsVuSEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-TpIwVFUEemdwPTMMldKDA" label="EReference : energySystemInformation">
         <target xmi:type="ecore:EReference" href="esdl.ecore#//EnergySystem/energySystemInformation"/>
         <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//EnergySystem/energySystemInformation"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_BPspwFuTEem-Ctg6fJChmg" label="The EnergySystemInformation class is a container for additional information about the EnergySystem in general, such as profiles, energy carriers, data sources, etc. You can refer to these in other parts of the energy system description." column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/energySystemInformation/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/energySystemInformation/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_BPspwVuTEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-TpIw1FUEemdwPTMMldKDA" label="EReference : parties">
         <target xmi:type="ecore:EReference" href="esdl.ecore#//EnergySystem/parties"/>
         <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//EnergySystem/parties"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_SnvToFuTEem-Ctg6fJChmg" label="Parties involved in the EnergySystem, e.g. to model ownership of assets or areas." column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/parties/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/parties/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_Snv6sFuTEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-TpIxVFUEemdwPTMMldKDA" label="EReference : services">
         <target xmi:type="ecore:EReference" href="esdl.ecore#//EnergySystem/services"/>
         <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//EnergySystem/services"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_aEziIFuTEem-Ctg6fJChmg" label="(experimental) Abstract information like services (demand response, aggregator services), energy markets and control strategies." column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/services/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/services/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_aEziIVuTEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-Tpv0VFUEemdwPTMMldKDA" label="EAttribute : id">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergySystem/id"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergySystem/id"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_cDD-kFuTEem-Ctg6fJChmg" label="A unique identifier for this energy system" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/id/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergySystem/id/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_cDD-kVuTEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//EnergySystem"/>
       <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
@@ -21648,16 +21728,40 @@
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Area/id"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Area/id"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_WUe1sFuUEem-Ctg6fJChmg" label="Unique id of this area" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/id/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/id/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_WUe1sVuUEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-TuBQlFUEemdwPTMMldKDA" label="EAttribute : name">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Area/name"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Area/name"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_ZAaQcFuUEem-Ctg6fJChmg" label="Name for this area" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_ZAaQcVuUEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_XjYHsLsmEeeZZezrcapb6w" label="EAttribute : scope">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Area/scope"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Area/scope"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_fCWkwFuUEem-Ctg6fJChmg" label="The scope that this area describes, such as Country, Province, Energy Region, etc." column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/scope/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/scope/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_fCWkwVuUEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-TuBRVFUEemdwPTMMldKDA" label="EAttribute : type">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Area/type"/>
@@ -21676,11 +21780,27 @@
         <target xmi:type="ecore:EReference" href="esdl.ecore#//Area/socialProperties"/>
         <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Area/socialProperties"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_p7USYFuUEem-Ctg6fJChmg" label="(experimental) Used to model social aspects of the area, such as population density, number of inhabitants, etc." column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/socialProperties/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/socialProperties/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_p7USYVuUEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_BCxy9f0SEeeeKZnzyFWydQ" label="EReference : economicProperties">
         <target xmi:type="ecore:EReference" href="esdl.ecore#//Area/economicProperties"/>
         <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Area/economicProperties"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_yW9pAFuUEem-Ctg6fJChmg" label="(experimental) Used to model economic properties of this area, such as income, WOZ-value, etc." column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/economicProperties/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/economicProperties/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_yW9pAVuUEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-TuoU1FUEemdwPTMMldKDA" label="EReference : asset">
         <target xmi:type="ecore:EReference" href="esdl.ecore#//Area/asset"/>
@@ -21712,31 +21832,79 @@
         <target xmi:type="ecore:EReference" href="esdl.ecore#//Area/containingArea"/>
         <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Area/containingArea"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_5gM8kFuUEem-Ctg6fJChmg" label="Refers to the area that contains this area, if not the top-level area" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/containingArea/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/containingArea/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_5gNjoFuUEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-TuoWVFUEemdwPTMMldKDA" label="EReference : isOwnedBy">
         <target xmi:type="ecore:EReference" href="esdl.ecore#//Area/isOwnedBy"/>
         <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Area/isOwnedBy"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_9ID0EFuUEem-Ctg6fJChmg" label="Refers to the party owning the area (usually a government)" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/isOwnedBy/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/isOwnedBy/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_9IEbIFuUEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-TuoW1FUEemdwPTMMldKDA" label="EAttribute : geometryReference">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Area/geometryReference"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Area/geometryReference"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_ba0A4FuVEem-Ctg6fJChmg" label="(experimental) Defines a URI to reference the geometric shape of this area" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/geometryReference/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/geometryReference/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_ba0A4VuVEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-TvPYVFUEemdwPTMMldKDA" label="EReference : mobilityProperties">
         <target xmi:type="ecore:EReference" href="esdl.ecore#//Area/mobilityProperties"/>
         <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Area/mobilityProperties"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_rlanQFuVEem-Ctg6fJChmg" label="(experimental) Describes the number of vehicles and types in this area" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/mobilityProperties/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/mobilityProperties/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_rlanQVuVEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-TvPY1FUEemdwPTMMldKDA" label="EAttribute : buildingDensity">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Area/buildingDensity"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Area/buildingDensity"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_v_ZfQFuVEem-Ctg6fJChmg" label="(experimental) Defines the number of buildings per m2" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/buildingDensity/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/buildingDensity/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_v_ZfQVuVEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-TvPZVFUEemdwPTMMldKDA" label="EReference : KPIs">
         <target xmi:type="ecore:EReference" href="esdl.ecore#//Area/KPIs"/>
         <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Area/KPIs"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_1HwgMFuVEem-Ctg6fJChmg" label="List of KPIs relevant for this area" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/KPIs/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Area/KPIs/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_1HwgMVuVEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-TvPZ1FUEemdwPTMMldKDA" label="EReference : potential">
         <target xmi:type="ecore:EReference" href="esdl.ecore#//Area/potential"/>
@@ -21781,6 +21949,14 @@
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Port/id"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Port/id"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_3iO-kFuVEem-Ctg6fJChmg" label="Unique identifier for this port" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Port/id/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Port/id/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_3iO-kVuVEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_XjYHt7smEeeZZezrcapb6w" label="EAttribute : maxPower">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Port/maxPower"/>
@@ -21799,6 +21975,14 @@
         <target xmi:type="ecore:EReference" href="esdl.ecore#//Port/energyasset"/>
         <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Port/energyasset"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_8WQuQFuVEem-Ctg6fJChmg" label="Refers to the parent asset this port belongs to" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Port/energyasset/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Port/energyasset/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_8WQuQVuVEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-Tv2dFFUEemdwPTMMldKDA" label="EReference : profile">
         <target xmi:type="ecore:EReference" href="esdl.ecore#//Port/profile"/>
@@ -21843,6 +22027,14 @@
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Port/name"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Port/name"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_9-BWQFuVEem-Ctg6fJChmg" label="Name of the port" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Port/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Port/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_9-B9UFuVEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Port"/>
       <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
@@ -23127,26 +23319,66 @@
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/id"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/id"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_1u-bwFuWEem-Ctg6fJChmg" label="Unique identifier for this object" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Item/id/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Item/id/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_1u-bwVuWEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_BC0PP_0SEeeeKZnzyFWydQ" label="EAttribute : name">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/name"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/name"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_5Lj3YFuWEem-Ctg6fJChmg" label="Name describing this object" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Item/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Item/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_5Lj3YVuWEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-T_HBlFUEemdwPTMMldKDA" label="EAttribute : shortName">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/shortName"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/shortName"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="__36aoFuWEem-Ctg6fJChmg" label="Short name for this object, e.g. used in legends of graphs in presentations" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Item/shortName/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Item/shortName/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="__36aoVuWEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-T_uEVFUEemdwPTMMldKDA" label="EReference : isOwnedBy">
         <target xmi:type="ecore:EReference" href="esdl.ecore#//Item/isOwnedBy"/>
         <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Item/isOwnedBy"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_BexDsFuXEem-Ctg6fJChmg" label="Refers to the owner of this object" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Item/isOwnedBy/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Item/isOwnedBy/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_BexDsVuXEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-T_uE1FUEemdwPTMMldKDA" label="EAttribute : description">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/description"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/description"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_DmN4YFuXEem-Ctg6fJChmg" label="Human readable description of this object" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Item/description/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Item/description/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_DmN4YVuXEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-UAVIVFUEemdwPTMMldKDA" label="EAttribute : originalIdInSource">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/originalIdInSource"/>
@@ -23165,14 +23397,38 @@
         <target xmi:type="ecore:EReference" href="esdl.ecore#//Item/dataSource"/>
         <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Item/dataSource"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_Jy7SQFuXEem-Ctg6fJChmg" label="Reference to the datasource where the information in this object is coming from" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Item/dataSource/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Item/dataSource/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_Jy7SQVuXEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-UAVJVFUEemdwPTMMldKDA" label="EReference : sector">
         <target xmi:type="ecore:EReference" href="esdl.ecore#//Item/sector"/>
         <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Item/sector"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_ORIi8FuXEem-Ctg6fJChmg" label="Refers to the sector this object is used in" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Item/sector/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Item/sector/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_ORIi8VuXEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Item"/>
       <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" uid="_xit2sFuWEem-Ctg6fJChmg" label="Class describing an abstract thing in an energy system. It is the parent of many other classes in ESDL, such as Assets, Services and Potentials. Parties can own Items" column="_XjYH2rsmEeeZZezrcapb6w">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Item/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Item/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_xit2sVuWEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_BCv9yf0SEeeeKZnzyFWydQ" label="EClass : Measures">
       <target xmi:type="ecore:EClass" href="esdl.ecore#//Measures"/>
@@ -23271,6 +23527,11 @@
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//AbstractBuilding/energyIndex"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
+      <lines xmi:type="table:DLine" uid="_vPMHI1uREem-Ctg6fJChmg" label="EReference : buildingUsage">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//AbstractBuilding/buildingUsage"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//AbstractBuilding/buildingUsage"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
       <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//AbstractBuilding"/>
       <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
     </lines>
@@ -23280,39 +23541,103 @@
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Instance/id"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Instance/id"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_nBTNwFuTEem-Ctg6fJChmg" label="Unique identifier for this instance" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Instance/id/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Instance/id/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_nBTNwVuTEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-UD_glFUEemdwPTMMldKDA" label="EAttribute : name">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Instance/name"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Instance/name"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_oFCisFuTEem-Ctg6fJChmg" label="Name of the instance" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Instance/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Instance/name/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_oFDJwFuTEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-UD_hFFUEemdwPTMMldKDA" label="EAttribute : description">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Instance/description"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Instance/description"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_qRmg4FuTEem-Ctg6fJChmg" label="Human readable description of this instance" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Instance/description/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Instance/description/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_qRnH8FuTEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-UD_hlFUEemdwPTMMldKDA" label="EAttribute : detailLevel">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Instance/detailLevel"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Instance/detailLevel"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_ySP9kFuTEem-Ctg6fJChmg" label="(experimental) Scope of the instance, e.g. Country or Municipality" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Instance/detailLevel/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Instance/detailLevel/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_ySP9kVuTEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-UD_iFFUEemdwPTMMldKDA" label="EAttribute : aggrType">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Instance/aggrType"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Instance/aggrType"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_3NTiUFuTEem-Ctg6fJChmg" label="(experimental) defines how the data in this instance is aggregated, e.g. by commodity, total energy, per capability, etc." column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Instance/aggrType/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Instance/aggrType/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_3NTiUVuTEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-UEmkFFUEemdwPTMMldKDA" label="EReference : area">
         <target xmi:type="ecore:EReference" href="esdl.ecore#//Instance/area"/>
         <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Instance/area"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_Ix1JAFuUEem-Ctg6fJChmg" label="Top level area of this instance" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Instance/area/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Instance/area/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_Ix1JAVuUEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-UEmklFUEemdwPTMMldKDA" label="EReference : date">
         <target xmi:type="ecore:EReference" href="esdl.ecore#//Instance/date"/>
         <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Instance/date"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+        <cells xmi:type="table:DCell" uid="_OCyFQFuUEem-Ctg6fJChmg" label="Defines the time aspect of the data in this instance, e.g. a snapshot in time or a range in time where this instance is valid" column="_XjYH2rsmEeeZZezrcapb6w">
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Instance/date/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Instance/date/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <currentStyle xmi:type="table:DCellStyle" uid="_OCyFQVuUEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+            <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+          </currentStyle>
+          <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </cells>
       </lines>
       <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Instance"/>
       <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+      <cells xmi:type="table:DCell" uid="_e5agoFuTEem-Ctg6fJChmg" label=" Instances are used to represent different representations of the same EnergySystem. Most of the times only one Instance will be used. The primary use case for having more than one Instance is when you have different aggregations of the same EnergySystem in the same model (e.g. the same region on house level and aggregated on neighbourhood level). Another option would be to create different instances for different years (to describe the progress of the energy transition)." column="_XjYH2rsmEeeZZezrcapb6w">
+        <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Instance/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Instance/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <currentStyle xmi:type="table:DCellStyle" uid="_e5agoVuTEem-Ctg6fJChmg" defaultBackgroundStyle="true" backgroundColor="220,234,183">
+          <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+        </currentStyle>
+        <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
+      </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_-THkVVFUEemdwPTMMldKDA" label="EClass : Service">
       <target xmi:type="ecore:EClass" href="esdl.ecore#//Service"/>
@@ -23554,6 +23879,11 @@
       <lines xmi:type="table:DLine" uid="_-UI4DFFUEemdwPTMMldKDA" label="EAttribute : id">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergySystemInformation/id"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergySystemInformation/id"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" uid="_vPN8VVuREem-Ctg6fJChmg" label="EReference : buildingUsageInformation">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//EnergySystemInformation/buildingUsageInformation"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//EnergySystemInformation/buildingUsageInformation"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//EnergySystemInformation"/>
@@ -25391,7 +25721,157 @@
       <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//PVTInstallation"/>
       <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
     </lines>
-    <columns xmi:type="table:DTargetColumn" uid="_XjYH2rsmEeeZZezrcapb6w" label="Domain Documentation" cells="_c9HMULsmEeeZZezrcapb6w _-VaqYFFUEemdwPTMMldKDA _-VeUwFFUEemdwPTMMldKDA _jVUEoFFVEemdwPTMMldKDA _ugducFFVEemdwPTMMldKDA _2a4nUFFVEemdwPTMMldKDA _3fZYUFFVEemdwPTMMldKDA _ZlhJEFFWEemdwPTMMldKDA _eMabsFFWEemdwPTMMldKDA _ktzsIFFWEemdwPTMMldKDA _ok4EUFFWEemdwPTMMldKDA _rqOrsFFWEemdwPTMMldKDA _AwmogFFXEemdwPTMMldKDA _J4eL8FFXEemdwPTMMldKDA _Q7_5EFFXEemdwPTMMldKDA _k95hIFFXEemdwPTMMldKDA _ocPQQFFXEemdwPTMMldKDA _yGJw0FFXEemdwPTMMldKDA _AX7NUFFYEemdwPTMMldKDA _L9gJUFFYEemdwPTMMldKDA _POSkoFFYEemdwPTMMldKDA _jcfjUFFYEemdwPTMMldKDA _oPeKIFFYEemdwPTMMldKDA _tOEyIFFYEemdwPTMMldKDA _w_q0cFFYEemdwPTMMldKDA _yhE80FFYEemdwPTMMldKDA _MBzlEFFZEemdwPTMMldKDA _TY5ucFFZEemdwPTMMldKDA _aryGMFFZEemdwPTMMldKDA _eT6DcFFZEemdwPTMMldKDA _7WsdMFFZEemdwPTMMldKDA _89teUFFZEemdwPTMMldKDA _VkZgMFFaEemdwPTMMldKDA _ZX9RYFFaEemdwPTMMldKDA _qa4m4FFaEemdwPTMMldKDA _usmTsFFaEemdwPTMMldKDA _xgQHEFFaEemdwPTMMldKDA _7jJIUFFaEemdwPTMMldKDA _C6DrgFFbEemdwPTMMldKDA _GcPY0FFbEemdwPTMMldKDA _MEYtEFFbEemdwPTMMldKDA _SScKwFFbEemdwPTMMldKDA _ZP66QFFbEemdwPTMMldKDA _nyxfsFFbEemdwPTMMldKDA _5dXSIFFbEemdwPTMMldKDA _MvqpQFFcEemdwPTMMldKDA _OT6qQFFcEemdwPTMMldKDA _PePvYFFcEemdwPTMMldKDA _Quuf0FFcEemdwPTMMldKDA _R10DsFFcEemdwPTMMldKDA _YAO-kFFcEemdwPTMMldKDA _noqsAFFcEemdwPTMMldKDA _o0-uIFFcEemdwPTMMldKDA _v-D0MFFdEemdwPTMMldKDA _-b-PQFFdEemdwPTMMldKDA _FkS80FFeEemdwPTMMldKDA _g9W_sFFeEemdwPTMMldKDA _ioz04FFeEemdwPTMMldKDA _jZIekFFeEemdwPTMMldKDA _ll-woFFeEemdwPTMMldKDA _mhrj4FFeEemdwPTMMldKDA _nh7f8FFeEemdwPTMMldKDA _oiu1oFFeEemdwPTMMldKDA _pBkGsFFeEemdwPTMMldKDA _pqg9EFFeEemdwPTMMldKDA _wSZ3EFFeEemdwPTMMldKDA _yL-AwFFeEemdwPTMMldKDA _0JHp8FFeEemdwPTMMldKDA _5UF6AFFeEemdwPTMMldKDA _FmSrcFFfEemdwPTMMldKDA _ene4AFFfEemdwPTMMldKDA _i8w2MFFfEemdwPTMMldKDA _5HB48FFfEemdwPTMMldKDA _AgOUEFFgEemdwPTMMldKDA _Ef2LUFFgEemdwPTMMldKDA _JDf8sFFgEemdwPTMMldKDA _QynkgFFgEemdwPTMMldKDA _i7w7MFFgEemdwPTMMldKDA _k_gUkFFgEemdwPTMMldKDA _snDUwFFgEemdwPTMMldKDA _vQp0QFFgEemdwPTMMldKDA _wo6AoFFgEemdwPTMMldKDA _4QutoVFgEemdwPTMMldKDA _5fcjgFFgEemdwPTMMldKDA _-Ve70VFUEemdwPTMMldKDA _-nWRcFFgEemdwPTMMldKDA _-Ve701FUEemdwPTMMldKDA _AQcWMFFhEemdwPTMMldKDA _-Ve71VFUEemdwPTMMldKDA _BKxQcFFhEemdwPTMMldKDA _-Vfi4FFUEemdwPTMMldKDA _HcQcoFFhEemdwPTMMldKDA _-Ve711FUEemdwPTMMldKDA _KFiMAFFhEemdwPTMMldKDA _-Vfi5FFUEemdwPTMMldKDA _NgOxQFFhEemdwPTMMldKDA _-Vfi5lFUEemdwPTMMldKDA _TUmjoFFhEemdwPTMMldKDA _-Vfi4lFUEemdwPTMMldKDA _YOEM8FFhEemdwPTMMldKDA _-VgJ8FFUEemdwPTMMldKDA _db9OIFFhEemdwPTMMldKDA _-Vfi6FFUEemdwPTMMldKDA _hIdVEFFhEemdwPTMMldKDA _-VgJ8lFUEemdwPTMMldKDA _mPuJ0FFhEemdwPTMMldKDA _-VgJ9FFUEemdwPTMMldKDA _uVc60FFhEemdwPTMMldKDA _-VgJ-FFUEemdwPTMMldKDA _wyPtYFFhEemdwPTMMldKDA _-VgJ9lFUEemdwPTMMldKDA _ylWpwFFhEemdwPTMMldKDA _-VgxAVFUEemdwPTMMldKDA _626QQFFhEemdwPTMMldKDA _-VgxA1FUEemdwPTMMldKDA _F795IFFiEemdwPTMMldKDA _-VgxBVFUEemdwPTMMldKDA _N31jgFFiEemdwPTMMldKDA _-VgxCVFUEemdwPTMMldKDA _lYACMFFiEemdwPTMMldKDA _-VgxB1FUEemdwPTMMldKDA _ofn6cFFiEemdwPTMMldKDA _-VhYEVFUEemdwPTMMldKDA" width="1044">
+    <lines xmi:type="table:DLine" uid="_vO-EwVuREem-Ctg6fJChmg" label="EClass : BuildingUsage">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//BuildingUsage"/>
+      <lines xmi:type="table:DLine" uid="_vPZihFuREem-Ctg6fJChmg" label="EAttribute : id">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUsage/id"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUsage/id"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" uid="_vPZihluREem-Ctg6fJChmg" label="EAttribute : name">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUsage/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUsage/name"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" uid="_vPZiiFuREem-Ctg6fJChmg" label="EReference : coolingSetpoints">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//BuildingUsage/coolingSetpoints"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//BuildingUsage/coolingSetpoints"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" uid="_vPaJkFuREem-Ctg6fJChmg" label="EReference : heatingSetpoints">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//BuildingUsage/heatingSetpoints"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//BuildingUsage/heatingSetpoints"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" uid="_vPaJkluREem-Ctg6fJChmg" label="EReference : openingHours">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//BuildingUsage/openingHours"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//BuildingUsage/openingHours"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//BuildingUsage"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" uid="_vO_S0VuREem-Ctg6fJChmg" label="EClass : WeekSchedule">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//WeekSchedule"/>
+      <lines xmi:type="table:DLine" uid="_vPaJlFuREem-Ctg6fJChmg" label="EReference : mon">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//WeekSchedule/mon"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//WeekSchedule/mon"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" uid="_vPaJlluREem-Ctg6fJChmg" label="EReference : tue">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//WeekSchedule/tue"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//WeekSchedule/tue"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" uid="_vPaJmFuREem-Ctg6fJChmg" label="EReference : wed">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//WeekSchedule/wed"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//WeekSchedule/wed"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" uid="_vPaJmluREem-Ctg6fJChmg" label="EReference : thu">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//WeekSchedule/thu"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//WeekSchedule/thu"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" uid="_vPawoVuREem-Ctg6fJChmg" label="EReference : fri">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//WeekSchedule/fri"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//WeekSchedule/fri"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" uid="_vPawo1uREem-Ctg6fJChmg" label="EReference : sat">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//WeekSchedule/sat"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//WeekSchedule/sat"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" uid="_vPawpVuREem-Ctg6fJChmg" label="EReference : sun">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//WeekSchedule/sun"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//WeekSchedule/sun"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" uid="_vPawp1uREem-Ctg6fJChmg" label="EReference : weekdays">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//WeekSchedule/weekdays"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//WeekSchedule/weekdays"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" uid="_vPawqVuREem-Ctg6fJChmg" label="EReference : weekenddays">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//WeekSchedule/weekenddays"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//WeekSchedule/weekenddays"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//WeekSchedule"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" uid="_vO_54FuREem-Ctg6fJChmg" label="EClass : DaySchedule">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//DaySchedule"/>
+      <lines xmi:type="table:DLine" uid="_vPawq1uREem-Ctg6fJChmg" label="EReference : event">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//DaySchedule/event"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//DaySchedule/event"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//DaySchedule"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" uid="_vO_54luREem-Ctg6fJChmg" label="EClass : Event">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//Event"/>
+      <lines xmi:type="table:DLine" uid="_vPbXsFuREem-Ctg6fJChmg" label="EAttribute : id">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Event/id"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Event/id"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" uid="_vPbXsluREem-Ctg6fJChmg" label="EAttribute : time">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Event/time"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Event/time"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" uid="_vPbXtFuREem-Ctg6fJChmg" label="EAttribute : description">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Event/description"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Event/description"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" uid="_vPbXtluREem-Ctg6fJChmg" label="EAttribute : value">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Event/value"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Event/value"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Event"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" uid="_vO_55FuREem-Ctg6fJChmg" label="EClass : AbstractBuildingUsage">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//AbstractBuildingUsage"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//AbstractBuildingUsage"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" uid="_vO_55luREem-Ctg6fJChmg" label="EClass : BuildingUsageReference">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//BuildingUsageReference"/>
+      <lines xmi:type="table:DLine" uid="_vPbXuFuREem-Ctg6fJChmg" label="EReference : reference">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//BuildingUsageReference/reference"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//BuildingUsageReference/reference"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//BuildingUsageReference"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" uid="_vO_56FuREem-Ctg6fJChmg" label="EClass : NewEClass198">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//NewEClass198"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//NewEClass198"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <lines xmi:type="table:DLine" uid="_vO_56luREem-Ctg6fJChmg" label="EClass : BuildingUsageInformation">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//BuildingUsageInformation"/>
+      <lines xmi:type="table:DLine" uid="_vPbXuluREem-Ctg6fJChmg" label="EReference : buildingUsage">
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//BuildingUsageInformation/buildingUsage"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//BuildingUsageInformation/buildingUsage"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <lines xmi:type="table:DLine" uid="_vPbXvFuREem-Ctg6fJChmg" label="EAttribute : id">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUsageInformation/id"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUsageInformation/id"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
+      </lines>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//BuildingUsageInformation"/>
+      <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
+    </lines>
+    <columns xmi:type="table:DTargetColumn" uid="_XjYH2rsmEeeZZezrcapb6w" label="Domain Documentation" cells="_c9HMULsmEeeZZezrcapb6w _-VaqYFFUEemdwPTMMldKDA _-VeUwFFUEemdwPTMMldKDA _jVUEoFFVEemdwPTMMldKDA _ugducFFVEemdwPTMMldKDA _2a4nUFFVEemdwPTMMldKDA _3fZYUFFVEemdwPTMMldKDA _ZlhJEFFWEemdwPTMMldKDA _eMabsFFWEemdwPTMMldKDA _ktzsIFFWEemdwPTMMldKDA _ok4EUFFWEemdwPTMMldKDA _rqOrsFFWEemdwPTMMldKDA _AwmogFFXEemdwPTMMldKDA _J4eL8FFXEemdwPTMMldKDA _Q7_5EFFXEemdwPTMMldKDA _k95hIFFXEemdwPTMMldKDA _ocPQQFFXEemdwPTMMldKDA _yGJw0FFXEemdwPTMMldKDA _AX7NUFFYEemdwPTMMldKDA _L9gJUFFYEemdwPTMMldKDA _POSkoFFYEemdwPTMMldKDA _jcfjUFFYEemdwPTMMldKDA _oPeKIFFYEemdwPTMMldKDA _tOEyIFFYEemdwPTMMldKDA _w_q0cFFYEemdwPTMMldKDA _yhE80FFYEemdwPTMMldKDA _MBzlEFFZEemdwPTMMldKDA _TY5ucFFZEemdwPTMMldKDA _aryGMFFZEemdwPTMMldKDA _eT6DcFFZEemdwPTMMldKDA _7WsdMFFZEemdwPTMMldKDA _89teUFFZEemdwPTMMldKDA _VkZgMFFaEemdwPTMMldKDA _ZX9RYFFaEemdwPTMMldKDA _qa4m4FFaEemdwPTMMldKDA _usmTsFFaEemdwPTMMldKDA _xgQHEFFaEemdwPTMMldKDA _7jJIUFFaEemdwPTMMldKDA _C6DrgFFbEemdwPTMMldKDA _GcPY0FFbEemdwPTMMldKDA _MEYtEFFbEemdwPTMMldKDA _SScKwFFbEemdwPTMMldKDA _ZP66QFFbEemdwPTMMldKDA _nyxfsFFbEemdwPTMMldKDA _5dXSIFFbEemdwPTMMldKDA _MvqpQFFcEemdwPTMMldKDA _OT6qQFFcEemdwPTMMldKDA _PePvYFFcEemdwPTMMldKDA _Quuf0FFcEemdwPTMMldKDA _R10DsFFcEemdwPTMMldKDA _YAO-kFFcEemdwPTMMldKDA _noqsAFFcEemdwPTMMldKDA _o0-uIFFcEemdwPTMMldKDA _v-D0MFFdEemdwPTMMldKDA _-b-PQFFdEemdwPTMMldKDA _FkS80FFeEemdwPTMMldKDA _g9W_sFFeEemdwPTMMldKDA _ioz04FFeEemdwPTMMldKDA _jZIekFFeEemdwPTMMldKDA _ll-woFFeEemdwPTMMldKDA _mhrj4FFeEemdwPTMMldKDA _nh7f8FFeEemdwPTMMldKDA _oiu1oFFeEemdwPTMMldKDA _pBkGsFFeEemdwPTMMldKDA _pqg9EFFeEemdwPTMMldKDA _wSZ3EFFeEemdwPTMMldKDA _yL-AwFFeEemdwPTMMldKDA _0JHp8FFeEemdwPTMMldKDA _5UF6AFFeEemdwPTMMldKDA _FmSrcFFfEemdwPTMMldKDA _ene4AFFfEemdwPTMMldKDA _i8w2MFFfEemdwPTMMldKDA _5HB48FFfEemdwPTMMldKDA _AgOUEFFgEemdwPTMMldKDA _Ef2LUFFgEemdwPTMMldKDA _JDf8sFFgEemdwPTMMldKDA _QynkgFFgEemdwPTMMldKDA _i7w7MFFgEemdwPTMMldKDA _k_gUkFFgEemdwPTMMldKDA _snDUwFFgEemdwPTMMldKDA _vQp0QFFgEemdwPTMMldKDA _wo6AoFFgEemdwPTMMldKDA _4QutoVFgEemdwPTMMldKDA _5fcjgFFgEemdwPTMMldKDA _-Ve70VFUEemdwPTMMldKDA _-nWRcFFgEemdwPTMMldKDA _-Ve701FUEemdwPTMMldKDA _AQcWMFFhEemdwPTMMldKDA _-Ve71VFUEemdwPTMMldKDA _BKxQcFFhEemdwPTMMldKDA _-Vfi4FFUEemdwPTMMldKDA _HcQcoFFhEemdwPTMMldKDA _-Ve711FUEemdwPTMMldKDA _KFiMAFFhEemdwPTMMldKDA _-Vfi5FFUEemdwPTMMldKDA _NgOxQFFhEemdwPTMMldKDA _-Vfi5lFUEemdwPTMMldKDA _TUmjoFFhEemdwPTMMldKDA _-Vfi4lFUEemdwPTMMldKDA _YOEM8FFhEemdwPTMMldKDA _-VgJ8FFUEemdwPTMMldKDA _db9OIFFhEemdwPTMMldKDA _-Vfi6FFUEemdwPTMMldKDA _hIdVEFFhEemdwPTMMldKDA _-VgJ8lFUEemdwPTMMldKDA _mPuJ0FFhEemdwPTMMldKDA _-VgJ9FFUEemdwPTMMldKDA _uVc60FFhEemdwPTMMldKDA _-VgJ-FFUEemdwPTMMldKDA _wyPtYFFhEemdwPTMMldKDA _-VgJ9lFUEemdwPTMMldKDA _ylWpwFFhEemdwPTMMldKDA _-VgxAVFUEemdwPTMMldKDA _626QQFFhEemdwPTMMldKDA _-VgxA1FUEemdwPTMMldKDA _F795IFFiEemdwPTMMldKDA _-VgxBVFUEemdwPTMMldKDA _N31jgFFiEemdwPTMMldKDA _-VgxCVFUEemdwPTMMldKDA _lYACMFFiEemdwPTMMldKDA _-VgxB1FUEemdwPTMMldKDA _ofn6cFFiEemdwPTMMldKDA _-VhYEVFUEemdwPTMMldKDA _1N79gFuREem-Ctg6fJChmg _5Nva8FuREem-Ctg6fJChmg _74ei4FuREem-Ctg6fJChmg _NiHTEFuSEem-Ctg6fJChmg _eUbZsFuSEem-Ctg6fJChmg _i-vMsFuSEem-Ctg6fJChmg _BPspwFuTEem-Ctg6fJChmg _SnvToFuTEem-Ctg6fJChmg _aEziIFuTEem-Ctg6fJChmg _cDD-kFuTEem-Ctg6fJChmg _e5agoFuTEem-Ctg6fJChmg _nBTNwFuTEem-Ctg6fJChmg _oFCisFuTEem-Ctg6fJChmg _qRmg4FuTEem-Ctg6fJChmg _ySP9kFuTEem-Ctg6fJChmg _3NTiUFuTEem-Ctg6fJChmg _Ix1JAFuUEem-Ctg6fJChmg _OCyFQFuUEem-Ctg6fJChmg _WUe1sFuUEem-Ctg6fJChmg _ZAaQcFuUEem-Ctg6fJChmg _fCWkwFuUEem-Ctg6fJChmg _p7USYFuUEem-Ctg6fJChmg _yW9pAFuUEem-Ctg6fJChmg _5gM8kFuUEem-Ctg6fJChmg _9ID0EFuUEem-Ctg6fJChmg _ba0A4FuVEem-Ctg6fJChmg _rlanQFuVEem-Ctg6fJChmg _v_ZfQFuVEem-Ctg6fJChmg _1HwgMFuVEem-Ctg6fJChmg _3iO-kFuVEem-Ctg6fJChmg _8WQuQFuVEem-Ctg6fJChmg _9-BWQFuVEem-Ctg6fJChmg _xit2sFuWEem-Ctg6fJChmg _1u-bwFuWEem-Ctg6fJChmg _5Lj3YFuWEem-Ctg6fJChmg __36aoFuWEem-Ctg6fJChmg _BexDsFuXEem-Ctg6fJChmg _DmN4YFuXEem-Ctg6fJChmg _Jy7SQFuXEem-Ctg6fJChmg _ORIi8FuXEem-Ctg6fJChmg" width="540">
       <target xmi:type="ecore:EPackage" href="esdl.ecore#/"/>
       <semanticElements xmi:type="ecore:EPackage" href="esdl.ecore#/"/>
       <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedColumnMappings.0"/>
