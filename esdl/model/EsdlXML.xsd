@@ -11,7 +11,7 @@ The Github repository is at [https://github.com/EnergyTransition/ESDL](https://g
 For more information about ESDL, see the [ESDL gitbook](https://energytransition.gitbook.io/esdl)
 A browseable version of this model is found at [https://energytransition.github.io/](https://energytransition.github.io/)
 
-ESDL version: $version
+ESDL version: $Version$
 Git commit hash $Id$</xsd:documentation>
   </xsd:annotation>
   <xsd:simpleType name="CommodityEnum">
@@ -697,17 +697,57 @@ Git commit hash $Id$</xsd:documentation>
       <xsd:documentation>This is the main class to describe an EnergySystem in ESDL. Each energy system description should start with this class. More information about ESDL and the Energy System can be found in the gitbook at https://energytransition.gitbook.io/esdl/</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element maxOccurs="unbounded" minOccurs="0" name="sector" type="esdl:SectorEnum"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="measures" type="esdl:Measures"/>
-      <xsd:element maxOccurs="unbounded" minOccurs="0" name="instance" type="esdl:Instance"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="energySystemInformation" type="esdl:EnergySystemInformation"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="parties" type="esdl:Parties"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="services" type="esdl:Services"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="sector" type="esdl:SectorEnum">
+        <xsd:annotation>
+          <xsd:documentation>(experimental) A selection of sectors that is relevant for this energy system </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="measures" type="esdl:Measures">
+        <xsd:annotation>
+          <xsd:documentation>The collection of measures that can be applied in this energy system by models and tools</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="instance" type="esdl:Instance">
+        <xsd:annotation>
+          <xsd:documentation> Instances are used to represent different representations of the same EnergySystem. Most of the times only one Instance will be used. The primary use case for having more than one Instance is when you have different aggregations of the same EnergySystem in the same model (e.g. the same region on house level and aggregated on neighbourhood level). Another option would be to create different instances for different years (to describe the progress of the energy transition).</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="energySystemInformation" type="esdl:EnergySystemInformation">
+        <xsd:annotation>
+          <xsd:documentation>The EnergySystemInformation class is a container for additional information about the EnergySystem in general, such as profiles, energy carriers, data sources, etc. You can refer to these in other parts of the energy system description.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="parties" type="esdl:Parties">
+        <xsd:annotation>
+          <xsd:documentation>Parties involved in the EnergySystem, e.g. to model ownership of assets or areas.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="services" type="esdl:Services">
+        <xsd:annotation>
+          <xsd:documentation>(experimental) Abstract information like services (demand response, aggregator services), energy markets and control strategies.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
-    <xsd:attribute name="name" type="xsd:string"/>
-    <xsd:attribute name="description" type="xsd:string"/>
-    <xsd:attribute name="geographicalScope" type="xsd:string"/>
-    <xsd:attribute name="id" type="xsd:string"/>
+    <xsd:attribute name="name" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Name of the energy system</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="description" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>A description of the energy system</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="geographicalScope" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Geographical scope of the energy system as a text. In the area itself you can define the scope in more detail</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="id" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>A unique identifier for this energy system</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
   <xsd:element name="EnergySystem" type="esdl:EnergySystem">
     <xsd:annotation>
@@ -841,8 +881,16 @@ Git commit hash $Id$</xsd:documentation>
       <xsd:documentation>The Area class represents a physical geographic area or a more abstract logical area. In both cases it is the 'asset container', in a sense that all assets within the area are contained by the Area instance.</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element maxOccurs="1" minOccurs="0" name="socialProperties" type="esdl:SocialProperties"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="economicProperties" type="esdl:EconomicProperties"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="socialProperties" type="esdl:SocialProperties">
+        <xsd:annotation>
+          <xsd:documentation>(experimental) Used to model social aspects of the area, such as population density, number of inhabitants, etc.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="economicProperties" type="esdl:EconomicProperties">
+        <xsd:annotation>
+          <xsd:documentation>(experimental) Used to model economic properties of this area, such as income, WOZ-value, etc.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset">
         <xsd:annotation>
           <xsd:documentation>contains all the assets in this area, both Buildings and EnergyAssets</xsd:documentation>
@@ -853,8 +901,16 @@ Git commit hash $Id$</xsd:documentation>
           <xsd:documentation>contains all sub areas of this area</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element maxOccurs="1" minOccurs="0" name="mobilityProperties" type="esdl:MobilityProperties"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="KPIs" type="esdl:KPIs"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="mobilityProperties" type="esdl:MobilityProperties">
+        <xsd:annotation>
+          <xsd:documentation>(experimental) Describes the number of vehicles and types in this area</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="KPIs" type="esdl:KPIs">
+        <xsd:annotation>
+          <xsd:documentation>List of KPIs relevant for this area</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="potential" type="esdl:Potential">
         <xsd:annotation>
           <xsd:documentation>Contains all energy potentials of this area, such as geothermal potential and wind potential</xsd:documentation>
@@ -866,18 +922,46 @@ Git commit hash $Id$</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
-    <xsd:attribute name="id" type="xsd:string"/>
-    <xsd:attribute name="name" type="xsd:string"/>
-    <xsd:attribute default="UNDEFINED" name="scope" type="esdl:AreaScopeEnum"/>
+    <xsd:attribute name="id" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Unique id of this area</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="name" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Name for this area</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute default="UNDEFINED" name="scope" type="esdl:AreaScopeEnum">
+      <xsd:annotation>
+        <xsd:documentation>The scope that this area describes, such as Country, Province, Energy Region, etc.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
     <xsd:attribute name="type" type="esdl:AreaTypeEnum">
       <xsd:annotation>
         <xsd:documentation>Type of area (e.g. road, terrain, water, etc.)</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="geometryReference" type="xsd:string"/>
-    <xsd:attribute name="buildingDensity" type="xsd:double"/>
-    <xsd:attribute name="containingArea" type="xsd:string"/>
-    <xsd:attribute name="isOwnedBy" type="xsd:string"/>
+    <xsd:attribute name="geometryReference" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>(experimental) Defines a URI to reference the geometric shape of this area</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="buildingDensity" type="xsd:double">
+      <xsd:annotation>
+        <xsd:documentation>(experimental) Defines the number of buildings per m2</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="containingArea" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Refers to the area that contains this area, if not the top-level area</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="isOwnedBy" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Refers to the party owning the area (usually a government)</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
   <xsd:element name="Area" type="esdl:Area">
     <xsd:annotation>
@@ -895,7 +979,11 @@ Git commit hash $Id$</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
-    <xsd:attribute name="id" type="xsd:string"/>
+    <xsd:attribute name="id" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Unique identifier for this port</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
     <xsd:attribute name="maxPower" type="xsd:double">
       <xsd:annotation>
         <xsd:documentation>Maximum power in Watt</xsd:documentation>
@@ -906,8 +994,16 @@ Git commit hash $Id$</xsd:documentation>
         <xsd:documentation>simultaneous power in Watt (under discussion)</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="name" type="xsd:string"/>
-    <xsd:attribute name="energyasset" type="xsd:string"/>
+    <xsd:attribute name="name" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Name of the port</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="energyasset" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Refers to the parent asset this port belongs to</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
     <xsd:attribute name="carrier" type="xsd:string">
       <xsd:annotation>
         <xsd:documentation>Defines the carrier of this port</xsd:documentation>
@@ -1564,20 +1660,51 @@ Git commit hash $Id$</xsd:documentation>
   </xsd:complexType>
   <xsd:element name="HeatExchange" type="esdl:HeatExchange"/>
   <xsd:complexType abstract="true" name="Item">
+    <xsd:annotation>
+      <xsd:documentation>Class describing an abstract thing in an energy system. It is the parent of many other classes in ESDL, such as Assets, Services and Potentials. Parties can own Items</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
-      <xsd:element maxOccurs="1" minOccurs="0" name="dataSource" type="esdl:AbstractDataSource"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="dataSource" type="esdl:AbstractDataSource">
+        <xsd:annotation>
+          <xsd:documentation>Reference to the datasource where the information in this object is coming from</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
-    <xsd:attribute name="id" type="xsd:string"/>
-    <xsd:attribute name="name" type="xsd:string"/>
-    <xsd:attribute name="shortName" type="xsd:string"/>
-    <xsd:attribute name="description" type="xsd:string"/>
+    <xsd:attribute name="id" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Unique identifier for this object</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="name" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Name describing this object</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="shortName" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Short name for this object, e.g. used in legends of graphs in presentations</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="description" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Human readable description of this object</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
     <xsd:attribute name="originalIdInSource" type="xsd:string">
       <xsd:annotation>
         <xsd:documentation>ID of item in the original data source. Can be used to make links to the original data</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="isOwnedBy" type="xsd:string"/>
-    <xsd:attribute name="sector" type="xsd:string"/>
+    <xsd:attribute name="isOwnedBy" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Refers to the owner of this object</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="sector" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Refers to the sector this object is used in</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
   <xsd:complexType name="Measures">
     <xsd:sequence>
@@ -1635,17 +1762,52 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="Instance">
+    <xsd:annotation>
+      <xsd:documentation> Instances are used to represent different representations of the same EnergySystem. Most of the times only one Instance will be used. The primary use case for having more than one Instance is when you have different aggregations of the same EnergySystem in the same model (e.g. the same region on house level and aggregated on neighbourhood level). Another option would be to create different instances for different years (to describe the progress of the energy transition).</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
-      <xsd:element maxOccurs="1" minOccurs="0" name="area" type="esdl:Area"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="date" type="esdl:AbstractInstanceDate"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="area" type="esdl:Area">
+        <xsd:annotation>
+          <xsd:documentation>Top level area of this instance</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="date" type="esdl:AbstractInstanceDate">
+        <xsd:annotation>
+          <xsd:documentation>Defines the time aspect of the data in this instance, e.g. a snapshot in time or a range in time where this instance is valid</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
-    <xsd:attribute name="id" type="xsd:string"/>
-    <xsd:attribute name="name" type="xsd:string"/>
-    <xsd:attribute name="description" type="xsd:string"/>
-    <xsd:attribute default="UNDEFINED" name="detailLevel" type="esdl:AreaScopeEnum"/>
-    <xsd:attribute name="aggrType" type="esdl:AggrTypeEnum"/>
+    <xsd:attribute name="id" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Unique identifier for this instance</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="name" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Name of the instance</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="description" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Human readable description of this instance</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute default="UNDEFINED" name="detailLevel" type="esdl:AreaScopeEnum">
+      <xsd:annotation>
+        <xsd:documentation>(experimental) Scope of the instance, e.g. Country or Municipality</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="aggrType" type="esdl:AggrTypeEnum">
+      <xsd:annotation>
+        <xsd:documentation>(experimental) defines how the data in this instance is aggregated, e.g. by commodity, total energy, per capability, etc.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
-  <xsd:element name="Instance" type="esdl:Instance"/>
+  <xsd:element name="Instance" type="esdl:Instance">
+    <xsd:annotation>
+      <xsd:documentation> Instances are used to represent different representations of the same EnergySystem. Most of the times only one Instance will be used. The primary use case for having more than one Instance is when you have different aggregations of the same EnergySystem in the same model (e.g. the same region on house level and aggregated on neighbourhood level). Another option would be to create different instances for different years (to describe the progress of the energy transition).</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType abstract="true" name="Service">
     <xsd:complexContent>
       <xsd:extension base="esdl:Item"/>
