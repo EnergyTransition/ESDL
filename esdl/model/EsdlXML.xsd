@@ -2544,19 +2544,12 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Defines a distribution in terms of 'from' and 'to'</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
-  <xsd:complexType name="FromToPerc">
+  <xsd:complexType abstract="true" name="FromToPerc">
     <xsd:annotation>
       <xsd:documentation>Defines a range and a percentage, used in the FromToDistribution class</xsd:documentation>
     </xsd:annotation>
-    <xsd:attribute name="from" type="xsd:double"/>
-    <xsd:attribute name="to" type="xsd:double"/>
     <xsd:attribute name="percentage" type="xsd:double"/>
   </xsd:complexType>
-  <xsd:element name="FromToPerc" type="esdl:FromToPerc">
-    <xsd:annotation>
-      <xsd:documentation>Defines a range and a percentage, used in the FromToDistribution class</xsd:documentation>
-    </xsd:annotation>
-  </xsd:element>
   <xsd:complexType name="PItemStat">
     <xsd:annotation>
       <xsd:documentation>(experimental) Used to define statistical information</xsd:documentation>
@@ -3081,15 +3074,13 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:attribute name="description" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="KPIs" type="esdl:KPIs"/>
-  <xsd:complexType name="KPI">
+  <xsd:complexType abstract="true" name="KPI">
     <xsd:sequence>
       <xsd:element maxOccurs="1" minOccurs="0" name="quantityAndUnit" type="esdl:AbstractQuantityAndUnit"/>
     </xsd:sequence>
     <xsd:attribute name="id" type="xsd:string"/>
     <xsd:attribute name="name" type="xsd:string"/>
-    <xsd:attribute name="value" type="xsd:double"/>
   </xsd:complexType>
-  <xsd:element name="KPI" type="esdl:KPI"/>
   <xsd:complexType name="QuantityAndUnits">
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="quantityAndUnit" type="esdl:QuantityAndUnitType"/>
@@ -3501,8 +3492,6 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="BuildingUsageReference" type="esdl:BuildingUsageReference"/>
-  <xsd:complexType name="NewEClass198"/>
-  <xsd:element name="NewEClass198" type="esdl:NewEClass198"/>
   <xsd:complexType name="BuildingUsageInformation">
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="buildingUsage" type="esdl:BuildingUsage"/>
@@ -3555,4 +3544,46 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:attribute name="percentage" type="xsd:double"/>
   </xsd:complexType>
   <xsd:element name="HousingTypePercentage" type="esdl:HousingTypePercentage"/>
+  <xsd:complexType name="DoubleKPI">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:KPI">
+        <xsd:attribute name="value" type="xsd:double"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DoubleKPI" type="esdl:DoubleKPI"/>
+  <xsd:complexType name="StringKPI">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:KPI">
+        <xsd:attribute name="value" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="StringKPI" type="esdl:StringKPI"/>
+  <xsd:complexType name="IntKPI">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:KPI">
+        <xsd:attribute name="value" type="xsd:int"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IntKPI" type="esdl:IntKPI"/>
+  <xsd:complexType name="FromToIntPerc">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:FromToPerc">
+        <xsd:attribute name="from" type="xsd:int"/>
+        <xsd:attribute name="to" type="xsd:int"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="FromToIntPerc" type="esdl:FromToIntPerc"/>
+  <xsd:complexType name="FromToDoublePerc">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:FromToPerc">
+        <xsd:attribute name="from" type="xsd:double"/>
+        <xsd:attribute name="to" type="xsd:double"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="FromToDoublePerc" type="esdl:FromToDoublePerc"/>
 </xsd:schema>

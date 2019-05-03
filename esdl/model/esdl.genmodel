@@ -943,8 +943,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//FromToDistribution/fromToPerc"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//FromToPerc">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//FromToPerc/from"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//FromToPerc/to"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//FromToPerc/percentage"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//PItemStat">
@@ -1141,7 +1139,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//KPI/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//KPI/name"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//KPI/quantityAndUnit"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//KPI/value"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//QuantityAndUnits">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//QuantityAndUnits/quantityAndUnit"/>
@@ -1308,7 +1305,6 @@
     <genClasses ecoreClass="esdl.ecore#//BuildingUsageReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//BuildingUsageReference/reference"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//NewEClass198"/>
     <genClasses ecoreClass="esdl.ecore#//BuildingUsageInformation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//BuildingUsageInformation/buildingUsage"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUsageInformation/id"/>
@@ -1333,6 +1329,23 @@
     <genClasses ecoreClass="esdl.ecore#//HousingTypePercentage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HousingTypePercentage/housingType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HousingTypePercentage/percentage"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//DoubleKPI">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleKPI/value"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//StringKPI">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StringKPI/value"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//IntKPI">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//IntKPI/value"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//FromToIntPerc">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//FromToIntPerc/from"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//FromToIntPerc/to"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//FromToDoublePerc">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//FromToDoublePerc/from"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//FromToDoublePerc/to"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
