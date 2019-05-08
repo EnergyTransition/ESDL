@@ -458,11 +458,12 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatRadiationDeviceTypeEnum/FLOOR_HEATING"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatRadiationDeviceTypeEnum/WALL_HEATING"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatRadiationDeviceTypeEnum/INFRARED_PANEL"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatRadiationDeviceTypeEnum/AIR_HANDLING_UNIT"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//CoolingDeviceType">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CoolingDeviceType/UNDEFINED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CoolingDeviceType/FLOOR_COOLING"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CoolingDeviceType/AIR_CONDITIONING"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CoolingDeviceType/AIR_HANDLING_UNIT"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//RoomHeaterTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//RoomHeaterTypeEnum/UNDEFINED"/>
@@ -1184,13 +1185,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVInstallation/numberOfPanels"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//CircuitBraker"/>
-    <genClasses ecoreClass="esdl.ecore#//MeasuresCollection">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MeasuresCollection/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MeasuresCollection/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MeasuresCollection/asset"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MeasuresCollection/costInformation"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MeasuresCollection/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MeasuresCollection/dataSource"/>
+    <genClasses ecoreClass="esdl.ecore#//MeasuresCombination">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MeasuresCombination/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MeasuresCombination/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MeasuresCombination/asset"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MeasuresCombination/costInformation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MeasuresCombination/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MeasuresCombination/dataSource"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WaterToPower">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WaterToPower/type"/>
