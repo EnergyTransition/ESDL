@@ -1,0 +1,150 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>nl.tno.esdl</groupId>
+	<artifactId>esdl.parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>Parent project for ESDL</name>
+	<description>This is the parent project that describes the global properties of a Tycho-based build of ESDL. Use 'mvn clean install' to build ESDL in this folder</description>
+	<packaging>pom</packaging>
+
+	<properties>
+		<!-- Use esdl.version to set the qualifier version for the released ESDL-plugins e.g. v1905 -->
+		<!-- This should be the same as the GIT tag of this release -->
+		<esdl.version>v190513</esdl.version>
+		<tycho.version>1.4.0</tycho.version>
+		<xtext.version>2.17.0</xtext.version>
+		<emf.version>2.15.0</emf.version>
+		<mwe2.version>2.10.0</mwe2.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<modules>
+		<module>../esdl.buildtools</module> <!--  build tools project needs to be build first -->
+		<module>../esdl</module>
+		<module>../esdl.edit</module>
+		<module>../esdl.editor</module>
+		<module>../../esdl-designer</module> <!--  next three are in their own repositories -->
+		<module>../../esdl-designer-feature</module>
+		<module>../../esdl-update-site</module>
+
+	</modules>
+
+
+
+	<repositories>
+		<repository>
+			<id>eclipse-2019-03</id>
+			<url>http://download.eclipse.org/releases/2019-03</url>
+			<layout>p2</layout>
+		</repository>
+	</repositories>
+
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<!-- enable tycho build extension -->
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>get-the-git-infos</id>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+						<!-- *NOTE*: The default phase of revision is initialize, but in case 
+							you want to change it, you can do so by adding the phase here -->
+						<phase>initialize</phase>
+					</execution>
+					<execution>
+						<id>validate-the-git-infos</id>
+						<goals>
+							<goal>validateRevision</goal>
+						</goals>
+						<!-- *NOTE*: The default phase of validateRevision is verify, but in 
+							case you want to change it, you can do so by adding the phase here -->
+						<phase>package</phase>
+					</execution>
+				</executions>
+				<configuration>
+					<skipPoms>false</skipPoms> <!-- only run on the parent project -->
+					<verbose>true</verbose>
+					<runOnlyOnce>true</runOnlyOnce>
+					<dotGitDirectory>${project.basedir}/../.git</dotGitDirectory>
+					<gitDescribe>
+						<dirty>-dev</dirty>
+					</gitDescribe>
+<!-- 					<validationProperties> -->
+<!-- 						<validationProperty> -->
+<!-- 							<name>validating current commit has a tag</name> -->
+<!-- 							<value>${git.closest.tag.commit.count}</value> -->
+<!-- 							<shouldMatchTo>0</shouldMatchTo> -->
+<!-- 						</validationProperty> -->
+<!-- 					</validationProperties> -->
+<!-- 					<replacementProperties> -->
+<!-- 				         <replacementProperty> -->
+<!-- 				            <property>esdl.version</property> -->
+<!-- 				            <token>^.*$</token> -->
+<!-- 				            <value>${git.closest.tag.name}</value> -->
+<!-- 				            <regex>false</regex> -->
+<!-- 				         </replacementProperty> -->
+<!-- 					</replacementProperties> -->
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<!-- <dependencies> -->
+				<!-- <dependency> -->
+				<!-- <groupId>org.eclipse.tycho.extras</groupId> -->
+				<!-- <artifactId>tycho-buildtimestamp-jgit</artifactId> -->
+				<!-- <version>${tycho-extras.version}</version> -->
+				<!-- </dependency> -->
+				<!-- </dependencies> -->
+				<configuration>
+					<!-- <strictBinIncludes>false</strictBinIncludes> -->
+					<!-- <format>'rev${rev}-'yyyyMMdd-HHmm</format> -->
+					<!-- <format>'v'yyMM</format> -->
+<!-- 					<format>${git.closest.tag.name}</format> -->
+<!-- 					<forceContextQualifier>${git.closest.tag.name}</forceContextQualifier> -->
+					<forceContextQualifier>${esdl.version}</forceContextQualifier>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
