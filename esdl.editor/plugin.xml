@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ TNO
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated esdl -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="esdl.presentation.EsdlModelWizardID"
+            name="%_UI_EsdlModelWizard_label"
+            class="esdl.presentation.EsdlModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/EsdlModelFile.gif">
+         <description>%_UI_EsdlModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated esdl -->
+      <editor
+            id="esdl.presentation.EsdlEditorID"
+            name="%_UI_EsdlEditor_label"
+            icon="icons/full/obj16/EsdlModelFile.gif"
+            extensions="esdl"
+            class="esdl.presentation.EsdlEditor"
+            contributorClass="esdl.presentation.EsdlActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

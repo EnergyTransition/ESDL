@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>esdl.edit</artifactId>
+	<name>ESDL Edit support plugin</name>
+	<description>Edit support plugin for ESDL in Eclipse. Is required by the ESDL tree editor and ESDl Designer</description>
+	<packaging>eclipse-plugin</packaging>
+
+	<parent>
+		<artifactId>esdl.parent</artifactId>
+		<groupId>nl.tno.esdl</groupId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../esdl.parent</relativePath>
+	</parent>
+
+
+</project>
