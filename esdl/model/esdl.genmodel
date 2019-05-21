@@ -699,8 +699,10 @@
     <genClasses ecoreClass="esdl.ecore#//SourceProducer"/>
     <genClasses ecoreClass="esdl.ecore#//SinkConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//Pipe">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pipe/diameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pipe/innerDiameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pipe/outerDiameter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pipe/length"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pipe/roughness"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GeothermalSource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalSource/wellDepth"/>
@@ -1347,6 +1349,10 @@
     <genClasses ecoreClass="esdl.ecore#//FromToDoublePerc">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//FromToDoublePerc/from"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//FromToDoublePerc/to"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//Material">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Material/density"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Material/stateOfMatter"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
