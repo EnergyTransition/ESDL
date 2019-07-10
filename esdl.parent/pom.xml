@@ -10,24 +10,47 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<!-- Use esdl.version to set the qualifier version for the released ESDL-plugins e.g. v1905 -->
+		<!-- Use esdl.version to set the qualifier version for the released ESDL-plugins 
+			e.g. v1905 -->
 		<!-- This should be the same as the GIT tag of this release -->
-		<esdl.version>v1905-3-g940441e</esdl.version>
+		<esdl.version>v1905-5-g1d691eb</esdl.version>
 		<tycho.version>1.4.0</tycho.version>
-		<xtext.version>2.17.0</xtext.version>
-		<emf.version>2.15.0</emf.version>
-		<mwe2.version>2.10.0</mwe2.version>
+		<xtext.version>2.18.0</xtext.version>
+		<emf.version>2.16.0</emf.version>
+		<emfecore.version>2.18.0</emfecore.version>
+		<mwe2.version>2.11.0</mwe2.version> <!--  2.11.0 has an old dependency issue -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<profiles>
+		<profile>
+			<id>default</id>
+			<!-- build only esdl, not the other projects -->
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<module>../esdl.buildtools</module> <!-- build tools project needs to be build first -->
+				<module>../esdl</module>
+				<module>../esdl.edit</module>
+				<module>../esdl.editor</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>designer</id>
+			<modules>
+				<module>../esdl.buildtools</module> <!-- build tools project needs to be build first -->
+				<module>../esdl</module>
+				<module>../esdl.edit</module>
+				<module>../esdl.editor</module>
+				<module>../../esdl-designer</module> <!-- next three are in their own repositories -->
+				<module>../../esdl-designer-feature</module>
+				<module>../../esdl-update-site</module>
+			</modules>
+		</profile>
+	</profiles>
+
 	<modules>
-		<module>../esdl.buildtools</module> <!--  build tools project needs to be build first -->
-		<module>../esdl</module>
-		<module>../esdl.edit</module>
-		<module>../esdl.editor</module>
-		<module>../../esdl-designer</module> <!--  next three are in their own repositories -->
-		<module>../../esdl-designer-feature</module>
-		<module>../../esdl-update-site</module>
 
 	</modules>
 
@@ -102,27 +125,27 @@
 				</executions>
 				<configuration>
 					<skipPoms>false</skipPoms> <!-- only run on the parent project -->
-					<verbose>true</verbose>
+					<verbose>false</verbose>
 					<runOnlyOnce>true</runOnlyOnce>
 					<dotGitDirectory>${project.basedir}/../.git</dotGitDirectory>
 					<gitDescribe>
 						<dirty>-dev</dirty>
 					</gitDescribe>
-<!-- 					<validationProperties> -->
-<!-- 						<validationProperty> -->
-<!-- 							<name>validating current commit has a tag</name> -->
-<!-- 							<value>${git.closest.tag.commit.count}</value> -->
-<!-- 							<shouldMatchTo>0</shouldMatchTo> -->
-<!-- 						</validationProperty> -->
-<!-- 					</validationProperties> -->
-<!-- 					<replacementProperties> -->
-<!-- 				         <replacementProperty> -->
-<!-- 				            <property>esdl.version</property> -->
-<!-- 				            <token>^.*$</token> -->
-<!-- 				            <value>${git.closest.tag.name}</value> -->
-<!-- 				            <regex>false</regex> -->
-<!-- 				         </replacementProperty> -->
-<!-- 					</replacementProperties> -->
+					<!-- <validationProperties> -->
+					<!-- <validationProperty> -->
+					<!-- <name>validating current commit has a tag</name> -->
+					<!-- <value>${git.closest.tag.commit.count}</value> -->
+					<!-- <shouldMatchTo>0</shouldMatchTo> -->
+					<!-- </validationProperty> -->
+					<!-- </validationProperties> -->
+					<!-- <replacementProperties> -->
+					<!-- <replacementProperty> -->
+					<!-- <property>esdl.version</property> -->
+					<!-- <token>^.*$</token> -->
+					<!-- <value>${git.closest.tag.name}</value> -->
+					<!-- <regex>false</regex> -->
+					<!-- </replacementProperty> -->
+					<!-- </replacementProperties> -->
 				</configuration>
 			</plugin>
 			<plugin>
@@ -140,8 +163,8 @@
 					<!-- <strictBinIncludes>false</strictBinIncludes> -->
 					<!-- <format>'rev${rev}-'yyyyMMdd-HHmm</format> -->
 					<!-- <format>'v'yyMM</format> -->
-<!-- 					<format>${git.closest.tag.name}</format> -->
-<!-- 					<forceContextQualifier>${git.closest.tag.name}</forceContextQualifier> -->
+					<!-- <format>${git.closest.tag.name}</format> -->
+					<!-- <forceContextQualifier>${git.closest.tag.name}</forceContextQualifier> -->
 					<forceContextQualifier>${esdl.version}</forceContextQualifier>
 				</configuration>
 			</plugin>
