@@ -503,6 +503,11 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//InterpolationMethodEnum/NEXT"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//InterpolationMethodEnum/OTHER"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//PipeDiameterEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/VALUE_SPECIFIED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN20"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN25"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/controlStrategy"/>
@@ -703,6 +708,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pipe/outerDiameter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pipe/length"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pipe/roughness"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pipe/diameter"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GeothermalSource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalSource/wellDepth"/>
@@ -1186,7 +1192,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVInstallation/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVInstallation/numberOfPanels"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//CircuitBraker"/>
+    <genClasses ecoreClass="esdl.ecore#//CircuitBreaker"/>
     <genClasses ecoreClass="esdl.ecore#//MeasuresCombination">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MeasuresCombination/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MeasuresCombination/name"/>
