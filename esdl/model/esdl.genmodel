@@ -474,7 +474,7 @@
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//BiomassHeaterTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BiomassHeaterTypeEnum/UNDEFINED"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BiomassHeaterTypeEnum/FULLY_AUTOMATD"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BiomassHeaterTypeEnum/FULLY_AUTOMATED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BiomassHeaterTypeEnum/SEMI_AUTOMATED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BiomassHeaterTypeEnum/PELLET_FIRED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BiomassHeaterTypeEnum/CHP"/>
@@ -505,8 +505,35 @@
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//PipeDiameterEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/VALUE_SPECIFIED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN6"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN8"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN10"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN15"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN20"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN25"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN32"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN40"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN50"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN65"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN80"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN100"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN125"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN150"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN200"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN250"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN300"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN350"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN400"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN450"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN500"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN600"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN650"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN700"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN800"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN900"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN1000"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN1100"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN1200"/>
     </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>

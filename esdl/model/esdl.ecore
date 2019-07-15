@@ -2491,18 +2491,35 @@
     <eLiterals name="INFRARED_PANEL" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BiomassPotential" eSuperTypes="#//Potential">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Defines the biomass potential in a specific area."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0.0"/>
+        defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The amount of biomass in Joule"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BiomassHeater" eSuperTypes="#//Conversion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BiomassHeater" eSuperTypes="#//Conversion">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Converts biomass into heat and/or electricity"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="BiomassHeaterTypeEnum">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies the type of the BiomassHeater, such as CHP"/>
+    </eAnnotations>
     <eLiterals name="UNDEFINED"/>
-    <eLiterals name="FULLY_AUTOMATD" value="1"/>
+    <eLiterals name="FULLY_AUTOMATED" value="1"/>
     <eLiterals name="SEMI_AUTOMATED" value="2"/>
     <eLiterals name="PELLET_FIRED" value="3"/>
     <eLiterals name="CHP" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="UTESPotentialTypeEnum">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Defines the type of the UTES potential, such as an open source for heat or cold."/>
+    </eAnnotations>
     <eLiterals name="UNDEFINED"/>
     <eLiterals name="HEAT_OPEN" value="1"/>
     <eLiterals name="HEAT_CLOSED" value="2"/>
@@ -2510,13 +2527,31 @@
     <eLiterals name="COLD_CLOSED" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UTES" eSuperTypes="#//HeatStorage">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Underground Thermal Energy Storage"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//UTESTypeEnum"
-        defaultValueLiteral="UNDEFINED"/>
+        defaultValueLiteral="UNDEFINED">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies the type of the UTES, e.g. ATES (Aquifer), BTES (Borehole) and CTES (Cavern)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="UTESPotential" eType="#//UTESPotential"
-        eOpposite="#//UTESPotential/UTES"/>
+        eOpposite="#//UTESPotential/UTES">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference to the potential area for this UTES"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="WaterBuffer" eSuperTypes="#//HeatStorage"/>
+  <eClassifiers xsi:type="ecore:EClass" name="WaterBuffer" eSuperTypes="#//HeatStorage">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Storage by means of storing energy in water, e.g. a tank."/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="UTESTypeEnum">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Defines the different types of UTES, e.g. ATES (Aquifer), BTES (Borehole) and CTES (Cavern)"/>
+    </eAnnotations>
     <eLiterals name="UNDEFINED"/>
     <eLiterals name="AQUIFER_TES" value="1"/>
     <eLiterals name="BOREHOLE_TES" value="2"/>
@@ -2524,9 +2559,20 @@
     <eLiterals name="OTHER" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Glass" eSuperTypes="#//Asset">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uWindow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Allows to specify the glass of a building, e.g. for calculating heat loss"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uWindow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The u-value of the window (thermal isolation) in W/m2.K"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="glasType" eType="#//GlassTypeEnum"
-        defaultValueLiteral="UNDEFINED"/>
+        defaultValueLiteral="UNDEFINED">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Enumeration of different types of glass, such as HR++"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="InterpolationMethodEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2558,7 +2604,14 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SearchAreaWind" eSuperTypes="#//Potential">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullLoadHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies search areas for wind turbines"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullLoadHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies expected full load hours in this search area"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="area" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="in m2"/>
@@ -2566,7 +2619,14 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SearchAreaSolar" eSuperTypes="#//Potential">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullLoadHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies search areas for solar installations"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullLoadHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies expected full load hours in this search area"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="area" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="in m2"/>
@@ -2575,7 +2635,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Joint" eSuperTypes="#//AbstractConductor">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A Joint is a means to connect AbstractConductors. This helps when these conductors have opposite Ports."/>
+      <details key="documentation" value="A Joint is a means to connect AbstractConductors, such as Pipes and ElectricalCables. This helps when these conductors have opposite Ports."/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StorageStrategy" eSuperTypes="#//ControlStrategy">
@@ -2597,99 +2657,246 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PVTInstallation" eSuperTypes="#//Producer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PVTInstallation" eSuperTypes="#//Producer">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Defines an installation that combines PV and thermal energy collection"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuildingUsage" eSuperTypes="#//AbstractBuildingUsage">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Collection of information about the usage of a building, such as temperature set points and opening hours."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Name of the usage"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="coolingSetpoints" eType="#//WeekSchedule"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies the week schedule for cooling"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="heatingSetpoints" eType="#//WeekSchedule"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies the week schedule for heating"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="openingHours" eType="#//WeekSchedule"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies the week schedule for opening hours"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WeekSchedule">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies a week schedule for building usage"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mon" eType="#//DaySchedule"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies a day schedule"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tue" eType="#//DaySchedule"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies a day schedule"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="wed" eType="#//DaySchedule"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies a day schedule"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="thu" eType="#//DaySchedule"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies a day schedule"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fri" eType="#//DaySchedule"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies a day schedule"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sat" eType="#//DaySchedule"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies a day schedule"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sun" eType="#//DaySchedule"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies a day schedule"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="weekdays" eType="#//DaySchedule"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies a day schedule"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="weekenddays" eType="#//DaySchedule"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies a day schedule"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DaySchedule">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies a day schedule as part of a week schedule. A day schedule is a collection of events with a timestamp"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="event" upperBound="-1"
-        eType="#//Event" containment="true"/>
+        eType="#//Event" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Collection of events with a timestamp"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Event">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Event with a timestamp"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="time" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Time at which the event occurs, e.g. 10:00"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Description of the event"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies a value in an event, such as a setpoint temperature, on/off, etc."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractBuildingUsage" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractBuildingUsage" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract class to support references to building usages"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuildingUsageReference" eSuperTypes="#//AbstractBuildingUsage">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies a reference to building usage (such as opening hours)"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="reference" lowerBound="1"
         eType="#//BuildingUsage"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuildingUsageInformation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Part of Energy System Information that specifies generic building usage information that can be referenced from multiple individual buildings"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="buildingUsage" upperBound="-1"
-        eType="#//BuildingUsage" containment="true"/>
+        eType="#//BuildingUsage" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A reference to building usage of a building"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuildingTypeDistribution" eSuperTypes="#//LabelDistribution">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies the way the building type is distributed in this area (e.g. Utility, Residential), specifing the percentage of buildings per type."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="buildingTypePercentage"
-        upperBound="-1" eType="#//BuildingTypePercentage" containment="true"/>
+        upperBound="-1" eType="#//BuildingTypePercentage" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The distribution in percentages"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuildingTypePercentage">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies the percentage of the selected building type"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildingType" eType="#//BuildingTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ResidentialBuildingTypeDistribution"
       eSuperTypes="#//LabelDistribution">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies the way the residential building type is distributed in this area (e.g. Vrijstaande Woning, Hoekwoning, Flatwoning), specifing the percentage of buildings per residential type."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="residentialBuildingTypePercentage"
-        upperBound="-1" eType="#//ResidentialBuildingTypePercentage" containment="true"/>
+        upperBound="-1" eType="#//ResidentialBuildingTypePercentage" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The distribution in percentages"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ResidentialBuildingTypePercentage">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies the percentage of the selected residential building type"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="residentialBuildingType"
-        eType="#//ResidentialBuildingTypeEnum"/>
+        eType="#//ResidentialBuildingTypeEnum">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HousingTypeDistribution" eSuperTypes="#//LabelDistribution">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies the way the housing type is distributed in this area (e.g. Owner occupied, Housing Association, Private Rental), specifing the percentage of buildings per housing type."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="housingTypePercentage"
-        upperBound="-1" eType="#//HousingTypePercentage" containment="true"/>
+        upperBound="-1" eType="#//HousingTypePercentage" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The distribution in percentages"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HousingTypePercentage">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies the percentage of the selected housing type"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="housingType" eType="#//HousingTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DoubleKPI" eSuperTypes="#//KPI">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies a KPI value as a double"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringKPI" eSuperTypes="#//KPI">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies a KPI value as a string"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntKPI" eSuperTypes="#//KPI">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies a KPI value as an integer"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FromToIntPerc" eSuperTypes="#//FromToPerc">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies a percentage range as an integer value, as part of a distribution, e.g. for defining a period of years (1945-1960) in Aggregated Buildings"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FromToDoublePerc" eSuperTypes="#//FromToPerc">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Specifies a percentage range as an double value, as part of a distribution, e.g. for defining energy usage (2.5-5.0 GJ of hot tap water) in Aggregated Buildings"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
