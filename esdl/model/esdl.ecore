@@ -155,6 +155,7 @@
         <details key="documentation" value="A unique identifier for this energy system"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WindTurbine" eSuperTypes="#//Producer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -348,8 +349,8 @@
         <details key="documentation" value="Refers to the parent asset this port belongs to"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="profile" eType="#//GenericProfile"
-        containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="profile" upperBound="-1"
+        eType="#//GenericProfile" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Contains the profile attached to this port. Profiles "/>
       </eAnnotations>
@@ -513,6 +514,11 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="KPIs" eType="#//KPIs" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="assetType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="the type (e.g. model number) of the asset"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericConsumer" eSuperTypes="#//Consumer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2109,6 +2115,10 @@
     <eLiterals name="STATE_OF_CHARGE" value="13"/>
     <eLiterals name="VOLUME" value="14"/>
     <eLiterals name="AREA" value="15"/>
+    <eLiterals name="POWER_REACTIVE" value="16"/>
+    <eLiterals name="COMPOSITION" value="17"/>
+    <eLiterals name="FLOW" value="18"/>
+    <eLiterals name="STATE" value="19"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="UnitEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2142,6 +2152,8 @@
     <eLiterals name="ARE" value="25"/>
     <eLiterals name="HECTARE" value="26"/>
     <eLiterals name="PERCENT" value="27"/>
+    <eLiterals name="VOLT_AMPERE" value="28"/>
+    <eLiterals name="VOLT_AMPERE_REACTIVE" value="29"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractDataSource" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2276,7 +2288,16 @@
       <details key="documentation" value="Control strategy specifying that an asset is driven by a profile specified in one of the ports (used in ESDL-based simulation tools)"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="profile" eType="#//GenericProfile"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="the profile to use for the DrivenByProfile strategy. Depending on the purpose profiles can be power, energy, temperature, pressure, flow profiles (or any other type)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="port" eType="#//Port">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="a reference to the port for which the profile is relevant"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PVInstallation" eSuperTypes="#//PVPanel">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2380,6 +2401,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Abstract class to describe switches such as valve and a circuit breaker"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" eType="#//StateEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractTransformer" abstract="true"
       eSuperTypes="#//Transport">
@@ -2955,4 +2977,20 @@
     <eLiterals name="DN1100" value="1100" literal="DN1100"/>
     <eLiterals name="DN1200" value="1200" literal="DN1200"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Bus" eSuperTypes="#//AbstractConductor">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="voltage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractSensor" abstract="true" eSuperTypes="#//Transport"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//AbstractSensor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="quantityAndUnit" lowerBound="1"
+        eType="#//AbstractQuantityAndUnit" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="StateEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="OPEN" value="1"/>
+    <eLiterals name="CLOSED" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Switch" eSuperTypes="#//AbstractSwitch"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Compressor" eSuperTypes="#//AbstractTransformer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PressureReducingValve" eSuperTypes="#//AbstractTransformer"/>
 </ecore:EPackage>

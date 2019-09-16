@@ -11,7 +11,7 @@ The Github repository is at [https://github.com/EnergyTransition/ESDL](https://g
 For more information about ESDL, see the [ESDL gitbook](https://energytransition.gitbook.io/esdl)
 A browseable version of this model is found at [https://energytransition.github.io/](https://energytransition.github.io/)
 
-ESDL version: v1901-12-g1085a52#xD;
+ESDL version: v1905-3-g940441e
 Git commit hash $Id$</xsd:documentation>
   </xsd:annotation>
   <xsd:simpleType name="CommodityEnum">
@@ -412,6 +412,9 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="ResidualHeatSourceTypeEnum">
+    <xsd:annotation>
+      <xsd:documentation>Defines the types of residual heat sources</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="UNDEFINED"/>
       <xsd:enumeration value="INDUSTRIAL"/>
@@ -421,6 +424,9 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="MobilityFuelTypeEnum">
+    <xsd:annotation>
+      <xsd:documentation>Fuel type of the vehicle (category)</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="UNDEFINED"/>
       <xsd:enumeration value="PETROL"/>
@@ -435,6 +441,9 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="VehicleTypeEnum">
+    <xsd:annotation>
+      <xsd:documentation>Type of vehicle, e.g. car, truck, train</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="UNDEFINED"/>
       <xsd:enumeration value="CAR"/>
@@ -458,6 +467,9 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="MultiplierEnum">
+    <xsd:annotation>
+      <xsd:documentation>Defines the possible multipliers in QuantityAndUnitType</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="NONE"/>
       <xsd:enumeration value="KILO"/>
@@ -472,6 +484,9 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="PhysicalQuantityEnum">
+    <xsd:annotation>
+      <xsd:documentation>Defines the possible physical quantities in QuantityAndUnitType</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="UNDEFINED"/>
       <xsd:enumeration value="ENERGY"/>
@@ -489,9 +504,16 @@ Git commit hash $Id$</xsd:documentation>
       <xsd:enumeration value="STATE_OF_CHARGE"/>
       <xsd:enumeration value="VOLUME"/>
       <xsd:enumeration value="AREA"/>
+      <xsd:enumeration value="POWER_REACTIVE"/>
+      <xsd:enumeration value="COMPOSITION"/>
+      <xsd:enumeration value="FLOW"/>
+      <xsd:enumeration value="STATE"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="UnitEnum">
+    <xsd:annotation>
+      <xsd:documentation>Defines the possible units of a QuantityAndUnitType</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="NONE"/>
       <xsd:enumeration value="JOULE"/>
@@ -521,9 +543,14 @@ Git commit hash $Id$</xsd:documentation>
       <xsd:enumeration value="ARE"/>
       <xsd:enumeration value="HECTARE"/>
       <xsd:enumeration value="PERCENT"/>
+      <xsd:enumeration value="VOLT_AMPERE"/>
+      <xsd:enumeration value="VOLT_AMPERE_REACTIVE"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="TimeUnit">
+    <xsd:annotation>
+      <xsd:documentation>Defines the possible time units in a QuantityAndUnitType</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="NONE"/>
       <xsd:enumeration value="SECOND"/>
@@ -537,6 +564,9 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="GasConversionTypeEnum">
+    <xsd:annotation>
+      <xsd:documentation>Type of gas conversion, e.g. SMR or ATR</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="UNDEFINED"/>
       <xsd:enumeration value="SMR"/>
@@ -544,6 +574,9 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="PVInstallationTypeEnum">
+    <xsd:annotation>
+      <xsd:documentation>Type of PV installation, such as installed on roofs or as a field</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="UNDEFINED"/>
       <xsd:enumeration value="ROOFTOP_PV"/>
@@ -555,6 +588,9 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="WindTurbineTypeEnum">
+    <xsd:annotation>
+      <xsd:documentation>Type of wind turbine. E.g. on land, at sea, on a building, etc.</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="UNDEFINED"/>
       <xsd:enumeration value="WIND_ON_LAND"/>
@@ -564,6 +600,9 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="WaterToPowerTypeEnum">
+    <xsd:annotation>
+      <xsd:documentation>Defines the different types of WaterToPower, such as hydro power, tidal power.</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="UNDEFINED"/>
       <xsd:enumeration value="HYDRO_POWER"/>
@@ -573,6 +612,9 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="SolarCollectorTypeEnum">
+    <xsd:annotation>
+      <xsd:documentation>Defines the types of solar collectors, such as roof top, building integrated.</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="UNDEFINED"/>
       <xsd:enumeration value="ROOFTOP"/>
@@ -583,6 +625,9 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="HeatRadiationDeviceTypeEnum">
+    <xsd:annotation>
+      <xsd:documentation>Defines the types of heat radiation devices, such as high and low temperature radiators, floor heating, etc.</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="UNDEFINED"/>
       <xsd:enumeration value="HT_RADIATOR"/>
@@ -590,16 +635,23 @@ Git commit hash $Id$</xsd:documentation>
       <xsd:enumeration value="FLOOR_HEATING"/>
       <xsd:enumeration value="WALL_HEATING"/>
       <xsd:enumeration value="INFRARED_PANEL"/>
+      <xsd:enumeration value="AIR_HANDLING_UNIT"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="CoolingDeviceType">
+    <xsd:annotation>
+      <xsd:documentation>Defines the types of cooling devices, such as floor cooling and air conditioning</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="UNDEFINED"/>
       <xsd:enumeration value="FLOOR_COOLING"/>
-      <xsd:enumeration value="AIR_CONDITIONING"/>
+      <xsd:enumeration value="AIR_HANDLING_UNIT"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="RoomHeaterTypeEnum">
+    <xsd:annotation>
+      <xsd:documentation>Defines the types of a RoomHeater</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="UNDEFINED"/>
       <xsd:enumeration value="GAS_STOVE"/>
@@ -609,15 +661,21 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="BiomassHeaterTypeEnum">
+    <xsd:annotation>
+      <xsd:documentation>Specifies the type of the BiomassHeater, such as CHP</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="UNDEFINED"/>
-      <xsd:enumeration value="FULLY_AUTOMATD"/>
+      <xsd:enumeration value="FULLY_AUTOMATED"/>
       <xsd:enumeration value="SEMI_AUTOMATED"/>
       <xsd:enumeration value="PELLET_FIRED"/>
       <xsd:enumeration value="CHP"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="UTESPotentialTypeEnum">
+    <xsd:annotation>
+      <xsd:documentation>Defines the type of the UTES potential, such as an open source for heat or cold.</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="UNDEFINED"/>
       <xsd:enumeration value="HEAT_OPEN"/>
@@ -627,6 +685,9 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="UTESTypeEnum">
+    <xsd:annotation>
+      <xsd:documentation>Defines the different types of UTES, e.g. ATES (Aquifer), BTES (Borehole) and CTES (Cavern)</xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:NCName">
       <xsd:enumeration value="UNDEFINED"/>
       <xsd:enumeration value="AQUIFER_TES"/>
@@ -648,6 +709,54 @@ Git commit hash $Id$</xsd:documentation>
       <xsd:enumeration value="PREVIOUS"/>
       <xsd:enumeration value="NEXT"/>
       <xsd:enumeration value="OTHER"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PipeDiameterEnum">
+    <xsd:annotation>
+      <xsd:documentation>Defines the pipe diameter in DN size. When this field is set to VALUE_SPECIFIED	 (default) both innerDiameter and outerDiameter fields are used for diameter specification. If not, an appropriate pipe catalog should be used to calculate the properties of the pipe, based on the speficied DN size. This allows for different pipe types, e.g. with or without insulation.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="VALUE_SPECIFIED">
+        <xsd:annotation>
+          <xsd:documentation>Default option for this Pipe diameter: it specifies that the innerDiameter and outerDiamter fields are used instead of values from this enumeration.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="DN6"/>
+      <xsd:enumeration value="DN8"/>
+      <xsd:enumeration value="DN10"/>
+      <xsd:enumeration value="DN15"/>
+      <xsd:enumeration value="DN20"/>
+      <xsd:enumeration value="DN25"/>
+      <xsd:enumeration value="DN32"/>
+      <xsd:enumeration value="DN40"/>
+      <xsd:enumeration value="DN50"/>
+      <xsd:enumeration value="DN65"/>
+      <xsd:enumeration value="DN80"/>
+      <xsd:enumeration value="DN100"/>
+      <xsd:enumeration value="DN125"/>
+      <xsd:enumeration value="DN150"/>
+      <xsd:enumeration value="DN200"/>
+      <xsd:enumeration value="DN250"/>
+      <xsd:enumeration value="DN300"/>
+      <xsd:enumeration value="DN350"/>
+      <xsd:enumeration value="DN400"/>
+      <xsd:enumeration value="DN450"/>
+      <xsd:enumeration value="DN500"/>
+      <xsd:enumeration value="DN600"/>
+      <xsd:enumeration value="DN650"/>
+      <xsd:enumeration value="DN700"/>
+      <xsd:enumeration value="DN800"/>
+      <xsd:enumeration value="DN900"/>
+      <xsd:enumeration value="DN1000"/>
+      <xsd:enumeration value="DN1100"/>
+      <xsd:enumeration value="DN1200"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="StateEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="OPEN"/>
+      <xsd:enumeration value="CLOSED"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:complexType abstract="true" name="EnergyAsset">
@@ -803,6 +912,7 @@ Git commit hash $Id$</xsd:documentation>
         <xsd:documentation>A unique identifier for this energy system</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    <xsd:attribute name="version" type="xsd:string"/>
   </xsd:complexType>
   <xsd:element name="EnergySystem" type="esdl:EnergySystem">
     <xsd:annotation>
@@ -1040,7 +1150,7 @@ Git commit hash $Id$</xsd:documentation>
       <xsd:documentation>Ports allow connections between EnergyAssets. Ports can be connected to one or more other ports. There are two types of ports: InPort and OutPort, which defines the primary direction of positive energy flow. InPorts can only be connected to OutPorts and vice versa.</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element maxOccurs="1" minOccurs="0" name="profile" type="esdl:GenericProfile">
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="profile" type="esdl:GenericProfile">
         <xsd:annotation>
           <xsd:documentation>Contains the profile attached to this port. Profiles </xsd:documentation>
         </xsd:annotation>
@@ -1152,7 +1262,11 @@ Git commit hash $Id$</xsd:documentation>
             <xsd:documentation>If this date is in the past, it is an asset that has been decommissioned</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute name="owner" type="xsd:string"/>
+        <xsd:attribute name="owner" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Defines the owner of an asset (free text). Use the isOwnedBy relationship to refer to a Party</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
         <xsd:attribute name="technicalLifetime" type="xsd:double">
           <xsd:annotation>
             <xsd:documentation>in years</xsd:documentation>
@@ -1171,6 +1285,11 @@ Git commit hash $Id$</xsd:documentation>
         <xsd:attribute name="installationDuration" type="xsd:double">
           <xsd:annotation>
             <xsd:documentation>the time required to install the asset (e.g. for calculating the effects on employment or the time it takes to construct and install the asset) in days</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="assetType" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>the type (e.g. model number) of the asset</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute name="area" type="xsd:string"/>
@@ -1495,14 +1614,29 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractConductor">
-        <xsd:attribute name="diameter" type="xsd:double">
+        <xsd:attribute default="0.0" name="innerDiameter" type="xsd:double">
           <xsd:annotation>
-            <xsd:documentation>in m</xsd:documentation>
+            <xsd:documentation>Inner diameter of pipe in meters</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="outerDiameter" type="xsd:double">
+          <xsd:annotation>
+            <xsd:documentation>Outer diameter of pipe in meters</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute name="length" type="xsd:double">
           <xsd:annotation>
-            <xsd:documentation>in m</xsd:documentation>
+            <xsd:documentation>Length of the pipe in meters</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="roughness" type="xsd:double">
+          <xsd:annotation>
+            <xsd:documentation>Roughness of the pipe in meters</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="diameter" type="esdl:PipeDiameterEnum">
+          <xsd:annotation>
+            <xsd:documentation>Defines the pipe diameter using DN standard. A pipe catalog is required to translate these DN sizes to actual diameters (in meter). When using the default value for this field (VALUE_SPECIFIED), both innerDIameter and outerDiameter fields are used, instead of the values in this Enumeration.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -1878,7 +2012,7 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset"/>
-      <xsd:element maxOccurs="unbounded" minOccurs="0" name="measuresCollection" type="esdl:MeasuresCollection"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="measuresCollection" type="esdl:MeasuresCombination"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:element name="Measures" type="esdl:Measures">
@@ -2867,19 +3001,36 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
   </xsd:element>
   <xsd:complexType name="Parties">
+    <xsd:annotation>
+      <xsd:documentation>Container for parties that have a role in the energy system</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="party" type="esdl:Party"/>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:element name="Parties" type="esdl:Parties"/>
+  <xsd:element name="Parties" type="esdl:Parties">
+    <xsd:annotation>
+      <xsd:documentation>Container for parties that have a role in the energy system</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="DataSources">
+    <xsd:annotation>
+      <xsd:documentation>Collection of datasources used in the energy system</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="dataSource" type="esdl:DataSource"/>
     </xsd:sequence>
     <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
-  <xsd:element name="DataSources" type="esdl:DataSources"/>
+  <xsd:element name="DataSources" type="esdl:DataSources">
+    <xsd:annotation>
+      <xsd:documentation>Collection of datasources used in the energy system</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="DataSource">
+    <xsd:annotation>
+      <xsd:documentation>A DataSource describes the source of the piece of information used in the energy system. E.g. a profile from NEDU or typical parameters of an Asset</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractDataSource">
         <xsd:attribute name="id" type="xsd:string"/>
@@ -2893,22 +3044,43 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="DataSource" type="esdl:DataSource"/>
+  <xsd:element name="DataSource" type="esdl:DataSource">
+    <xsd:annotation>
+      <xsd:documentation>A DataSource describes the source of the piece of information used in the energy system. E.g. a profile from NEDU or typical parameters of an Asset</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="EnergyDemand">
+    <xsd:annotation>
+      <xsd:documentation>Allows to describe the total energy demand when differentiation between energy carriers is not possible or required, otherwise e.g. ElectricityDemand or HeatingDemand is an alternative</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Consumer"/>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="EnergyDemand" type="esdl:EnergyDemand"/>
+  <xsd:element name="EnergyDemand" type="esdl:EnergyDemand">
+    <xsd:annotation>
+      <xsd:documentation>Allows to describe the total energy demand when differentiation between energy carriers is not possible or required, otherwise e.g. ElectricityDemand or HeatingDemand is an alternative</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="SolarCollector">
+    <xsd:annotation>
+      <xsd:documentation>Defines a SolarCollector asset</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Producer">
         <xsd:attribute name="type" type="esdl:SolarCollectorTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="SolarCollector" type="esdl:SolarCollector"/>
+  <xsd:element name="SolarCollector" type="esdl:SolarCollector">
+    <xsd:annotation>
+      <xsd:documentation>Defines a SolarCollector asset</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="ResidualHeatSource">
+    <xsd:annotation>
+      <xsd:documentation>Defines a source of residual heat, e.g. a data center or factory</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Producer">
         <xsd:attribute name="type" type="esdl:ResidualHeatSourceTypeEnum"/>
@@ -2916,14 +3088,28 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="ResidualHeatSource" type="esdl:ResidualHeatSource"/>
+  <xsd:element name="ResidualHeatSource" type="esdl:ResidualHeatSource">
+    <xsd:annotation>
+      <xsd:documentation>Defines a source of residual heat, e.g. a data center or factory</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="FermentationPlant">
+    <xsd:annotation>
+      <xsd:documentation>Defines a plant fuelled by biomass</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Conversion"/>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="FermentationPlant" type="esdl:FermentationPlant"/>
+  <xsd:element name="FermentationPlant" type="esdl:FermentationPlant">
+    <xsd:annotation>
+      <xsd:documentation>Defines a plant fuelled by biomass</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="ResidualHeatSourcePotential">
+    <xsd:annotation>
+      <xsd:documentation>Defines the residual heat potential in a specific area.</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Potential">
         <xsd:attribute default="0.0" name="value" type="xsd:double"/>
@@ -2933,14 +3119,28 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="ResidualHeatSourcePotential" type="esdl:ResidualHeatSourcePotential"/>
+  <xsd:element name="ResidualHeatSourcePotential" type="esdl:ResidualHeatSourcePotential">
+    <xsd:annotation>
+      <xsd:documentation>Defines the residual heat potential in a specific area.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="SubPolygon">
+    <xsd:annotation>
+      <xsd:documentation>Part of a Polygon used to describe the internal or external boundary</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="3" name="point" type="esdl:Point"/>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:element name="SubPolygon" type="esdl:SubPolygon"/>
+  <xsd:element name="SubPolygon" type="esdl:SubPolygon">
+    <xsd:annotation>
+      <xsd:documentation>Part of a Polygon used to describe the internal or external boundary</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="MultiPolygon">
+    <xsd:annotation>
+      <xsd:documentation>Collection of Polygons</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Geometry">
         <xsd:sequence>
@@ -2949,58 +3149,126 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="MultiPolygon" type="esdl:MultiPolygon"/>
+  <xsd:element name="MultiPolygon" type="esdl:MultiPolygon">
+    <xsd:annotation>
+      <xsd:documentation>Collection of Polygons</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="EnergyCommodity">
+    <xsd:annotation>
+      <xsd:documentation>Generic energy commodity, to be used in (national) energy balances</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Commodity"/>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="EnergyCommodity" type="esdl:EnergyCommodity"/>
+  <xsd:element name="EnergyCommodity" type="esdl:EnergyCommodity">
+    <xsd:annotation>
+      <xsd:documentation>Generic energy commodity, to be used in (national) energy balances</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="MobilityDemand">
+    <xsd:annotation>
+      <xsd:documentation>Energy demand of the mobility sector. Allows to specify the vehicle types, fuel types and their efficiency and distance travelled</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Consumer">
         <xsd:sequence>
-          <xsd:element maxOccurs="unbounded" minOccurs="0" name="type" type="esdl:VehicleTypeEnum"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="type" type="esdl:VehicleTypeEnum">
+            <xsd:annotation>
+              <xsd:documentation/>
+            </xsd:annotation>
+          </xsd:element>
         </xsd:sequence>
         <xsd:attribute name="fuelType" type="esdl:MobilityFuelTypeEnum"/>
-        <xsd:attribute name="distance" type="xsd:int"/>
+        <xsd:attribute name="distance" type="xsd:int">
+          <xsd:annotation>
+            <xsd:documentation>distance travelled in kilometers</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
         <xsd:attribute name="efficiency" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="MobilityDemand" type="esdl:MobilityDemand"/>
+  <xsd:element name="MobilityDemand" type="esdl:MobilityDemand">
+    <xsd:annotation>
+      <xsd:documentation>Energy demand of the mobility sector. Allows to specify the vehicle types, fuel types and their efficiency and distance travelled</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="MobilityFuelInformation">
+    <xsd:annotation>
+      <xsd:documentation>Collection of information about vehicles, fuels and efficiency</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="vehicleFuelEfficiency" type="esdl:VehicleFuelEfficiency"/>
       <xsd:element maxOccurs="1" minOccurs="0" name="dataSource" type="esdl:AbstractDataSource"/>
     </xsd:sequence>
     <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
-  <xsd:element name="MobilityFuelInformation" type="esdl:MobilityFuelInformation"/>
+  <xsd:element name="MobilityFuelInformation" type="esdl:MobilityFuelInformation">
+    <xsd:annotation>
+      <xsd:documentation>Collection of information about vehicles, fuels and efficiency</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="VehicleFuelEfficiency">
+    <xsd:annotation>
+      <xsd:documentation>Information about vehicles, fuels and efficiency, used in MobilityFuelInformation</xsd:documentation>
+    </xsd:annotation>
     <xsd:attribute name="vehicleType" type="esdl:VehicleTypeEnum"/>
     <xsd:attribute name="fuel" type="esdl:MobilityFuelTypeEnum"/>
-    <xsd:attribute name="efficiency" type="xsd:double"/>
+    <xsd:attribute name="efficiency" type="xsd:double">
+      <xsd:annotation>
+        <xsd:documentation/>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
-  <xsd:element name="VehicleFuelEfficiency" type="esdl:VehicleFuelEfficiency"/>
+  <xsd:element name="VehicleFuelEfficiency" type="esdl:VehicleFuelEfficiency">
+    <xsd:annotation>
+      <xsd:documentation>Information about vehicles, fuels and efficiency, used in MobilityFuelInformation</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="MobilityProperties">
+    <xsd:annotation>
+      <xsd:documentation>(experimental) Can be used to define the mobility properties of an area</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
       <xsd:element maxOccurs="1" minOccurs="0" name="numberOfVehicles" type="esdl:NumberOfVehicles"/>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:element name="MobilityProperties" type="esdl:MobilityProperties"/>
+  <xsd:element name="MobilityProperties" type="esdl:MobilityProperties">
+    <xsd:annotation>
+      <xsd:documentation>(experimental) Can be used to define the mobility properties of an area</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="NumberOfVehicles">
+    <xsd:annotation>
+      <xsd:documentation>(experimental) Provides the ability to define the number of vehicles of an area</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="vehicleCount" type="esdl:VehicleCount"/>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:element name="NumberOfVehicles" type="esdl:NumberOfVehicles"/>
+  <xsd:element name="NumberOfVehicles" type="esdl:NumberOfVehicles">
+    <xsd:annotation>
+      <xsd:documentation>(experimental) Provides the ability to define the number of vehicles of an area</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="VehicleCount">
+    <xsd:annotation>
+      <xsd:documentation>(experimental) Defines the number of vehicles per vehicle type</xsd:documentation>
+    </xsd:annotation>
     <xsd:attribute name="type" type="esdl:VehicleTypeEnum"/>
     <xsd:attribute name="count" type="xsd:int"/>
   </xsd:complexType>
-  <xsd:element name="VehicleCount" type="esdl:VehicleCount"/>
+  <xsd:element name="VehicleCount" type="esdl:VehicleCount">
+    <xsd:annotation>
+      <xsd:documentation>(experimental) Defines the number of vehicles per vehicle type</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="Electrolyzer">
+    <xsd:annotation>
+      <xsd:documentation>Defines an electrolyzer that converts electricity into hydrogen</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:PowerToX">
         <xsd:attribute name="outputPressure" type="xsd:double"/>
@@ -3011,8 +3279,15 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="Electrolyzer" type="esdl:Electrolyzer"/>
+  <xsd:element name="Electrolyzer" type="esdl:Electrolyzer">
+    <xsd:annotation>
+      <xsd:documentation>Defines an electrolyzer that converts electricity into hydrogen</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="GasStorage">
+    <xsd:annotation>
+      <xsd:documentation>Defines a gas storage asset, see also CCS</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Storage">
         <xsd:attribute name="minStoragePressure" type="xsd:double"/>
@@ -3020,14 +3295,28 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="GasStorage" type="esdl:GasStorage"/>
+  <xsd:element name="GasStorage" type="esdl:GasStorage">
+    <xsd:annotation>
+      <xsd:documentation>Defines a gas storage asset, see also CCS</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="Services">
+    <xsd:annotation>
+      <xsd:documentation>Defines a collection of logical services used in the energy system, e.g. Demand-Response, Aggregator services, Energy markets and control strategies.</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="service" type="esdl:Service"/>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:element name="Services" type="esdl:Services"/>
+  <xsd:element name="Services" type="esdl:Services">
+    <xsd:annotation>
+      <xsd:documentation>Defines a collection of logical services used in the energy system, e.g. Demand-Response, Aggregator services, Energy markets and control strategies.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType abstract="true" name="ControlStrategy">
+    <xsd:annotation>
+      <xsd:documentation>Defines a control strategy for a specific asset</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:EnergyService">
         <xsd:attribute name="energyAsset" type="xsd:string"/>
@@ -3035,14 +3324,24 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="DrivenByDemand">
+    <xsd:annotation>
+      <xsd:documentation>Control strategy specifying that an asset is driven by the demand of one of the output ports</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:ControlStrategy">
         <xsd:attribute name="outPort" type="xsd:string"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="DrivenByDemand" type="esdl:DrivenByDemand"/>
+  <xsd:element name="DrivenByDemand" type="esdl:DrivenByDemand">
+    <xsd:annotation>
+      <xsd:documentation>Control strategy specifying that an asset is driven by the demand of one of the output ports</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="QuantityAndUnitType">
+    <xsd:annotation>
+      <xsd:documentation>Defines the quantity and its unit for a specific parameter. Used in e.g. profiles and KPIs. For example Energy in Joules or CO2 emission in kton.</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractQuantityAndUnit">
         <xsd:attribute name="physicalQuantity" type="esdl:PhysicalQuantityEnum"/>
@@ -3056,25 +3355,50 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="QuantityAndUnitType" type="esdl:QuantityAndUnitType"/>
-  <xsd:complexType abstract="true" name="AbstractDataSource"/>
+  <xsd:element name="QuantityAndUnitType" type="esdl:QuantityAndUnitType">
+    <xsd:annotation>
+      <xsd:documentation>Defines the quantity and its unit for a specific parameter. Used in e.g. profiles and KPIs. For example Energy in Joules or CO2 emission in kton.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="true" name="AbstractDataSource">
+    <xsd:annotation>
+      <xsd:documentation>Abstract class to describe data sources or references to data sources</xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
   <xsd:complexType name="DataSourceReference">
+    <xsd:annotation>
+      <xsd:documentation>Defines a reference to a datasource, defined in the collection of DataSources (as part of the EnergySystemInformation)</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractDataSource">
         <xsd:attribute name="reference" type="xsd:string"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="DataSourceReference" type="esdl:DataSourceReference"/>
+  <xsd:element name="DataSourceReference" type="esdl:DataSourceReference">
+    <xsd:annotation>
+      <xsd:documentation>Defines a reference to a datasource, defined in the collection of DataSources (as part of the EnergySystemInformation)</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="KPIs">
+    <xsd:annotation>
+      <xsd:documentation>Collection of key performance indicators of areas or assets</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="kpi" type="esdl:KPI"/>
     </xsd:sequence>
     <xsd:attribute name="id" type="xsd:string"/>
     <xsd:attribute name="description" type="xsd:string"/>
   </xsd:complexType>
-  <xsd:element name="KPIs" type="esdl:KPIs"/>
+  <xsd:element name="KPIs" type="esdl:KPIs">
+    <xsd:annotation>
+      <xsd:documentation>Collection of key performance indicators of areas or assets</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType abstract="true" name="KPI">
+    <xsd:annotation>
+      <xsd:documentation>Defines a key performance indicator (KPI)</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
       <xsd:element maxOccurs="1" minOccurs="0" name="quantityAndUnit" type="esdl:AbstractQuantityAndUnit"/>
     </xsd:sequence>
@@ -3082,22 +3406,43 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:attribute name="name" type="xsd:string"/>
   </xsd:complexType>
   <xsd:complexType name="QuantityAndUnits">
+    <xsd:annotation>
+      <xsd:documentation>Collection of QuantityAndUnitTypes defined in the EnergySystemInformation section</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="quantityAndUnit" type="esdl:QuantityAndUnitType"/>
     </xsd:sequence>
     <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
-  <xsd:element name="QuantityAndUnits" type="esdl:QuantityAndUnits"/>
-  <xsd:complexType abstract="true" name="AbstractQuantityAndUnit"/>
+  <xsd:element name="QuantityAndUnits" type="esdl:QuantityAndUnits">
+    <xsd:annotation>
+      <xsd:documentation>Collection of QuantityAndUnitTypes defined in the EnergySystemInformation section</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="true" name="AbstractQuantityAndUnit">
+    <xsd:annotation>
+      <xsd:documentation>Abstract class to describe QuantityAndUnitTypes or references to these</xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
   <xsd:complexType name="QuantityAndUnitReference">
+    <xsd:annotation>
+      <xsd:documentation>Defines a reference to a QuantityAndUnitType defined in the collection of QuantityAndUnits (as part of the EnergySystemInformation)</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractQuantityAndUnit">
         <xsd:attribute name="reference" type="xsd:string"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="QuantityAndUnitReference" type="esdl:QuantityAndUnitReference"/>
+  <xsd:element name="QuantityAndUnitReference" type="esdl:QuantityAndUnitReference">
+    <xsd:annotation>
+      <xsd:documentation>Defines a reference to a QuantityAndUnitType defined in the collection of QuantityAndUnits (as part of the EnergySystemInformation)</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="EnergyMarket">
+    <xsd:annotation>
+      <xsd:documentation>Defines an EnergyMarket of the energy system. A market is defined by specifying the assets that participate in this market.</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:EnergyService">
         <xsd:sequence>
@@ -3108,8 +3453,15 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="EnergyMarket" type="esdl:EnergyMarket"/>
+  <xsd:element name="EnergyMarket" type="esdl:EnergyMarket">
+    <xsd:annotation>
+      <xsd:documentation>Defines an EnergyMarket of the energy system. A market is defined by specifying the assets that participate in this market.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="GasConversion">
+    <xsd:annotation>
+      <xsd:documentation>Defines an asset that can convert gas into another form of gas. E.g. SMR or ATR.</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Conversion">
         <xsd:attribute name="type" type="esdl:GasConversionTypeEnum"/>
@@ -3117,64 +3469,125 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="GasConversion" type="esdl:GasConversion"/>
+  <xsd:element name="GasConversion" type="esdl:GasConversion">
+    <xsd:annotation>
+      <xsd:documentation>Defines an asset that can convert gas into another form of gas. E.g. SMR or ATR.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType abstract="true" name="Parameters">
+    <xsd:annotation>
+      <xsd:documentation>Used to describe properties of an EnergyMarket</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
       <xsd:element maxOccurs="1" minOccurs="0" name="parameterUnit" type="esdl:AbstractQuantityAndUnit"/>
     </xsd:sequence>
     <xsd:attribute name="name" type="xsd:string"/>
   </xsd:complexType>
   <xsd:complexType name="StringParameter">
+    <xsd:annotation>
+      <xsd:documentation>Defines a parameter of type String</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Parameters">
         <xsd:attribute name="value" type="xsd:string"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="StringParameter" type="esdl:StringParameter"/>
+  <xsd:element name="StringParameter" type="esdl:StringParameter">
+    <xsd:annotation>
+      <xsd:documentation>Defines a parameter of type String</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="DoubleParameter">
+    <xsd:annotation>
+      <xsd:documentation>Defines a parameter of type Double</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Parameters">
         <xsd:attribute name="value" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="DoubleParameter" type="esdl:DoubleParameter"/>
+  <xsd:element name="DoubleParameter" type="esdl:DoubleParameter">
+    <xsd:annotation>
+      <xsd:documentation>Defines a parameter of type Double</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="IntegerParameter">
+    <xsd:annotation>
+      <xsd:documentation>Defines a parameter of type Integer</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Parameters">
         <xsd:attribute name="value" type="xsd:int"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="IntegerParameter" type="esdl:IntegerParameter"/>
+  <xsd:element name="IntegerParameter" type="esdl:IntegerParameter">
+    <xsd:annotation>
+      <xsd:documentation>Defines a parameter of type Integer</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="BooleanParameter">
+    <xsd:annotation>
+      <xsd:documentation>Defines a parameter of type Boolean</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Parameters">
         <xsd:attribute name="value" type="xsd:boolean"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="BooleanParameter" type="esdl:BooleanParameter"/>
+  <xsd:element name="BooleanParameter" type="esdl:BooleanParameter">
+    <xsd:annotation>
+      <xsd:documentation>Defines a parameter of type Boolean</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="DrivenBySupply">
+    <xsd:annotation>
+      <xsd:documentation>Control strategy specifying that an asset is driven by the supply of one of the input ports (used in ESDL-based simulation tools)</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:ControlStrategy">
         <xsd:attribute name="inPort" type="xsd:string"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="DrivenBySupply" type="esdl:DrivenBySupply"/>
+  <xsd:element name="DrivenBySupply" type="esdl:DrivenBySupply">
+    <xsd:annotation>
+      <xsd:documentation>Control strategy specifying that an asset is driven by the supply of one of the input ports (used in ESDL-based simulation tools)</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="DrivenByProfile">
+    <xsd:annotation>
+      <xsd:documentation>Control strategy specifying that an asset is driven by a profile specified in one of the ports (used in ESDL-based simulation tools)</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:ControlStrategy">
         <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="0" name="profile" type="esdl:GenericProfile"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="profile" type="esdl:GenericProfile">
+            <xsd:annotation>
+              <xsd:documentation>the profile to use for the DrivenByProfile strategy. Depending on the purpose profiles can be power, energy, temperature, pressure, flow profiles (or any other type).</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
         </xsd:sequence>
+        <xsd:attribute name="port" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>a reference to the port for which the profile is relevant</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="DrivenByProfile" type="esdl:DrivenByProfile"/>
+  <xsd:element name="DrivenByProfile" type="esdl:DrivenByProfile">
+    <xsd:annotation>
+      <xsd:documentation>Control strategy specifying that an asset is driven by a profile specified in one of the ports (used in ESDL-based simulation tools)</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="PVInstallation">
+    <xsd:annotation>
+      <xsd:documentation>Defines a Photo Voltaic Installation, e.g. roof top PV, a PV field or parc.</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:PVPanel">
         <xsd:attribute name="type" type="esdl:PVInstallationTypeEnum"/>
@@ -3182,14 +3595,28 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="PVInstallation" type="esdl:PVInstallation"/>
-  <xsd:complexType name="CircuitBraker">
+  <xsd:element name="PVInstallation" type="esdl:PVInstallation">
+    <xsd:annotation>
+      <xsd:documentation>Defines a Photo Voltaic Installation, e.g. roof top PV, a PV field or parc.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="CircuitBreaker">
+    <xsd:annotation>
+      <xsd:documentation>Defines a circuit breaker in electric transmission or distribution grids</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractSwitch"/>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="CircuitBraker" type="esdl:CircuitBraker"/>
-  <xsd:complexType name="MeasuresCollection">
+  <xsd:element name="CircuitBreaker" type="esdl:CircuitBreaker">
+    <xsd:annotation>
+      <xsd:documentation>Defines a circuit breaker in electric transmission or distribution grids</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="MeasuresCombination">
+    <xsd:annotation>
+      <xsd:documentation>A combination of measures with single cost information that can be applied to an energy system. E.g. a combination of insulation and a heat pump. For a single measure (e.g. a PV installation) use Measures</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset"/>
       <xsd:element maxOccurs="1" minOccurs="0" name="costInformation" type="esdl:CostInformation"/>
@@ -3199,24 +3626,45 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:attribute name="name" type="xsd:string"/>
     <xsd:attribute name="description" type="xsd:string"/>
   </xsd:complexType>
-  <xsd:element name="MeasuresCollection" type="esdl:MeasuresCollection"/>
+  <xsd:element name="MeasuresCombination" type="esdl:MeasuresCombination">
+    <xsd:annotation>
+      <xsd:documentation>A combination of measures with single cost information that can be applied to an energy system. E.g. a combination of insulation and a heat pump. For a single measure (e.g. a PV installation) use Measures</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="WaterToPower">
+    <xsd:annotation>
+      <xsd:documentation>Defines an asset that uses water to produce electricity. E.g.  hydro power, tidal power, wave power or osmotic power</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Producer">
         <xsd:attribute name="type" type="esdl:WaterToPowerTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="WaterToPower" type="esdl:WaterToPower"/>
+  <xsd:element name="WaterToPower" type="esdl:WaterToPower">
+    <xsd:annotation>
+      <xsd:documentation>Defines an asset that uses water to produce electricity. E.g.  hydro power, tidal power, wave power or osmotic power</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="Sectors">
+    <xsd:annotation>
+      <xsd:documentation>Collection of sectors. Both Party and Item can link to a sector</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
       <xsd:element maxOccurs="unbounded" minOccurs="0" name="sector" type="esdl:Sector"/>
       <xsd:element maxOccurs="1" minOccurs="0" name="dataSource" type="esdl:AbstractDataSource"/>
     </xsd:sequence>
     <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
-  <xsd:element name="Sectors" type="esdl:Sectors"/>
+  <xsd:element name="Sectors" type="esdl:Sectors">
+    <xsd:annotation>
+      <xsd:documentation>Collection of sectors. Both Party and Item can link to a sector</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="Sector">
+    <xsd:annotation>
+      <xsd:documentation>Defines a sector. Can be used for the Standaard Bedrijfsindeling (SBI) of the CBS in the Netherlands</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
       <xsd:element maxOccurs="1" minOccurs="0" name="dataSource" type="esdl:AbstractDataSource"/>
     </xsd:sequence>
@@ -3225,34 +3673,62 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:attribute name="description" type="xsd:string"/>
     <xsd:attribute name="code" type="xsd:string"/>
   </xsd:complexType>
-  <xsd:element name="Sector" type="esdl:Sector"/>
+  <xsd:element name="Sector" type="esdl:Sector">
+    <xsd:annotation>
+      <xsd:documentation>Defines a sector. Can be used for the Standaard Bedrijfsindeling (SBI) of the CBS in the Netherlands</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="EnergyNetwork">
+    <xsd:annotation>
+      <xsd:documentation>Defines an energy network. Used for national energy balances, when the specific energy carrier is not required</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Transport"/>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="EnergyNetwork" type="esdl:EnergyNetwork"/>
+  <xsd:element name="EnergyNetwork" type="esdl:EnergyNetwork">
+    <xsd:annotation>
+      <xsd:documentation>Defines an energy network. Used for national energy balances, when the specific energy carrier is not required</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType abstract="true" name="AbstractConductor">
+    <xsd:annotation>
+      <xsd:documentation>Abstract class to describe conductors such as cables and pipes and joining them using a joint</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Transport"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="AbstractSwitch">
+    <xsd:annotation>
+      <xsd:documentation>Abstract class to describe switches such as valve and a circuit breaker</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Transport"/>
+      <xsd:extension base="esdl:Transport">
+        <xsd:attribute name="state" type="esdl:StateEnum"/>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="AbstractTransformer">
+    <xsd:annotation>
+      <xsd:documentation>Abstract class to describe transformers, such as Heat exchangers, transformers and pumps</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Transport"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="AbstractConnection">
+    <xsd:annotation>
+      <xsd:documentation>Abstract class to describe connections of a building to a grid. E.g. a heat connection, gas connection and electricity connection</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Transport"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="MultiLine">
+    <xsd:annotation>
+      <xsd:documentation>Defines a collection of lines</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Geometry">
         <xsd:sequence>
@@ -3261,8 +3737,15 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="MultiLine" type="esdl:MultiLine"/>
+  <xsd:element name="MultiLine" type="esdl:MultiLine">
+    <xsd:annotation>
+      <xsd:documentation>Defines a collection of lines</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="GeothermalEnergyPotential">
+    <xsd:annotation>
+      <xsd:documentation>Defines the geothermal potential in a specific area. This type focusses on energy and depth of the well. See GeothermalPotental for class focussing on temperature</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractGTPotential">
         <xsd:attribute name="depth" type="xsd:int"/>
@@ -3270,8 +3753,15 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="GeothermalEnergyPotential" type="esdl:GeothermalEnergyPotential"/>
+  <xsd:element name="GeothermalEnergyPotential" type="esdl:GeothermalEnergyPotential">
+    <xsd:annotation>
+      <xsd:documentation>Defines the geothermal potential in a specific area. This type focusses on energy and depth of the well. See GeothermalPotental for class focussing on temperature</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType abstract="true" name="AbstractGTPotential">
+    <xsd:annotation>
+      <xsd:documentation>Abstract class to describe geothermal potential</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Potential">
         <xsd:attribute name="geothermalSource" type="xsd:string"/>
@@ -3279,6 +3769,9 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="UTESPotential">
+    <xsd:annotation>
+      <xsd:documentation>Defines the potential for underground thermal energy storage (UTES). E.g. ATES or BTES potential</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Potential">
         <xsd:attribute name="value" type="xsd:double"/>
@@ -3287,17 +3780,35 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="UTESPotential" type="esdl:UTESPotential"/>
-  <xsd:complexType abstract="true" name="AbstractInstanceDate"/>
+  <xsd:element name="UTESPotential" type="esdl:UTESPotential">
+    <xsd:annotation>
+      <xsd:documentation>Defines the potential for underground thermal energy storage (UTES). E.g. ATES or BTES potential</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="true" name="AbstractInstanceDate">
+    <xsd:annotation>
+      <xsd:documentation>Abstract class to define the date or period of the validity of the data that is used in this instance </xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
   <xsd:complexType name="InstanceDate">
+    <xsd:annotation>
+      <xsd:documentation>Describes the date of the validity of the data that is used in this instance </xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractInstanceDate">
         <xsd:attribute name="date" type="xsd:string"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="InstanceDate" type="esdl:InstanceDate"/>
+  <xsd:element name="InstanceDate" type="esdl:InstanceDate">
+    <xsd:annotation>
+      <xsd:documentation>Describes the date of the validity of the data that is used in this instance </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="InstancePeriod">
+    <xsd:annotation>
+      <xsd:documentation>Describes the period of the validity of the data that is used in this instance </xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractInstanceDate">
         <xsd:attribute name="fromDate" type="xsd:string"/>
@@ -3305,53 +3816,119 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="InstancePeriod" type="esdl:InstancePeriod"/>
+  <xsd:element name="InstancePeriod" type="esdl:InstancePeriod">
+    <xsd:annotation>
+      <xsd:documentation>Describes the period of the validity of the data that is used in this instance </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="RoomHeater">
+    <xsd:annotation>
+      <xsd:documentation>Defines an asset for heating rooms, such as infra red panels, gas stove, etc.</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Conversion">
         <xsd:attribute name="type" type="esdl:RoomHeaterTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="RoomHeater" type="esdl:RoomHeater"/>
+  <xsd:element name="RoomHeater" type="esdl:RoomHeater">
+    <xsd:annotation>
+      <xsd:documentation>Defines an asset for heating rooms, such as infra red panels, gas stove, etc.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="BiomassPotential">
+    <xsd:annotation>
+      <xsd:documentation>Defines the biomass potential in a specific area.</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Potential">
-        <xsd:attribute default="0.0" name="value" type="xsd:double"/>
+        <xsd:attribute default="0.0" name="value" type="xsd:double">
+          <xsd:annotation>
+            <xsd:documentation>The amount of biomass in Joule</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="BiomassPotential" type="esdl:BiomassPotential"/>
+  <xsd:element name="BiomassPotential" type="esdl:BiomassPotential">
+    <xsd:annotation>
+      <xsd:documentation>Defines the biomass potential in a specific area.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="BiomassHeater">
+    <xsd:annotation>
+      <xsd:documentation>Converts biomass into heat and/or electricity</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Conversion"/>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="BiomassHeater" type="esdl:BiomassHeater"/>
+  <xsd:element name="BiomassHeater" type="esdl:BiomassHeater">
+    <xsd:annotation>
+      <xsd:documentation>Converts biomass into heat and/or electricity</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="UTES">
+    <xsd:annotation>
+      <xsd:documentation>Underground Thermal Energy Storage</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:HeatStorage">
-        <xsd:attribute default="UNDEFINED" name="type" type="esdl:UTESTypeEnum"/>
-        <xsd:attribute name="UTESPotential" type="xsd:string"/>
+        <xsd:attribute default="UNDEFINED" name="type" type="esdl:UTESTypeEnum">
+          <xsd:annotation>
+            <xsd:documentation>Specifies the type of the UTES, e.g. ATES (Aquifer), BTES (Borehole) and CTES (Cavern)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="UTESPotential" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Reference to the potential area for this UTES</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="UTES" type="esdl:UTES"/>
+  <xsd:element name="UTES" type="esdl:UTES">
+    <xsd:annotation>
+      <xsd:documentation>Underground Thermal Energy Storage</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="WaterBuffer">
+    <xsd:annotation>
+      <xsd:documentation>Storage by means of storing energy in water, e.g. a tank.</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:HeatStorage"/>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="WaterBuffer" type="esdl:WaterBuffer"/>
+  <xsd:element name="WaterBuffer" type="esdl:WaterBuffer">
+    <xsd:annotation>
+      <xsd:documentation>Storage by means of storing energy in water, e.g. a tank.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="Glass">
+    <xsd:annotation>
+      <xsd:documentation>Allows to specify the glass of a building, e.g. for calculating heat loss</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Asset">
-        <xsd:attribute name="uWindow" type="xsd:double"/>
-        <xsd:attribute default="UNDEFINED" name="glasType" type="esdl:GlassTypeEnum"/>
+        <xsd:attribute name="uWindow" type="xsd:double">
+          <xsd:annotation>
+            <xsd:documentation>The u-value of the window (thermal isolation) in W/m2.K</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="UNDEFINED" name="glasType" type="esdl:GlassTypeEnum">
+          <xsd:annotation>
+            <xsd:documentation>Enumeration of different types of glass, such as HR++</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="Glass" type="esdl:Glass"/>
+  <xsd:element name="Glass" type="esdl:Glass">
+    <xsd:annotation>
+      <xsd:documentation>Allows to specify the glass of a building, e.g. for calculating heat loss</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="WKT">
     <xsd:annotation>
       <xsd:documentation>Well-Known Text (see https://en.wikipedia.org/wiki/Well-known_text)</xsd:documentation>
@@ -3387,26 +3964,56 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
   </xsd:element>
   <xsd:complexType name="SearchAreaWind">
+    <xsd:annotation>
+      <xsd:documentation>Specifies search areas for wind turbines</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Potential">
-        <xsd:attribute name="fullLoadHours" type="xsd:int"/>
-        <xsd:attribute name="area" type="xsd:double"/>
+        <xsd:attribute name="fullLoadHours" type="xsd:int">
+          <xsd:annotation>
+            <xsd:documentation>Specifies expected full load hours in this search area</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="area" type="xsd:double">
+          <xsd:annotation>
+            <xsd:documentation>in m2</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="SearchAreaWind" type="esdl:SearchAreaWind"/>
+  <xsd:element name="SearchAreaWind" type="esdl:SearchAreaWind">
+    <xsd:annotation>
+      <xsd:documentation>Specifies search areas for wind turbines</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="SearchAreaSolar">
+    <xsd:annotation>
+      <xsd:documentation>Specifies search areas for solar installations</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Potential">
-        <xsd:attribute name="fullLoadHours" type="xsd:int"/>
-        <xsd:attribute name="area" type="xsd:double"/>
+        <xsd:attribute name="fullLoadHours" type="xsd:int">
+          <xsd:annotation>
+            <xsd:documentation>Specifies expected full load hours in this search area</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="area" type="xsd:double">
+          <xsd:annotation>
+            <xsd:documentation>in m2</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="SearchAreaSolar" type="esdl:SearchAreaSolar"/>
+  <xsd:element name="SearchAreaSolar" type="esdl:SearchAreaSolar">
+    <xsd:annotation>
+      <xsd:documentation>Specifies search areas for solar installations</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="Joint">
     <xsd:annotation>
-      <xsd:documentation>A Joint is a means to connect AbstractConductors. This helps when these conductors have opposite Ports.</xsd:documentation>
+      <xsd:documentation>A Joint is a means to connect AbstractConductors, such as Pipes and ElectricalCables. This helps when these conductors have opposite Ports.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractConductor"/>
@@ -3414,10 +4021,13 @@ When a model queries for a value from a certain date (and to a certain date), th
   </xsd:complexType>
   <xsd:element name="Joint" type="esdl:Joint">
     <xsd:annotation>
-      <xsd:documentation>A Joint is a means to connect AbstractConductors. This helps when these conductors have opposite Ports.</xsd:documentation>
+      <xsd:documentation>A Joint is a means to connect AbstractConductors, such as Pipes and ElectricalCables. This helps when these conductors have opposite Ports.</xsd:documentation>
     </xsd:annotation>
   </xsd:element>
   <xsd:complexType name="StorageStrategy">
+    <xsd:annotation>
+      <xsd:documentation>Control strategy specifying that a storage asset is driven by two profiles specifying the marginal cost to define its charging and discharging behavior (used in ESDL-based simulation tools)</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:ControlStrategy">
         <xsd:sequence>
@@ -3427,148 +4037,370 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="StorageStrategy" type="esdl:StorageStrategy"/>
+  <xsd:element name="StorageStrategy" type="esdl:StorageStrategy">
+    <xsd:annotation>
+      <xsd:documentation>Control strategy specifying that a storage asset is driven by two profiles specifying the marginal cost to define its charging and discharging behavior (used in ESDL-based simulation tools)</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="CurtailmentStrategy">
+    <xsd:annotation>
+      <xsd:documentation>Control strategy that specifies a max power at which the production is curtailed</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:ControlStrategy">
-        <xsd:attribute name="maxPower" type="xsd:double"/>
+        <xsd:attribute name="maxPower" type="xsd:double">
+          <xsd:annotation>
+            <xsd:documentation>in Watt</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="CurtailmentStrategy" type="esdl:CurtailmentStrategy"/>
+  <xsd:element name="CurtailmentStrategy" type="esdl:CurtailmentStrategy">
+    <xsd:annotation>
+      <xsd:documentation>Control strategy that specifies a max power at which the production is curtailed</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="PVTInstallation">
+    <xsd:annotation>
+      <xsd:documentation>Defines an installation that combines PV and thermal energy collection</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Producer"/>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="PVTInstallation" type="esdl:PVTInstallation"/>
+  <xsd:element name="PVTInstallation" type="esdl:PVTInstallation">
+    <xsd:annotation>
+      <xsd:documentation>Defines an installation that combines PV and thermal energy collection</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="BuildingUsage">
+    <xsd:annotation>
+      <xsd:documentation>Collection of information about the usage of a building, such as temperature set points and opening hours.</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractBuildingUsage">
         <xsd:sequence>
-          <xsd:element maxOccurs="1" minOccurs="0" name="coolingSetpoints" type="esdl:WeekSchedule"/>
-          <xsd:element maxOccurs="1" minOccurs="0" name="heatingSetpoints" type="esdl:WeekSchedule"/>
-          <xsd:element maxOccurs="1" minOccurs="0" name="openingHours" type="esdl:WeekSchedule"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="coolingSetpoints" type="esdl:WeekSchedule">
+            <xsd:annotation>
+              <xsd:documentation>Specifies the week schedule for cooling</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="heatingSetpoints" type="esdl:WeekSchedule">
+            <xsd:annotation>
+              <xsd:documentation>Specifies the week schedule for heating</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element maxOccurs="1" minOccurs="0" name="openingHours" type="esdl:WeekSchedule">
+            <xsd:annotation>
+              <xsd:documentation>Specifies the week schedule for opening hours</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
         </xsd:sequence>
         <xsd:attribute name="id" type="xsd:string"/>
-        <xsd:attribute name="name" type="xsd:string"/>
+        <xsd:attribute name="name" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Name of the usage</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="BuildingUsage" type="esdl:BuildingUsage"/>
+  <xsd:element name="BuildingUsage" type="esdl:BuildingUsage">
+    <xsd:annotation>
+      <xsd:documentation>Collection of information about the usage of a building, such as temperature set points and opening hours.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="WeekSchedule">
+    <xsd:annotation>
+      <xsd:documentation>Specifies a week schedule for building usage</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
-      <xsd:element maxOccurs="1" minOccurs="0" name="mon" type="esdl:DaySchedule"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="tue" type="esdl:DaySchedule"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="wed" type="esdl:DaySchedule"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="thu" type="esdl:DaySchedule"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="fri" type="esdl:DaySchedule"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="sat" type="esdl:DaySchedule"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="sun" type="esdl:DaySchedule"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="weekdays" type="esdl:DaySchedule"/>
-      <xsd:element maxOccurs="1" minOccurs="0" name="weekenddays" type="esdl:DaySchedule"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="mon" type="esdl:DaySchedule">
+        <xsd:annotation>
+          <xsd:documentation>Specifies a day schedule</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="tue" type="esdl:DaySchedule">
+        <xsd:annotation>
+          <xsd:documentation>Specifies a day schedule</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="wed" type="esdl:DaySchedule">
+        <xsd:annotation>
+          <xsd:documentation>Specifies a day schedule</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="thu" type="esdl:DaySchedule">
+        <xsd:annotation>
+          <xsd:documentation>Specifies a day schedule</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="fri" type="esdl:DaySchedule">
+        <xsd:annotation>
+          <xsd:documentation>Specifies a day schedule</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="sat" type="esdl:DaySchedule">
+        <xsd:annotation>
+          <xsd:documentation>Specifies a day schedule</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="sun" type="esdl:DaySchedule">
+        <xsd:annotation>
+          <xsd:documentation>Specifies a day schedule</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="weekdays" type="esdl:DaySchedule">
+        <xsd:annotation>
+          <xsd:documentation>Specifies a day schedule</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="0" name="weekenddays" type="esdl:DaySchedule">
+        <xsd:annotation>
+          <xsd:documentation>Specifies a day schedule</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:element name="WeekSchedule" type="esdl:WeekSchedule"/>
+  <xsd:element name="WeekSchedule" type="esdl:WeekSchedule">
+    <xsd:annotation>
+      <xsd:documentation>Specifies a week schedule for building usage</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="DaySchedule">
+    <xsd:annotation>
+      <xsd:documentation>Specifies a day schedule as part of a week schedule. A day schedule is a collection of events with a timestamp</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
-      <xsd:element maxOccurs="unbounded" minOccurs="0" name="event" type="esdl:Event"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="event" type="esdl:Event">
+        <xsd:annotation>
+          <xsd:documentation>Collection of events with a timestamp</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:element name="DaySchedule" type="esdl:DaySchedule"/>
+  <xsd:element name="DaySchedule" type="esdl:DaySchedule">
+    <xsd:annotation>
+      <xsd:documentation>Specifies a day schedule as part of a week schedule. A day schedule is a collection of events with a timestamp</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="Event">
+    <xsd:annotation>
+      <xsd:documentation>Event with a timestamp</xsd:documentation>
+    </xsd:annotation>
     <xsd:attribute name="id" type="xsd:string"/>
-    <xsd:attribute name="time" type="xsd:string"/>
-    <xsd:attribute name="description" type="xsd:string"/>
-    <xsd:attribute name="value" type="xsd:double"/>
+    <xsd:attribute name="time" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Time at which the event occurs, e.g. 10:00</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="description" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>Description of the event</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="value" type="xsd:double">
+      <xsd:annotation>
+        <xsd:documentation>Specifies a value in an event, such as a setpoint temperature, on/off, etc.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
-  <xsd:element name="Event" type="esdl:Event"/>
-  <xsd:complexType abstract="true" name="AbstractBuildingUsage"/>
+  <xsd:element name="Event" type="esdl:Event">
+    <xsd:annotation>
+      <xsd:documentation>Event with a timestamp</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="true" name="AbstractBuildingUsage">
+    <xsd:annotation>
+      <xsd:documentation>Abstract class to support references to building usages</xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
   <xsd:complexType name="BuildingUsageReference">
+    <xsd:annotation>
+      <xsd:documentation>Specifies a reference to building usage (such as opening hours)</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractBuildingUsage">
         <xsd:attribute name="reference" type="xsd:string"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="BuildingUsageReference" type="esdl:BuildingUsageReference"/>
+  <xsd:element name="BuildingUsageReference" type="esdl:BuildingUsageReference">
+    <xsd:annotation>
+      <xsd:documentation>Specifies a reference to building usage (such as opening hours)</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="BuildingUsageInformation">
+    <xsd:annotation>
+      <xsd:documentation>Part of Energy System Information that specifies generic building usage information that can be referenced from multiple individual buildings</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
-      <xsd:element maxOccurs="unbounded" minOccurs="0" name="buildingUsage" type="esdl:BuildingUsage"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="buildingUsage" type="esdl:BuildingUsage">
+        <xsd:annotation>
+          <xsd:documentation>A reference to building usage of a building</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
     <xsd:attribute name="id" type="xsd:string"/>
   </xsd:complexType>
-  <xsd:element name="BuildingUsageInformation" type="esdl:BuildingUsageInformation"/>
+  <xsd:element name="BuildingUsageInformation" type="esdl:BuildingUsageInformation">
+    <xsd:annotation>
+      <xsd:documentation>Part of Energy System Information that specifies generic building usage information that can be referenced from multiple individual buildings</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="BuildingTypeDistribution">
+    <xsd:annotation>
+      <xsd:documentation>Specifies the way the building type is distributed in this area (e.g. Utility, Residential), specifing the percentage of buildings per type.</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:LabelDistribution">
         <xsd:sequence>
-          <xsd:element maxOccurs="unbounded" minOccurs="0" name="buildingTypePercentage" type="esdl:BuildingTypePercentage"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="buildingTypePercentage" type="esdl:BuildingTypePercentage">
+            <xsd:annotation>
+              <xsd:documentation>The distribution in percentages</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="BuildingTypeDistribution" type="esdl:BuildingTypeDistribution"/>
+  <xsd:element name="BuildingTypeDistribution" type="esdl:BuildingTypeDistribution">
+    <xsd:annotation>
+      <xsd:documentation>Specifies the way the building type is distributed in this area (e.g. Utility, Residential), specifing the percentage of buildings per type.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="BuildingTypePercentage">
+    <xsd:annotation>
+      <xsd:documentation>Specifies the percentage of the selected building type</xsd:documentation>
+    </xsd:annotation>
     <xsd:attribute name="buildingType" type="esdl:BuildingTypeEnum"/>
     <xsd:attribute name="percentage" type="xsd:double"/>
   </xsd:complexType>
-  <xsd:element name="BuildingTypePercentage" type="esdl:BuildingTypePercentage"/>
+  <xsd:element name="BuildingTypePercentage" type="esdl:BuildingTypePercentage">
+    <xsd:annotation>
+      <xsd:documentation>Specifies the percentage of the selected building type</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="ResidentialBuildingTypeDistribution">
+    <xsd:annotation>
+      <xsd:documentation>Specifies the way the residential building type is distributed in this area (e.g. Vrijstaande Woning, Hoekwoning, Flatwoning), specifing the percentage of buildings per residential type.</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:LabelDistribution">
         <xsd:sequence>
-          <xsd:element maxOccurs="unbounded" minOccurs="0" name="residentialBuildingTypePercentage" type="esdl:ResidentialBuildingTypePercentage"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="residentialBuildingTypePercentage" type="esdl:ResidentialBuildingTypePercentage">
+            <xsd:annotation>
+              <xsd:documentation>The distribution in percentages</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="ResidentialBuildingTypeDistribution" type="esdl:ResidentialBuildingTypeDistribution"/>
+  <xsd:element name="ResidentialBuildingTypeDistribution" type="esdl:ResidentialBuildingTypeDistribution">
+    <xsd:annotation>
+      <xsd:documentation>Specifies the way the residential building type is distributed in this area (e.g. Vrijstaande Woning, Hoekwoning, Flatwoning), specifing the percentage of buildings per residential type.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="ResidentialBuildingTypePercentage">
-    <xsd:attribute name="residentialBuildingType" type="esdl:ResidentialBuildingTypeEnum"/>
+    <xsd:annotation>
+      <xsd:documentation>Specifies the percentage of the selected residential building type</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="residentialBuildingType" type="esdl:ResidentialBuildingTypeEnum">
+      <xsd:annotation>
+        <xsd:documentation/>
+      </xsd:annotation>
+    </xsd:attribute>
     <xsd:attribute name="percentage" type="xsd:double"/>
   </xsd:complexType>
-  <xsd:element name="ResidentialBuildingTypePercentage" type="esdl:ResidentialBuildingTypePercentage"/>
+  <xsd:element name="ResidentialBuildingTypePercentage" type="esdl:ResidentialBuildingTypePercentage">
+    <xsd:annotation>
+      <xsd:documentation>Specifies the percentage of the selected residential building type</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="HousingTypeDistribution">
+    <xsd:annotation>
+      <xsd:documentation>Specifies the way the housing type is distributed in this area (e.g. Owner occupied, Housing Association, Private Rental), specifing the percentage of buildings per housing type.</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:LabelDistribution">
         <xsd:sequence>
-          <xsd:element maxOccurs="unbounded" minOccurs="0" name="housingTypePercentage" type="esdl:HousingTypePercentage"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="housingTypePercentage" type="esdl:HousingTypePercentage">
+            <xsd:annotation>
+              <xsd:documentation>The distribution in percentages</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="HousingTypeDistribution" type="esdl:HousingTypeDistribution"/>
+  <xsd:element name="HousingTypeDistribution" type="esdl:HousingTypeDistribution">
+    <xsd:annotation>
+      <xsd:documentation>Specifies the way the housing type is distributed in this area (e.g. Owner occupied, Housing Association, Private Rental), specifing the percentage of buildings per housing type.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="HousingTypePercentage">
+    <xsd:annotation>
+      <xsd:documentation>Specifies the percentage of the selected housing type</xsd:documentation>
+    </xsd:annotation>
     <xsd:attribute name="housingType" type="esdl:HousingTypeEnum"/>
     <xsd:attribute name="percentage" type="xsd:double"/>
   </xsd:complexType>
-  <xsd:element name="HousingTypePercentage" type="esdl:HousingTypePercentage"/>
+  <xsd:element name="HousingTypePercentage" type="esdl:HousingTypePercentage">
+    <xsd:annotation>
+      <xsd:documentation>Specifies the percentage of the selected housing type</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="DoubleKPI">
+    <xsd:annotation>
+      <xsd:documentation>Specifies a KPI value as a double</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:KPI">
         <xsd:attribute name="value" type="xsd:double"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="DoubleKPI" type="esdl:DoubleKPI"/>
+  <xsd:element name="DoubleKPI" type="esdl:DoubleKPI">
+    <xsd:annotation>
+      <xsd:documentation>Specifies a KPI value as a double</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="StringKPI">
+    <xsd:annotation>
+      <xsd:documentation>Specifies a KPI value as a string</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:KPI">
         <xsd:attribute name="value" type="xsd:string"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="StringKPI" type="esdl:StringKPI"/>
+  <xsd:element name="StringKPI" type="esdl:StringKPI">
+    <xsd:annotation>
+      <xsd:documentation>Specifies a KPI value as a string</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="IntKPI">
+    <xsd:annotation>
+      <xsd:documentation>Specifies a KPI value as an integer</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:KPI">
         <xsd:attribute name="value" type="xsd:int"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="IntKPI" type="esdl:IntKPI"/>
+  <xsd:element name="IntKPI" type="esdl:IntKPI">
+    <xsd:annotation>
+      <xsd:documentation>Specifies a KPI value as an integer</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="FromToIntPerc">
+    <xsd:annotation>
+      <xsd:documentation>Specifies a percentage range as an integer value, as part of a distribution, e.g. for defining a period of years (1945-1960) in Aggregated Buildings</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:FromToPerc">
         <xsd:attribute name="from" type="xsd:int"/>
@@ -3576,8 +4408,15 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="FromToIntPerc" type="esdl:FromToIntPerc"/>
+  <xsd:element name="FromToIntPerc" type="esdl:FromToIntPerc">
+    <xsd:annotation>
+      <xsd:documentation>Specifies a percentage range as an integer value, as part of a distribution, e.g. for defining a period of years (1945-1960) in Aggregated Buildings</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
   <xsd:complexType name="FromToDoublePerc">
+    <xsd:annotation>
+      <xsd:documentation>Specifies a percentage range as an double value, as part of a distribution, e.g. for defining energy usage (2.5-5.0 GJ of hot tap water) in Aggregated Buildings</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:FromToPerc">
         <xsd:attribute name="from" type="xsd:double"/>
@@ -3585,5 +4424,74 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:element name="FromToDoublePerc" type="esdl:FromToDoublePerc"/>
+  <xsd:element name="FromToDoublePerc" type="esdl:FromToDoublePerc">
+    <xsd:annotation>
+      <xsd:documentation>Specifies a percentage range as an double value, as part of a distribution, e.g. for defining energy usage (2.5-5.0 GJ of hot tap water) in Aggregated Buildings</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="Material">
+    <xsd:annotation>
+      <xsd:documentation>Class for describing materials other than carriers (e.g. water as an input for an electrolyzer)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Carrier">
+        <xsd:attribute name="density" type="xsd:double">
+          <xsd:annotation>
+            <xsd:documentation>The density of the material in kg/m3</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="UNDEFINED" name="stateOfMatter" type="esdl:StateOfMatterEnum">
+          <xsd:annotation>
+            <xsd:documentation>The state of matter of the material (SOLID, LIQUID, GASEOUS)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Material" type="esdl:Material">
+    <xsd:annotation>
+      <xsd:documentation>Class for describing materials other than carriers (e.g. water as an input for an electrolyzer)</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="Bus">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractConductor">
+        <xsd:attribute name="voltage" type="xsd:double"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Bus" type="esdl:Bus"/>
+  <xsd:complexType abstract="true" name="AbstractSensor">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Transport"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Sensor">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractSensor">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="quantityAndUnit" type="esdl:AbstractQuantityAndUnit"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Sensor" type="esdl:Sensor"/>
+  <xsd:complexType name="Switch">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractSwitch"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Switch" type="esdl:Switch"/>
+  <xsd:complexType name="Compressor">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractTransformer"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Compressor" type="esdl:Compressor"/>
+  <xsd:complexType name="PressureReducingValve">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractTransformer"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PressureReducingValve" type="esdl:PressureReducingValve"/>
 </xsd:schema>
