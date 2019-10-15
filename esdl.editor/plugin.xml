@@ -17,7 +17,7 @@
             name="%_UI_EsdlModelWizard_label"
             class="esdl.presentation.EsdlModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/EsdlModelFile.gif">
+            icon="icons/full/obj16/EsdlModelFile.png">
          <description>%_UI_EsdlModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
@@ -28,7 +28,7 @@
       <editor
             id="esdl.presentation.EsdlEditorID"
             name="%_UI_EsdlEditor_label"
-            icon="icons/full/obj16/EsdlModelFile.gif"
+            icon="icons/full/obj16/EsdlModelFile.png"
             extensions="esdl"
             class="esdl.presentation.EsdlEditor"
             contributorClass="esdl.presentation.EsdlActionBarContributor">
