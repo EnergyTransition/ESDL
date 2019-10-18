@@ -410,16 +410,16 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/VOLT_AMPERE"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/VOLT_AMPERE_REACTIVE"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//TimeUnit">
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnit/NONE"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnit/SECOND"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnit/MINUTE"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnit/QUARTER"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnit/HOUR"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnit/DAY"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnit/WEEK"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnit/MONTH"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnit/YEAR"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//TimeUnitEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnitEnum/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnitEnum/SECOND"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnitEnum/MINUTE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnitEnum/QUARTER"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnitEnum/HOUR"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnitEnum/DAY"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnitEnum/WEEK"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnitEnum/MONTH"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnitEnum/YEAR"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//GasConversionTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GasConversionTypeEnum/UNDEFINED"/>
@@ -889,7 +889,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergyCarrier/energyContent"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergyCarrier/emission"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergyCarrier/energyCarrierType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergyCarrier/stateOfMatter"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyCarrier/energyContentUnit"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyCarrier/emissionUnit"/>
     </genClasses>
@@ -1258,7 +1257,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Sector/code"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EnergyNetwork"/>
-    <genClasses ecoreClass="esdl.ecore#//AbstractConductor"/>
+    <genClasses ecoreClass="esdl.ecore#//AbstractConductor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractConductor/state"/>
+    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AbstractSwitch">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractSwitch/state"/>
     </genClasses>
@@ -1413,5 +1414,19 @@
     <genClasses ecoreClass="esdl.ecore#//Switch"/>
     <genClasses ecoreClass="esdl.ecore#//Compressor"/>
     <genClasses ecoreClass="esdl.ecore#//PressureReducingValve"/>
+    <genClasses ecoreClass="esdl.ecore#//CompoundMaterial">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CompoundMaterial/component"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//CompoundMaterialComponent">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CompoundMaterialComponent/fraction"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//CompoundMaterialComponent/material"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//PIDController">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PIDController/Kp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PIDController/Ki"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PIDController/Kd"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//PIDController/sensor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//PIDController/sdetPoint"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
