@@ -1386,6 +1386,12 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines a valve, e.g. in a water, gas or heat network"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valveCoefficient" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The valve coefficient of a valve describes the relationship between the pressure drop across the valve and the corresponding flow rate"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericProfile" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2992,7 +2998,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Switch" eSuperTypes="#//AbstractSwitch"/>
   <eClassifiers xsi:type="ecore:EClass" name="Compressor" eSuperTypes="#//AbstractTransformer"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PressureReducingValve" eSuperTypes="#//AbstractTransformer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PressureReducingValve" eSuperTypes="#//AbstractTransformer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valveCoefficient" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The valve coefficient of a valve describes the relationship between the pressure drop across the valve and the corresponding flow rate"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundMaterial" eSuperTypes="#//Material">
     <eStructuralFeatures xsi:type="ecore:EReference" name="component" upperBound="-1"
         eType="#//CompoundMaterialComponent" containment="true"/>
@@ -3003,12 +3016,35 @@
         eType="#//Material"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PIDController" eSuperTypes="#//ControlStrategy">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Kp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Ki" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Kd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Control strategy specifying that an asset is driven by a PID controller (used in ESDL-based simulation tools)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Kp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Proportional gain of the PID controller"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Ki" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Integral gain of the PID controller"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Kd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Derivative gain of the PID controller"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" lowerBound="1"
-        eType="#//Sensor"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sdetPoint" lowerBound="1"
-        eType="#//GenericProfile" containment="true"/>
+        eType="#//Sensor">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Sensor used to measure the process variable. The PID controller tries to minimize the error between the setPoint and the measured process variable."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="setPoint" lowerBound="1"
+        eType="#//GenericProfile" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Desired setpoint of the measured process variable. The PID controller tries to minimize the error between the setPoint and the measured process variable."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

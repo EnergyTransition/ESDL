@@ -919,7 +919,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/buildingUsageInformation"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Pump"/>
-    <genClasses ecoreClass="esdl.ecore#//Valve"/>
+    <genClasses ecoreClass="esdl.ecore#//Valve">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Valve/valveCoefficient"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//GenericProfile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericProfile/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericProfile/profileType"/>
@@ -1413,7 +1415,9 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Switch"/>
     <genClasses ecoreClass="esdl.ecore#//Compressor"/>
-    <genClasses ecoreClass="esdl.ecore#//PressureReducingValve"/>
+    <genClasses ecoreClass="esdl.ecore#//PressureReducingValve">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PressureReducingValve/valveCoefficient"/>
+    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//CompoundMaterial">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CompoundMaterial/component"/>
     </genClasses>
@@ -1426,7 +1430,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PIDController/Ki"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PIDController/Kd"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//PIDController/sensor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//PIDController/sdetPoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//PIDController/setPoint"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
