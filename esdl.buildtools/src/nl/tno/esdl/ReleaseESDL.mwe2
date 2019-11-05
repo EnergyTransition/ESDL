@@ -56,6 +56,7 @@ Workflow {
 		srcPath = "platform:/resource/esdl/src-gen"
 		generateEdit = true
 		generateEditor = true
+		lineDelimiter = "\n" // otherwise .gif files give errors
 	}
 
 
