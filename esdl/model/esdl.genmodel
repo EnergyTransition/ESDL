@@ -1089,7 +1089,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSources/id"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//DataSource">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSource/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSource/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSource/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSource/reference"/>
@@ -1159,6 +1158,7 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Services">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Services/service"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Services/id"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//ControlStrategy">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//ControlStrategy/energyAsset"/>
@@ -1176,7 +1176,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//QuantityAndUnitType/perTimeUnit"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//QuantityAndUnitType/id"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//AbstractDataSource"/>
+    <genClasses ecoreClass="esdl.ecore#//AbstractDataSource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractDataSource/id"/>
+    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//DataSourceReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//DataSourceReference/reference"/>
     </genClasses>
@@ -1431,6 +1433,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PIDController/Kd"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//PIDController/sensor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//PIDController/setPoint"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//PVPark">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVPark/numberOfPanels"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//WindPark">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindPark/numberOfTurbines"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
