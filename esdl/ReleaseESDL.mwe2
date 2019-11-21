@@ -1,0 +1,38 @@
+/**
+ * 
+ * MWE2 Worfklow module to deploy an ESDL release
+ * 
+ * MWE2 documentation at: https://www.eclipse.org/Xtext/documentation/306_mwe2.html
+ * 
+ */
+
+module nl.tno.esdl.ReleaseESDL
+
+import org.eclipse.emf.ecore.resource.impl.*
+import org.eclipse.xtext.ecore.*
+import org.eclipse.emf.mwe.utils.*
+import org.eclipse.emf.mwe2.ecore.*
+import java.nio.file.*
+
+var rootPath = "../"
+    
+Workflow {
+	
+	// init EcoreSupport -> so it can access Eclipse resources in this workspace
+    bean = org.eclipse.xtext.ecore.EcoreSupport {}
+    bean = ResourceSetImpl : resourceSet {}
+    bean = StandaloneSetup { 
+    	resourceSet = resourceSet
+    	platformUri = "${rootPath}"
+    	scanClassPath = true
+    }
+ 
+    // generate the code files
+    component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
+		genModel = "platform:/resource/esdl/model/esdl.genmodel"
+		srcPath = "platform:/resource/esdl/src-gen"
+		generateEdit = true
+		generateEditor = true
+	}
+	
+}

@@ -7,35 +7,12 @@
 	<name>ESDL specification</name>
 	<packaging>eclipse-plugin</packaging>
 
-
 	<parent>
 		<artifactId>esdl.parent</artifactId>
 		<groupId>nl.tno.esdl</groupId>
 		<version>1.0.0-SNAPSHOT</version>
 		<relativePath>../esdl.parent</relativePath>
 	</parent>
-
-
-
-	<!-- for maven build to install maven dependency -->
-	<dependencies>
-		<!-- <dependency> -->
-		<!-- <groupId>org.eclipse.emf</groupId> -->
-		<!-- <artifactId>org.eclipse.emf.common</artifactId> -->
-		<!-- <version>2.15.0</version> -->
-		<!-- </dependency> -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.eclipse.emf</groupId> -->
-		<!-- <artifactId>org.eclipse.emf.ecore</artifactId> -->
-		<!-- <version>2.15.0</version> -->
-		<!-- </dependency> -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.eclipse.emf</groupId> -->
-		<!-- <artifactId>org.eclipse.emf.ecore.xmi</artifactId> -->
-		<!-- <version>2.15.0</version> -->
-		<!-- </dependency> -->
-
-	</dependencies>
 
 	<build>
 		<sourceDirectory>src-gen</sourceDirectory>
@@ -80,13 +57,7 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
-			<plugin>
-				<!-- enable tycho build extension -->
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-maven-plugin</artifactId>
-				<version>${tycho.version}</version>
-				<extensions>true</extensions>
-			</plugin>
+	
 			<plugin>
 				<!-- generate esdl model codeusing mwe2 workflow -->
 				<groupId>org.codehaus.mojo</groupId>
@@ -104,9 +75,7 @@
 				<configuration>
 					<mainClass>org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher</mainClass>
 					<arguments>
-						<argument>/${project.basedir}/../esdl.buildtools/src/nl/tno/esdl/ReleaseESDL.mwe2</argument>
-						<!-- <argument>-p</argument> -->
-						<!-- <argument>rootPath=/${project.basedir}/..</argument> -->
+						<argument>${project.basedir}/ReleaseESDL.mwe2</argument>
 					</arguments>
 					<classpathScope>compile</classpathScope>
 					<includePluginDependencies>true</includePluginDependencies>
@@ -116,18 +85,13 @@
 					<!-- for tycho build -->
 					<dependency>
 						<groupId>org.eclipse.emf</groupId>
-						<artifactId>org.eclipse.emf.common</artifactId>
-						<version>${emf.version}</version>
+						<artifactId>org.eclipse.emf.mwe2.launch</artifactId>
+						<version>${mwe2.version}</version>
 					</dependency>
 					<dependency>
 						<groupId>org.eclipse.emf</groupId>
-						<artifactId>org.eclipse.emf.ecore</artifactId>
-						<version>${emfecore.version}</version>
-					</dependency>
-					<dependency>
-						<groupId>org.eclipse.emf</groupId>
-						<artifactId>org.eclipse.emf.ecore.xmi</artifactId>
-						<version>${emf.version}</version>
+						<artifactId>org.eclipse.emf.mwe2.runtime</artifactId>
+						<version>${mwe2.version}</version>
 					</dependency>
 					<dependency>
 						<groupId>org.eclipse.emf</groupId>
@@ -135,9 +99,9 @@
 						<version>${emfecore.version}</version>
 					</dependency>
 					<dependency>
-						<groupId>org.eclipse.emf</groupId>
-						<artifactId>org.eclipse.emf.mwe2.launch</artifactId>
-						<version>${mwe2.version}</version>
+						<groupId>org.eclipse.xtext</groupId>
+						<artifactId>org.eclipse.xtext.xtext.generator</artifactId>
+						<version>${xtext.version}</version>
 					</dependency>
 					<dependency>
 						<groupId>org.eclipse.xtext</groupId>
@@ -149,49 +113,6 @@
 						<artifactId>org.eclipse.xtext.ecore</artifactId>
 						<version>${xtext.version}</version>
 					</dependency>
-					<dependency>
-						<groupId>org.eclipse.xtext</groupId>
-						<artifactId>org.eclipse.xtext.xtext.generator</artifactId>
-						<version>${xtext.version}</version>
-						<exclusions>
-							<exclusion>
-								<groupId>org.eclipse.emf</groupId>
-								<artifactId>org.eclipse.emf.mwe.utils</artifactId>
-							</exclusion>
-							<exclusion>
-								<groupId>org.eclipse.emf</groupId>
-								<artifactId>org.eclipse.emf.mwe2.lib</artifactId>
-							</exclusion>
-						</exclusions>
-					</dependency>
-					<!-- <dependency> -->
-					<!-- <groupId>org.eclipse.xtext</groupId> -->
-					<!-- <artifactId>org.eclipse.xtext.xbase</artifactId> -->
-					<!-- <version>${xtext.version}</version> -->
-					<!-- </dependency> -->
-					<!-- <dependency> -->
-					<!-- <groupId>org.eclipse.xtext</groupId> -->
-					<!-- <artifactId>xtext-antlr-generator</artifactId> -->
-					<!-- <version>[2.1.1, 3)</version> -->
-					<!-- </dependency> -->
-					<dependency>
-						<groupId>nl.tno.esdl</groupId>
-						<artifactId>esdl.buildtools</artifactId>
-						<version>1.0.0-SNAPSHOT</version>
-						<type>eclipse-plugin</type>
-					</dependency>
-					<dependency>
-						<groupId>org.eclipse.jgit</groupId>
-						<artifactId>org.eclipse.jgit</artifactId>
-						<version>5.4.0.201906121030-r</version>
-					</dependency>
-					<!-- <dependency> -->
-					<!-- <groupId>org.slf4j</groupId> -->
-					<!-- <artifactId>slf4j-simple</artifactId> -->
-					<!-- <version>1.5.6</version> -->
-					<!-- </dependency> -->
-
-
 				</dependencies>
 			</plugin>
 		</plugins>

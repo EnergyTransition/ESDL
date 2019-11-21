@@ -15,10 +15,10 @@
 		<!-- This should be the same as the GIT tag of this release -->
 		<esdl.version>v1910</esdl.version>
 		<tycho.version>1.4.0</tycho.version>
-		<xtext.version>2.18.0</xtext.version>
+		<xtext.version>2.20.0.M2</xtext.version>
 		<emf.version>2.16.0</emf.version>
-		<emfecore.version>2.18.0</emfecore.version>
-		<mwe2.version>2.11.0</mwe2.version> <!--  2.11.0 has an old dependency issue -->
+		<emfecore.version>2.19.0</emfecore.version>
+		<mwe2.version>2.11.0</mwe2.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -30,7 +30,6 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<modules>
-				<module>../esdl.buildtools</module> <!-- build tools project needs to be build first -->
 				<module>../esdl</module>
 				<module>../esdl.edit</module>
 				<module>../esdl.editor</module>
@@ -39,7 +38,6 @@
 		<profile>
 			<id>designer</id>
 			<modules>
-				<module>../esdl.buildtools</module> <!-- build tools project needs to be build first -->
 				<module>../esdl</module>
 				<module>../esdl.edit</module>
 				<module>../esdl.editor</module>
@@ -54,17 +52,13 @@
 
 	</modules>
 
-
-
 	<repositories>
 		<repository>
-			<id>eclipse-2019-03</id>
-			<url>http://download.eclipse.org/releases/2019-03</url>
+			<id>eclipse-2019-12</id>
+			<url>http://download.eclipse.org/releases/2019-12</url>
 			<layout>p2</layout>
 		</repository>
 	</repositories>
-
-
 
 	<build>
 		<plugins>
