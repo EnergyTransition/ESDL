@@ -949,6 +949,8 @@
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//ExternalProfile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ExternalProfile/multiplier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ExternalProfile/startDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ExternalProfile/endDate"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//SingleValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SingleValue/value"/>

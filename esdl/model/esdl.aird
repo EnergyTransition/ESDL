@@ -2494,6 +2494,14 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_dejv8VHpEeiQ2K8I8CIgdA" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_dejv8lHpEeiQ2K8I8CIgdA"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_SImCUCM9Eequdb1nf_NQSg" type="3010" element="_R9PG4CM9Eequdb1nf_NQSg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_SImCUSM9Eequdb1nf_NQSg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_SImCUiM9Eequdb1nf_NQSg"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_UpLvwCM9Eequdb1nf_NQSg" type="3010" element="_UkI3sCM9Eequdb1nf_NQSg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_UpLvwSM9Eequdb1nf_NQSg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_UpLvwiM9Eequdb1nf_NQSg"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_akDmBS6wEeiK6b1j6uagLA"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_akDmBi6wEeiK6b1j6uagLA"/>
           </children>
@@ -5038,7 +5046,7 @@
           <styles xmi:type="notation:ShapeStyle" xmi:id="_-NPBMdkjEeiAiP44lhTokg" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-NPBMtkjEeiAiP44lhTokg" x="1971" y="2514" width="120" height="126"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_n6pPkOP9Eei-rO52rQ5FJw" type="Note" fontName="Segoe UI" description="Changes since last commit:&#xD;&#xA;- added ID to Services and moved ID from DataSource to AbstractDataSource&#xD;&#xA;- added PVPark and WindPark and made PVParc and WindParc deprecated" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+        <children xmi:type="notation:Shape" xmi:id="_n6pPkOP9Eei-rO52rQ5FJw" type="Note" fontName="Segoe UI" description="Changes since last commit:&#xD;&#xA;- added startDate and endDate to ExternalProfile" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
           <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_n6pPkeP9Eei-rO52rQ5FJw" source="specificStyles">
             <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_n6pPkuP9Eei-rO52rQ5FJw" key="verticalAlignment" value="8"/>
           </eAnnotations>
@@ -15620,6 +15628,22 @@
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//ExternalProfile/multiplier"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//ExternalProfile/multiplier"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_1fe_wC6yEeiK6b1j6uagLA" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_R9PG4CM9Eequdb1nf_NQSg" name="startDate : EDate" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//ExternalProfile/startDate"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//ExternalProfile/startDate"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_R9atECM9Eequdb1nf_NQSg" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_UkI3sCM9Eequdb1nf_NQSg" name="endDate : EDate" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//ExternalProfile/endDate"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//ExternalProfile/endDate"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_UkI3sSM9Eequdb1nf_NQSg" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
