@@ -1842,7 +1842,8 @@
         <details key="documentation" value="Can be used to express the amount of potential energy that can be harvested in this area. Attach a 'QuantityAndUnit' instance to express the unit of energy (e.g. ENERGY in GJ)"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SolarPotentialType" eType="#//PVInstallationTypeEnum">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="solarPotentialType" eType="#//PVInstallationTypeEnum"
+        defaultValueLiteral="UNDEFINED">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Used to express the type of PV installation (e.g. ROOFTOP, FIELD, WATER, ROAD, ...)."/>
       </eAnnotations>
