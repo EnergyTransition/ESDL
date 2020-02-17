@@ -5047,7 +5047,7 @@
           <styles xmi:type="notation:ShapeStyle" xmi:id="_-NPBMdkjEeiAiP44lhTokg" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-NPBMtkjEeiAiP44lhTokg" x="1971" y="2514" width="120" height="126"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_n6pPkOP9Eei-rO52rQ5FJw" type="Note" fontName="Segoe UI" description="Changes since last commit:&#xD;&#xA;- added ambitions to KPIs&#xD;&#xA;- restructured solar and wind potential classes" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+        <children xmi:type="notation:Shape" xmi:id="_n6pPkOP9Eei-rO52rQ5FJw" type="Note" fontName="Segoe UI" description="Changes since last commit:&#xD;&#xA;- Allow multiple buildingTypeEnum attributes for a buildingUnit" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
           <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_n6pPkeP9Eei-rO52rQ5FJw" source="specificStyles">
             <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_n6pPkuP9Eei-rO52rQ5FJw" key="verticalAlignment" value="8"/>
           </eAnnotations>
@@ -11422,7 +11422,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_A7rscP0SEeeeKZnzyFWydQ" name="type : BuildingTypeEnum = UNDEFINED" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_A7rscP0SEeeeKZnzyFWydQ" name="type : BuildingTypeEnum" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUnit/type"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUnit/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_A7rscf0SEeeeKZnzyFWydQ" labelAlignment="LEFT">
