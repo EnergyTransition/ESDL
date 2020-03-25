@@ -242,6 +242,10 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
   <xsd:element ecore:ignore="true" name="Restriction" type="esdl:Restriction"/>
   <xsd:element ecore:ignore="true" name="BuildingTypeRestriction" type="esdl:BuildingTypeRestriction"/>
   <xsd:element ecore:ignore="true" name="AreaTypeRestriction" type="esdl:AreaTypeRestriction"/>
+  <xsd:element ecore:ignore="true" name="Templates" type="esdl:Templates"/>
+  <xsd:element ecore:ignore="true" name="AssetTemplate" type="esdl:AssetTemplate"/>
+  <xsd:element ecore:ignore="true" name="TemplatedAsset" type="esdl:TemplatedAsset"/>
+  <xsd:element ecore:ignore="true" name="Address" type="esdl:Address"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -386,6 +390,11 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
           <xsd:documentation>(experimental) Abstract information like services (demand response, aggregator services), energy markets and control strategies.</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="templates" type="esdl:Templates">
+        <xsd:annotation>
+          <xsd:documentation>Collection of generic templates that can be used to derive specific instances from.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
     <xsd:attribute name="name" type="ecore:EString">
       <xsd:annotation>
@@ -498,6 +507,7 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
       <xsd:extension base="esdl:AbstractBuilding">
         <xsd:sequence>
           <xsd:element ecore:unique="true" maxOccurs="unbounded" minOccurs="0" name="type" type="esdl:BuildingTypeEnum"/>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="address" type="esdl:Address"/>
         </xsd:sequence>
         <xsd:attribute ecore:unsettable="false" name="housingType" type="esdl:HousingTypeEnum"/>
         <xsd:attribute ecore:unsettable="false" name="numberOfInhabitants" type="ecore:EInt"/>
@@ -567,7 +577,11 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
           <xsd:documentation>Describes the physical geometry of this area</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="measures" type="esdl:Measures"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="measures" type="esdl:Measures">
+        <xsd:annotation>
+          <xsd:documentation>Measures collection for a specific area. Allows you to specify different possibilities in different areas.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString">
       <xsd:annotation>
@@ -1549,7 +1563,11 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
       <xsd:documentation>Collection of measures that can be applied to an energy system</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="measure" type="esdl:Measure"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="measure" type="esdl:Measure">
+        <xsd:annotation>
+          <xsd:documentation>A single measure with cost information, consisting of 1 or more assets.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="EConnection">
@@ -2821,6 +2839,7 @@ When a model queries for a value from a certain date (and to a certain date), th
         <xsd:attribute name="description" type="ecore:EString"/>
         <xsd:attribute ecore:unsettable="false" name="perTimeUnit" type="esdl:TimeUnitEnum"/>
         <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
+        <xsd:attribute ecore:unsettable="false" name="perScope" type="esdl:QuantityAndUnitScopeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -3155,7 +3174,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   </xsd:complexType>
   <xsd:complexType name="Measure">
     <xsd:annotation>
-      <xsd:documentation>A combination of measures with single cost information that can be applied to an energy system. E.g. a combination of insulation and a heat pump. For a single measure (e.g. a PV installation) use Measures</xsd:documentation>
+      <xsd:documentation>A single measure or a combination of measures with collective cost information that can be applied to an energy system. An example of a measure-combination would be a combination of insulation and a heat pump.</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
       <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset"/>
@@ -4162,4 +4181,60 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
+  <xsd:complexType name="Templates">
+    <xsd:annotation>
+      <xsd:documentation>Collection of templates, e.g. asset templates.
+</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="assetTemplate" type="esdl:AssetTemplate"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AssetTemplate">
+    <xsd:annotation>
+      <xsd:documentation>Template for an asset. Can be used to specify a generic asset type where specific instances can refer to and inherit properties of.
+</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Item">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" name="asset" type="esdl:Asset"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="TemplatedAsset">
+    <xsd:annotation>
+      <xsd:documentation>An instantiated asset that is referring to an asset template and the specific asset. The asset template contains generic information, the specific asset contains specific information about this instance (e.g. geometry).</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Asset">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="asset" type="esdl:Asset"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:reference="esdl:AssetTemplate" name="template" type="xsd:anyURI" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Address">
+    <xsd:annotation>
+      <xsd:documentation>The address of a building unit.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="streetName" type="ecore:EString"/>
+    <xsd:attribute ecore:unsettable="false" name="houseNumber" type="ecore:EInt"/>
+    <xsd:attribute name="houseNumberLetter" type="ecore:EString"/>
+    <xsd:attribute name="houseNumberAnnex" type="ecore:EString"/>
+    <xsd:attribute name="postalCode" type="ecore:EString"/>
+    <xsd:attribute name="city" type="ecore:EString"/>
+    <xsd:attribute name="stateOrProvince" type="ecore:EString"/>
+    <xsd:attribute name="country" type="ecore:EString"/>
+  </xsd:complexType>
+  <xsd:simpleType name="QuantityAndUnitScopeEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="CONNECTION"/>
+      <xsd:enumeration value="BUILDING"/>
+      <xsd:enumeration value="HOUSEHOLD"/>
+    </xsd:restriction>
+  </xsd:simpleType>
 </xsd:schema>

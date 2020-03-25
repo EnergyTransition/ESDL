@@ -156,6 +156,12 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="templates" eType="#//Templates"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Collection of generic templates that can be used to derive specific instances from."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WindTurbine" eSuperTypes="#//Producer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -239,6 +245,8 @@
         defaultValueLiteral="UNDEFINED"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ventilationType" eType="#//VentilationTypeEnum"
         defaultValueLiteral="UNDEFINED"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="address" eType="#//Address"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Area">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -336,7 +344,11 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="measures" eType="#//Measures"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Measures collection for a specific area. Allows you to specify different possibilities in different areas."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1121,7 +1133,11 @@
       <details key="documentation" value="Collection of measures that can be applied to an energy system"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="measure" upperBound="-1"
-        eType="#//Measure" containment="true"/>
+        eType="#//Measure" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A single measure with cost information, consisting of 1 or more assets."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EConnection" eSuperTypes="#//AbstractConnection">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2144,6 +2160,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="perTimeUnit" eType="#//TimeUnitEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="perScope" eType="#//QuantityAndUnitScopeEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="MultiplierEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2410,7 +2427,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Measure">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A combination of measures with single cost information that can be applied to an energy system. E.g. a combination of insulation and a heat pump. For a single measure (e.g. a PV installation) use Measures"/>
+      <details key="documentation" value="A single measure or a combination of measures with collective cost information that can be applied to an energy system. An example of a measure-combination would be a combination of insulation and a heat pump."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
@@ -3212,5 +3229,47 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AreaTypeRestriction" eSuperTypes="#//Restriction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" upperBound="-1" eType="#//AreaTypeEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Templates">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Collection of templates, e.g. asset templates.&#xD;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assetTemplate" upperBound="-1"
+        eType="#//AssetTemplate" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssetTemplate" eSuperTypes="#//Item">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Template for an asset. Can be used to specify a generic asset type where specific instances can refer to and inherit properties of.&#xD;&#xA;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="asset" lowerBound="1" eType="#//Asset"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TemplatedAsset" eSuperTypes="#//Asset">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An instantiated asset that is referring to an asset template and the specific asset. The asset template contains generic information, the specific asset contains specific information about this instance (e.g. geometry)."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="asset" eType="#//Asset"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="template" lowerBound="1"
+        eType="#//AssetTemplate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Address">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The address of a building unit."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="streetName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="houseNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="houseNumberLetter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="houseNumberAnnex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="postalCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="city" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateOrProvince" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="country" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="QuantityAndUnitScopeEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="CONNECTION" value="1"/>
+    <eLiterals name="BUILDING" value="2"/>
+    <eLiterals name="HOUSEHOLD" value="3"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -550,6 +550,12 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AssetStateEnum/ENABLED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AssetStateEnum/DISABLED"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//QuantityAndUnitScopeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//QuantityAndUnitScopeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//QuantityAndUnitScopeEnum/CONNECTION"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//QuantityAndUnitScopeEnum/BUILDING"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//QuantityAndUnitScopeEnum/HOUSEHOLD"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/controlStrategy"/>
@@ -597,6 +603,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/services"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystem/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystem/version"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/templates"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WindTurbine">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindTurbine/rotorDiameter"/>
@@ -639,6 +646,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUnit/uWindow"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUnit/glassType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUnit/ventilationType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//BuildingUnit/address"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Area">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/id"/>
@@ -1186,6 +1194,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//QuantityAndUnitType/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//QuantityAndUnitType/perTimeUnit"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//QuantityAndUnitType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//QuantityAndUnitType/perScope"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AbstractDataSource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractDataSource/id"/>
@@ -1472,6 +1481,26 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AreaTypeRestriction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AreaTypeRestriction/type"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//Templates">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Templates/assetTemplate"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//AssetTemplate">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AssetTemplate/asset"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//TemplatedAsset">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//TemplatedAsset/asset"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//TemplatedAsset/template"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//Address">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Address/streetName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Address/houseNumber"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Address/houseNumberLetter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Address/houseNumberAnnex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Address/postalCode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Address/city"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Address/stateOrProvince"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Address/country"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
