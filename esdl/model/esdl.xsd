@@ -12,8 +12,8 @@ The Github repository is at [https://github.com/EnergyTransition/ESDL](https://g
 For more information about ESDL, see the [ESDL gitbook](https://energytransition.gitbook.io/esdl)
 A browseable version of this model is found at [https://energytransition.github.io/](https://energytransition.github.io/)
 
-ESDL version: v1910
-Git commit hash $Id$</xsd:documentation>
+ESDL version: v1910-8-g14785f1
+Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentation>
   </xsd:annotation>
   <xsd:element ecore:ignore="true" name="EnergyAsset" type="esdl:EnergyAsset"/>
   <xsd:element ecore:ignore="true" name="Producer" type="esdl:Producer"/>
@@ -176,7 +176,7 @@ Git commit hash $Id$</xsd:documentation>
   <xsd:element ecore:ignore="true" name="DrivenByProfile" type="esdl:DrivenByProfile"/>
   <xsd:element ecore:ignore="true" name="PVInstallation" type="esdl:PVInstallation"/>
   <xsd:element ecore:ignore="true" name="CircuitBreaker" type="esdl:CircuitBreaker"/>
-  <xsd:element ecore:ignore="true" name="MeasuresCombination" type="esdl:MeasuresCombination"/>
+  <xsd:element ecore:ignore="true" name="Measure" type="esdl:Measure"/>
   <xsd:element ecore:ignore="true" name="WaterToPower" type="esdl:WaterToPower"/>
   <xsd:element ecore:ignore="true" name="Sectors" type="esdl:Sectors"/>
   <xsd:element ecore:ignore="true" name="Sector" type="esdl:Sector"/>
@@ -239,6 +239,9 @@ Git commit hash $Id$</xsd:documentation>
   <xsd:element ecore:ignore="true" name="IntAmbition" type="esdl:IntAmbition"/>
   <xsd:element ecore:ignore="true" name="DoubleAmbition" type="esdl:DoubleAmbition"/>
   <xsd:element ecore:ignore="true" name="StringAmbition" type="esdl:StringAmbition"/>
+  <xsd:element ecore:ignore="true" name="Restriction" type="esdl:Restriction"/>
+  <xsd:element ecore:ignore="true" name="BuildingTypeRestriction" type="esdl:BuildingTypeRestriction"/>
+  <xsd:element ecore:ignore="true" name="AreaTypeRestriction" type="esdl:AreaTypeRestriction"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -564,6 +567,7 @@ Git commit hash $Id$</xsd:documentation>
           <xsd:documentation>Describes the physical geometry of this area</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="measures" type="esdl:Measures"/>
     </xsd:sequence>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString">
       <xsd:annotation>
@@ -824,6 +828,7 @@ Git commit hash $Id$</xsd:documentation>
             <xsd:documentation>the type (e.g. model number) of the asset</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="state" type="esdl:AssetStateEnum"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1544,8 +1549,7 @@ Git commit hash $Id$</xsd:documentation>
       <xsd:documentation>Collection of measures that can be applied to an energy system</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset"/>
-      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="measuresCollection" type="esdl:MeasuresCombination"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="measure" type="esdl:Measure"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="EConnection">
@@ -3149,7 +3153,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:extension base="esdl:AbstractSwitch"/>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="MeasuresCombination">
+  <xsd:complexType name="Measure">
     <xsd:annotation>
       <xsd:documentation>A combination of measures with single cost information that can be applied to an energy system. E.g. a combination of insulation and a heat pump. For a single measure (e.g. a PV installation) use Measures</xsd:documentation>
     </xsd:annotation>
@@ -3157,6 +3161,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset"/>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="costInformation" type="esdl:CostInformation"/>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="dataSource" type="esdl:AbstractDataSource"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="restriction" type="esdl:Restriction"/>
     </xsd:sequence>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
     <xsd:attribute name="name" type="ecore:EString"/>
@@ -3219,9 +3224,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Abstract class to describe conductors such as cables and pipes and joining them using a joint</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Transport">
-        <xsd:attribute ecore:unsettable="false" name="state" type="esdl:StateEnum"/>
-      </xsd:extension>
+      <xsd:extension base="esdl:Transport"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="AbstractSwitch">
@@ -3230,7 +3233,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Transport">
-        <xsd:attribute ecore:unsettable="false" name="state" type="esdl:StateEnum"/>
+        <xsd:attribute default="UNDEFINED" ecore:unsettable="false" name="position" type="esdl:SwitchPositionEnum"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -4001,7 +4004,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:simpleType name="StateEnum">
+  <xsd:simpleType name="SwitchPositionEnum">
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="UNDEFINED"/>
       <xsd:enumeration value="OPEN"/>
@@ -4133,5 +4136,30 @@ When a model queries for a value from a certain date (and to a certain date), th
         <xsd:documentation>The year for which this ambition is specified.</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+  </xsd:complexType>
+  <xsd:simpleType name="AssetStateEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="ENABLED"/>
+      <xsd:enumeration value="DISABLED"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType abstract="true" name="Restriction"/>
+  <xsd:complexType name="BuildingTypeRestriction">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Restriction">
+        <xsd:sequence>
+          <xsd:element ecore:unique="true" maxOccurs="unbounded" minOccurs="0" name="type" type="esdl:BuildingTypeEnum"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="AreaTypeRestriction">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Restriction">
+        <xsd:sequence>
+          <xsd:element ecore:unique="true" maxOccurs="unbounded" minOccurs="0" name="type" type="esdl:AreaTypeEnum"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
   </xsd:complexType>
 </xsd:schema>

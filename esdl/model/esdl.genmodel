@@ -541,10 +541,14 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN1100"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN1200"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//StateEnum">
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//StateEnum/UNDEFINED"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//StateEnum/OPEN"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//StateEnum/CLOSED"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//SwitchPositionEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//SwitchPositionEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//SwitchPositionEnum/OPEN"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//SwitchPositionEnum/CLOSED"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//AssetStateEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AssetStateEnum/ENABLED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AssetStateEnum/DISABLED"/>
     </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>
@@ -653,6 +657,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/KPIs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/potential"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/geometry"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/measures"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Port">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/id"/>
@@ -687,6 +692,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/installationDuration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/KPIs"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/assetType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/state"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GenericConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//GenericProducer"/>
@@ -829,8 +835,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Item/sector"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Measures">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measures/asset"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measures/measuresCollection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measures/measure"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EConnection">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EConnection/EANCode"/>
@@ -1243,13 +1248,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVInstallation/numberOfPanels"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//CircuitBreaker"/>
-    <genClasses ecoreClass="esdl.ecore#//MeasuresCombination">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MeasuresCombination/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MeasuresCombination/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MeasuresCombination/asset"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MeasuresCombination/costInformation"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MeasuresCombination/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MeasuresCombination/dataSource"/>
+    <genClasses ecoreClass="esdl.ecore#//Measure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Measure/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Measure/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measure/asset"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measure/costInformation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Measure/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measure/dataSource"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measure/restriction"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WaterToPower">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WaterToPower/type"/>
@@ -1267,11 +1273,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Sector/code"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EnergyNetwork"/>
-    <genClasses ecoreClass="esdl.ecore#//AbstractConductor">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractConductor/state"/>
-    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//AbstractConductor"/>
     <genClasses ecoreClass="esdl.ecore#//AbstractSwitch">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractSwitch/state"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractSwitch/position"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AbstractTransformer"/>
     <genClasses ecoreClass="esdl.ecore#//AbstractConnection"/>
@@ -1461,6 +1465,13 @@
     <genClasses ecoreClass="esdl.ecore#//StringAmbition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StringAmbition/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StringAmbition/year"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="esdl.ecore#//Restriction"/>
+    <genClasses ecoreClass="esdl.ecore#//BuildingTypeRestriction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingTypeRestriction/type"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//AreaTypeRestriction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AreaTypeRestriction/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
