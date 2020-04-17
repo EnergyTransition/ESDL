@@ -755,8 +755,8 @@
     <genClasses ecoreClass="esdl.ecore#//Insulation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Insulation/thermalInsulation"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//SourceProducer"/>
-    <genClasses ecoreClass="esdl.ecore#//SinkConsumer"/>
+    <genClasses ecoreClass="esdl.ecore#//Import"/>
+    <genClasses ecoreClass="esdl.ecore#//Export"/>
     <genClasses ecoreClass="esdl.ecore#//Pipe">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pipe/innerDiameter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pipe/outerDiameter"/>
@@ -864,6 +864,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AbstractBuilding/asset"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractBuilding/energyIndex"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AbstractBuilding/buildingUsage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AbstractBuilding/potential"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Instance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Instance/id"/>
@@ -991,7 +992,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/marginalCosts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/variableOperationalAndMaintenanceCosts"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="esdl.ecore#//LabelDistribution"/>
+    <genClasses image="false" ecoreClass="esdl.ecore#//SpecificLabelDistribution"/>
     <genClasses ecoreClass="esdl.ecore#//StringLabelDistribution">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//StringLabelDistribution/stringPerc"/>
     </genClasses>
@@ -1409,15 +1410,15 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//DoubleKPI">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleKPI/value"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//DoubleKPI/ambition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//DoubleKPI/target"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//StringKPI">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StringKPI/value"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//StringKPI/ambition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//StringKPI/target"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//IntKPI">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//IntKPI/value"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//IntKPI/ambition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//IntKPI/target"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//FromToIntPerc">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//FromToIntPerc/from"/>
@@ -1463,17 +1464,17 @@
     <genClasses ecoreClass="esdl.ecore#//WindPark">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindPark/numberOfTurbines"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//IntAmbition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//IntAmbition/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//IntAmbition/year"/>
+    <genClasses ecoreClass="esdl.ecore#//IntTargetKPI">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//IntTargetKPI/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//IntTargetKPI/year"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//DoubleAmbition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleAmbition/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleAmbition/year"/>
+    <genClasses ecoreClass="esdl.ecore#//DoubleTargetKPI">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleTargetKPI/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleTargetKPI/year"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//StringAmbition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StringAmbition/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StringAmbition/year"/>
+    <genClasses ecoreClass="esdl.ecore#//StringTargetKPI">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StringTargetKPI/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StringTargetKPI/year"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Restriction"/>
     <genClasses ecoreClass="esdl.ecore#//BuildingTypeRestriction">
@@ -1501,6 +1502,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Address/city"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Address/stateOrProvince"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Address/country"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//GenericLabelDistribution"/>
+    <genClasses ecoreClass="esdl.ecore#//DistributionKPI">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//DistributionKPI/distribution"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

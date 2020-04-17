@@ -49,8 +49,8 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
   <xsd:element ecore:ignore="true" name="HeatNetwork" type="esdl:HeatNetwork"/>
   <xsd:element ecore:ignore="true" name="GasNetwork" type="esdl:GasNetwork"/>
   <xsd:element ecore:ignore="true" name="Insulation" type="esdl:Insulation"/>
-  <xsd:element ecore:ignore="true" name="SourceProducer" type="esdl:SourceProducer"/>
-  <xsd:element ecore:ignore="true" name="SinkConsumer" type="esdl:SinkConsumer"/>
+  <xsd:element ecore:ignore="true" name="Import" type="esdl:Import"/>
+  <xsd:element ecore:ignore="true" name="Export" type="esdl:Export"/>
   <xsd:element ecore:ignore="true" name="Pipe" type="esdl:Pipe"/>
   <xsd:element ecore:ignore="true" name="GeothermalSource" type="esdl:GeothermalSource"/>
   <xsd:element ecore:ignore="true" name="CoGeneration" type="esdl:CoGeneration"/>
@@ -106,7 +106,7 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
   <xsd:element ecore:ignore="true" name="CoolingDemand" type="esdl:CoolingDemand"/>
   <xsd:element ecore:ignore="true" name="Airco" type="esdl:Airco"/>
   <xsd:element ecore:ignore="true" name="CostInformation" type="esdl:CostInformation"/>
-  <xsd:element ecore:ignore="true" name="LabelDistribution" type="esdl:LabelDistribution"/>
+  <xsd:element ecore:ignore="true" name="SpecificLabelDistribution" type="esdl:SpecificLabelDistribution"/>
   <xsd:element ecore:ignore="true" name="StringLabelDistribution" type="esdl:StringLabelDistribution"/>
   <xsd:element ecore:ignore="true" name="EnergyLabelDistribution" type="esdl:EnergyLabelDistribution"/>
   <xsd:element ecore:ignore="true" name="StringPerc" type="esdl:StringPerc"/>
@@ -236,9 +236,9 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
   <xsd:element ecore:ignore="true" name="PIDController" type="esdl:PIDController"/>
   <xsd:element ecore:ignore="true" name="PVPark" type="esdl:PVPark"/>
   <xsd:element ecore:ignore="true" name="WindPark" type="esdl:WindPark"/>
-  <xsd:element ecore:ignore="true" name="IntAmbition" type="esdl:IntAmbition"/>
-  <xsd:element ecore:ignore="true" name="DoubleAmbition" type="esdl:DoubleAmbition"/>
-  <xsd:element ecore:ignore="true" name="StringAmbition" type="esdl:StringAmbition"/>
+  <xsd:element ecore:ignore="true" name="IntTargetKPI" type="esdl:IntTargetKPI"/>
+  <xsd:element ecore:ignore="true" name="DoubleTargetKPI" type="esdl:DoubleTargetKPI"/>
+  <xsd:element ecore:ignore="true" name="StringTargetKPI" type="esdl:StringTargetKPI"/>
   <xsd:element ecore:ignore="true" name="Restriction" type="esdl:Restriction"/>
   <xsd:element ecore:ignore="true" name="BuildingTypeRestriction" type="esdl:BuildingTypeRestriction"/>
   <xsd:element ecore:ignore="true" name="AreaTypeRestriction" type="esdl:AreaTypeRestriction"/>
@@ -246,6 +246,8 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
   <xsd:element ecore:ignore="true" name="AssetTemplate" type="esdl:AssetTemplate"/>
   <xsd:element ecore:ignore="true" name="TemplatedAsset" type="esdl:TemplatedAsset"/>
   <xsd:element ecore:ignore="true" name="Address" type="esdl:Address"/>
+  <xsd:element ecore:ignore="true" name="GenericLabelDistribution" type="esdl:GenericLabelDistribution"/>
+  <xsd:element ecore:ignore="true" name="DistributionKPI" type="esdl:DistributionKPI"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -273,7 +275,7 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="fullLoadHours" type="ecore:EInt">
           <xsd:annotation>
-            <xsd:documentation>An annual number of full-load hours is the time it will take a given Producer to yield its annual production if it is able to produce with its installed capacity all of the time. The capacity is defined by the 'Power' attribute</xsd:documentation>
+            <xsd:documentation>An annual number of full-load hours is the time it will take a given Producer to yield its annual production if it is able to produce with its installed capacity all of the time. The capacity is defined by the 'power' attribute</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="power" type="ecore:EDouble">
@@ -291,7 +293,11 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
     <xsd:complexContent>
       <xsd:extension base="esdl:EnergyAsset">
         <xsd:attribute default="PRIMARY" ecore:unsettable="false" name="consType" type="esdl:ConsTypeEnum"/>
-        <xsd:attribute ecore:unsettable="false" name="power" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="power" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Maximum power / capacity in Watt</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -304,13 +310,42 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
         <xsd:sequence>
           <xsd:element ecore:resolveProxies="true" minOccurs="0" name="profile" type="esdl:GenericProfile"/>
         </xsd:sequence>
-        <xsd:attribute ecore:unsettable="false" name="capacity" type="ecore:EDouble"/>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="chargeEfficiency" type="ecore:EDouble"/>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="dischargeEfficiency" type="ecore:EDouble"/>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="selfDischargeRate" type="ecore:EDouble"/>
-        <xsd:attribute ecore:unsettable="false" name="fillLevel" type="ecore:EDouble"/>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="maxChargeRate" type="ecore:EDouble"/>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="maxDischargeRate" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="capacity" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The capacity of the storage asset in Joules	</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="chargeEfficiency" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The efficiency with which the storage asset can be charged (in %)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="dischargeEfficiency" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The efficiency with which the storage asset can be discharged (in %)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="selfDischargeRate" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The self discharge rate with which the storage asset looses energy (in J/s)
+</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="fillLevel" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The fill level of the storage asset as a percentage of its capacity</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="maxChargeRate" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The maximum charge rate at which the storage asset can be charged (in Watt)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="maxDischargeRate" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The maximum discharge rate at which the storage asset can be discharged (in Watt)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -320,10 +355,22 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:EnergyAsset">
-        <xsd:attribute ecore:unsettable="false" name="efficiency" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="efficiency" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The efficiency of the conversion asset. Allows to specify conversion losses as a percentage</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="operationalHours" type="ecore:EInt"/>
-        <xsd:attribute ecore:unsettable="false" name="fullLoadHours" type="ecore:EInt"/>
-        <xsd:attribute ecore:unsettable="false" name="power" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="fullLoadHours" type="ecore:EInt">
+          <xsd:annotation>
+            <xsd:documentation>An annual number of full-load hours is the time it will take a given conversion asset to yield its annual production if it is able to produce with its installed capacity all of the time. The capacity is defined by the 'power' attribute</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="power" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Maximum power / capacity in Watt</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
         <xsd:attribute ecore:opposite="associatedConversionAsset" ecore:reference="esdl:ResidualHeatSourcePotential" name="residualHeatSourcePotential" type="xsd:anyURI"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -334,10 +381,14 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:EnergyAsset">
-        <xsd:attribute ecore:unsettable="false" name="capacity" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="capacity" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The capacity of the transport asset in Joules	</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="efficiency" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>Allows to specify transmission losses as a percentage</xsd:documentation>
+            <xsd:documentation>The efficiency of the transport asset. Allows to specify transmission losses as a percentage</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -1103,17 +1154,17 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="SourceProducer">
+  <xsd:complexType name="Import">
     <xsd:annotation>
-      <xsd:documentation>Represents a generic source that produces a certain commodity. Used to model the rest of the energy system that is out of the current scope</xsd:documentation>
+      <xsd:documentation>Represents a source that delivers imported energy into the current energy system. Used to model the rest of the energy system that is out of the current scope</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Producer"/>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="SinkConsumer">
+  <xsd:complexType name="Export">
     <xsd:annotation>
-      <xsd:documentation>Represents a generic sink that consumes a certain commodity. Used to model the rest of the energy system that is out of the current scope</xsd:documentation>
+      <xsd:documentation>Represents a consumer that consumes exported energy from the current energy system. Used to model the rest of the energy system that is out of the current scope</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Consumer"/>
@@ -1640,6 +1691,7 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
         <xsd:sequence>
           <xsd:element ecore:opposite="containingBuilding" ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset"/>
           <xsd:element ecore:resolveProxies="true" minOccurs="0" name="buildingUsage" type="esdl:AbstractBuildingUsage"/>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="potential" type="esdl:Potential"/>
         </xsd:sequence>
         <xsd:attribute ecore:unsettable="false" name="energyLabel" type="esdl:EnergyLabelEnum"/>
         <xsd:attribute ecore:unsettable="false" name="energyIndex" type="ecore:EDouble"/>
@@ -2100,7 +2152,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="variableOperationalAndMaintenanceCosts" type="esdl:GenericProfile"/>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:complexType abstract="true" name="LabelDistribution">
+  <xsd:complexType abstract="true" name="SpecificLabelDistribution">
     <xsd:annotation>
       <xsd:documentation>Abstract class to define a distribution with labels</xsd:documentation>
     </xsd:annotation>
@@ -2113,7 +2165,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Defines a distribution in terms of self-defined labels</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:LabelDistribution">
+      <xsd:extension base="esdl:GenericLabelDistribution">
         <xsd:sequence>
           <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="stringPerc" type="esdl:StringPerc"/>
         </xsd:sequence>
@@ -2125,7 +2177,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Defines a distribution in terms of energy labels</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:LabelDistribution">
+      <xsd:extension base="esdl:SpecificLabelDistribution">
         <xsd:sequence>
           <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="labelPerc" type="esdl:EnergyLabelPerc"/>
         </xsd:sequence>
@@ -2151,7 +2203,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Defines a distribution in terms of 'from' and 'to'</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:LabelDistribution">
+      <xsd:extension base="esdl:GenericLabelDistribution">
         <xsd:sequence>
           <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="fromToPerc" type="esdl:FromToPerc"/>
         </xsd:sequence>
@@ -3789,7 +3841,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Specifies the way the building type is distributed in this area (e.g. Utility, Residential), specifing the percentage of buildings per type.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:LabelDistribution">
+      <xsd:extension base="esdl:SpecificLabelDistribution">
         <xsd:sequence>
           <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="buildingTypePercentage" type="esdl:BuildingTypePercentage">
             <xsd:annotation>
@@ -3812,7 +3864,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Specifies the way the residential building type is distributed in this area (e.g. Vrijstaande Woning, Hoekwoning, Flatwoning), specifing the percentage of buildings per residential type.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:LabelDistribution">
+      <xsd:extension base="esdl:SpecificLabelDistribution">
         <xsd:sequence>
           <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="residentialBuildingTypePercentage" type="esdl:ResidentialBuildingTypePercentage">
             <xsd:annotation>
@@ -3839,7 +3891,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Specifies the way the housing type is distributed in this area (e.g. Owner occupied, Housing Association, Private Rental), specifing the percentage of buildings per housing type.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:LabelDistribution">
+      <xsd:extension base="esdl:SpecificLabelDistribution">
         <xsd:sequence>
           <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="housingTypePercentage" type="esdl:HousingTypePercentage">
             <xsd:annotation>
@@ -3864,7 +3916,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:complexContent>
       <xsd:extension base="esdl:KPI">
         <xsd:sequence>
-          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="ambition" type="esdl:DoubleAmbition">
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="target" type="esdl:DoubleTargetKPI">
             <xsd:annotation>
               <xsd:documentation>Allows to define ambitions for this KPI for several years in the future.</xsd:documentation>
             </xsd:annotation>
@@ -3885,7 +3937,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:complexContent>
       <xsd:extension base="esdl:KPI">
         <xsd:sequence>
-          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="ambition" type="esdl:StringAmbition">
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="target" type="esdl:StringTargetKPI">
             <xsd:annotation>
               <xsd:documentation>Allows to define ambitions for this KPI for several years in the future.</xsd:documentation>
             </xsd:annotation>
@@ -3906,7 +3958,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:complexContent>
       <xsd:extension base="esdl:KPI">
         <xsd:sequence>
-          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="ambition" type="esdl:IntAmbition">
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="target" type="esdl:IntTargetKPI">
             <xsd:annotation>
               <xsd:documentation>Allows to define ambitions for this KPI for several years in the future.</xsd:documentation>
             </xsd:annotation>
@@ -4120,7 +4172,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="IntAmbition">
+  <xsd:complexType name="IntTargetKPI">
     <xsd:attribute ecore:unsettable="false" name="value" type="ecore:EInt">
       <xsd:annotation>
         <xsd:documentation>The value of the ambition for this KPI for the specified year</xsd:documentation>
@@ -4132,7 +4184,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:annotation>
     </xsd:attribute>
   </xsd:complexType>
-  <xsd:complexType name="DoubleAmbition">
+  <xsd:complexType name="DoubleTargetKPI">
     <xsd:attribute ecore:unsettable="false" name="value" type="ecore:EDouble">
       <xsd:annotation>
         <xsd:documentation>The value of the ambition for this KPI for the specified year</xsd:documentation>
@@ -4144,7 +4196,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:annotation>
     </xsd:attribute>
   </xsd:complexType>
-  <xsd:complexType name="StringAmbition">
+  <xsd:complexType name="StringTargetKPI">
     <xsd:attribute name="value" type="ecore:EString">
       <xsd:annotation>
         <xsd:documentation>The value of the ambition for this KPI for the specified year</xsd:documentation>
@@ -4237,4 +4289,18 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:enumeration value="HOUSEHOLD"/>
     </xsd:restriction>
   </xsd:simpleType>
+  <xsd:complexType abstract="true" name="GenericLabelDistribution">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:GenericDistribution"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="DistributionKPI">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:KPI">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="distribution" type="esdl:GenericLabelDistribution"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
 </xsd:schema>
