@@ -248,6 +248,8 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
   <xsd:element ecore:ignore="true" name="Address" type="esdl:Address"/>
   <xsd:element ecore:ignore="true" name="GenericLabelDistribution" type="esdl:GenericLabelDistribution"/>
   <xsd:element ecore:ignore="true" name="DistributionKPI" type="esdl:DistributionKPI"/>
+  <xsd:element ecore:ignore="true" name="SinkConsumer" type="esdl:SinkConsumer"/>
+  <xsd:element ecore:ignore="true" name="SourceProducer" type="esdl:SourceProducer"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -4301,6 +4303,22 @@ When a model queries for a value from a certain date (and to a certain date), th
           <xsd:element ecore:resolveProxies="true" minOccurs="0" name="distribution" type="esdl:GenericLabelDistribution"/>
         </xsd:sequence>
       </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="SinkConsumer">
+    <xsd:annotation>
+      <xsd:documentation>(Deprecated, will be removed in future ESDL versions) Represents a consumer that consumes exported energy from the current energy system. Used to model the rest of the energy system that is out of the current scope</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Consumer"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="SourceProducer">
+    <xsd:annotation>
+      <xsd:documentation>(Deprecated, will be removed in future ESDL versions) Represents a source that delivers imported energy into the current energy system. Used to model the rest of the energy system that is out of the current scope</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Producer"/>
     </xsd:complexContent>
   </xsd:complexType>
 </xsd:schema>
