@@ -1259,7 +1259,6 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//CircuitBreaker"/>
     <genClasses ecoreClass="esdl.ecore#//Measure">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Measure/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Measure/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measure/asset"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measure/costInformation"/>
@@ -1509,5 +1508,20 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//SinkConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//SourceProducer"/>
+    <genClasses ecoreClass="esdl.ecore#//MinimumLabelRestriction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//MinimumLabelRestriction/label"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//LabelJump">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//LabelJump/fromLabel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//LabelJump/toLabel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//LabelJump/buildingType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//LabelJump/buildingYearRange"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//AbstractMeasure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractMeasure/id"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//MeasureReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//MeasureReference/reference"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -1181,11 +1181,7 @@
       <details key="documentation" value="Collection of measures that can be applied to an energy system"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="measure" upperBound="-1"
-        eType="#//Measure" containment="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="A single measure with cost information, consisting of 1 or more assets."/>
-      </eAnnotations>
-    </eStructuralFeatures>
+        eType="#//AbstractMeasure" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EConnection" eSuperTypes="#//AbstractConnection">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2476,12 +2472,10 @@
       <details key="documentation" value="Defines a circuit breaker in electric transmission or distribution grids"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Measure">
+  <eClassifiers xsi:type="ecore:EClass" name="Measure" eSuperTypes="#//AbstractMeasure">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A single measure or a combination of measures with collective cost information that can be applied to an energy system. An example of a measure-combination would be a combination of insulation and a heat pump."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
         eType="#//Asset" containment="true"/>
@@ -3338,5 +3332,23 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="(Deprecated, will be removed in future ESDL versions) Represents a source that delivers imported energy into the current energy system. Used to model the rest of the energy system that is out of the current scope"/>
     </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MinimumLabelRestriction" eSuperTypes="#//Restriction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="#//EnergyLabelEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LabelJump">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fromLabel" eType="#//EnergyLabelEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="toLabel" eType="#//EnergyLabelEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildingType" eType="#//ResidentialBuildingTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buildingYearRange" eType="#//Range"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractMeasure" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MeasureReference" eSuperTypes="#//AbstractMeasure">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" lowerBound="1"
+        eType="#//Measure"/>
   </eClassifiers>
 </ecore:EPackage>

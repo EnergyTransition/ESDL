@@ -250,6 +250,10 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
   <xsd:element ecore:ignore="true" name="DistributionKPI" type="esdl:DistributionKPI"/>
   <xsd:element ecore:ignore="true" name="SinkConsumer" type="esdl:SinkConsumer"/>
   <xsd:element ecore:ignore="true" name="SourceProducer" type="esdl:SourceProducer"/>
+  <xsd:element ecore:ignore="true" name="MinimumLabelRestriction" type="esdl:MinimumLabelRestriction"/>
+  <xsd:element ecore:ignore="true" name="LabelJump" type="esdl:LabelJump"/>
+  <xsd:element ecore:ignore="true" name="AbstractMeasure" type="esdl:AbstractMeasure"/>
+  <xsd:element ecore:ignore="true" name="MeasureReference" type="esdl:MeasureReference"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -1616,11 +1620,7 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
       <xsd:documentation>Collection of measures that can be applied to an energy system</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="measure" type="esdl:Measure">
-        <xsd:annotation>
-          <xsd:documentation>A single measure with cost information, consisting of 1 or more assets.</xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="measure" type="esdl:AbstractMeasure"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="EConnection">
@@ -3230,15 +3230,18 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:annotation>
       <xsd:documentation>A single measure or a combination of measures with collective cost information that can be applied to an energy system. An example of a measure-combination would be a combination of insulation and a heat pump.</xsd:documentation>
     </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset"/>
-      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="costInformation" type="esdl:CostInformation"/>
-      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="dataSource" type="esdl:AbstractDataSource"/>
-      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="restriction" type="esdl:Restriction"/>
-    </xsd:sequence>
-    <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
-    <xsd:attribute name="name" type="ecore:EString"/>
-    <xsd:attribute name="description" type="ecore:EString"/>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractMeasure">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset"/>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="costInformation" type="esdl:CostInformation"/>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="dataSource" type="esdl:AbstractDataSource"/>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="restriction" type="esdl:Restriction"/>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="ecore:EString"/>
+        <xsd:attribute name="description" type="ecore:EString"/>
+      </xsd:extension>
+    </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="WaterToPower">
     <xsd:annotation>
@@ -4319,6 +4322,31 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Producer"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="MinimumLabelRestriction">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Restriction">
+        <xsd:attribute ecore:unsettable="false" name="label" type="esdl:EnergyLabelEnum"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="LabelJump">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="buildingYearRange" type="esdl:Range"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:unsettable="false" name="fromLabel" type="esdl:EnergyLabelEnum"/>
+    <xsd:attribute ecore:unsettable="false" name="toLabel" type="esdl:EnergyLabelEnum"/>
+    <xsd:attribute ecore:unsettable="false" name="buildingType" type="esdl:ResidentialBuildingTypeEnum"/>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="AbstractMeasure">
+    <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
+  </xsd:complexType>
+  <xsd:complexType name="MeasureReference">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractMeasure">
+        <xsd:attribute ecore:reference="esdl:Measure" name="reference" type="xsd:anyURI" use="required"/>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
 </xsd:schema>
