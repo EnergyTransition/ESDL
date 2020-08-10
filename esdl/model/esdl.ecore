@@ -266,35 +266,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"
         eType="#//Consumer"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BuildingUnit" eSuperTypes="#//AbstractBuilding">
+  <eClassifiers xsi:type="ecore:EClass" name="BuildingUnit" eSuperTypes="#//GenericBuilding">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Describes a physical part of a building. In dutch 'verblijfsobject' in the BAG national building and address registry. This can be used e.g. to model appartments in appartment complexes"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" upperBound="-1" eType="#//BuildingTypeEnum"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="housingType" eType="#//HousingTypeEnum"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfInhabitants" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inhabitantsType" eType="#//InhabitantsTypeEnum"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="floorArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m2"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfFloors" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slantedRoofArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flatRoofArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roofType" eType="#//RoofTypeEnum"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wallArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="windowArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rcFloor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rcWall" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rfRoof" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uWindow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="glassType" eType="#//GlassTypeEnum"
-        defaultValueLiteral="UNDEFINED"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ventilationType" eType="#//VentilationTypeEnum"
-        defaultValueLiteral="UNDEFINED"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="address" eType="#//Address"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Area">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -397,6 +372,7 @@
         <details key="documentation" value="Measures collection for a specific area. Allows you to specify different possibilities in different areas."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sector" eType="#//Sector"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -639,7 +615,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="BuildingTypeEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Defines the usage of the building (gebruiksdoel in dutch). Examples: Residential, Industry, Office, Greenhouse, etc. Based on the types defined in the BAG in the Netherlands"/>
+      <details key="documentation" value="Defines the different types of buildings. This list is a combination of different lists that are used in the Netherlands for differentiating datasets (on buildings or building related information):&#xD;&#xA;&#xD;&#xA;- One of these lists is the Dutch BAG (Basisregistratie Adressen en Gebouwen or Registry of Addresses and Buildings). Within the BAG this parameter is called &quot;usage purpose&quot; (gebruiksdoel). &#xD;&#xA;- Other datasets only differentiate between residential and utility (the so called &quot;built environment&quot; in Dutch). The category utility doesn't exist in the BAG list of usage purposes; within the BAG the utility has been split up into many different categories.&#xD;&#xA;- Furthermore AGRICULTURE and GREENHOUSE have been added to this list for cases where these need to be differentiated (Within the BAG these two categories fall under INDUSTRY). "/>
     </eAnnotations>
     <eLiterals name="UNDEFINED"/>
     <eLiterals name="RESIDENTIAL" value="1"/>
@@ -652,17 +628,18 @@
     <eLiterals name="SPORTS" value="8"/>
     <eLiterals name="SHOPPING" value="9"/>
     <eLiterals name="HOTEL" value="10"/>
-    <eLiterals name="GREENHOUSE" value="11"/>
-    <eLiterals name="UTILITY" value="12"/>
-    <eLiterals name="OTHER" value="13"/>
+    <eLiterals name="AGRICULTURE" value="11"/>
+    <eLiterals name="GREENHOUSE" value="12"/>
+    <eLiterals name="UTILITY" value="13"/>
+    <eLiterals name="OTHER" value="14"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Building" eSuperTypes="#//AbstractBuilding">
+  <eClassifiers xsi:type="ecore:EClass" name="GenericBuilding" abstract="true" eSuperTypes="#//AbstractBuilding">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Represents a physical building"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildingYear" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="residentialBuildingType"
-        eType="#//ResidentialBuildingTypeEnum">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" upperBound="-1" eType="#//BuildingTypeEnum"
+        defaultValueLiteral="UNDEFINED">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Describes the building types as defined by RVO in the Netherlands, in dutch for now, e.g. Vrijstaande woning, Rijwoning, Flatwoning, Hoekwoning"/>
       </eAnnotations>
@@ -673,76 +650,14 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfFloors" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slantedRoofArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m2"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flatRoofArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m2"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roofType" eType="#//RoofTypeEnum">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Flat roof, slanted roof, or combination"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wallArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m2"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="windowArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m2"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="perimeter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rcFloor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m2K/W"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rcWall" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m2K/W"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rcRoof" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m2K/W"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uWindow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in W/m2K"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="(experimental, no usage yet) in degrees"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="glassType" eType="#//GlassTypeEnum">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="e.g. HR++ glass"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ventilationType" eType="#//VentilationTypeEnum">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Type of ventilation used in building, e.g. mechanical ventilation"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="address" eType="#//Address"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="buildinginformation" upperBound="-1"
+        eType="#//BuildingInformation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyLabel" eType="#//EnergyLabelEnum"
+        defaultValueLiteral="UNDEFINED"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ConsTypeEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1013,12 +928,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="interior" upperBound="-1"
         eType="#//SubPolygon" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="HousingTypeEnum">
+  <eClassifiers xsi:type="ecore:EEnum" name="OwnershipRentalTypeEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines the type of ownership such as Private, Rental or Housing association"/>
     </eAnnotations>
     <eLiterals name="UNDEFINED"/>
-    <eLiterals name="OWNER_OCCUPIED_PROPERTY" value="1"/>
+    <eLiterals name="PRIVATELY_OWNED" value="1"/>
     <eLiterals name="PRIVATE_RENTAL" value="2"/>
     <eLiterals name="HOUSING_ASSOCIATION" value="3"/>
   </eClassifiers>
@@ -1231,10 +1146,8 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Describes the shared properties of building, building unit and aggregated building"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyLabel" eType="#//EnergyLabelEnum"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
         eType="#//Asset" containment="true" eOpposite="#//Asset/containingBuilding"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="buildingUsage" eType="#//AbstractBuildingUsage"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="potential" upperBound="-1"
@@ -1347,7 +1260,11 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"
         eType="#//AbstractBuilding"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfBuildings" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfBuildings" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="(to be removed) Is replaced by the asset parameter aggregationCount"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="energyLabelDistribution"
         eType="#//EnergyLabelDistribution" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="buildingYearDistribution"
@@ -1356,8 +1273,8 @@
         eType="#//BuildingTypeDistribution" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="residentialBuildingTypeDistribution"
         eType="#//ResidentialBuildingTypeDistribution" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="housingTypeDistribution"
-        eType="#//HousingTypeDistribution" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownershipRentalTypeDistribution"
+        eType="#//OwnershipRentalTypeDistribution" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="floorArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SectorEnum">
@@ -1628,8 +1545,8 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines a distribution in terms of self-defined labels"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="stringPerc" upperBound="-1"
-        eType="#//StringPerc" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stringItem" upperBound="-1"
+        eType="#//StringItem" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyLabelDistribution" eSuperTypes="#//SpecificLabelDistribution">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1638,12 +1555,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="labelPerc" upperBound="-1"
         eType="#//EnergyLabelPerc" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringPerc">
+  <eClassifiers xsi:type="ecore:EClass" name="StringItem">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines a label and a percentage, used in StringLabelDistribution"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyLabelPerc">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1656,14 +1574,15 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines a distribution in terms of 'from' and 'to'"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fromToPerc" upperBound="-1"
-        eType="#//FromToPerc" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fromToItem" upperBound="-1"
+        eType="#//FromToItem" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FromToPerc" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="FromToItem" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines a range and a percentage, used in the FromToDistribution class"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PItemStat">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3017,22 +2936,23 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HousingTypeDistribution" eSuperTypes="#//SpecificLabelDistribution">
+  <eClassifiers xsi:type="ecore:EClass" name="OwnershipRentalTypeDistribution" eSuperTypes="#//SpecificLabelDistribution">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Specifies the way the housing type is distributed in this area (e.g. Owner occupied, Housing Association, Private Rental), specifing the percentage of buildings per housing type."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="housingTypePercentage"
-        upperBound="-1" eType="#//HousingTypePercentage" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownershipRentalTypePercentage"
+        upperBound="-1" eType="#//OwnershipRentalTypePercentage" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The distribution in percentages"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HousingTypePercentage">
+  <eClassifiers xsi:type="ecore:EClass" name="OwnershipRentalTypePercentage">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Specifies the percentage of the selected housing type"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="housingType" eType="#//HousingTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ownershipRentalType" eType="#//OwnershipRentalTypeEnum"
+        defaultValueLiteral="UNDEFINED"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DoubleKPI" eSuperTypes="#//KPI">
@@ -3083,14 +3003,14 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FromToIntPerc" eSuperTypes="#//FromToPerc">
+  <eClassifiers xsi:type="ecore:EClass" name="FromToIntItem" eSuperTypes="#//FromToItem">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Specifies a percentage range as an integer value, as part of a distribution, e.g. for defining a period of years (1945-1960) in Aggregated Buildings"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FromToDoublePerc" eSuperTypes="#//FromToPerc">
+  <eClassifiers xsi:type="ecore:EClass" name="FromToDoubleItem" eSuperTypes="#//FromToItem">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Specifies a percentage range as an double value, as part of a distribution, e.g. for defining energy usage (2.5-5.0 GJ of hot tap water) in Aggregated Buildings"/>
     </eAnnotations>
@@ -3268,7 +3188,10 @@
     <eLiterals name="ENABLED"/>
     <eLiterals name="DISABLED" value="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Restriction" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Restriction" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuildingTypeRestriction" eSuperTypes="#//Restriction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" upperBound="-1" eType="#//BuildingTypeEnum"/>
   </eClassifiers>
@@ -3350,5 +3273,113 @@
   <eClassifiers xsi:type="ecore:EClass" name="MeasureReference" eSuperTypes="#//AbstractMeasure">
     <eStructuralFeatures xsi:type="ecore:EReference" name="reference" lowerBound="1"
         eType="#//Measure"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Building" eSuperTypes="#//GenericBuilding">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Represents a physical building"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BuildingInformation" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Super class of all different kinds of extra information that can be specified for a building"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResidentialBuildingInformation" eSuperTypes="#//BuildingInformation">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Class that contains extra information that can be specified for a residential building"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfInhabitants" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inhabitantsType" eType="#//InhabitantsTypeEnum"
+        defaultValueLiteral="UNDEFINED"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="residentialBuildingType"
+        eType="#//ResidentialBuildingTypeEnum" defaultValueLiteral="UNDEFINED"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ownershipRentalType" eType="#//OwnershipRentalTypeEnum"
+        defaultValueLiteral="UNDEFINED"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BuildingStructureInformation" eSuperTypes="#//BuildingInformation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slantedRoofArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="in m2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wallArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="in m2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roofType" eType="#//RoofTypeEnum">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Flat roof, slanted roof, or combination"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flatRoofArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="in m2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="windowArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="in m2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="glassType" eType="#//GlassTypeEnum">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="e.g. HR++ glass"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="in m"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="(experimental, no usage yet) in degrees"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rcWall" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="in m2K/W"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rcRoof" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="in m2K/W"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ventilationType" eType="#//VentilationTypeEnum">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Type of ventilation used in building, e.g. mechanical ventilation"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rcFloor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="in m2K/W"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uWindow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="in W/m2K"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="perimeter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="in m"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompoundAsset" eSuperTypes="#//Asset">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
+        eType="#//Asset" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InitialValue" eSuperTypes="#//StaticProfile">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Can be used to explicitely set an initial value of a certain parameter. Used as input for simulation models that calculate this parameter over time, but need a value to initialize the model."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The initial value"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>
