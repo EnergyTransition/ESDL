@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: esdl;singleton:=true
 Automatic-Module-Name: esdl
-Bundle-Version: 1.1.1.qualifier
+Bundle-Version: 2.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
@@ -12,6 +12,7 @@ Export-Package: esdl,
  esdl.impl,
  esdl.util
 Require-Bundle: org.eclipse.emf.ecore;bundle-version="2.17.0";visibility:=reexport,
+ org.eclipse.emf.cdo;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy

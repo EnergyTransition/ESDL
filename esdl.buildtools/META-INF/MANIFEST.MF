@@ -19,7 +19,9 @@ Require-Bundle: org.eclipse.xtext,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
  org.apache.log4j;bundle-version="1.2.15",
  org.eclipse.jgit;bundle-version="5.3.0",
- org.slf4j.api;bundle-version="1.7.2"
+ org.slf4j.api;bundle-version="1.7.2",
+ org.eclipse.xtext.xtext.generator,
+ org.eclipse.emf.mwe2.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.apache.log4j
 Export-Package: nl.tno.esdl

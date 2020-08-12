@@ -16,7 +16,6 @@ import org.eclipse.emf.codegen.ecore.genmodel.generator.GenModelGeneratorAdapter
 import org.eclipse.emf.codegen.merge.java.JControlModel;
 import org.eclipse.emf.codegen.util.ImportManager;
 import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.WrappedException;

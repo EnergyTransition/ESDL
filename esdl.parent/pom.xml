@@ -13,12 +13,15 @@
 		<!-- Use esdl.version to set the qualifier version for the released ESDL-plugins 
 			e.g. v1905 -->
 		<!-- This should be the same as the GIT tag of this release -->
-		<esdl.version>v1910</esdl.version>
-		<tycho.version>1.4.0</tycho.version>
-		<xtext.version>2.18.0</xtext.version>
-		<emf.version>2.16.0</emf.version>
-		<emfecore.version>2.18.0</emfecore.version>
-		<mwe2.version>2.11.0</mwe2.version> <!--  2.11.0 has an old dependency issue -->
+		<esdl.version>v2007</esdl.version>
+		<tycho.version>1.7.0</tycho.version>
+		<xtext.version>2.20.0</xtext.version>
+		<emf.version>2.21.0</emf.version>
+		<emfxmi.version>2.16.0</emfxmi.version>
+		<emfecore.version>2.21.0</emfecore.version>
+		<emfcommon.version>2.18.0</emfcommon.version>
+		<emfecorecodegen.version>2.20.0</emfecorecodegen.version>
+		<mwe2.version>2.11.2</mwe2.version> <!--  2.11.0 has an old dependency issue -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -58,8 +61,8 @@
 
 	<repositories>
 		<repository>
-			<id>eclipse-2019-03</id>
-			<url>http://download.eclipse.org/releases/2019-03</url>
+			<id>eclipse-2020-03</id>
+			<url>http://download.eclipse.org/releases/2020-03</url>
 			<layout>p2</layout>
 		</repository>
 	</repositories>

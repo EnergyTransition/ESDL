@@ -11,6 +11,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: esdl.provider
 Require-Bundle: org.eclipse.core.runtime,
- esdl;visibility:=reexport,
- org.eclipse.emf.edit;visibility:=reexport
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.emf.cdo.edit,
+ esdl;bundle-version="2.0.0"
 Bundle-ActivationPolicy: lazy

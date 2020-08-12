@@ -38,20 +38,10 @@ Workflow {
     	platformUri = "${rootPath}"
     	scanClassPath = true
     }
-    // tag the release with git tag
-    // commit in local repo
-    
-    
-    // tag the esdl file with the current git tag
-    component = nl.tno.esdl.TagRelease {
-    	modelFileName = "/esdl/model/esdl.ecore"
-    	esdlParentPomFileName = "/esdl.parent/pom.xml"
-    	rootPath = "${rootPath}"
-    }
-    
+  
     
     // generate the code files
-    component = nl.tno.esdl.EcoreGenerator {
+    component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
 		genModel = "platform:/resource/esdl/model/esdl-cdo.genmodel"
 		srcPath = "platform:/resource/esdl/src-gen"
 		generateEdit = true
