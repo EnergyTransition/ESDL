@@ -378,6 +378,9 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/COMPOSITION"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/FLOW"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/STATE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/HEAD"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/POSITION"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/COEFFICIENT"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//UnitEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/NONE"/>
@@ -542,11 +545,6 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN1100"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PipeDiameterEnum/DN1200"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//SwitchPositionEnum">
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//SwitchPositionEnum/UNDEFINED"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//SwitchPositionEnum/OPEN"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//SwitchPositionEnum/CLOSED"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//AssetStateEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AssetStateEnum/ENABLED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AssetStateEnum/DISABLED"/>
@@ -556,6 +554,13 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//QuantityAndUnitScopeEnum/CONNECTION"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//QuantityAndUnitScopeEnum/BUILDING"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//QuantityAndUnitScopeEnum/HOUSEHOLD"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//ValveTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ValveTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ValveTypeEnum/BUTTERFLY"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ValveTypeEnum/BALL"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ValveTypeEnum/GATE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ValveTypeEnum/GATE_VALVE_SQUARE"/>
     </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>
@@ -889,12 +894,6 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//FuelCell"/>
     <genClasses ecoreClass="esdl.ecore#//XToPower"/>
-    <genClasses ecoreClass="esdl.ecore#//WindParc">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindParc/numberOfTurbines"/>
-    </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//PVParc">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVParc/numberOfPanels"/>
-    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EnergySystemInformation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/carriers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/profiles"/>
@@ -905,9 +904,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystemInformation/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/buildingUsageInformation"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//Pump"/>
+    <genClasses ecoreClass="esdl.ecore#//Pump">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pump/pumpCapacity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pump/pumpEfficiency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pump/polarMomentOfInertia"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pump/ratedSpeed"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Pump/pumpCurveTable"/>
+    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Valve">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Valve/valveCoefficient"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Valve/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Valve/flowCoefficient"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Valve/innerDiameter"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//GenericProfile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericProfile/name"/>
@@ -1230,12 +1237,10 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//CircuitBreaker"/>
     <genClasses ecoreClass="esdl.ecore#//Measure">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Measure/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measure/asset"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measure/costInformation"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Measure/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measure/dataSource"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measure/restriction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measure/labelJump"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WaterToPower">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WaterToPower/type"/>
@@ -1254,9 +1259,7 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EnergyNetwork"/>
     <genClasses ecoreClass="esdl.ecore#//AbstractConductor"/>
-    <genClasses ecoreClass="esdl.ecore#//AbstractSwitch">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractSwitch/position"/>
-    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//AbstractSwitch"/>
     <genClasses ecoreClass="esdl.ecore#//AbstractTransformer"/>
     <genClasses ecoreClass="esdl.ecore#//AbstractConnection"/>
     <genClasses ecoreClass="esdl.ecore#//MultiLine">
@@ -1446,9 +1449,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StringTargetKPI/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StringTargetKPI/year"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="esdl.ecore#//Restriction">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Restriction/id"/>
-    </genClasses>
+    <genClasses image="false" ecoreClass="esdl.ecore#//Restriction"/>
     <genClasses ecoreClass="esdl.ecore#//BuildingTypeRestriction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingTypeRestriction/type"/>
     </genClasses>
@@ -1490,9 +1491,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//LabelJump/buildingType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//LabelJump/buildingYearRange"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//AbstractMeasure">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractMeasure/id"/>
-    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//AbstractMeasure"/>
     <genClasses ecoreClass="esdl.ecore#//MeasureReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//MeasureReference/reference"/>
     </genClasses>
@@ -1525,6 +1524,22 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//InitialValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//InitialValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//Table">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Table/row"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Table/header"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//TableRow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//TableRow/value"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//AbstractActiveSwitch">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractActiveSwitch/position"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//AbstractPassiveSwitch"/>
+    <genClasses ecoreClass="esdl.ecore#//CheckValve">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CheckValve/innerDiameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CheckValve/reopenDeltaP"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CheckValve/flowCoefficient"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

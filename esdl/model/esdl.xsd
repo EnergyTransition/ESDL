@@ -89,8 +89,6 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
   <xsd:element ecore:ignore="true" name="Carriers" type="esdl:Carriers"/>
   <xsd:element ecore:ignore="true" name="FuelCell" type="esdl:FuelCell"/>
   <xsd:element ecore:ignore="true" name="XToPower" type="esdl:XToPower"/>
-  <xsd:element ecore:ignore="true" name="WindParc" type="esdl:WindParc"/>
-  <xsd:element ecore:ignore="true" name="PVParc" type="esdl:PVParc"/>
   <xsd:element ecore:ignore="true" name="EnergySystemInformation" type="esdl:EnergySystemInformation"/>
   <xsd:element ecore:ignore="true" name="Pump" type="esdl:Pump"/>
   <xsd:element ecore:ignore="true" name="Valve" type="esdl:Valve"/>
@@ -260,6 +258,11 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
   <xsd:element ecore:ignore="true" name="BuildingStructureInformation" type="esdl:BuildingStructureInformation"/>
   <xsd:element ecore:ignore="true" name="CompoundAsset" type="esdl:CompoundAsset"/>
   <xsd:element ecore:ignore="true" name="InitialValue" type="esdl:InitialValue"/>
+  <xsd:element ecore:ignore="true" name="Table" type="esdl:Table"/>
+  <xsd:element ecore:ignore="true" name="TableRow" type="esdl:TableRow"/>
+  <xsd:element ecore:ignore="true" name="AbstractActiveSwitch" type="esdl:AbstractActiveSwitch"/>
+  <xsd:element ecore:ignore="true" name="AbstractPassiveSwitch" type="esdl:AbstractPassiveSwitch"/>
+  <xsd:element ecore:ignore="true" name="CheckValve" type="esdl:CheckValve"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -1542,9 +1545,13 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
     <xsd:annotation>
       <xsd:documentation>Collection of measures that can be applied to an energy system</xsd:documentation>
     </xsd:annotation>
-    <xsd:sequence>
-      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="measure" type="esdl:AbstractMeasure"/>
-    </xsd:sequence>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Item">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="measure" type="esdl:AbstractMeasure"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="EConnection">
     <xsd:annotation>
@@ -1862,26 +1869,6 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
       <xsd:extension base="esdl:Conversion"/>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="WindParc">
-    <xsd:annotation>
-      <xsd:documentation>Deprecated - Defines a wind parc of multiple turbines</xsd:documentation>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="esdl:WindTurbine">
-        <xsd:attribute ecore:unsettable="false" name="numberOfTurbines" type="ecore:EInt"/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:complexType name="PVParc">
-    <xsd:annotation>
-      <xsd:documentation>Deprecated - Defines a PV parc of multiple panels</xsd:documentation>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="esdl:PVPanel">
-        <xsd:attribute ecore:unsettable="false" name="numberOfPanels" type="ecore:EInt"/>
-      </xsd:extension>
-    </xsd:complexContent>
-  </xsd:complexType>
   <xsd:complexType name="EnergySystemInformation">
     <xsd:annotation>
       <xsd:documentation>Describes reusable information of the energy system, that other classes can refer to in this energy system, such as carriers, profiles, data sources, quantity and units.</xsd:documentation>
@@ -1902,7 +1889,35 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
       <xsd:documentation>Defines a pump, e.g. in a water or heat network</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:AbstractTransformer"/>
+      <xsd:extension base="esdl:AbstractTransformer">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="pumpCurveTable" type="esdl:Table">
+            <xsd:annotation>
+              <xsd:documentation>The pump curve specified as a table</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute ecore:unsettable="false" name="pumpCapacity" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Capacity of the pump in m3/h</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="pumpEfficiency" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Efficiency of the pump.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="polarMomentOfInertia" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The polar moment of inertia of the pump in kg/m2</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="ratedSpeed" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The rated speed of the pump in rad/s</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="Valve">
@@ -1910,10 +1925,20 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
       <xsd:documentation>Defines a valve, e.g. in a water, gas or heat network</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:AbstractSwitch">
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="valveCoefficient" type="ecore:EDouble">
+      <xsd:extension base="esdl:AbstractActiveSwitch">
+        <xsd:attribute ecore:unsettable="false" name="type" type="esdl:ValveTypeEnum">
           <xsd:annotation>
-            <xsd:documentation>The valve coefficient of a valve describes the relationship between the pressure drop across the valve and the corresponding flow rate</xsd:documentation>
+            <xsd:documentation>Type of valve.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="flowCoefficient" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Flow coefficient (kv) in metric units [m3/h]. It is defined as the flow rate in cubic meters per hour [m3/h] of water at a temperature of 16º celsius with a pressure drop across the valve of 1 bar.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="innerDiameter" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The inner diameter of the valve in meters. Can be used to calculate the loss coefficient of the valve using the kv parameter.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -2864,6 +2889,13 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:enumeration value="COMPOSITION"/>
       <xsd:enumeration value="FLOW"/>
       <xsd:enumeration value="STATE"/>
+      <xsd:enumeration value="HEAD">
+        <xsd:annotation>
+          <xsd:documentation>e.g. pump head</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="POSITION"/>
+      <xsd:enumeration value="COEFFICIENT"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="UnitEnum">
@@ -3148,7 +3180,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Defines a circuit breaker in electric transmission or distribution grids</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:AbstractSwitch"/>
+      <xsd:extension base="esdl:AbstractPassiveSwitch"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="Measure">
@@ -3158,13 +3190,23 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractMeasure">
         <xsd:sequence>
-          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset"/>
-          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="costInformation" type="esdl:CostInformation"/>
-          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="dataSource" type="esdl:AbstractDataSource"/>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset">
+            <xsd:annotation>
+              <xsd:documentation>list of assets of which the measure consists</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="costInformation" type="esdl:CostInformation">
+            <xsd:annotation>
+              <xsd:documentation>Information about the costs of the measure. This involves the total costs, if required individual costs can be specified per asset </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
           <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="restriction" type="esdl:Restriction"/>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="labelJump" type="esdl:LabelJump">
+            <xsd:annotation>
+              <xsd:documentation>Specifies whether or not this measure includes a energy label jump</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
         </xsd:sequence>
-        <xsd:attribute name="name" type="ecore:EString"/>
-        <xsd:attribute name="description" type="ecore:EString"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -3233,9 +3275,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Abstract class to describe switches such as valve and a circuit breaker</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Transport">
-        <xsd:attribute default="UNDEFINED" ecore:unsettable="false" name="position" type="esdl:SwitchPositionEnum"/>
-      </xsd:extension>
+      <xsd:extension base="esdl:Transport"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="AbstractTransformer">
@@ -4005,16 +4045,9 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:simpleType name="SwitchPositionEnum">
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="UNDEFINED"/>
-      <xsd:enumeration value="OPEN"/>
-      <xsd:enumeration value="CLOSED"/>
-    </xsd:restriction>
-  </xsd:simpleType>
   <xsd:complexType name="Switch">
     <xsd:complexContent>
-      <xsd:extension base="esdl:AbstractSwitch"/>
+      <xsd:extension base="esdl:AbstractActiveSwitch"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="Compressor">
@@ -4145,7 +4178,9 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:complexType abstract="true" name="Restriction">
-    <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Item"/>
+    </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="BuildingTypeRestriction">
     <xsd:complexContent>
@@ -4267,7 +4302,9 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:attribute ecore:unsettable="false" name="buildingType" type="esdl:ResidentialBuildingTypeEnum"/>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="AbstractMeasure">
-    <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Item"/>
+    </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="MeasureReference">
     <xsd:complexContent>
@@ -4398,6 +4435,49 @@ When a model queries for a value from a certain date (and to a certain date), th
             <xsd:documentation>The initial value</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Table">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="row" type="esdl:TableRow"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="header" type="esdl:AbstractQuantityAndUnit"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TableRow">
+    <xsd:sequence>
+      <xsd:element ecore:unique="true" maxOccurs="unbounded" minOccurs="0" name="value" type="ecore:EDouble"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="ValveTypeEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="BUTTERFLY"/>
+      <xsd:enumeration value="BALL"/>
+      <xsd:enumeration value="GATE"/>
+      <xsd:enumeration value="GATE_VALVE_SQUARE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType abstract="true" name="AbstractActiveSwitch">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractSwitch">
+        <xsd:attribute ecore:unsettable="false" name="position" type="ecore:EDouble"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="AbstractPassiveSwitch">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractSwitch"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CheckValve">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractPassiveSwitch">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="flowCoefficient" type="esdl:Table"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:unsettable="false" name="innerDiameter" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="reopenDeltaP" type="ecore:EDouble"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>

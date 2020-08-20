@@ -1091,7 +1091,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Measures">
+  <eClassifiers xsi:type="ecore:EClass" name="Measures" eSuperTypes="#//Item">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Collection of measures that can be applied to an energy system"/>
     </eAnnotations>
@@ -1354,18 +1354,6 @@
       <details key="documentation" value="Represents the ability to convert some other form of energy to electricity"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="WindParc" eSuperTypes="#//WindTurbine">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Deprecated - Defines a wind parc of multiple turbines"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfTurbines" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PVParc" eSuperTypes="#//PVPanel">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Deprecated - Defines a PV parc of multiple panels"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfPanels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergySystemInformation">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Describes reusable information of the energy system, that other classes can refer to in this energy system, such as carriers, profiles, data sources, quantity and units."/>
@@ -1391,15 +1379,52 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines a pump, e.g. in a water or heat network"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pumpCapacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Capacity of the pump in m3/h"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pumpEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Efficiency of the pump."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="polarMomentOfInertia" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The polar moment of inertia of the pump in kg/m2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ratedSpeed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The rated speed of the pump in rad/s"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pumpCurveTable" eType="#//Table"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The pump curve specified as a table"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Valve" eSuperTypes="#//AbstractSwitch">
+  <eClassifiers xsi:type="ecore:EClass" name="Valve" eSuperTypes="#//AbstractActiveSwitch">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines a valve, e.g. in a water, gas or heat network"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valveCoefficient" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ValveTypeEnum">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Type of valve."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowCoefficient" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The valve coefficient of a valve describes the relationship between the pressure drop across the valve and the corresponding flow rate"/>
+        <details key="documentation" value="Flow coefficient (kv) in metric units [m3/h]. It is defined as the flow rate in cubic meters per hour [m3/h] of water at a temperature of 16º celsius with a pressure drop across the valve of 1 bar."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="innerDiameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The inner diameter of the valve in meters. Can be used to calculate the loss coefficient of the valve using the kv parameter."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -2167,6 +2192,13 @@
     <eLiterals name="COMPOSITION" value="17"/>
     <eLiterals name="FLOW" value="18"/>
     <eLiterals name="STATE" value="19"/>
+    <eLiterals name="HEAD" value="20">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="e.g. pump head"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="POSITION" value="21"/>
+    <eLiterals name="COEFFICIENT" value="22"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="UnitEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2386,7 +2418,7 @@
     <eLiterals name="WIND_ON_COAST" value="3"/>
     <eLiterals name="WIND_ON_BUILDING" value="4"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CircuitBreaker" eSuperTypes="#//AbstractSwitch">
+  <eClassifiers xsi:type="ecore:EClass" name="CircuitBreaker" eSuperTypes="#//AbstractPassiveSwitch">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines a circuit breaker in electric transmission or distribution grids"/>
     </eAnnotations>
@@ -2395,16 +2427,26 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A single measure or a combination of measures with collective cost information that can be applied to an energy system. An example of a measure-combination would be a combination of insulation and a heat pump."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
-        eType="#//Asset" containment="true"/>
+        eType="#//Asset" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="list of assets of which the measure consists"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="costInformation" eType="#//CostInformation"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Information about the costs of the measure. This involves the total costs, if required individual costs can be specified per asset "/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="restriction" upperBound="-1"
         eType="#//Restriction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="labelJump" eType="#//LabelJump"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Specifies whether or not this measure includes a energy label jump"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WaterToPower" eSuperTypes="#//Producer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2459,8 +2501,6 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Abstract class to describe switches such as valve and a circuit breaker"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" eType="#//SwitchPositionEnum"
-        defaultValueLiteral="UNDEFINED"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractTransformer" abstract="true"
       eSuperTypes="#//Transport">
@@ -3080,12 +3120,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="quantityAndUnit" lowerBound="1"
         eType="#//AbstractQuantityAndUnit" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="SwitchPositionEnum">
-    <eLiterals name="UNDEFINED"/>
-    <eLiterals name="OPEN" value="1"/>
-    <eLiterals name="CLOSED" value="2"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Switch" eSuperTypes="#//AbstractSwitch"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Switch" eSuperTypes="#//AbstractActiveSwitch"/>
   <eClassifiers xsi:type="ecore:EClass" name="Compressor" eSuperTypes="#//AbstractTransformer"/>
   <eClassifiers xsi:type="ecore:EClass" name="PressureReducingValve" eSuperTypes="#//AbstractTransformer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valveCoefficient" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
@@ -3188,10 +3223,7 @@
     <eLiterals name="ENABLED"/>
     <eLiterals name="DISABLED" value="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Restriction" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Restriction" abstract="true" eSuperTypes="#//Item"/>
   <eClassifiers xsi:type="ecore:EClass" name="BuildingTypeRestriction" eSuperTypes="#//Restriction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" upperBound="-1" eType="#//BuildingTypeEnum"/>
   </eClassifiers>
@@ -3266,10 +3298,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="buildingYearRange" eType="#//Range"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractMeasure" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractMeasure" abstract="true" eSuperTypes="#//Item"/>
   <eClassifiers xsi:type="ecore:EClass" name="MeasureReference" eSuperTypes="#//AbstractMeasure">
     <eStructuralFeatures xsi:type="ecore:EReference" name="reference" lowerBound="1"
         eType="#//Measure"/>
@@ -3381,5 +3410,34 @@
         <details key="documentation" value="The initial value"/>
       </eAnnotations>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Table">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="row" upperBound="-1" eType="#//TableRow"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="header" upperBound="-1"
+        eType="#//AbstractQuantityAndUnit" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TableRow">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ValveTypeEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="BUTTERFLY" value="1"/>
+    <eLiterals name="BALL" value="2"/>
+    <eLiterals name="GATE" value="3"/>
+    <eLiterals name="GATE_VALVE_SQUARE" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractActiveSwitch" abstract="true"
+      eSuperTypes="#//AbstractSwitch">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractPassiveSwitch" abstract="true"
+      eSuperTypes="#//AbstractSwitch"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CheckValve" eSuperTypes="#//AbstractPassiveSwitch">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="innerDiameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reopenDeltaP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flowCoefficient" eType="#//Table"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
