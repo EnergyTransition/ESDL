@@ -234,14 +234,6 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//StateOfMatterEnum/LIQUID"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//StateOfMatterEnum/GASEOUS"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//CostUnitEnum">
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CostUnitEnum/UNDEFINED"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CostUnitEnum/MONEY_IN_EUR"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CostUnitEnum/MONEY_IN_KEUR"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CostUnitEnum/MONEY_IN_MEUR"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CostUnitEnum/MONEY_IN_EUR_PER_KW"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CostUnitEnum/MONEY_IN_EUR_PER_KWH"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//GeothermalSourceTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GeothermalSourceTypeEnum/UNDEFINED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//GeothermalSourceTypeEnum/HEAT"/>
@@ -381,6 +373,8 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/HEAD"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/POSITION"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/COEFFICIENT"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/WEIGHT"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/FORCE"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//UnitEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/NONE"/>
@@ -413,6 +407,8 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/PERCENT"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/VOLT_AMPERE"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/VOLT_AMPERE_REACTIVE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/PASCAL"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/NEWTON"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//TimeUnitEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnitEnum/NONE"/>
@@ -548,6 +544,7 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//AssetStateEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AssetStateEnum/ENABLED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AssetStateEnum/DISABLED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AssetStateEnum/OPTIONAL"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//QuantityAndUnitScopeEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//QuantityAndUnitScopeEnum/UNDEFINED"/>

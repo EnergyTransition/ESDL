@@ -1589,10 +1589,26 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
           <xsd:element ecore:resolveProxies="true" minOccurs="0" name="mustRun" type="esdl:GenericProfile"/>
         </xsd:sequence>
         <xsd:attribute ecore:unsettable="false" name="fuel" type="esdl:PowerPlantFuelEnum"/>
-        <xsd:attribute ecore:unsettable="false" name="maxLoad" type="ecore:EInt"/>
-        <xsd:attribute ecore:unsettable="false" name="minLoad" type="ecore:EInt"/>
-        <xsd:attribute ecore:unsettable="false" name="effMaxLoad" type="ecore:EDouble"/>
-        <xsd:attribute ecore:unsettable="false" name="effMinLoad" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="maxLoad" type="ecore:EInt">
+          <xsd:annotation>
+            <xsd:documentation>The maximum allowed load in Watt</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="minLoad" type="ecore:EInt">
+          <xsd:annotation>
+            <xsd:documentation>The minimum allowed load in Watt</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="effMaxLoad" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The efficiency of the power plant at maximum load</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="effMinLoad" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The efficiency of the power plant at minimum load</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
         <xsd:attribute ecore:reference="esdl:EnergyCarrier" name="energyCarrier" type="xsd:anyURI">
           <xsd:annotation>
             <xsd:documentation>Reference to the source of the plant</xsd:documentation>
@@ -2079,19 +2095,6 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:extension base="esdl:Conversion"/>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:simpleType name="CostUnitEnum">
-    <xsd:annotation>
-      <xsd:documentation>(to be removed)</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="UNDEFINED"/>
-      <xsd:enumeration value="MONEY_IN_EUR"/>
-      <xsd:enumeration value="MONEY_IN_KEUR"/>
-      <xsd:enumeration value="MONEY_IN_MEUR"/>
-      <xsd:enumeration value="MONEY_IN_EUR_PER_KW"/>
-      <xsd:enumeration value="MONEY_IN_EUR_PER_KWH"/>
-    </xsd:restriction>
-  </xsd:simpleType>
   <xsd:complexType name="CostInformation">
     <xsd:annotation>
       <xsd:documentation>Describes the costs to acquire, install and maintain a certain asset.</xsd:documentation>
@@ -2896,6 +2899,8 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:enumeration>
       <xsd:enumeration value="POSITION"/>
       <xsd:enumeration value="COEFFICIENT"/>
+      <xsd:enumeration value="WEIGHT"/>
+      <xsd:enumeration value="FORCE"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="UnitEnum">
@@ -2933,6 +2938,8 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:enumeration value="PERCENT"/>
       <xsd:enumeration value="VOLT_AMPERE"/>
       <xsd:enumeration value="VOLT_AMPERE_REACTIVE"/>
+      <xsd:enumeration value="PASCAL"/>
+      <xsd:enumeration value="NEWTON"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:complexType abstract="true" name="AbstractDataSource">
@@ -4172,9 +4179,25 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:attribute>
   </xsd:complexType>
   <xsd:simpleType name="AssetStateEnum">
+    <xsd:annotation>
+      <xsd:documentation>The AssetStateEnum allows to specify the 'state' of an Asset, mainly used for manually simulating different scenarios. It can be used to temporarily disable an Asset for a specific simulation, without the need to remove the Asset and loose all its parameter configurations. By default the value is 'ENABLED'. 'DISABLED' can be used to disable an Asset temporarily, 'OPTINAL' can be used to specify to a simulator that the Asset can optionally be placed here (to be decided by the simulator, algorithm or tool). </xsd:documentation>
+    </xsd:annotation>
     <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="ENABLED"/>
-      <xsd:enumeration value="DISABLED"/>
+      <xsd:enumeration value="ENABLED">
+        <xsd:annotation>
+          <xsd:documentation>Asset is enabled (the default)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="DISABLED">
+        <xsd:annotation>
+          <xsd:documentation>Asset is disabled (temporarily)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="OPTIONAL">
+        <xsd:annotation>
+          <xsd:documentation>Asset is optional, to be decided in a later stage if the asset will be removed or will get an 'ENABLED' (or 'DISABLED') state.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:complexType abstract="true" name="Restriction">
@@ -4446,7 +4469,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   </xsd:complexType>
   <xsd:complexType name="TableRow">
     <xsd:sequence>
-      <xsd:element ecore:unique="true" maxOccurs="unbounded" minOccurs="0" name="value" type="ecore:EDouble"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="value" type="ecore:EDouble"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:simpleType name="ValveTypeEnum">

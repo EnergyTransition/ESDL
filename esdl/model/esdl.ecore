@@ -1119,10 +1119,26 @@
       <details key="documentation" value="Defines an electricity generating plant"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fuel" eType="#//PowerPlantFuelEnum"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMaxLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMinLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The maximum allowed load in Watt"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The minimum allowed load in Watt"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMaxLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The efficiency of the power plant at maximum load"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMinLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The efficiency of the power plant at minimum load"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="energyCarrier" eType="#//EnergyCarrier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Reference to the source of the plant"/>
@@ -1533,17 +1549,6 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Represents an air conditioning unit"/>
     </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="CostUnitEnum">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="(to be removed)"/>
-    </eAnnotations>
-    <eLiterals name="UNDEFINED"/>
-    <eLiterals name="MONEY_IN_EUR" value="1"/>
-    <eLiterals name="MONEY_IN_KEUR" value="2"/>
-    <eLiterals name="MONEY_IN_MEUR" value="3"/>
-    <eLiterals name="MONEY_IN_EUR_PER_KW" value="4"/>
-    <eLiterals name="MONEY_IN_EUR_PER_KWH" value="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CostInformation">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2199,6 +2204,8 @@
     </eLiterals>
     <eLiterals name="POSITION" value="21"/>
     <eLiterals name="COEFFICIENT" value="22"/>
+    <eLiterals name="WEIGHT" value="23"/>
+    <eLiterals name="FORCE" value="24"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="UnitEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2234,6 +2241,8 @@
     <eLiterals name="PERCENT" value="27"/>
     <eLiterals name="VOLT_AMPERE" value="28"/>
     <eLiterals name="VOLT_AMPERE_REACTIVE" value="29"/>
+    <eLiterals name="PASCAL" value="30"/>
+    <eLiterals name="NEWTON" value="31"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractDataSource" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3220,8 +3229,24 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="AssetStateEnum">
-    <eLiterals name="ENABLED"/>
-    <eLiterals name="DISABLED" value="1"/>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The AssetStateEnum allows to specify the 'state' of an Asset, mainly used for manually simulating different scenarios. It can be used to temporarily disable an Asset for a specific simulation, without the need to remove the Asset and loose all its parameter configurations. By default the value is 'ENABLED'. 'DISABLED' can be used to disable an Asset temporarily, 'OPTINAL' can be used to specify to a simulator that the Asset can optionally be placed here (to be decided by the simulator, algorithm or tool). "/>
+    </eAnnotations>
+    <eLiterals name="ENABLED">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Asset is enabled (the default)"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="DISABLED" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Asset is disabled (temporarily)"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="OPTIONAL" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Asset is optional, to be decided in a later stage if the asset will be removed or will get an 'ENABLED' (or 'DISABLED') state."/>
+      </eAnnotations>
+    </eLiterals>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Restriction" abstract="true" eSuperTypes="#//Item"/>
   <eClassifiers xsi:type="ecore:EClass" name="BuildingTypeRestriction" eSuperTypes="#//Restriction">
@@ -3418,7 +3443,7 @@
         eType="#//AbstractQuantityAndUnit" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TableRow">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ValveTypeEnum">
