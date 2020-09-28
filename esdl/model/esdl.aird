@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis uid="_L_kDsLryEeeIKeRLj9tspA" selectedViews="_MiCeoLryEeeIKeRLj9tspA _Ww8lALsmEeeZZezrcapb6w _1PHCYL8dEee2upNc3DODJA _1RIboL8dEee2upNc3DODJA" version="14.3.0.201909031200">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_L_kDsLryEeeIKeRLj9tspA" selectedViews="_MiCeoLryEeeIKeRLj9tspA _Ww8lALsmEeeZZezrcapb6w _1PHCYL8dEee2upNc3DODJA _1RIboL8dEee2upNc3DODJA" version="14.3.1.202003261200">
     <semanticResources>esdl.ecore</semanticResources>
     <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
     <semanticResources>esdl.genmodel</semanticResources>
@@ -12018,8 +12018,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_A7rscP0SEeeeKZnzyFWydQ" name="type : BuildingTypeEnum" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUnit/type"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUnit/type"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/type"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/type"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_A7rscf0SEeeeKZnzyFWydQ" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -12050,16 +12050,16 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_DwyGgD_0EemA-eLmXK1uKA" name="floorArea : EDouble = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUnit/floorArea"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUnit/floorArea"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/floorArea"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/floorArea"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_DwytkD_0EemA-eLmXK1uKA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_Xjtf8GgsEemrq79eHTNoiA" name="numberOfFloors : EInt" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUnit/numberOfFloors"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUnit/numberOfFloors"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/numberOfFloors"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/numberOfFloors"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_Xjtf8WgsEemrq79eHTNoiA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -13037,8 +13037,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_v3GJ0Fp2Eeirtq8MZbgEng" name="buildingYear : EInt" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Building/buildingYear"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Building/buildingYear"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/buildingYear"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/buildingYear"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_xKYWoFp2Eeirtq8MZbgEng" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -13053,16 +13053,16 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_HF2BAFp6Eeirtq8MZbgEng" name="floorArea : EDouble = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Building/floorArea"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Building/floorArea"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/floorArea"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/floorArea"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_HF2BAVp6Eeirtq8MZbgEng" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_HF2BAlp6Eeirtq8MZbgEng" name="numberOfFloors : EInt" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Building/numberOfFloors"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Building/numberOfFloors"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/numberOfFloors"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/numberOfFloors"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_HF2BA1p6Eeirtq8MZbgEng" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -20978,16 +20978,16 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_vlxU4NO6EeieS8oxD9b1aQ" name="name : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Measure/name"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Measure/name"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/name"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_vlxU4dO6EeieS8oxD9b1aQ" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_fjsi8NO7EeieS8oxD9b1aQ" name="description : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Measure/description"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Measure/description"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/description"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/description"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_fjsi8dO7EeieS8oxD9b1aQ" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -21021,8 +21021,8 @@
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_jSQfYNO7EeieS8oxD9b1aQ" name="[0..1] dataSource" sourceNode="_rDpNgNO6EeieS8oxD9b1aQ" targetNode="_xJ5PYLpmEeiVauDpxjPUsA">
-      <target xmi:type="ecore:EReference" href="esdl.ecore#//Measure/dataSource"/>
-      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Measure/dataSource"/>
+      <target xmi:type="ecore:EReference" href="esdl.ecore#//Item/dataSource"/>
+      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Item/dataSource"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_jSQfYdO7EeieS8oxD9b1aQ" description="_-krrUMB1EeeJ9PYBAF2PgA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_jSQfYtO7EeieS8oxD9b1aQ" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -24688,8 +24688,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_G6QKPm62EeqwquRNhbF92A" name="[0..1] address" sourceNode="_2j3hsLryEeeIKeRLj9tspA" targetNode="_ZK-P0G6zEeqwquRNhbF92A">
-      <target xmi:type="ecore:EReference" href="esdl.ecore#//BuildingUnit/address"/>
-      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//BuildingUnit/address"/>
+      <target xmi:type="ecore:EReference" href="esdl.ecore#//GenericBuilding/address"/>
+      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//GenericBuilding/address"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_G6QxMG62EeqwquRNhbF92A" description="_-krrUMB1EeeJ9PYBAF2PgA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_G6QxMm62EeqwquRNhbF92A" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -24937,8 +24937,8 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_O2Yx4JNjEeqLTNn-CrasyQ" name="id : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//AbstractMeasure/id"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//AbstractMeasure/id"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/id"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/id"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_O2ZY8JNjEeqLTNn-CrasyQ" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -25553,8 +25553,8 @@
     <lines xmi:type="table:DLine" uid="_XjYHrLsmEeeZZezrcapb6w" label="EClass : BuildingUnit">
       <target xmi:type="ecore:EClass" href="esdl.ecore#//BuildingUnit"/>
       <lines xmi:type="table:DLine" uid="_XjYHrbsmEeeZZezrcapb6w" label="EAttribute : type">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUnit/type"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUnit/type"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/type"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/type"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <lines xmi:type="table:DLine" uid="_BCxy8P0SEeeeKZnzyFWydQ" label="EAttribute : housingType">
@@ -25573,12 +25573,12 @@
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <lines xmi:type="table:DLine" uid="_-TtaMVFUEemdwPTMMldKDA" label="EAttribute : floorArea">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUnit/floorArea"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUnit/floorArea"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/floorArea"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/floorArea"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
         <cells xmi:type="table:DCell" uid="_L9gJUFFYEemdwPTMMldKDA" label="in m2" column="_XjYH2rsmEeeZZezrcapb6w">
-          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//BuildingUnit/floorArea/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//BuildingUnit/floorArea/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//GenericBuilding/floorArea/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//GenericBuilding/floorArea/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
           <currentStyle xmi:type="table:DCellStyle" uid="_L9gwYFFYEemdwPTMMldKDA" defaultBackgroundStyle="true" backgroundColor="220,234,183">
             <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
           </currentStyle>
@@ -25586,8 +25586,8 @@
         </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_Ajx7pXCfEem-IvGAVOB1ag" label="EAttribute : numberOfFloors">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUnit/numberOfFloors"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingUnit/numberOfFloors"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/numberOfFloors"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/numberOfFloors"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <lines xmi:type="table:DLine" uid="_AjyisHCfEem-IvGAVOB1ag" label="EAttribute : slantedRoofArea">
@@ -26359,8 +26359,8 @@
     <lines xmi:type="table:DLine" uid="_XjYH1bsmEeeZZezrcapb6w" label="EClass : Building">
       <target xmi:type="ecore:EClass" href="esdl.ecore#//Building"/>
       <lines xmi:type="table:DLine" uid="_-T1WAFFUEemdwPTMMldKDA" label="EAttribute : buildingYear">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Building/buildingYear"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Building/buildingYear"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/buildingYear"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/buildingYear"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <lines xmi:type="table:DLine" uid="_-T19EFFUEemdwPTMMldKDA" label="EAttribute : residentialBuildingType">
@@ -26377,12 +26377,12 @@
         </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-T19ElFUEemdwPTMMldKDA" label="EAttribute : floorArea">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Building/floorArea"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Building/floorArea"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/floorArea"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/floorArea"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
         <cells xmi:type="table:DCell" uid="_g9W_sFFeEemdwPTMMldKDA" label="in m2" column="_XjYH2rsmEeeZZezrcapb6w">
-          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Building/floorArea/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//Building/floorArea/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//GenericBuilding/floorArea/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//GenericBuilding/floorArea/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
           <currentStyle xmi:type="table:DCellStyle" uid="_g9W_sVFeEemdwPTMMldKDA" defaultBackgroundStyle="true" backgroundColor="220,234,183">
             <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
           </currentStyle>
@@ -26390,8 +26390,8 @@
         </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_-T19FFFUEemdwPTMMldKDA" label="EAttribute : numberOfFloors">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Building/numberOfFloors"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Building/numberOfFloors"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/numberOfFloors"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//GenericBuilding/numberOfFloors"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <lines xmi:type="table:DLine" uid="_-T19FlFUEemdwPTMMldKDA" label="EAttribute : slantedRoofArea">
@@ -30446,8 +30446,8 @@
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <lines xmi:type="table:DLine" uid="_-U1bklFUEemdwPTMMldKDA" label="EAttribute : name">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Measure/name"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Measure/name"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/name"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <lines xmi:type="table:DLine" uid="_-U1blFFUEemdwPTMMldKDA" label="EReference : asset">
@@ -30461,13 +30461,13 @@
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <lines xmi:type="table:DLine" uid="_-U2Co1FUEemdwPTMMldKDA" label="EAttribute : description">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Measure/description"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Measure/description"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/description"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//Item/description"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <lines xmi:type="table:DLine" uid="_-U2CpVFUEemdwPTMMldKDA" label="EReference : dataSource">
-        <target xmi:type="ecore:EReference" href="esdl.ecore#//Measure/dataSource"/>
-        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Measure/dataSource"/>
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//Item/dataSource"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//Item/dataSource"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Measure"/>
