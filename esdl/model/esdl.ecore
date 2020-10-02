@@ -566,6 +566,12 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" eType="#//AssetStateEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="material" eType="#//AbstractMatter"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Allows for describing of what material(s) the Asset is made"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericConsumer" eSuperTypes="#//Consumer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1024,6 +1030,12 @@
         <details key="documentation" value=""/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatTransferCoefficient"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The heat transfer coefficient in W/K"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ResidentialBuildingTypeEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1303,19 +1315,33 @@
     <eLiterals name="INDUSTRIE" value="3"/>
     <eLiterals name="AGRO_TUINBOUW" value="4"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EnergyCarrier" eSuperTypes="#//Material">
+  <eClassifiers xsi:type="ecore:EClass" name="EnergyCarrier" eSuperTypes="#//Carrier">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines a carrier of energy with its emission and energy content properties"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyContent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0.0"/>
+        defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The energycontent of the fuel. The unit must be defined by the energyContentUnit attribute."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="emission" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0.0"/>
+        defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The amount of emission (CO2, NOx) produced when a fuel is burned. The unit must be defined by the emissionUnit attribute."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyCarrierType" eType="#//RenewableTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="energyContentUnit" eType="#//AbstractQuantityAndUnit"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="emissionUnit" eType="#//AbstractQuantityAndUnit"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="composition" eType="#//AbstractMatter"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Allows describing the composition of the energy carrier into different Fuels"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Losses" eSuperTypes="#//Consumer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1390,6 +1416,12 @@
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="buildingUsageInformation"
         eType="#//BuildingUsageInformation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="notes" eType="#//Notes"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="matters" eType="#//Matters"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="environmentalProfiles"
+        eType="#//EnvironmentalProfiles" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pump" eSuperTypes="#//AbstractTransformer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1564,6 +1596,12 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variableOperationalAndMaintenanceCosts"
         eType="#//GenericProfile" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Unique identifier for the CostInformation collection"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SpecificLabelDistribution" abstract="true"
       eSuperTypes="#//GenericDistribution">
@@ -1728,7 +1766,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="GlassTypeEnum">
+  <eClassifiers xsi:type="ecore:EEnum" name="GlazingTypeEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines the type of glass used in a building, e.g. HR-glass. Defined in dutch"/>
     </eAnnotations>
@@ -1822,7 +1860,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElectricityCommodity" eSuperTypes="#//Commodity">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Defines a electricity commodity"/>
+      <details key="documentation" value="Defines an electricity commodity"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="voltage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
@@ -1909,6 +1947,11 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="profile" upperBound="-1"
         eType="#//GenericProfile" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Unique identifier for the Profiles collection"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parties">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2000,7 +2043,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyCommodity" eSuperTypes="#//Commodity">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Generic energy commodity, to be used in (national) energy balances"/>
+      <details key="documentation" value="Generic energy commodity, to be used in (national) energy balances (when the type of energy is not important)"/>
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MobilityDemand" eSuperTypes="#//Consumer">
@@ -2305,7 +2348,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="quantityAndUnit" upperBound="-1"
         eType="#//QuantityAndUnitType" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
+        iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Unique identifier for the QuantityAndUnits collection"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractQuantityAndUnit" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2688,7 +2735,7 @@
     <eLiterals name="CAVERN_TES" value="3"/>
     <eLiterals name="OTHER" value="4"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Glass" eSuperTypes="#//Asset">
+  <eClassifiers xsi:type="ecore:EClass" name="Glazing" eSuperTypes="#//Asset">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Allows to specify the glass of a building, e.g. for calculating heat loss"/>
     </eAnnotations>
@@ -2697,7 +2744,7 @@
         <details key="documentation" value="The u-value of the window (thermal isolation) in W/m2.K"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="glasType" eType="#//GlassTypeEnum"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="glazingType" eType="#//GlazingTypeEnum"
         defaultValueLiteral="UNDEFINED">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Enumeration of different types of glass, such as HR++"/>
@@ -2796,6 +2843,8 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines an installation that combines PV and thermal energy collection"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//SolarCollectorTypeEnum"
+        defaultValueLiteral="UNDEFINED"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuildingUsage" eSuperTypes="#//AbstractBuildingUsage">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3066,21 +3115,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Material" eSuperTypes="#//Carrier">
+  <eClassifiers xsi:type="ecore:EClass" name="Matter" abstract="true" eSuperTypes="#//AbstractMatter">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Class for describing materials other than carriers (e.g. water as an input for an electrolyzer)"/>
+      <details key="documentation" value="Abstract class for describing matters. There are three subclasses:&#xD;&#xA;&#xD;&#xA;- Material: for the materials of which Assets are made, but also for raw materials (e.g. water as an input for an electrolyzer)&#xD;&#xA;- Fuels: for decomposing EnergyCarriers&#xD;&#xA;- CompoundMatter for creating a mixture or a collection of Materials or Fuels"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="density" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The density of the material in kg/m3"/>
+        <details key="documentation" value="Density of the matter in kg/m3 (kilogram per cubic meter)"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateOfMatter" eType="#//StateOfMatterEnum"
-        defaultValueLiteral="UNDEFINED">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The state of matter of the material (SOLID, LIQUID, GASEOUS)"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateOfMatter" eType="#//StateOfMatterEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PipeDiameterEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3139,14 +3183,35 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CompoundMaterial" eSuperTypes="#//Material">
+  <eClassifiers xsi:type="ecore:EClass" name="CompoundMatter" eSuperTypes="#//Matter">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Composition of different Matters, either mixed (mix of gasses or liquids) or layered.&#xD;&#xA;&#xD;&#xA;Examples of layered Matters&#xD;&#xA;- a construction of a wall, roof, or floor with isolation&#xD;&#xA;- double or triple glazing consisting of multiple layers&#xD;&#xA;- a heatnetwork pipe or electrical cable consisting of multiple layers"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="component" upperBound="-1"
-        eType="#//CompoundMaterialComponent" containment="true"/>
+        eType="#//CompoundMatterComponent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="compoundType" eType="#//CompoundTypeEnum">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Describes w"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CompoundMaterialComponent">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fraction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="material" lowerBound="1"
-        eType="#//Material"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CompoundMatterComponent">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="One of the components of a CompoundMatter instance"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixFraction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="In case of a mix of matters, the mixFraction allows to describe the percentage of this fraction in the total mix"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="matter" lowerBound="1"
+        eType="#//Matter"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="layerWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="In case of a collection of layers of matters, the layerWidth allows to describe the width of this layer of matter in the total collection"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PIDController" eSuperTypes="#//ControlStrategy">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3376,7 +3441,7 @@
         <details key="documentation" value="in m2"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="glassType" eType="#//GlassTypeEnum">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="glassType" eType="#//GlazingTypeEnum">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="e.g. HR++ glass"/>
       </eAnnotations>
@@ -3464,5 +3529,176 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="reopenDeltaP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="flowCoefficient" eType="#//Table"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AirVessel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Notes">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Collection of notes that can be added to the map, like postits (with comments in HTML)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="note" upperBound="-1" eType="#//Note"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Unique identifier for the Notes collection"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Note">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="An individual note that can have a location on the map, to document certain decisions"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Unique identifier for the note"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mapLocation" eType="#//Point"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Location on the map of the note"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Title for this note"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="author" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Author of the note"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Text of the note"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Date the note was added"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Fuel" eSuperTypes="#//Matter">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="a Fuel like wood, oil, gas, and so on."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyContent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The energycontent of the fuel. The unit must be defined by the energyContentUnit attribute."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emission" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The amount of emission (CO2, NOx) produced when a fuel is burned. The unit must be defined by the emissionUnit attribute."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="energyContentUnit" eType="#//AbstractQuantityAndUnit"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="emissionUnit" eType="#//AbstractQuantityAndUnit"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Material" eSuperTypes="#//Matter">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="a Material like copper, aluminum, wood, stone, concrete, water, styrofoam, plaster"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="thermalConductivity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Thermal conductivity of the material in W/mK (Watt per meter Kelvin)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="electricalConductivity"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Electrical conductivity in S/m (Siemens per meter)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="youngsModulus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The Young's modulus is a mechanical property that measures the stiffness of a solid material (in Pascal or Newton/m2)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Matters">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="matter" upperBound="-1"
+        eType="#//Matter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractMatter" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract class for describing Matters, can be instantiated as a subclass of Matter or as a MatterReference."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Unique identifier for this object"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Name of the Matter"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MatterReference" eSuperTypes="#//AbstractMatter">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="can be used to refer to a Matter from the collection of Matters (part of EnergySystemInformation)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" lowerBound="1"
+        eType="#//Matter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CompoundTypeEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="MIXED" value="1"/>
+    <eLiterals name="LAYERED" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnvironmentalProfiles">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outsideTemparatureProfile"
+        eType="#//GenericProfile" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Outside temperature profile"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="solarIrradianceProfile"
+        eType="#//GenericProfile" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Solar irradiance profile"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="windSpeedProfile" eType="#//GenericProfile"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Wind speed profile"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="windDirectionProfile" eType="#//GenericProfile"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Wind direction profile"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="soilTemperatureProfile"
+        eType="#//GenericProfile" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Soil temperature profile"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relativeHumidityProfile"
+        eType="#//GenericProfile" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Relative humidity profile"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Unique identifier for the EnvironmentalProfiles collection"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

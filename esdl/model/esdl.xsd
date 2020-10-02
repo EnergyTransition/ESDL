@@ -195,7 +195,7 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
   <xsd:element ecore:ignore="true" name="BiomassHeater" type="esdl:BiomassHeater"/>
   <xsd:element ecore:ignore="true" name="UTES" type="esdl:UTES"/>
   <xsd:element ecore:ignore="true" name="WaterBuffer" type="esdl:WaterBuffer"/>
-  <xsd:element ecore:ignore="true" name="Glass" type="esdl:Glass"/>
+  <xsd:element ecore:ignore="true" name="Glazing" type="esdl:Glazing"/>
   <xsd:element ecore:ignore="true" name="WKT" type="esdl:WKT"/>
   <xsd:element ecore:ignore="true" name="WKB" type="esdl:WKB"/>
   <xsd:element ecore:ignore="true" name="SearchAreaWind" type="esdl:SearchAreaWind"/>
@@ -222,15 +222,15 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
   <xsd:element ecore:ignore="true" name="IntKPI" type="esdl:IntKPI"/>
   <xsd:element ecore:ignore="true" name="FromToIntItem" type="esdl:FromToIntItem"/>
   <xsd:element ecore:ignore="true" name="FromToDoubleItem" type="esdl:FromToDoubleItem"/>
-  <xsd:element ecore:ignore="true" name="Material" type="esdl:Material"/>
+  <xsd:element ecore:ignore="true" name="Matter" type="esdl:Matter"/>
   <xsd:element ecore:ignore="true" name="Bus" type="esdl:Bus"/>
   <xsd:element ecore:ignore="true" name="AbstractSensor" type="esdl:AbstractSensor"/>
   <xsd:element ecore:ignore="true" name="Sensor" type="esdl:Sensor"/>
   <xsd:element ecore:ignore="true" name="Switch" type="esdl:Switch"/>
   <xsd:element ecore:ignore="true" name="Compressor" type="esdl:Compressor"/>
   <xsd:element ecore:ignore="true" name="PressureReducingValve" type="esdl:PressureReducingValve"/>
-  <xsd:element ecore:ignore="true" name="CompoundMaterial" type="esdl:CompoundMaterial"/>
-  <xsd:element ecore:ignore="true" name="CompoundMaterialComponent" type="esdl:CompoundMaterialComponent"/>
+  <xsd:element ecore:ignore="true" name="CompoundMatter" type="esdl:CompoundMatter"/>
+  <xsd:element ecore:ignore="true" name="CompoundMatterComponent" type="esdl:CompoundMatterComponent"/>
   <xsd:element ecore:ignore="true" name="PIDController" type="esdl:PIDController"/>
   <xsd:element ecore:ignore="true" name="PVPark" type="esdl:PVPark"/>
   <xsd:element ecore:ignore="true" name="WindPark" type="esdl:WindPark"/>
@@ -263,6 +263,15 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
   <xsd:element ecore:ignore="true" name="AbstractActiveSwitch" type="esdl:AbstractActiveSwitch"/>
   <xsd:element ecore:ignore="true" name="AbstractPassiveSwitch" type="esdl:AbstractPassiveSwitch"/>
   <xsd:element ecore:ignore="true" name="CheckValve" type="esdl:CheckValve"/>
+  <xsd:element ecore:ignore="true" name="AirVessel" type="esdl:AirVessel"/>
+  <xsd:element ecore:ignore="true" name="Notes" type="esdl:Notes"/>
+  <xsd:element ecore:ignore="true" name="Note" type="esdl:Note"/>
+  <xsd:element ecore:ignore="true" name="Fuel" type="esdl:Fuel"/>
+  <xsd:element ecore:ignore="true" name="Material" type="esdl:Material"/>
+  <xsd:element ecore:ignore="true" name="Matters" type="esdl:Matters"/>
+  <xsd:element ecore:ignore="true" name="AbstractMatter" type="esdl:AbstractMatter"/>
+  <xsd:element ecore:ignore="true" name="MatterReference" type="esdl:MatterReference"/>
+  <xsd:element ecore:ignore="true" name="EnvironmentalProfiles" type="esdl:EnvironmentalProfiles"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -836,6 +845,11 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
           </xsd:element>
           <xsd:element ecore:resolveProxies="true" minOccurs="0" name="costInformation" type="esdl:CostInformation"/>
           <xsd:element ecore:name="KPIs" ecore:resolveProxies="true" minOccurs="0" name="KPIs" type="esdl:KPIs"/>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="material" type="esdl:AbstractMatter">
+            <xsd:annotation>
+              <xsd:documentation>Allows for describing of what material(s) the Asset is made</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
         </xsd:sequence>
         <xsd:attribute ecore:unsettable="false" name="surfaceArea" type="ecore:EInt">
           <xsd:annotation>
@@ -1471,6 +1485,11 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
             <xsd:documentation/>
           </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="heatTransferCoefficient" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The heat transfer coefficient in W/K</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1803,13 +1822,26 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
       <xsd:documentation>Defines a carrier of energy with its emission and energy content properties</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Material">
+      <xsd:extension base="esdl:Carrier">
         <xsd:sequence>
           <xsd:element ecore:resolveProxies="true" minOccurs="0" name="energyContentUnit" type="esdl:AbstractQuantityAndUnit"/>
           <xsd:element ecore:resolveProxies="true" minOccurs="0" name="emissionUnit" type="esdl:AbstractQuantityAndUnit"/>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="composition" type="esdl:AbstractMatter">
+            <xsd:annotation>
+              <xsd:documentation>Allows describing the composition of the energy carrier into different Fuels</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
         </xsd:sequence>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="energyContent" type="ecore:EDouble"/>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="emission" type="ecore:EDouble"/>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="energyContent" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The energycontent of the fuel. The unit must be defined by the energyContentUnit attribute.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="emission" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The amount of emission (CO2, NOx) produced when a fuel is burned. The unit must be defined by the emissionUnit attribute.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="energyCarrierType" type="esdl:RenewableTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -1897,6 +1929,9 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="quantityAndUnits" type="esdl:QuantityAndUnits"/>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="sectors" type="esdl:Sectors"/>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="buildingUsageInformation" type="esdl:BuildingUsageInformation"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="notes" type="esdl:Notes"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="matters" type="esdl:Matters"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="environmentalProfiles" type="esdl:EnvironmentalProfiles"/>
     </xsd:sequence>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
   </xsd:complexType>
@@ -2106,6 +2141,11 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="marginalCosts" type="esdl:GenericProfile"/>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="variableOperationalAndMaintenanceCosts" type="esdl:GenericProfile"/>
     </xsd:sequence>
+    <xsd:attribute ecore:id="true" name="id" type="ecore:EString">
+      <xsd:annotation>
+        <xsd:documentation>Unique identifier for the CostInformation collection</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="SpecificLabelDistribution">
     <xsd:annotation>
@@ -2327,7 +2367,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:annotation>
     </xsd:attribute>
   </xsd:complexType>
-  <xsd:simpleType name="GlassTypeEnum">
+  <xsd:simpleType name="GlazingTypeEnum">
     <xsd:annotation>
       <xsd:documentation>Defines the type of glass used in a building, e.g. HR-glass. Defined in dutch</xsd:documentation>
     </xsd:annotation>
@@ -2445,7 +2485,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   </xsd:complexType>
   <xsd:complexType name="ElectricityCommodity">
     <xsd:annotation>
-      <xsd:documentation>Defines a electricity commodity</xsd:documentation>
+      <xsd:documentation>Defines an electricity commodity</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Commodity">
@@ -2543,6 +2583,11 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:sequence>
       <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="profile" type="esdl:GenericProfile"/>
     </xsd:sequence>
+    <xsd:attribute name="id" type="ecore:EString">
+      <xsd:annotation>
+        <xsd:documentation>Unique identifier for the Profiles collection</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
   <xsd:complexType name="Parties">
     <xsd:annotation>
@@ -2661,7 +2706,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   </xsd:complexType>
   <xsd:complexType name="EnergyCommodity">
     <xsd:annotation>
-      <xsd:documentation>Generic energy commodity, to be used in (national) energy balances</xsd:documentation>
+      <xsd:documentation>Generic energy commodity, to be used in (national) energy balances (when the type of energy is not important)</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Commodity"/>
@@ -3009,7 +3054,11 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:sequence>
       <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="quantityAndUnit" type="esdl:QuantityAndUnitType"/>
     </xsd:sequence>
-    <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
+    <xsd:attribute ecore:id="true" name="id" type="ecore:EString">
+      <xsd:annotation>
+        <xsd:documentation>Unique identifier for the QuantityAndUnits collection</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="AbstractQuantityAndUnit">
     <xsd:annotation>
@@ -3524,7 +3573,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:enumeration value="OTHER"/>
     </xsd:restriction>
   </xsd:simpleType>
-  <xsd:complexType name="Glass">
+  <xsd:complexType name="Glazing">
     <xsd:annotation>
       <xsd:documentation>Allows to specify the glass of a building, e.g. for calculating heat loss</xsd:documentation>
     </xsd:annotation>
@@ -3535,7 +3584,7 @@ When a model queries for a value from a certain date (and to a certain date), th
             <xsd:documentation>The u-value of the window (thermal isolation) in W/m2.K</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute default="UNDEFINED" ecore:unsettable="false" name="glasType" type="esdl:GlassTypeEnum">
+        <xsd:attribute default="UNDEFINED" ecore:unsettable="false" name="glazingType" type="esdl:GlazingTypeEnum">
           <xsd:annotation>
             <xsd:documentation>Enumeration of different types of glass, such as HR++</xsd:documentation>
           </xsd:annotation>
@@ -3665,7 +3714,9 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Defines an installation that combines PV and thermal energy collection</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Producer"/>
+      <xsd:extension base="esdl:Producer">
+        <xsd:attribute default="UNDEFINED" ecore:unsettable="false" name="type" type="esdl:SolarCollectorTypeEnum"/>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="BuildingUsage">
@@ -3971,22 +4022,22 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="Material">
+  <xsd:complexType abstract="true" name="Matter">
     <xsd:annotation>
-      <xsd:documentation>Class for describing materials other than carriers (e.g. water as an input for an electrolyzer)</xsd:documentation>
+      <xsd:documentation>Abstract class for describing matters. There are three subclasses:
+
+- Material: for the materials of which Assets are made, but also for raw materials (e.g. water as an input for an electrolyzer)
+- Fuels: for decomposing EnergyCarriers
+- CompoundMatter for creating a mixture or a collection of Materials or Fuels</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Carrier">
+      <xsd:extension base="esdl:AbstractMatter">
         <xsd:attribute ecore:unsettable="false" name="density" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>The density of the material in kg/m3</xsd:documentation>
+            <xsd:documentation>Density of the matter in kg/m3 (kilogram per cubic meter)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute default="UNDEFINED" ecore:unsettable="false" name="stateOfMatter" type="esdl:StateOfMatterEnum">
-          <xsd:annotation>
-            <xsd:documentation>The state of matter of the material (SOLID, LIQUID, GASEOUS)</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="stateOfMatter" type="esdl:StateOfMatterEnum"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -4073,18 +4124,43 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="CompoundMaterial">
+  <xsd:complexType name="CompoundMatter">
+    <xsd:annotation>
+      <xsd:documentation>Composition of different Matters, either mixed (mix of gasses or liquids) or layered.
+
+Examples of layered Matters
+- a construction of a wall, roof, or floor with isolation
+- double or triple glazing consisting of multiple layers
+- a heatnetwork pipe or electrical cable consisting of multiple layers</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Material">
+      <xsd:extension base="esdl:Matter">
         <xsd:sequence>
-          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="component" type="esdl:CompoundMaterialComponent"/>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="component" type="esdl:CompoundMatterComponent"/>
         </xsd:sequence>
+        <xsd:attribute ecore:unsettable="false" name="compoundType" type="esdl:CompoundTypeEnum">
+          <xsd:annotation>
+            <xsd:documentation>Describes w</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="CompoundMaterialComponent">
-    <xsd:attribute ecore:unsettable="false" name="fraction" type="ecore:EDouble"/>
-    <xsd:attribute ecore:reference="esdl:Material" name="material" type="xsd:anyURI" use="required"/>
+  <xsd:complexType name="CompoundMatterComponent">
+    <xsd:annotation>
+      <xsd:documentation>One of the components of a CompoundMatter instance</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute default="0.0" ecore:unsettable="false" name="mixFraction" type="ecore:EDouble">
+      <xsd:annotation>
+        <xsd:documentation>In case of a mix of matters, the mixFraction allows to describe the percentage of this fraction in the total mix</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:reference="esdl:Matter" name="matter" type="xsd:anyURI" use="required"/>
+    <xsd:attribute ecore:unsettable="false" name="layerWidth" type="ecore:EDouble">
+      <xsd:annotation>
+        <xsd:documentation>In case of a collection of layers of matters, the layerWidth allows to describe the width of this layer of matter in the total collection</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
   <xsd:complexType name="PIDController">
     <xsd:annotation>
@@ -4390,7 +4466,7 @@ When a model queries for a value from a certain date (and to a certain date), th
             <xsd:documentation>in m2</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="glassType" type="esdl:GlassTypeEnum">
+        <xsd:attribute ecore:unsettable="false" name="glassType" type="esdl:GlazingTypeEnum">
           <xsd:annotation>
             <xsd:documentation>e.g. HR++ glass</xsd:documentation>
           </xsd:annotation>
@@ -4503,5 +4579,181 @@ When a model queries for a value from a certain date (and to a certain date), th
         <xsd:attribute ecore:unsettable="false" name="reopenDeltaP" type="ecore:EDouble"/>
       </xsd:extension>
     </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="AirVessel"/>
+  <xsd:complexType name="Notes">
+    <xsd:annotation>
+      <xsd:documentation>Collection of notes that can be added to the map, like postits (with comments in HTML)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="note" type="esdl:Note"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:id="true" name="id" type="ecore:EString">
+      <xsd:annotation>
+        <xsd:documentation>Unique identifier for the Notes collection</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType name="Note">
+    <xsd:annotation>
+      <xsd:documentation>An individual note that can have a location on the map, to document certain decisions</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="mapLocation" type="esdl:Point">
+        <xsd:annotation>
+          <xsd:documentation>Location on the map of the note</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute ecore:id="true" name="id" type="ecore:EString">
+      <xsd:annotation>
+        <xsd:documentation>Unique identifier for the note</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="title" type="ecore:EString">
+      <xsd:annotation>
+        <xsd:documentation>Title for this note</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="author" type="ecore:EString">
+      <xsd:annotation>
+        <xsd:documentation>Author of the note</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="text" type="ecore:EString">
+      <xsd:annotation>
+        <xsd:documentation>Text of the note</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="date" type="ecore:EDate">
+      <xsd:annotation>
+        <xsd:documentation>Date the note was added</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType name="Fuel">
+    <xsd:annotation>
+      <xsd:documentation>a Fuel like wood, oil, gas, and so on.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Matter">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="energyContentUnit" type="esdl:AbstractQuantityAndUnit"/>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="emissionUnit" type="esdl:AbstractQuantityAndUnit"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:unsettable="false" name="energyContent" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The energycontent of the fuel. The unit must be defined by the energyContentUnit attribute.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="emission" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The amount of emission (CO2, NOx) produced when a fuel is burned. The unit must be defined by the emissionUnit attribute.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Material">
+    <xsd:annotation>
+      <xsd:documentation>a Material like copper, aluminum, wood, stone, concrete, water, styrofoam, plaster</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Matter">
+        <xsd:attribute ecore:unsettable="false" name="thermalConductivity" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Thermal conductivity of the material in W/mK (Watt per meter Kelvin)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="electricalConductivity" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Electrical conductivity in S/m (Siemens per meter)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="youngsModulus" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The Young's modulus is a mechanical property that measures the stiffness of a solid material (in Pascal or Newton/m2)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Matters">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="dataSource" type="esdl:AbstractDataSource"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="matter" type="esdl:Matter"/>
+    </xsd:sequence>
+    <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="AbstractMatter">
+    <xsd:annotation>
+      <xsd:documentation>Abstract class for describing Matters, can be instantiated as a subclass of Matter or as a MatterReference.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute ecore:id="true" name="id" type="ecore:EString">
+      <xsd:annotation>
+        <xsd:documentation>Unique identifier for this object</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="name" type="ecore:EString">
+      <xsd:annotation>
+        <xsd:documentation>Name of the Matter</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType name="MatterReference">
+    <xsd:annotation>
+      <xsd:documentation>can be used to refer to a Matter from the collection of Matters (part of EnergySystemInformation)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractMatter">
+        <xsd:attribute ecore:reference="esdl:Matter" name="reference" type="xsd:anyURI" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType name="CompoundTypeEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="MIXED"/>
+      <xsd:enumeration value="LAYERED"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="EnvironmentalProfiles">
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="outsideTemparatureProfile" type="esdl:GenericProfile">
+        <xsd:annotation>
+          <xsd:documentation>Outside temperature profile</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="solarIrradianceProfile" type="esdl:GenericProfile">
+        <xsd:annotation>
+          <xsd:documentation>Solar irradiance profile</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="windSpeedProfile" type="esdl:GenericProfile">
+        <xsd:annotation>
+          <xsd:documentation>Wind speed profile</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="windDirectionProfile" type="esdl:GenericProfile">
+        <xsd:annotation>
+          <xsd:documentation>Wind direction profile</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="soilTemperatureProfile" type="esdl:GenericProfile">
+        <xsd:annotation>
+          <xsd:documentation>Soil temperature profile</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="relativeHumidityProfile" type="esdl:GenericProfile">
+        <xsd:annotation>
+          <xsd:documentation>Relative humidity profile</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute ecore:id="true" name="id" type="ecore:EString">
+      <xsd:annotation>
+        <xsd:documentation>Unique identifier for the EnvironmentalProfiles collection</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
 </xsd:schema>
