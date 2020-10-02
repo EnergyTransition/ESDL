@@ -24,7 +24,7 @@
     <semanticResources>bundleentry://885.fwk389353983/cache/www.w3.org/2001/MagicXMLSchema.xsd</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_MiCeoLryEeeIKeRLj9tspA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MqgeILryEeeIKeRLj9tspA" name="esdl" repPath="#_MqZJYLryEeeIKeRLj9tspA" changeId="b2771f40-9f25-4326-81e6-448eef0cead4">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MqgeILryEeeIKeRLj9tspA" name="esdl" repPath="#_MqZJYLryEeeIKeRLj9tspA" changeId="d9c7a24c-9fbc-42e0-96cc-6a9c367b6f57">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="esdl.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -2072,11 +2072,15 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_hCfd4SLPEeiK8Zr8Km6pyQ" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_hCfd4iLPEeiK8Zr8Km6pyQ"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_DNo8sATbEeuYWJwGoXvmjw" type="3010" element="_DH6vMATbEeuYWJwGoXvmjw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_DNpjwATbEeuYWJwGoXvmjw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_DNpjwQTbEeuYWJwGoXvmjw"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_kbP7sSLKEeiK8Zr8Km6pyQ"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_kbP7siLKEeiK8Zr8Km6pyQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_kbGxwSLKEeiK8Zr8Km6pyQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kbGxwiLKEeiK8Zr8Km6pyQ" x="2417" y="-813" width="339" height="94"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kbGxwiLKEeiK8Zr8Km6pyQ" x="2417" y="-813" width="339" height="108"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_ekfHMCLLEeiK8Zr8Km6pyQ" type="2003" element="_ejGAECLLEeiK8Zr8Km6pyQ">
           <children xmi:type="notation:Node" xmi:id="_ekfuQCLLEeiK8Zr8Km6pyQ" type="5007"/>
@@ -4897,7 +4901,7 @@
           <styles xmi:type="notation:ShapeStyle" xmi:id="_-NPBMdkjEeiAiP44lhTokg" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-NPBMtkjEeiAiP44lhTokg" x="1947" y="3392" width="120" height="126"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_n6pPkOP9Eei-rO52rQ5FJw" type="Note" fontName="Segoe UI" description="Changes since last commit:&#xD;&#xA;- Restructured Matter/Materials and relation to EnergyCarriers and Assets&#xD;&#xA;- Added EnvironmentalProfiles&#xD;&#xA;- Added Notes&#xD;&#xA;- Added type attribute of PVTInstallation&#xD;&#xA;- Added some id attributes to 'collection' classes" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+        <children xmi:type="notation:Shape" xmi:id="_n6pPkOP9Eei-rO52rQ5FJw" type="Note" fontName="Segoe UI" description="Changes since last commit:&#xD;&#xA;- restored stateOfMatter as an attribute of EnergyCarrier" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
           <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_n6pPkeP9Eei-rO52rQ5FJw" source="specificStyles">
             <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_n6pPkuP9Eei-rO52rQ5FJw" key="verticalAlignment" value="8"/>
           </eAnnotations>
@@ -7313,7 +7317,7 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_vqfs0i0GEeilpaGlVME8Sw" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vqfs0y0GEeilpaGlVME8Sw" points="[-78, 59, 2013, 3345]$[-2085, 59, 6, 3345]$[-2085, -3284, 6, 2]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vqhiAC0GEeilpaGlVME8Sw" id="(0.5,0.4083769633507853)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vqhiAS0GEeilpaGlVME8Sw" id="(0.857566765578635,0.9783510734259425)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vqhiAS0GEeilpaGlVME8Sw" id="(0.857566765578635,0.8491348939168558)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_aR6jYC5_EeiYLO7hxsNXGQ" type="4001" element="_aQwFwC5_EeiYLO7hxsNXGQ" source="_3GZnA7ryEeeIKeRLj9tspA" target="_SRtLkC5_EeiYLO7hxsNXGQ">
           <children xmi:type="notation:Node" xmi:id="_aR7KcC5_EeiYLO7hxsNXGQ" type="6001">
@@ -7537,7 +7541,7 @@
           <styles xmi:type="notation:FontStyle" xmi:id="__6_SwjgdEeiMZqnG2OT1SA" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__6_SwzgdEeiMZqnG2OT1SA" points="[4, 2, 2538, 2999]$[4, 443, 2538, 3440]$[-2534, 443, 0, 3440]$[-2534, -2997, 0, 0]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__6_51DgdEeiMZqnG2OT1SA" id="(0.12217194570135748,0.9897435897435898)"/>
-          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__6_51TgdEeiMZqnG2OT1SA" id="(0.9495548961424333,1.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="__6_51TgdEeiMZqnG2OT1SA" id="(0.9495548961424333,0.8679245283018868)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_YFOdED8MEei9rvcHqHEJ0Q" type="4001" element="_YD9RwD8MEei9rvcHqHEJ0Q" source="_Mof7ED8MEei9rvcHqHEJ0Q" target="_unmCQC6vEeiK6b1j6uagLA">
           <children xmi:type="notation:Node" xmi:id="_YFOdFD8MEei9rvcHqHEJ0Q" type="6001">
@@ -8832,7 +8836,7 @@
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_UQln4b_vEeiAH9yqHyGq3A" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_UQln4r_vEeiAH9yqHyGq3A" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_UQln47_vEeiAH9yqHyGq3A" points="[-39, 0, 541, -945]$[-39, 903, 541, -42]$[-586, 903, -6, -42]$[-586, 943, -6, -2]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UQln6r_vEeiAH9yqHyGq3A" id="(0.18100890207715134,1.0)"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UQln6r_vEeiAH9yqHyGq3A" id="(0.18100890207715134,0.8679245283018868)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UQln67_vEeiAH9yqHyGq3A" id="(0.8636363636363636,0.02040816326530612)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_WipxIL_vEeiAH9yqHyGq3A" type="4001" element="_Wg5doL_vEeiAH9yqHyGq3A" source="_kbGxwCLKEeiK8Zr8Km6pyQ" target="_JqpO0L_tEeiAH9yqHyGq3A">
@@ -8848,7 +8852,7 @@
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_WipxIb_vEeiAH9yqHyGq3A" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_WipxIr_vEeiAH9yqHyGq3A" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WipxI7_vEeiAH9yqHyGq3A" points="[-81, 0, 537, -964]$[-81, 920, 537, -44]$[-630, 920, -12, -44]$[-630, 943, -12, -21]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WipxKr_vEeiAH9yqHyGq3A" id="(0.3560830860534125,1.0)"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WipxKr_vEeiAH9yqHyGq3A" id="(0.3560830860534125,0.8679245283018868)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WipxK7_vEeiAH9yqHyGq3A" id="(1.0,0.21428571428571427)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_jvko8L_wEeiAH9yqHyGq3A" type="4001" element="_jt_UkL_wEeiAH9yqHyGq3A" source="_SRtLkC5_EeiYLO7hxsNXGQ" target="_G0kZkL_tEeiAH9yqHyGq3A">
@@ -11888,7 +11892,7 @@
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_db7yIQMFEeuRSp8YxKIsUw" routing="Tree"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_db7yIgMFEeuRSp8YxKIsUw" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_db7yIwMFEeuRSp8YxKIsUw" points="[0, 0, 299, 467]$[0, -391, 299, 76]$[-298, -391, 1, 76]$[-298, -418, 1, 49]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_db7yKgMFEeuRSp8YxKIsUw" id="(0.5014836795252225,0.010869565217391304)"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_db7yKgMFEeuRSp8YxKIsUw" id="(0.5014836795252225,0.009433962264150943)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_db7yKwMFEeuRSp8YxKIsUw" id="(0.5,0.5)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_qkWZ4AMFEeuRSp8YxKIsUw" type="4001" element="_qiW16wMFEeuRSp8YxKIsUw" source="_nKapoAMFEeuRSp8YxKIsUw" target="_y7BMIHuwEem-as3sYuNIWg">
@@ -16318,6 +16322,14 @@
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyCarrier/energyCarrierType"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyCarrier/energyCarrierType"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_iTM30CLPEeiK8Zr8Km6pyQ" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_DH6vMATbEeuYWJwGoXvmjw" name="stateOfMatter : StateOfMatterEnum = UNDEFINED" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyCarrier/stateOfMatter"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyCarrier/stateOfMatter"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_DH79UATbEeuYWJwGoXvmjw" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>

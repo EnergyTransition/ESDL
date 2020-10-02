@@ -888,6 +888,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyCarrier/energyContentUnit"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyCarrier/emissionUnit"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyCarrier/composition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergyCarrier/stateOfMatter"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Losses"/>
     <genClasses ecoreClass="esdl.ecore#//PowerToX"/>

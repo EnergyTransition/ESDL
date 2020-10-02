@@ -1843,6 +1843,7 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="energyCarrierType" type="esdl:RenewableTypeEnum"/>
+        <xsd:attribute default="UNDEFINED" ecore:unsettable="false" name="stateOfMatter" type="esdl:StateOfMatterEnum"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
