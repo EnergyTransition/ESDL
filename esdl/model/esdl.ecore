@@ -309,14 +309,14 @@
         <details key="documentation" value="(experimental) Used to model economic properties of this area, such as income, WOZ-value, etc."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="asset" unique="false" upperBound="-1"
         eType="#//Asset" containment="true" eOpposite="#//Asset/area">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="contains all the assets in this area, both Buildings and EnergyAssets"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="area" upperBound="-1" eType="#//Area"
-        containment="true" eOpposite="#//Area/containingArea">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="area" unique="false" upperBound="-1"
+        eType="#//Area" containment="true" eOpposite="#//Area/containingArea">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="contains all sub areas of this area"/>
       </eAnnotations>
