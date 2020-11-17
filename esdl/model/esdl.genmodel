@@ -165,6 +165,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatDemandTypeEnum/SPACE_HEATING"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatDemandTypeEnum/HOT_TAPWATER"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatDemandTypeEnum/SH_AND_HTW"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatDemandTypeEnum/COOKING"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatDemandTypeEnum/OTHER"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//OwnershipRentalTypeEnum">
@@ -374,7 +375,8 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/POSITION"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/COEFFICIENT"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/WEIGHT"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/FORCE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/FORCE%0D%0A"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/CURRENT"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//UnitEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/NONE"/>
@@ -409,6 +411,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/VOLT_AMPERE_REACTIVE"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/PASCAL"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/NEWTON"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/AMPERE"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//TimeUnitEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnitEnum/NONE"/>
@@ -811,8 +814,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Transformer/voltageSecundary"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HeatExchange">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatExchange/LossDeltaT"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatExchange/heatTransferCoefficient"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatExchange/lengthPrimarySide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatExchange/diameterPrimarySide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatExchange/roughnessPrimarySide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatExchange/lengthSecundarySide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatExchange/diameterSecundarySide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatExchange/roughnessSecundarySide"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Item">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Item/id"/>
@@ -979,6 +987,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/marginalCosts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/variableOperationalAndMaintenanceCosts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CostInformation/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/discountRate"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//SpecificLabelDistribution"/>
     <genClasses ecoreClass="esdl.ecore#//StringLabelDistribution">
@@ -1579,6 +1588,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Material/thermalConductivity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Material/electricalConductivity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Material/youngsModulus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Material/specificHeatCapacity"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Matters">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Matters/id"/>

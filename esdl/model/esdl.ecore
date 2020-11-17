@@ -895,7 +895,8 @@
     <eLiterals name="SPACE_HEATING" value="1"/>
     <eLiterals name="HOT_TAPWATER" value="2"/>
     <eLiterals name="SH_AND_HTW" value="3"/>
-    <eLiterals name="OTHER" value="4"/>
+    <eLiterals name="COOKING" value="4"/>
+    <eLiterals name="OTHER" value="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElectricityDemand" eSuperTypes="#//Consumer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1025,17 +1026,21 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Exchange heat between two circuits"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LossDeltaT" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value=""/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatTransferCoefficient"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The heat transfer coefficient in W/K"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lengthPrimarySide" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="diameterPrimarySide" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roughnessPrimarySide" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lengthSecundarySide" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="diameterSecundarySide"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roughnessSecundarySide"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="0.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ResidentialBuildingTypeEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1604,6 +1609,8 @@
         <details key="documentation" value="Unique identifier for the CostInformation collection"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="discountRate" eType="#//GenericProfile"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SpecificLabelDistribution" abstract="true"
       eSuperTypes="#//GenericDistribution">
@@ -1740,7 +1747,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="database" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="filters" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Can be used in the WHERE-clause of a query"/>
+        <details key="documentation" value="Raw string that can be communicated as the WHERE clause of the query"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -2250,7 +2257,8 @@
     <eLiterals name="POSITION" value="21"/>
     <eLiterals name="COEFFICIENT" value="22"/>
     <eLiterals name="WEIGHT" value="23"/>
-    <eLiterals name="FORCE" value="24"/>
+    <eLiterals name="FORCE&#xD;&#xA;" value="24"/>
+    <eLiterals name="CURRENT" value="25"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="UnitEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2288,6 +2296,7 @@
     <eLiterals name="VOLT_AMPERE_REACTIVE" value="29"/>
     <eLiterals name="PASCAL" value="30"/>
     <eLiterals name="NEWTON" value="31"/>
+    <eLiterals name="AMPERE" value="32"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractDataSource" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3532,7 +3541,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="flowCoefficient" eType="#//Table"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AirVessel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AirVessel" eSuperTypes="#//Transport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Notes">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Collection of notes that can be added to the map, like postits (with comments in HTML)"/>
@@ -3620,6 +3629,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="youngsModulus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The Young's modulus is a mechanical property that measures the stiffness of a solid material (in Pascal or Newton/m2)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="specificHeatCapacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The specific heat capacity of the material in J/(K kg) (Joule per Kelvin kilogram)"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
