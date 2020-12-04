@@ -272,6 +272,12 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
   <xsd:element ecore:ignore="true" name="AbstractMatter" type="esdl:AbstractMatter"/>
   <xsd:element ecore:ignore="true" name="MatterReference" type="esdl:MatterReference"/>
   <xsd:element ecore:ignore="true" name="EnvironmentalProfiles" type="esdl:EnvironmentalProfiles"/>
+  <xsd:element ecore:ignore="true" name="AbstractBehaviour" type="esdl:AbstractBehaviour"/>
+  <xsd:element ecore:ignore="true" name="GenericTransferFunction" type="esdl:GenericTransferFunction"/>
+  <xsd:element ecore:ignore="true" name="InputOutputRelation" type="esdl:InputOutputRelation"/>
+  <xsd:element ecore:ignore="true" name="DelayTransferFunction" type="esdl:DelayTransferFunction"/>
+  <xsd:element ecore:ignore="true" name="AbstractTransferFunction" type="esdl:AbstractTransferFunction"/>
+  <xsd:element ecore:ignore="true" name="CombinedTransferFunction" type="esdl:CombinedTransferFunction"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -280,6 +286,11 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
       <xsd:extension base="esdl:Asset">
         <xsd:sequence>
           <xsd:element ecore:opposite="energyasset" ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="port" type="esdl:Port"/>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="behaviour" type="esdl:AbstractBehaviour">
+            <xsd:annotation>
+              <xsd:documentation>parameter that allows to specify the (dynamic) behaviour of this asset</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
         </xsd:sequence>
         <xsd:attribute ecore:opposite="energyAsset" ecore:reference="esdl:ControlStrategy" name="controlStrategy" type="xsd:anyURI"/>
       </xsd:extension>
@@ -899,6 +910,7 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="state" type="esdl:AssetStateEnum"/>
+        <xsd:attribute name="manufacturer" type="ecore:EString"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1313,6 +1325,7 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
       <xsd:enumeration value="SPACE_HEATING"/>
       <xsd:enumeration value="HOT_TAPWATER"/>
       <xsd:enumeration value="SH_AND_HTW"/>
+      <xsd:enumeration value="COOKING"/>
       <xsd:enumeration value="OTHER"/>
     </xsd:restriction>
   </xsd:simpleType>
@@ -1480,16 +1493,17 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractTransformer">
-        <xsd:attribute ecore:name="LossDeltaT" ecore:unsettable="false" name="LossDeltaT" type="ecore:EDouble">
-          <xsd:annotation>
-            <xsd:documentation/>
-          </xsd:annotation>
-        </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="heatTransferCoefficient" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The heat transfer coefficient in W/K</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="lengthPrimarySide" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="diameterPrimarySide" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="roughnessPrimarySide" type="ecore:EDouble"/>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="lengthSecundarySide" type="ecore:EDouble"/>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="diameterSecundarySide" type="ecore:EDouble"/>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="roughnessSecundarySide" type="ecore:EDouble"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -2141,6 +2155,11 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="fixedOperationalAndMaintenanceCosts" type="esdl:GenericProfile"/>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="marginalCosts" type="esdl:GenericProfile"/>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="variableOperationalAndMaintenanceCosts" type="esdl:GenericProfile"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="discountRate" type="esdl:GenericProfile"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="variableOperationalCosts" type="esdl:GenericProfile"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="fixedMaintenanceCosts" type="esdl:GenericProfile"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="fixedOperationalCosts" type="esdl:GenericProfile"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="variableMaintenanceCosts" type="esdl:GenericProfile"/>
     </xsd:sequence>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString">
       <xsd:annotation>
@@ -2329,7 +2348,7 @@ When a model queries for a value from a certain date (and to a certain date), th
         <xsd:attribute name="database" type="ecore:EString"/>
         <xsd:attribute name="filters" type="ecore:EString">
           <xsd:annotation>
-            <xsd:documentation>Can be used in the WHERE-clause of a query</xsd:documentation>
+            <xsd:documentation>Raw string that can be communicated as the WHERE clause of the query</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -2947,6 +2966,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:enumeration value="COEFFICIENT"/>
       <xsd:enumeration value="WEIGHT"/>
       <xsd:enumeration value="FORCE"/>
+      <xsd:enumeration value="CURRENT"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="UnitEnum">
@@ -2986,6 +3006,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:enumeration value="VOLT_AMPERE_REACTIVE"/>
       <xsd:enumeration value="PASCAL"/>
       <xsd:enumeration value="NEWTON"/>
+      <xsd:enumeration value="AMPERE"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:complexType abstract="true" name="AbstractDataSource">
@@ -4581,7 +4602,11 @@ Examples of layered Matters
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="AirVessel"/>
+  <xsd:complexType name="AirVessel">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Transport"/>
+    </xsd:complexContent>
+  </xsd:complexType>
   <xsd:complexType name="Notes">
     <xsd:annotation>
       <xsd:documentation>Collection of notes that can be added to the map, like postits (with comments in HTML)</xsd:documentation>
@@ -4676,6 +4701,11 @@ Examples of layered Matters
             <xsd:documentation>The Young's modulus is a mechanical property that measures the stiffness of a solid material (in Pascal or Newton/m2)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="specificHeatCapacity" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The specific heat capacity of the material in J/(K kg) (Joule per Kelvin kilogram)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -4757,4 +4787,109 @@ Examples of layered Matters
       </xsd:annotation>
     </xsd:attribute>
   </xsd:complexType>
+  <xsd:complexType abstract="true" name="AbstractBehaviour">
+    <xsd:annotation>
+      <xsd:documentation>Abstract class for specification of the (dynamic) behaviour of an asset</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="id" type="ecore:EString">
+      <xsd:annotation>
+        <xsd:documentation>Unique identifier for this behaviour specification</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="name" type="ecore:EString">
+      <xsd:annotation>
+        <xsd:documentation>name for this behaviour specification</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType name="GenericTransferFunction">
+    <xsd:annotation>
+      <xsd:documentation>Generic transfer function with numerator and denominator</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractTransferFunction">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="numerator" type="ecore:EDouble">
+            <xsd:annotation>
+              <xsd:documentation>Polynomial constants of the numerator in a Laplace representation of a transfer function: H = y(s) / u(s) = (a0 + a1 * s + a2 * s^2 + ... + an * s^n) / (b0 + b1 * s + b2 * s^2 + ... + bn * s^n)</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="denominator" type="ecore:EDouble">
+            <xsd:annotation>
+              <xsd:documentation>Polynomial constants of the denominator in a Laplace representation of a transfer function: H = y(s) / u(s) = (a0 + a1 * s + a2 * s^2 + ... + an * s^n) / (b0 + b1 * s + b2 * s^2 + ... + bn * s^n)</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="InputOutputRelation">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractBehaviour"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="DelayTransferFunction">
+    <xsd:annotation>
+      <xsd:documentation>Delay transfer function with a time constant</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractTransferFunction">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="timeConstant" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Time constant of a delay transfer function: H = y(s) / u(s) = (1 / s) * e ^(-timeConstant * s)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="AbstractTransferFunction">
+    <xsd:annotation>
+      <xsd:documentation>Abstract class for a TransferFunction for the specification of the behaviour of an asset</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractBehaviour">
+        <xsd:attribute ecore:unsettable="false" name="type" type="esdl:TransferFunctionTypeEnum">
+          <xsd:annotation>
+            <xsd:documentation>Type of transfer function</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CombinedTransferFunction">
+    <xsd:annotation>
+      <xsd:documentation>Combination of multiple transfer functions by addition of multiplication of individual components</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractTransferFunction">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="2" name="component" type="esdl:AbstractTransferFunction"/>
+        </xsd:sequence>
+        <xsd:attribute ecore:unsettable="false" name="combinationFunction" type="esdl:CombinationFunctionEnum">
+          <xsd:annotation>
+            <xsd:documentation>Specifies the combination function to apply to the individual components of a combined transfer function</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType name="CombinationFunctionEnum">
+    <xsd:annotation>
+      <xsd:documentation>Specificaton of the combination function</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="MULTIPLICATION"/>
+      <xsd:enumeration value="ADDITION"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TransferFunctionTypeEnum">
+    <xsd:annotation>
+      <xsd:documentation>Specification of the transfer function type</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="POWER_SETPOINT_RESPONSE"/>
+      <xsd:enumeration value="TEMPERATURE_SETPOINT_RESPONSE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
 </xsd:schema>
