@@ -340,15 +340,23 @@
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//MultiplierEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/ATTO"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/FEMTO"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/PICO"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/NANO"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/MICRO"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/MILLI"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/CENTI"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/DECI"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/DEKA"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/HECTO"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/KILO"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/MEGA"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/GIGA"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/TERA"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/TERRA"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/PETA"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/MILLI"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/MICRO"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/NANO"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/PICO"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/EXA"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//PhysicalQuantityEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/UNDEFINED"/>
@@ -1030,18 +1038,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PItemStat/sigma"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//AbstractVariance"/>
-    <genClasses ecoreClass="esdl.ecore#//SymetricVariance">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SymetricVariance/sigma"/>
+    <genClasses ecoreClass="esdl.ecore#//SymmetricVariance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SymmetricVariance/sigma"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//AssymetricVariance">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AssymetricVariance/sigmaMin"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AssymetricVariance/sigmaPlus"/>
+    <genClasses ecoreClass="esdl.ecore#//AssymmetricVariance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AssymmetricVariance/sigmaMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AssymmetricVariance/sigmaPlus"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//DoubleAssymetricVariance">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleAssymetricVariance/plus34perc"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleAssymetricVariance/plus48perc"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleAssymetricVariance/min34perc"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleAssymetricVariance/min48perc"/>
+    <genClasses ecoreClass="esdl.ecore#//DoubleAssymmetricVariance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleAssymmetricVariance/plus34perc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleAssymmetricVariance/plus48perc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleAssymmetricVariance/min34perc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleAssymmetricVariance/min48perc"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//CHP">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CHP/CHPType"/>
@@ -1567,6 +1575,9 @@
     <genClasses ecoreClass="esdl.ecore#//Table">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Table/row"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Table/header"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Table/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Table/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Table/datasource"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//TableRow">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//TableRow/value"/>
@@ -1634,7 +1645,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericTransferFunction/numerator"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericTransferFunction/denominator"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//InputOutputRelation"/>
+    <genClasses ecoreClass="esdl.ecore#//InputOutputQuantityRelation"/>
     <genClasses ecoreClass="esdl.ecore#//DelayTransferFunction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DelayTransferFunction/timeConstant"/>
     </genClasses>

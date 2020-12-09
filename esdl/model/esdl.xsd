@@ -113,9 +113,9 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
   <xsd:element ecore:ignore="true" name="FromToItem" type="esdl:FromToItem"/>
   <xsd:element ecore:ignore="true" name="PItemStat" type="esdl:PItemStat"/>
   <xsd:element ecore:ignore="true" name="AbstractVariance" type="esdl:AbstractVariance"/>
-  <xsd:element ecore:ignore="true" name="SymetricVariance" type="esdl:SymetricVariance"/>
-  <xsd:element ecore:ignore="true" name="AssymetricVariance" type="esdl:AssymetricVariance"/>
-  <xsd:element ecore:ignore="true" name="DoubleAssymetricVariance" type="esdl:DoubleAssymetricVariance"/>
+  <xsd:element ecore:ignore="true" name="SymmetricVariance" type="esdl:SymmetricVariance"/>
+  <xsd:element ecore:ignore="true" name="AssymmetricVariance" type="esdl:AssymmetricVariance"/>
+  <xsd:element ecore:ignore="true" name="DoubleAssymmetricVariance" type="esdl:DoubleAssymmetricVariance"/>
   <xsd:element ecore:ignore="true" name="CHP" type="esdl:CHP"/>
   <xsd:element ecore:ignore="true" name="Party" type="esdl:Party"/>
   <xsd:element ecore:ignore="true" name="URIProfile" type="esdl:URIProfile"/>
@@ -274,7 +274,7 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
   <xsd:element ecore:ignore="true" name="EnvironmentalProfiles" type="esdl:EnvironmentalProfiles"/>
   <xsd:element ecore:ignore="true" name="AbstractBehaviour" type="esdl:AbstractBehaviour"/>
   <xsd:element ecore:ignore="true" name="GenericTransferFunction" type="esdl:GenericTransferFunction"/>
-  <xsd:element ecore:ignore="true" name="InputOutputRelation" type="esdl:InputOutputRelation"/>
+  <xsd:element ecore:ignore="true" name="InputOutputQuantityRelation" type="esdl:InputOutputQuantityRelation"/>
   <xsd:element ecore:ignore="true" name="DelayTransferFunction" type="esdl:DelayTransferFunction"/>
   <xsd:element ecore:ignore="true" name="AbstractTransferFunction" type="esdl:AbstractTransferFunction"/>
   <xsd:element ecore:ignore="true" name="CombinedTransferFunction" type="esdl:CombinedTransferFunction"/>
@@ -2156,10 +2156,10 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="marginalCosts" type="esdl:GenericProfile"/>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="variableOperationalAndMaintenanceCosts" type="esdl:GenericProfile"/>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="discountRate" type="esdl:GenericProfile"/>
-      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="variableOperationalCosts" type="esdl:GenericProfile"/>
-      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="fixedMaintenanceCosts" type="esdl:GenericProfile"/>
-      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="fixedOperationalCosts" type="esdl:GenericProfile"/>
-      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="variableMaintenanceCosts" type="esdl:GenericProfile"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="variableOperationalCosts" type="esdl:GenericProfile"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="fixedMaintenanceCosts" type="esdl:GenericProfile"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="fixedOperationalCosts" type="esdl:GenericProfile"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="variableMaintenanceCosts" type="esdl:GenericProfile"/>
     </xsd:sequence>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString">
       <xsd:annotation>
@@ -2243,7 +2243,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>(experimental) Used to define statistical information</xsd:documentation>
     </xsd:annotation>
   </xsd:complexType>
-  <xsd:complexType name="SymetricVariance">
+  <xsd:complexType name="SymmetricVariance">
     <xsd:annotation>
       <xsd:documentation>(experimental) Used to define statistical information</xsd:documentation>
     </xsd:annotation>
@@ -2253,7 +2253,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="AssymetricVariance">
+  <xsd:complexType name="AssymmetricVariance">
     <xsd:annotation>
       <xsd:documentation>(experimental) Used to define statistical information</xsd:documentation>
     </xsd:annotation>
@@ -2264,7 +2264,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="DoubleAssymetricVariance">
+  <xsd:complexType name="DoubleAssymmetricVariance">
     <xsd:annotation>
       <xsd:documentation>(experimental) Used to define statistical information</xsd:documentation>
     </xsd:annotation>
@@ -2778,8 +2778,8 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="UNDEFINED"/>
-      <xsd:enumeration ecore:value="0" value="CAR"/>
-      <xsd:enumeration ecore:value="0" value="TRUCK"/>
+      <xsd:enumeration value="CAR"/>
+      <xsd:enumeration value="TRUCK"/>
       <xsd:enumeration value="VAN"/>
       <xsd:enumeration value="BUS"/>
       <xsd:enumeration value="METRO"/>
@@ -2921,15 +2921,31 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="NONE"/>
+      <xsd:enumeration value="ATTO">
+        <xsd:annotation>
+          <xsd:documentation>10</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="FEMTO"/>
+      <xsd:enumeration value="PICO"/>
+      <xsd:enumeration value="NANO"/>
+      <xsd:enumeration value="MICRO"/>
+      <xsd:enumeration value="MILLI"/>
+      <xsd:enumeration value="CENTI"/>
+      <xsd:enumeration value="DECI"/>
+      <xsd:enumeration value="DEKA"/>
+      <xsd:enumeration value="HECTO"/>
       <xsd:enumeration value="KILO"/>
       <xsd:enumeration value="MEGA"/>
       <xsd:enumeration value="GIGA"/>
-      <xsd:enumeration value="TERRA"/>
+      <xsd:enumeration value="TERA"/>
+      <xsd:enumeration value="TERRA">
+        <xsd:annotation>
+          <xsd:documentation>Decrepated (spelling mistake, still here for older models that use it)</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
       <xsd:enumeration value="PETA"/>
-      <xsd:enumeration value="MILLI"/>
-      <xsd:enumeration value="MICRO"/>
-      <xsd:enumeration value="NANO"/>
-      <xsd:enumeration value="PICO"/>
+      <xsd:enumeration value="EXA"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="PhysicalQuantityEnum">
@@ -4560,10 +4576,28 @@ Examples of layered Matters
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="Table">
+    <xsd:annotation>
+      <xsd:documentation>Table class that represents data in a table structure. Current examples are the pump curve table and a table describing the flowCoefficient of a checkvalve (relation between pressure drop and flow rate)</xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
       <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="row" type="esdl:TableRow"/>
       <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="header" type="esdl:AbstractQuantityAndUnit"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="datasource" type="esdl:AbstractDataSource">
+        <xsd:annotation>
+          <xsd:documentation>Reference to a datasource describing where the data in the table comes from</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
+    <xsd:attribute name="name" type="ecore:EString">
+      <xsd:annotation>
+        <xsd:documentation>Name of the table</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="description" type="ecore:EString">
+      <xsd:annotation>
+        <xsd:documentation>Description of the table</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
   <xsd:complexType name="TableRow">
     <xsd:sequence>
@@ -4823,7 +4857,7 @@ Examples of layered Matters
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="InputOutputRelation">
+  <xsd:complexType name="InputOutputQuantityRelation">
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractBehaviour"/>
     </xsd:complexContent>
