@@ -593,7 +593,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Producer/prodType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Producer/operationalHours"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Producer/fullLoadHours"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Producer/power"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Producer/power">
+        <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="unit" value="Watt"/>
+        </genAnnotations>
+      </genFeatures>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Consumer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Consumer/consType"/>
@@ -1468,7 +1472,7 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//CompoundMatterComponent">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CompoundMatterComponent/mixFraction"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//CompoundMatterComponent/matter"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//CompoundMatterComponent/matter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CompoundMatterComponent/layerWidth"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//PIDController">
@@ -1656,5 +1660,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CombinedTransferFunction/component"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CombinedTransferFunction/combinationFunction"/>
     </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//ElectricityProducer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ElectricityProducer/minPower"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//HeatProducer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatProducer/minTemperature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatProducer/maxTemperature"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//GasProducer"/>
   </genPackages>
 </genmodel:GenModel>

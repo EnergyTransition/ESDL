@@ -278,6 +278,9 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
   <xsd:element ecore:ignore="true" name="DelayTransferFunction" type="esdl:DelayTransferFunction"/>
   <xsd:element ecore:ignore="true" name="AbstractTransferFunction" type="esdl:AbstractTransferFunction"/>
   <xsd:element ecore:ignore="true" name="CombinedTransferFunction" type="esdl:CombinedTransferFunction"/>
+  <xsd:element ecore:ignore="true" name="ElectricityProducer" type="esdl:ElectricityProducer"/>
+  <xsd:element ecore:ignore="true" name="HeatProducer" type="esdl:HeatProducer"/>
+  <xsd:element ecore:ignore="true" name="GasProducer" type="esdl:GasProducer"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -315,7 +318,7 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="power" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>Maximum power / capacity in Watt</xsd:documentation>
+            <xsd:documentation>Maximum (output) power in Watt. This attribute specifies the rated output power of the producer.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -509,7 +512,7 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
       <xsd:documentation>Describes an individual wind turbine. A wind turbine is a producer capability</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Producer">
+      <xsd:extension base="esdl:ElectricityProducer">
         <xsd:attribute ecore:unsettable="false" name="rotorDiameter" type="ecore:EDouble"/>
         <xsd:attribute ecore:unsettable="false" name="height" type="ecore:EDouble"/>
         <xsd:attribute ecore:unsettable="false" name="type" type="esdl:WindTurbineTypeEnum"/>
@@ -521,7 +524,7 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
       <xsd:documentation>Describes an individual PV panel. See PVInstallation for multiple PV panels. This is a Producer capability</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Producer">
+      <xsd:extension base="esdl:ElectricityProducer">
         <xsd:attribute ecore:unsettable="false" name="panelEfficiency" type="ecore:EDouble"/>
         <xsd:attribute ecore:unsettable="false" name="inverterEfficiency" type="ecore:EDouble"/>
         <xsd:attribute ecore:unsettable="false" name="angle" type="ecore:EInt">
@@ -1167,7 +1170,7 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
       <xsd:documentation>Geothermal source including the installation that connects the source to the network</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Producer">
+      <xsd:extension base="esdl:HeatProducer">
         <xsd:attribute ecore:unsettable="false" name="wellDepth" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>in m</xsd:documentation>
@@ -2488,7 +2491,11 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Commodity">
-        <xsd:attribute ecore:unsettable="false" name="pressure" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="pressure" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The pressure of the gas commodity (in Pa)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -2498,8 +2505,16 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Commodity">
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="supplyTemperature" type="ecore:EDouble"/>
-        <xsd:attribute ecore:unsettable="false" name="returnTemperature" type="ecore:EDouble"/>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="supplyTemperature" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The supply temperature used in the heat system (in degrees Celcius)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="returnTemperature" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The return temperature used in the heat system (in degrees Celcius)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -2509,7 +2524,11 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Commodity">
-        <xsd:attribute ecore:unsettable="false" name="voltage" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="voltage" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The voltage of the electricity commodity (in Volt)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -2655,7 +2674,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Defines a SolarCollector asset</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Producer">
+      <xsd:extension base="esdl:HeatProducer">
         <xsd:attribute ecore:unsettable="false" name="type" type="esdl:SolarCollectorTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -2665,7 +2684,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Defines a source of residual heat, e.g. a data center or factory</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Producer">
+      <xsd:extension base="esdl:HeatProducer">
         <xsd:attribute ecore:unsettable="false" name="type" type="esdl:ResidualHeatSourceTypeEnum"/>
         <xsd:attribute ecore:opposite="residualHeatSource" ecore:reference="esdl:ResidualHeatSourcePotential" name="residualHeatSourcePotential" type="xsd:anyURI"/>
       </xsd:extension>
@@ -3309,7 +3328,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Defines an asset that uses water to produce electricity. E.g.  hydro power, tidal power, wave power or osmotic power</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Producer">
+      <xsd:extension base="esdl:ElectricityProducer">
         <xsd:attribute ecore:unsettable="false" name="type" type="esdl:WaterToPowerTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -4188,12 +4207,14 @@ Examples of layered Matters
     <xsd:annotation>
       <xsd:documentation>One of the components of a CompoundMatter instance</xsd:documentation>
     </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" name="matter" type="esdl:AbstractMatter"/>
+    </xsd:sequence>
     <xsd:attribute default="0.0" ecore:unsettable="false" name="mixFraction" type="ecore:EDouble">
       <xsd:annotation>
         <xsd:documentation>In case of a mix of matters, the mixFraction allows to describe the percentage of this fraction in the total mix</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute ecore:reference="esdl:Matter" name="matter" type="xsd:anyURI" use="required"/>
     <xsd:attribute ecore:unsettable="false" name="layerWidth" type="ecore:EDouble">
       <xsd:annotation>
         <xsd:documentation>In case of a collection of layers of matters, the layerWidth allows to describe the width of this layer of matter in the total collection</xsd:documentation>
@@ -4926,4 +4947,45 @@ Examples of layered Matters
       <xsd:enumeration value="TEMPERATURE_SETPOINT_RESPONSE"/>
     </xsd:restriction>
   </xsd:simpleType>
+  <xsd:complexType name="ElectricityProducer">
+    <xsd:annotation>
+      <xsd:documentation>Describes a (generic) electricity producing asset</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Producer">
+        <xsd:attribute ecore:unsettable="false" name="minPower" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>the minimum power (in Watt) the producer can deliver once it's turned on</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="HeatProducer">
+    <xsd:annotation>
+      <xsd:documentation>Describes a (generic) heat producing asset</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Producer">
+        <xsd:attribute ecore:unsettable="false" name="minTemperature" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The minimum temperature of the heat that can be generated (in degrees Celcius)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="maxTemperature" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The maximum temperature of the heat that can be generated (in degrees Celcius)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="GasProducer">
+    <xsd:annotation>
+      <xsd:documentation>Describes a (generic) gas producing asset</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Producer"/>
+    </xsd:complexContent>
+  </xsd:complexType>
 </xsd:schema>
