@@ -12,8 +12,8 @@ The Github repository is at [https://github.com/EnergyTransition/ESDL](https://g
 For more information about ESDL, see the [ESDL gitbook](https://energytransition.gitbook.io/esdl)
 A browseable version of this model is found at [https://energytransition.github.io/](https://energytransition.github.io/)
 
-ESDL version: v1910-8-g14785f1
-Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentation>
+ESDL version: v2101
+Git commit hash $Id$</xsd:documentation>
   </xsd:annotation>
   <xsd:element ecore:ignore="true" name="EnergyAsset" type="esdl:EnergyAsset"/>
   <xsd:element ecore:ignore="true" name="Producer" type="esdl:Producer"/>
@@ -1319,6 +1319,16 @@ Git commit hash $Id: b3e84d21272c281b7f538275501cc681ba1a5c33 $</xsd:documentati
       <xsd:extension base="esdl:Consumer">
         <xsd:attribute ecore:unsettable="false" name="type" type="esdl:HeatDemandTypeEnum"/>
         <xsd:attribute ecore:unsettable="false" name="deviceType" type="esdl:HeatRadiationDeviceTypeEnum"/>
+        <xsd:attribute ecore:unsettable="false" name="minTemperatureIn" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Minimum required input temperature (in degrees Celcuis)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="maxTemperatureIn" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Maximum allowed input temperature (in degrees Celcuis)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>

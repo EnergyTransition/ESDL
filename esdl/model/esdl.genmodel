@@ -797,6 +797,8 @@
     <genClasses ecoreClass="esdl.ecore#//HeatingDemand">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatingDemand/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatingDemand/deviceType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatingDemand/minTemperatureIn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatingDemand/maxTemperatureIn"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//ElectricityDemand"/>
     <genClasses ecoreClass="esdl.ecore#//GasDemand"/>

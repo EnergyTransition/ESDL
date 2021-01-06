@@ -896,6 +896,16 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//HeatDemandTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" eType="#//HeatRadiationDeviceTypeEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minTemperatureIn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Minimum required input temperature (in degrees Celcuis)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxTemperatureIn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum allowed input temperature (in degrees Celcuis)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="HeatDemandTypeEnum">
     <eLiterals name="UNDEFINED"/>
