@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>nl.tno.esdl</groupId>
 	<artifactId>esdl.parent</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>2.21.1</version>
 	<name>Parent project for ESDL</name>
 	<description>This is the parent project that describes the global properties of a Tycho-based build of ESDL. Use 'mvn clean install' to build ESDL in this folder</description>
 	<packaging>pom</packaging>
@@ -107,7 +107,7 @@
 			<plugin>
 				<groupId>pl.project13.maven</groupId>
 				<artifactId>git-commit-id-plugin</artifactId>
-				<version>3.0.0</version>
+				<version>4.0.3</version>
 				<executions>
 					<execution>
 						<id>get-the-git-infos</id>
@@ -129,13 +129,15 @@
 					</execution>
 				</executions>
 				<configuration>
+					<generateGitPropertiesFile>true</generateGitPropertiesFile>
 					<skipPoms>false</skipPoms> <!-- only run on the parent project -->
 					<verbose>false</verbose>
-					<runOnlyOnce>true</runOnlyOnce>
+<!-- 					<runOnlyOnce>true</runOnlyOnce> -->
 					<dotGitDirectory>${project.basedir}/../.git</dotGitDirectory>
 					<gitDescribe>
 						<dirty>-dev</dirty>
 					</gitDescribe>
+<!-- 					<injectAllReactorProjects>true</injectAllReactorProjects> -->
 					<!-- <validationProperties> -->
 					<!-- <validationProperty> -->
 					<!-- <name>validating current commit has a tag</name> -->
@@ -173,6 +175,11 @@
 					<forceContextQualifier>${esdl.version}</forceContextQualifier>
 				</configuration>
 			</plugin>
+			<plugin>
+		        <groupId>org.eclipse.tycho</groupId>
+		        <artifactId>tycho-versions-plugin</artifactId>
+		        <version>${tycho.version}</version>				
+	      	</plugin>
 		</plugins>
 	</build>
 </project>

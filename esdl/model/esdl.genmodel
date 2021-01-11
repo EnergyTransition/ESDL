@@ -637,6 +637,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystem/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystem/version"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/templates"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystem/esdlVersion"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WindTurbine">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindTurbine/rotorDiameter"/>
@@ -797,8 +798,8 @@
     <genClasses ecoreClass="esdl.ecore#//HeatingDemand">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatingDemand/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatingDemand/deviceType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatingDemand/minTemperatureIn"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatingDemand/maxTemperatureIn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatingDemand/minTemperature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatingDemand/maxTemperature"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//ElectricityDemand"/>
     <genClasses ecoreClass="esdl.ecore#//GasDemand"/>
