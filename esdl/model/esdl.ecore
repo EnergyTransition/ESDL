@@ -2629,6 +2629,7 @@
         <details key="documentation" value="Specifies whether or not this measure includes a energy label jump"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//MeasureTypeEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WaterToPower" eSuperTypes="#//ElectricityProducer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3968,5 +3969,10 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Describes a (generic) gas producing asset"/>
     </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MeasureTypeEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="ADD_GEOMETRY" value="1"/>
+    <eLiterals name="MODEL_RESTRICTION" value="2"/>
   </eClassifiers>
 </ecore:EPackage>

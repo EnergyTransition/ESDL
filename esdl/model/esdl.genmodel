@@ -584,6 +584,11 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TransferFunctionTypeEnum/POWER_SETPOINT_RESPONSE"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TransferFunctionTypeEnum/TEMPERATURE_SETPOINT_RESPONSE"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//MeasureTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MeasureTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MeasureTypeEnum/ADD_GEOMETRY"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MeasureTypeEnum/MODEL_RESTRICTION"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/controlStrategy"/>
@@ -1291,6 +1296,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measure/costInformation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measure/restriction"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measure/labelJump"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Measure/type"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WaterToPower">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WaterToPower/type"/>

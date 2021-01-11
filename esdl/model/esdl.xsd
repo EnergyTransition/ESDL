@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" targetNamespace="http://www.tno.nl/esdl">
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2101" targetNamespace="http://www.tno.nl/esdl">
   <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
   <xsd:annotation>
     <xsd:documentation># Energy System Description Language
@@ -316,7 +316,7 @@ Git commit hash $Id$</xsd:documentation>
             <xsd:documentation>An annual number of full-load hours is the time it will take a given Producer to yield its annual production if it is able to produce with its installed capacity all of the time. The capacity is defined by the 'power' attribute</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="power" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="power" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Maximum (output) power in Watt. This attribute specifies the rated output power of the producer.</xsd:documentation>
           </xsd:annotation>
@@ -331,7 +331,7 @@ Git commit hash $Id$</xsd:documentation>
     <xsd:complexContent>
       <xsd:extension base="esdl:EnergyAsset">
         <xsd:attribute default="PRIMARY" ecore:unsettable="false" name="consType" type="esdl:ConsTypeEnum"/>
-        <xsd:attribute ecore:unsettable="false" name="power" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="power" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Maximum power / capacity in Watt</xsd:documentation>
           </xsd:annotation>
@@ -348,7 +348,7 @@ Git commit hash $Id$</xsd:documentation>
         <xsd:sequence>
           <xsd:element ecore:resolveProxies="true" minOccurs="0" name="profile" type="esdl:GenericProfile"/>
         </xsd:sequence>
-        <xsd:attribute ecore:unsettable="false" name="capacity" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="capacity" nl.tno.esdl.attribute.unit:unit="J" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The capacity of the storage asset in Joules	</xsd:documentation>
           </xsd:annotation>
@@ -374,12 +374,12 @@ Git commit hash $Id$</xsd:documentation>
             <xsd:documentation>The fill level of the storage asset as a percentage of its capacity</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="maxChargeRate" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="maxChargeRate" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The maximum charge rate at which the storage asset can be charged (in Watt)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="maxDischargeRate" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="maxDischargeRate" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The maximum discharge rate at which the storage asset can be discharged (in Watt)</xsd:documentation>
           </xsd:annotation>
@@ -404,7 +404,7 @@ Git commit hash $Id$</xsd:documentation>
             <xsd:documentation>An annual number of full-load hours is the time it will take a given conversion asset to yield its annual production if it is able to produce with its installed capacity all of the time. The capacity is defined by the 'power' attribute</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="power" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="power" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Maximum power / capacity in Watt</xsd:documentation>
           </xsd:annotation>
@@ -419,7 +419,7 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:EnergyAsset">
-        <xsd:attribute ecore:unsettable="false" name="capacity" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="capacity" nl.tno.esdl.attribute.unit:unit="J" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The capacity of the transport asset in Joules	</xsd:documentation>
           </xsd:annotation>
@@ -506,6 +506,11 @@ Git commit hash $Id$</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
     <xsd:attribute name="version" type="ecore:EString"/>
+    <xsd:attribute default="" ecore:unsettable="false" name="esdlVersion" type="ecore:EString">
+      <xsd:annotation>
+        <xsd:documentation>ESDL version used to create this Energy System, e.g. v2101 for the January 2021 release.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
   <xsd:complexType name="WindTurbine">
     <xsd:annotation>
@@ -865,7 +870,7 @@ Git commit hash $Id$</xsd:documentation>
             </xsd:annotation>
           </xsd:element>
         </xsd:sequence>
-        <xsd:attribute ecore:unsettable="false" name="surfaceArea" type="ecore:EInt">
+        <xsd:attribute ecore:unsettable="false" name="surfaceArea" nl.tno.esdl.attribute.unit:unit="m²" type="ecore:EInt">
           <xsd:annotation>
             <xsd:documentation>The surface that is occupied by this asset in m2</xsd:documentation>
           </xsd:annotation>
@@ -887,7 +892,7 @@ Git commit hash $Id$</xsd:documentation>
         </xsd:attribute>
         <xsd:attribute ecore:opposite="asset" ecore:reference="esdl:Area" name="area" type="xsd:anyURI"/>
         <xsd:attribute ecore:opposite="asset" ecore:reference="esdl:AbstractBuilding" name="containingBuilding" type="xsd:anyURI"/>
-        <xsd:attribute ecore:unsettable="false" name="technicalLifetime" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="technicalLifetime" nl.tno.esdl.attribute.unit:unit="years" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>in years</xsd:documentation>
           </xsd:annotation>
@@ -902,7 +907,7 @@ Git commit hash $Id$</xsd:documentation>
             <xsd:documentation>Number of assets that are aggregated</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="installationDuration" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="installationDuration" nl.tno.esdl.attribute.unit:unit="days" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>the time required to install the asset (e.g. for calculating the effects on employment or the time it takes to construct and install the asset) in days</xsd:documentation>
           </xsd:annotation>
@@ -1067,8 +1072,8 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Storage">
-        <xsd:attribute ecore:unsettable="false" name="minStorageTemperature" type="ecore:EDouble"/>
-        <xsd:attribute ecore:unsettable="false" name="maxStorageTemperature" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="minStorageTemperature" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="maxStorageTemperature" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1171,7 +1176,7 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:HeatProducer">
-        <xsd:attribute ecore:unsettable="false" name="wellDepth" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="wellDepth" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>in m</xsd:documentation>
           </xsd:annotation>
@@ -1319,12 +1324,12 @@ Git commit hash $Id$</xsd:documentation>
       <xsd:extension base="esdl:Consumer">
         <xsd:attribute ecore:unsettable="false" name="type" type="esdl:HeatDemandTypeEnum"/>
         <xsd:attribute ecore:unsettable="false" name="deviceType" type="esdl:HeatRadiationDeviceTypeEnum"/>
-        <xsd:attribute ecore:unsettable="false" name="minTemperatureIn" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="minTemperature" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Minimum required input temperature (in degrees Celcuis)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="maxTemperatureIn" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="maxTemperature" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Maximum allowed input temperature (in degrees Celcuis)</xsd:documentation>
           </xsd:annotation>
@@ -3330,6 +3335,7 @@ When a model queries for a value from a certain date (and to a certain date), th
             </xsd:annotation>
           </xsd:element>
         </xsd:sequence>
+        <xsd:attribute ecore:unsettable="false" name="type" type="esdl:MeasureTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -4977,12 +4983,12 @@ Examples of layered Matters
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Producer">
-        <xsd:attribute ecore:unsettable="false" name="minTemperature" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="minTemperature" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The minimum temperature of the heat that can be generated (in degrees Celcius)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="maxTemperature" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="maxTemperature" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The maximum temperature of the heat that can be generated (in degrees Celcius)</xsd:documentation>
           </xsd:annotation>
@@ -4998,4 +5004,11 @@ Examples of layered Matters
       <xsd:extension base="esdl:Producer"/>
     </xsd:complexContent>
   </xsd:complexType>
+  <xsd:simpleType name="MeasureTypeEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="ADD_GEOMETRY"/>
+      <xsd:enumeration value="MODEL_RESTRICTION"/>
+    </xsd:restriction>
+  </xsd:simpleType>
 </xsd:schema>
