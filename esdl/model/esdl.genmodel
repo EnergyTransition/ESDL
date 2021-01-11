@@ -165,6 +165,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatDemandTypeEnum/SPACE_HEATING"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatDemandTypeEnum/HOT_TAPWATER"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatDemandTypeEnum/SH_AND_HTW"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatDemandTypeEnum/COOKING"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//HeatDemandTypeEnum/OTHER"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//OwnershipRentalTypeEnum">
@@ -339,15 +340,23 @@
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//MultiplierEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/ATTO"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/FEMTO"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/PICO"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/NANO"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/MICRO"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/MILLI"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/CENTI"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/DECI"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/DEKA"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/HECTO"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/KILO"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/MEGA"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/GIGA"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/TERA"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/TERRA"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/PETA"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/MILLI"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/MICRO"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/NANO"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/PICO"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MultiplierEnum/EXA"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//PhysicalQuantityEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/UNDEFINED"/>
@@ -375,6 +384,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/COEFFICIENT"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/WEIGHT"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/FORCE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/CURRENT"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//UnitEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/NONE"/>
@@ -409,6 +419,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/VOLT_AMPERE_REACTIVE"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/PASCAL"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/NEWTON"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/AMPERE"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//TimeUnitEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnitEnum/NONE"/>
@@ -564,15 +575,34 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CompoundTypeEnum/MIXED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CompoundTypeEnum/LAYERED"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//CombinationFunctionEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CombinationFunctionEnum/MULTIPLICATION"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//CombinationFunctionEnum/ADDITION"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//TransferFunctionTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TransferFunctionTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TransferFunctionTypeEnum/POWER_SETPOINT_RESPONSE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TransferFunctionTypeEnum/TEMPERATURE_SETPOINT_RESPONSE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//MeasureTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MeasureTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MeasureTypeEnum/ADD_GEOMETRY"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MeasureTypeEnum/MODEL_RESTRICTION"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/controlStrategy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/behaviour"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Producer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Producer/prodType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Producer/operationalHours"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Producer/fullLoadHours"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Producer/power"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Producer/power">
+        <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="unit" value="Watt"/>
+        </genAnnotations>
+      </genFeatures>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Consumer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Consumer/consType"/>
@@ -612,6 +642,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystem/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystem/version"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/templates"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystem/esdlVersion"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WindTurbine">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindTurbine/rotorDiameter"/>
@@ -692,6 +723,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/assetType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/state"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/material"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/manufacturer"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GenericConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//GenericProducer"/>
@@ -771,6 +803,8 @@
     <genClasses ecoreClass="esdl.ecore#//HeatingDemand">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatingDemand/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatingDemand/deviceType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatingDemand/minTemperature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatingDemand/maxTemperature"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//ElectricityDemand"/>
     <genClasses ecoreClass="esdl.ecore#//GasDemand"/>
@@ -811,8 +845,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Transformer/voltageSecundary"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HeatExchange">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatExchange/LossDeltaT"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatExchange/heatTransferCoefficient"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatExchange/lengthPrimarySide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatExchange/diameterPrimarySide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatExchange/roughnessPrimarySide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatExchange/lengthSecundarySide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatExchange/diameterSecundarySide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatExchange/roughnessSecundarySide"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Item">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Item/id"/>
@@ -979,6 +1018,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/marginalCosts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/variableOperationalAndMaintenanceCosts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CostInformation/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/discountRate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/variableOperationalCosts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/fixedMaintenanceCosts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/fixedOperationalCosts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/variableMaintenanceCosts"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//SpecificLabelDistribution"/>
     <genClasses ecoreClass="esdl.ecore#//StringLabelDistribution">
@@ -1006,18 +1050,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PItemStat/sigma"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//AbstractVariance"/>
-    <genClasses ecoreClass="esdl.ecore#//SymetricVariance">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SymetricVariance/sigma"/>
+    <genClasses ecoreClass="esdl.ecore#//SymmetricVariance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SymmetricVariance/sigma"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//AssymetricVariance">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AssymetricVariance/sigmaMin"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AssymetricVariance/sigmaPlus"/>
+    <genClasses ecoreClass="esdl.ecore#//AssymmetricVariance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AssymmetricVariance/sigmaMin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AssymmetricVariance/sigmaPlus"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//DoubleAssymetricVariance">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleAssymetricVariance/plus34perc"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleAssymetricVariance/plus48perc"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleAssymetricVariance/min34perc"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleAssymetricVariance/min48perc"/>
+    <genClasses ecoreClass="esdl.ecore#//DoubleAssymmetricVariance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleAssymmetricVariance/plus34perc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleAssymmetricVariance/plus48perc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleAssymmetricVariance/min34perc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleAssymmetricVariance/min48perc"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//CHP">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CHP/CHPType"/>
@@ -1252,6 +1296,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measure/costInformation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measure/restriction"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Measure/labelJump"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Measure/type"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WaterToPower">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WaterToPower/type"/>
@@ -1414,7 +1459,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//FromToDoubleItem/from"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//FromToDoubleItem/to"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="esdl.ecore#//Matter">
+    <genClasses ecoreClass="esdl.ecore#//Matter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Matter/density"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Matter/stateOfMatter"/>
     </genClasses>
@@ -1436,7 +1481,7 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//CompoundMatterComponent">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CompoundMatterComponent/mixFraction"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//CompoundMatterComponent/matter"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//CompoundMatterComponent/matter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CompoundMatterComponent/layerWidth"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//PIDController">
@@ -1543,6 +1588,9 @@
     <genClasses ecoreClass="esdl.ecore#//Table">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Table/row"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Table/header"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Table/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Table/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Table/datasource"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//TableRow">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//TableRow/value"/>
@@ -1579,13 +1627,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Material/thermalConductivity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Material/electricalConductivity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Material/youngsModulus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Material/specificHeatCapacity"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Matters">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Matters/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Matters/dataSource"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Matters/matter"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="esdl.ecore#//AbstractMatter">
+    <genClasses ecoreClass="esdl.ecore#//AbstractMatter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractMatter/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractMatter/name"/>
     </genClasses>
@@ -1601,5 +1650,32 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnvironmentalProfiles/relativeHumidityProfile"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnvironmentalProfiles/id"/>
     </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//AbstractBehaviour">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractBehaviour/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractBehaviour/name"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//GenericTransferFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericTransferFunction/numerator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericTransferFunction/denominator"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//InputOutputQuantityRelation"/>
+    <genClasses ecoreClass="esdl.ecore#//DelayTransferFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DelayTransferFunction/timeConstant"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//AbstractTransferFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractTransferFunction/type"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//CombinedTransferFunction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CombinedTransferFunction/component"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CombinedTransferFunction/combinationFunction"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//ElectricityProducer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ElectricityProducer/minPower"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//HeatProducer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatProducer/minTemperature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatProducer/maxTemperature"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//GasProducer"/>
   </genPackages>
 </genmodel:GenModel>
