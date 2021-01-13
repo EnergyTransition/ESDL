@@ -1258,6 +1258,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyMarket/asset"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyMarket/carrier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyMarket/parameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyMarket/marketPrice"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GasConversion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasConversion/type"/>
