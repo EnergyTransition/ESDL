@@ -385,6 +385,8 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/WEIGHT"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/FORCE"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/CURRENT"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/RELATIVE_HUMIDITY"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PhysicalQuantityEnum/DIRECTION"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//UnitEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/NONE"/>
@@ -420,6 +422,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/PASCAL"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/NEWTON"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/AMPERE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/DEGREES"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//TimeUnitEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnitEnum/NONE"/>
@@ -1643,7 +1646,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//MatterReference/reference"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EnvironmentalProfiles">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnvironmentalProfiles/outsideTemparatureProfile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnvironmentalProfiles/outsideTemperatureProfile"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnvironmentalProfiles/solarIrradianceProfile"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnvironmentalProfiles/windSpeedProfile"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnvironmentalProfiles/windDirectionProfile"/>
