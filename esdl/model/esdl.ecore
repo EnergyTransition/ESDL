@@ -2374,6 +2374,8 @@
     <eLiterals name="WEIGHT" value="23"/>
     <eLiterals name="FORCE" value="24"/>
     <eLiterals name="CURRENT" value="25"/>
+    <eLiterals name="RELATIVE_HUMIDITY" value="26"/>
+    <eLiterals name="DIRECTION" value="27"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="UnitEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2412,6 +2414,7 @@
     <eLiterals name="PASCAL" value="30"/>
     <eLiterals name="NEWTON" value="31"/>
     <eLiterals name="AMPERE" value="32"/>
+    <eLiterals name="DEGREES" value="33"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractDataSource" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3815,40 +3818,40 @@
     <eLiterals name="LAYERED" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnvironmentalProfiles">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outsideTemparatureProfile"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outsideTemperatureProfile"
         eType="#//GenericProfile" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Outside temperature profile"/>
+        <details key="documentation" value="Outside temperature profile in degrees Celcius, unless specified otherwise."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="solarIrradianceProfile"
         eType="#//GenericProfile" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Solar irradiance profile"/>
+        <details key="documentation" value="Solar irradiance profile in W/m2, unless specified otherwise."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="windSpeedProfile" eType="#//GenericProfile"
         containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Wind speed profile"/>
+        <details key="documentation" value="Wind speed profile in metres/second, unless specified otherwise."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="windDirectionProfile" eType="#//GenericProfile"
         containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Wind direction profile"/>
+        <details key="documentation" value="Wind direction profile. Given direction is where the wind is coming from. Standard unit is degrees, unless specified otherwise (0 degrees means north, 90 east, 180 south and 270 means west)."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="soilTemperatureProfile"
         eType="#//GenericProfile" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Soil temperature profile"/>
+        <details key="documentation" value="Soil temperature profile in degrees Celcius, unless specified otherwise."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="relativeHumidityProfile"
         eType="#//GenericProfile" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Relative humidity profile"/>
+        <details key="documentation" value="Relative humidity profile in %, unless specified otherwise."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

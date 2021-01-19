@@ -3017,6 +3017,8 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:enumeration value="WEIGHT"/>
       <xsd:enumeration value="FORCE"/>
       <xsd:enumeration value="CURRENT"/>
+      <xsd:enumeration value="RELATIVE_HUMIDITY"/>
+      <xsd:enumeration value="DIRECTION"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="UnitEnum">
@@ -3057,6 +3059,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:enumeration value="PASCAL"/>
       <xsd:enumeration value="NEWTON"/>
       <xsd:enumeration value="AMPERE"/>
+      <xsd:enumeration value="DEGREES"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:complexType abstract="true" name="AbstractDataSource">
@@ -4826,34 +4829,34 @@ Examples of layered Matters
   </xsd:simpleType>
   <xsd:complexType name="EnvironmentalProfiles">
     <xsd:sequence>
-      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="outsideTemparatureProfile" type="esdl:GenericProfile">
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="outsideTemperatureProfile" type="esdl:GenericProfile">
         <xsd:annotation>
-          <xsd:documentation>Outside temperature profile</xsd:documentation>
+          <xsd:documentation>Outside temperature profile in degrees Celcius, unless specified otherwise.</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="solarIrradianceProfile" type="esdl:GenericProfile">
         <xsd:annotation>
-          <xsd:documentation>Solar irradiance profile</xsd:documentation>
+          <xsd:documentation>Solar irradiance profile in W/m2, unless specified otherwise.</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="windSpeedProfile" type="esdl:GenericProfile">
         <xsd:annotation>
-          <xsd:documentation>Wind speed profile</xsd:documentation>
+          <xsd:documentation>Wind speed profile in metres/second, unless specified otherwise.</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="windDirectionProfile" type="esdl:GenericProfile">
         <xsd:annotation>
-          <xsd:documentation>Wind direction profile</xsd:documentation>
+          <xsd:documentation>Wind direction profile. Given direction is where the wind is coming from. Standard unit is degrees, unless specified otherwise (0 degrees means north, 90 east, 180 south and 270 means west).</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="soilTemperatureProfile" type="esdl:GenericProfile">
         <xsd:annotation>
-          <xsd:documentation>Soil temperature profile</xsd:documentation>
+          <xsd:documentation>Soil temperature profile in degrees Celcius, unless specified otherwise.</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="relativeHumidityProfile" type="esdl:GenericProfile">
         <xsd:annotation>
-          <xsd:documentation>Relative humidity profile</xsd:documentation>
+          <xsd:documentation>Relative humidity profile in %, unless specified otherwise.</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
