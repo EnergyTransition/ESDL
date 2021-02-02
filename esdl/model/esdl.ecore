@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="esdl" nsURI="http://www.tno.nl/esdl" nsPrefix="esdl">
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-    <details key="documentation" value="# Energy System Description Language&#xD;&#xA;&#xD;&#xA;The Energy System Description Language (ESDL) is a modelling language created for modelling the components in an energy system and their relations towards each other. Furthermore ESDL is capable of expressing the dynamic behaviour of components in the energy system. For instance the power consumption of an neighbourhood. ESDL describes components by their basic functionality (so called Energy Capabilities), these are modelled in 5 abstract categories: Production, Consumption, Storage, Transport and Conversion. ESDL enables energy modelers to model a complex energy system in a generic way. The language is machine readable so makers of energy transition calculation tools and GIS applications can support ESDL in order to enforce the interoperability of their products.&#xD;&#xA;&#xD;&#xA;ESDL is currently developed by [TNO](https://www.tno.nl), and is open source. &#xD;&#xA;The Github repository is at [https://github.com/EnergyTransition/ESDL](https://github.com/EnergyTransition/ESDL)&#xD;&#xA;&#xD;&#xA;For more information about ESDL, see the [ESDL gitbook](https://energytransition.gitbook.io/esdl)&#xD;&#xA;A browseable version of this model is found at [https://energytransition.github.io/](https://energytransition.github.io/)&#xD;&#xA;&#xD;&#xA;ESDL version: v2101&#xD;&#xA;Git commit hash $Id$"/>
+    <details key="documentation" value="# Energy System Description Language&#xD;&#xA;&#xD;&#xA;The Energy System Description Language (ESDL) is a modelling language created for modelling the components in an energy system and their relations towards each other. Furthermore ESDL is capable of expressing the dynamic behaviour of components in the energy system. For instance the power consumption of an neighbourhood. ESDL describes components by their basic functionality (so called Energy Capabilities), these are modelled in 5 abstract categories: Production, Consumption, Storage, Transport and Conversion. ESDL enables energy modelers to model a complex energy system in a generic way. The language is machine readable so makers of energy transition calculation tools and GIS applications can support ESDL in order to enforce the interoperability of their products.&#xD;&#xA;&#xD;&#xA;ESDL is currently developed by [TNO](https://www.tno.nl), and is open source. &#xD;&#xA;The Github repository is at [https://github.com/EnergyTransition/ESDL](https://github.com/EnergyTransition/ESDL)&#xD;&#xA;&#xD;&#xA;For more information about ESDL, see the [ESDL gitbook](https://energytransition.gitbook.io/esdl)&#xD;&#xA;A browseable version of this model is found at [https://energytransition.github.io/](https://energytransition.github.io/)&#xD;&#xA;&#xD;&#xA;ESDL version: v2101&#xD;&#xA;Git commit hash $Id: b6d51ae488d33ac2dbf34e61145648be205e4d3a $"/>
   </eAnnotations>
   <eAnnotations source="http://www.tno.nl/esdl/version">
     <details key="version" value="v2101"/>
@@ -2374,6 +2374,8 @@
     <eLiterals name="WEIGHT" value="23"/>
     <eLiterals name="FORCE" value="24"/>
     <eLiterals name="CURRENT" value="25"/>
+    <eLiterals name="RELATIVE_HUMIDITY" value="26"/>
+    <eLiterals name="DIRECTION" value="27"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="UnitEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2412,6 +2414,7 @@
     <eLiterals name="PASCAL" value="30"/>
     <eLiterals name="NEWTON" value="31"/>
     <eLiterals name="AMPERE" value="32"/>
+    <eLiterals name="DEGREES" value="33"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractDataSource" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2501,6 +2504,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="carrier" eType="#//Carrier"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//Parameters" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="marketPrice" eType="#//GenericProfile"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The market price is the resulting price of the market determined by the market rules. It can be expressed as an instantaneous value (SingleValue) or as a timeseries profile (DateTimeProfile, or database profile)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GasConversion" eSuperTypes="#//Conversion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3809,40 +3818,40 @@
     <eLiterals name="LAYERED" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnvironmentalProfiles">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outsideTemparatureProfile"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outsideTemperatureProfile"
         eType="#//GenericProfile" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Outside temperature profile"/>
+        <details key="documentation" value="Outside temperature profile in degrees Celcius, unless specified otherwise."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="solarIrradianceProfile"
         eType="#//GenericProfile" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Solar irradiance profile"/>
+        <details key="documentation" value="Solar irradiance profile in W/m2, unless specified otherwise."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="windSpeedProfile" eType="#//GenericProfile"
         containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Wind speed profile"/>
+        <details key="documentation" value="Wind speed profile in metres/second, unless specified otherwise."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="windDirectionProfile" eType="#//GenericProfile"
         containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Wind direction profile"/>
+        <details key="documentation" value="Wind direction profile. Given direction is where the wind is coming from. Standard unit is degrees, unless specified otherwise (0 degrees means north, 90 east, 180 south and 270 means west)."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="soilTemperatureProfile"
         eType="#//GenericProfile" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Soil temperature profile"/>
+        <details key="documentation" value="Soil temperature profile in degrees Celcius, unless specified otherwise."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="relativeHumidityProfile"
         eType="#//GenericProfile" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Relative humidity profile"/>
+        <details key="documentation" value="Relative humidity profile in %, unless specified otherwise."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
