@@ -2,10 +2,10 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="esdl" nsURI="http://www.tno.nl/esdl" nsPrefix="esdl">
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-    <details key="documentation" value="# Energy System Description Language&#xD;&#xA;&#xD;&#xA;The Energy System Description Language (ESDL) is a modelling language created for modelling the components in an energy system and their relations towards each other. Furthermore ESDL is capable of expressing the dynamic behaviour of components in the energy system. For instance the power consumption of an neighbourhood. ESDL describes components by their basic functionality (so called Energy Capabilities), these are modelled in 5 abstract categories: Production, Consumption, Storage, Transport and Conversion. ESDL enables energy modelers to model a complex energy system in a generic way. The language is machine readable so makers of energy transition calculation tools and GIS applications can support ESDL in order to enforce the interoperability of their products.&#xD;&#xA;&#xD;&#xA;ESDL is currently developed by [TNO](https://www.tno.nl), and is open source. &#xD;&#xA;The Github repository is at [https://github.com/EnergyTransition/ESDL](https://github.com/EnergyTransition/ESDL)&#xD;&#xA;&#xD;&#xA;For more information about ESDL, see the [ESDL gitbook](https://energytransition.gitbook.io/esdl)&#xD;&#xA;A browseable version of this model is found at [https://energytransition.github.io/](https://energytransition.github.io/)&#xD;&#xA;&#xD;&#xA;ESDL version: v2101&#xD;&#xA;Git commit hash $Id: b6d51ae488d33ac2dbf34e61145648be205e4d3a $"/>
+    <details key="documentation" value="# Energy System Description Language&#xD;&#xA;&#xD;&#xA;The Energy System Description Language (ESDL) is a modelling language created for modelling the components in an energy system and their relations towards each other. Furthermore ESDL is capable of expressing the dynamic behaviour of components in the energy system. For instance the power consumption of an neighbourhood. ESDL describes components by their basic functionality (so called Energy Capabilities), these are modelled in 5 abstract categories: Production, Consumption, Storage, Transport and Conversion. ESDL enables energy modelers to model a complex energy system in a generic way. The language is machine readable so makers of energy transition calculation tools and GIS applications can support ESDL in order to enforce the interoperability of their products.&#xD;&#xA;&#xD;&#xA;ESDL is currently developed by [TNO](https://www.tno.nl), and is open source. &#xD;&#xA;The Github repository is at [https://github.com/EnergyTransition/ESDL](https://github.com/EnergyTransition/ESDL)&#xD;&#xA;&#xD;&#xA;For more information about ESDL, see the [ESDL gitbook](https://energytransition.gitbook.io/esdl)&#xD;&#xA;A browseable version of this model is found at [https://energytransition.github.io/](https://energytransition.github.io/)&#xD;&#xA;&#xD;&#xA;ESDL version: v2102&#xD;&#xA;Git commit hash $Id$"/>
   </eAnnotations>
   <eAnnotations source="http://www.tno.nl/esdl/version">
-    <details key="version" value="v2101"/>
+    <details key="version" value="v2102"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyAsset" abstract="true" eSuperTypes="#//Asset">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -292,6 +292,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Length of the cable in meters"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -782,20 +785,32 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Inner diameter of pipe in meters"/>
       </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m"/>
+      </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outerDiameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Outer diameter of pipe in meters"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Length of the pipe in meters"/>
       </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m"/>
+      </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="roughness" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Roughness of the pipe in meters"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="diameter" eType="#//PipeDiameterEnum">
@@ -1105,6 +1120,9 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The heat transfer coefficient in W/K"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="W/K"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lengthPrimarySide" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -1513,6 +1531,9 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Capacity of the pump in m3/h"/>
       </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m"/>
+      </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pumpEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0">
@@ -1524,10 +1545,16 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The polar moment of inertia of the pump in kg/m2"/>
       </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="kg/m2"/>
+      </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ratedSpeed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The rated speed of the pump in rad/s"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="rad/s"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pumpCurveTable" eType="#//Table"
@@ -1546,17 +1573,13 @@
         <details key="documentation" value="Type of valve."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowCoefficient" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0.0">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Flow coefficient (kv) in metric units [m3/h]. It is defined as the flow rate in cubic meters per hour [m3/h] of water at a temperature of 16º celsius with a pressure drop across the valve of 1 bar."/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="innerDiameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The inner diameter of the valve in meters. Can be used to calculate the loss coefficient of the valve using the kv parameter."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="flowCoefficient" eType="#//Table"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericProfile" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3682,8 +3705,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="CheckValve" eSuperTypes="#//AbstractPassiveSwitch">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="innerDiameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="reopenDeltaP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="flowCoefficient" eType="#//Table"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowCoefficient" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Flow coefficient (kv) in metric units [m3/h]. It is defined as the flow rate in cubic meters per hour [m3/h] of water at a temperature of 16º celsius with a pressure drop across the valve of 1 bar."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AirVessel" eSuperTypes="#//Transport"/>
   <eClassifiers xsi:type="ecore:EClass" name="Notes">
