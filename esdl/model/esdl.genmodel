@@ -964,8 +964,8 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Valve">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Valve/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Valve/flowCoefficient"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Valve/innerDiameter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Valve/flowCoefficient"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//GenericProfile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericProfile/name"/>
@@ -1606,7 +1606,7 @@
     <genClasses ecoreClass="esdl.ecore#//CheckValve">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CheckValve/innerDiameter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CheckValve/reopenDeltaP"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CheckValve/flowCoefficient"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CheckValve/flowCoefficient"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AirVessel"/>
     <genClasses ecoreClass="esdl.ecore#//Notes">
