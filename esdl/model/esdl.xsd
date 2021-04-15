@@ -281,6 +281,7 @@ Git commit hash $Id$</xsd:documentation>
   <xsd:element ecore:ignore="true" name="ElectricityProducer" type="esdl:ElectricityProducer"/>
   <xsd:element ecore:ignore="true" name="HeatProducer" type="esdl:HeatProducer"/>
   <xsd:element ecore:ignore="true" name="GasProducer" type="esdl:GasProducer"/>
+  <xsd:element ecore:ignore="true" name="StartDateTimeProfile" type="esdl:StartDateTimeProfile"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -518,8 +519,8 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:ElectricityProducer">
-        <xsd:attribute ecore:unsettable="false" name="rotorDiameter" type="ecore:EDouble"/>
-        <xsd:attribute ecore:unsettable="false" name="height" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="rotorDiameter" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="height" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble"/>
         <xsd:attribute ecore:unsettable="false" name="type" type="esdl:WindTurbineTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -532,12 +533,12 @@ Git commit hash $Id$</xsd:documentation>
       <xsd:extension base="esdl:ElectricityProducer">
         <xsd:attribute ecore:unsettable="false" name="panelEfficiency" type="ecore:EDouble"/>
         <xsd:attribute ecore:unsettable="false" name="inverterEfficiency" type="ecore:EDouble"/>
-        <xsd:attribute ecore:unsettable="false" name="angle" type="ecore:EInt">
+        <xsd:attribute ecore:unsettable="false" name="angle" nl.tno.esdl.attribute.unit:unit="°" type="ecore:EInt">
           <xsd:annotation>
             <xsd:documentation>The tilt angle of the PV installation in degrees (e.g. 0 is flat, 90 is perpendicular to a horizontal surface).</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="orientation" type="ecore:EInt">
+        <xsd:attribute ecore:unsettable="false" name="orientation" nl.tno.esdl.attribute.unit:unit="°" type="ecore:EInt">
           <xsd:annotation>
             <xsd:documentation>The orientation of the PV installation (south, north, west, east) in degrees.</xsd:documentation>
           </xsd:annotation>
@@ -561,7 +562,7 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:EnergyNetwork">
-        <xsd:attribute ecore:unsettable="false" name="voltage" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="voltage" nl.tno.esdl.attribute.unit:unit="V" type="ecore:EDouble"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -571,7 +572,7 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractConductor">
-        <xsd:attribute ecore:unsettable="false" name="length" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="length" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Length of the cable in meters</xsd:documentation>
           </xsd:annotation>
@@ -1094,9 +1095,9 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:EnergyNetwork">
-        <xsd:attribute ecore:unsettable="false" name="temperature" type="ecore:EDouble"/>
-        <xsd:attribute ecore:unsettable="false" name="temperatureMin" type="ecore:EDouble"/>
-        <xsd:attribute ecore:unsettable="false" name="temperatureMax" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="temperature" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="temperatureMin" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="temperatureMax" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1106,7 +1107,7 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:EnergyNetwork">
-        <xsd:attribute ecore:unsettable="false" name="pressure" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="pressure" nl.tno.esdl.attribute.unit:unit="bar" type="ecore:EDouble"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1142,22 +1143,22 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractConductor">
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="innerDiameter" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="innerDiameter" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Inner diameter of pipe in meters</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="outerDiameter" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="outerDiameter" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Outer diameter of pipe in meters</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="length" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="length" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Length of the pipe in meters</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="roughness" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="roughness" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Roughness of the pipe in meters</xsd:documentation>
           </xsd:annotation>
@@ -1191,17 +1192,17 @@ Git commit hash $Id$</xsd:documentation>
             <xsd:documentation>Coefficient of Performance of this source</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="aquiferTemperature" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="aquiferTemperature" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>in degrees Celcius</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="flowRate" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="flowRate" nl.tno.esdl.attribute.unit:unit="kg/s" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>in kg/s</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="pumpPower" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="pumpPower" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>in Watt</xsd:documentation>
           </xsd:annotation>
@@ -1511,17 +1512,17 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractTransformer">
-        <xsd:attribute ecore:unsettable="false" name="heatTransferCoefficient" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="heatTransferCoefficient" nl.tno.esdl.attribute.unit:unit="W/K" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The heat transfer coefficient in W/K</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="lengthPrimarySide" type="ecore:EDouble"/>
-        <xsd:attribute ecore:unsettable="false" name="diameterPrimarySide" type="ecore:EDouble"/>
-        <xsd:attribute ecore:unsettable="false" name="roughnessPrimarySide" type="ecore:EDouble"/>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="lengthSecundarySide" type="ecore:EDouble"/>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="diameterSecundarySide" type="ecore:EDouble"/>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="roughnessSecundarySide" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="lengthPrimarySide" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="diameterPrimarySide" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="roughnessPrimarySide" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble"/>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="lengthSecundarySide" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble"/>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="diameterSecundarySide" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble"/>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="roughnessSecundarySide" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1640,12 +1641,12 @@ Git commit hash $Id$</xsd:documentation>
           <xsd:element ecore:resolveProxies="true" minOccurs="0" name="mustRun" type="esdl:GenericProfile"/>
         </xsd:sequence>
         <xsd:attribute ecore:unsettable="false" name="fuel" type="esdl:PowerPlantFuelEnum"/>
-        <xsd:attribute ecore:unsettable="false" name="maxLoad" type="ecore:EInt">
+        <xsd:attribute ecore:unsettable="false" name="maxLoad" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EInt">
           <xsd:annotation>
             <xsd:documentation>The maximum allowed load in Watt</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="minLoad" type="ecore:EInt">
+        <xsd:attribute ecore:unsettable="false" name="minLoad" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EInt">
           <xsd:annotation>
             <xsd:documentation>The minimum allowed load in Watt</xsd:documentation>
           </xsd:annotation>
@@ -1981,7 +1982,7 @@ Git commit hash $Id$</xsd:documentation>
             </xsd:annotation>
           </xsd:element>
         </xsd:sequence>
-        <xsd:attribute ecore:unsettable="false" name="pumpCapacity" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="pumpCapacity" nl.tno.esdl.attribute.unit:unit="m³/h" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Capacity of the pump in m3/h</xsd:documentation>
           </xsd:annotation>
@@ -1991,12 +1992,12 @@ Git commit hash $Id$</xsd:documentation>
             <xsd:documentation>Efficiency of the pump.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="polarMomentOfInertia" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="polarMomentOfInertia" nl.tno.esdl.attribute.unit:unit="kg/m2" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The polar moment of inertia of the pump in kg/m2</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="ratedSpeed" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="ratedSpeed" nl.tno.esdl.attribute.unit:unit="rad/s" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The rated speed of the pump in rad/s</xsd:documentation>
           </xsd:annotation>
@@ -2015,12 +2016,12 @@ Git commit hash $Id$</xsd:documentation>
             <xsd:documentation>Type of valve.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="flowCoefficient" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="flowCoefficient" nl.tno.esdl.attribute.unit:unit="m³/h" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Flow coefficient (kv) in metric units [m3/h]. It is defined as the flow rate in cubic meters per hour [m3/h] of water at a temperature of 16º celsius with a pressure drop across the valve of 1 bar.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="innerDiameter" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="innerDiameter" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The inner diameter of the valve in meters. Can be used to calculate the loss coefficient of the valve using the kv parameter.</xsd:documentation>
           </xsd:annotation>
@@ -2780,9 +2781,9 @@ When a model queries for a value from a certain date (and to a certain date), th
           </xsd:element>
         </xsd:sequence>
         <xsd:attribute ecore:unsettable="false" name="fuelType" type="esdl:MobilityFuelTypeEnum"/>
-        <xsd:attribute ecore:unsettable="false" name="distance" type="ecore:EInt">
+        <xsd:attribute ecore:unsettable="false" name="distance" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EInt">
           <xsd:annotation>
-            <xsd:documentation>distance travelled in kilometers</xsd:documentation>
+            <xsd:documentation>distance travelled in meters</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="efficiency" type="ecore:EDouble"/>
@@ -2883,9 +2884,9 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:PowerToX">
-        <xsd:attribute ecore:unsettable="false" name="outputPressure" type="ecore:EDouble"/>
-        <xsd:attribute ecore:unsettable="false" name="maxLoad" type="ecore:EInt"/>
-        <xsd:attribute ecore:unsettable="false" name="minLoad" type="ecore:EInt"/>
+        <xsd:attribute ecore:unsettable="false" name="outputPressure" nl.tno.esdl.attribute.unit:unit="bar" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="maxLoad" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EInt"/>
+        <xsd:attribute ecore:unsettable="false" name="minLoad" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EInt"/>
         <xsd:attribute ecore:unsettable="false" name="effMaxLoad" type="ecore:EDouble"/>
         <xsd:attribute ecore:unsettable="false" name="effMinLoad" type="ecore:EDouble"/>
       </xsd:extension>
@@ -3180,7 +3181,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:complexContent>
       <xsd:extension base="esdl:Conversion">
         <xsd:attribute ecore:unsettable="false" name="type" type="esdl:GasConversionTypeEnum"/>
-        <xsd:attribute ecore:unsettable="false" name="outputPressure" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="outputPressure" nl.tno.esdl.attribute.unit:unit="bar" type="ecore:EDouble"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -4166,7 +4167,7 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:complexType name="Bus">
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractConductor">
-        <xsd:attribute ecore:unsettable="false" name="voltage" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="voltage" nl.tno.esdl.attribute.unit:unit="V" type="ecore:EDouble"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -4676,8 +4677,8 @@ Examples of layered Matters
         <xsd:sequence>
           <xsd:element ecore:resolveProxies="true" minOccurs="0" name="flowCoefficient" type="esdl:Table"/>
         </xsd:sequence>
-        <xsd:attribute ecore:unsettable="false" name="innerDiameter" type="ecore:EDouble"/>
-        <xsd:attribute ecore:unsettable="false" name="reopenDeltaP" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="innerDiameter" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="reopenDeltaP" nl.tno.esdl.attribute.unit:unit="N/m²" type="ecore:EDouble"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -4977,7 +4978,7 @@ Examples of layered Matters
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Producer">
-        <xsd:attribute ecore:unsettable="false" name="minPower" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="minPower" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>the minimum power (in Watt) the producer can deliver once it's turned on</xsd:documentation>
           </xsd:annotation>
@@ -5019,4 +5020,30 @@ Examples of layered Matters
       <xsd:enumeration value="MODEL_RESTRICTION"/>
     </xsd:restriction>
   </xsd:simpleType>
+  <xsd:complexType name="StartDateTimeProfile">
+    <xsd:annotation>
+      <xsd:documentation>Describes a profile of which the period between the values is constant.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:StaticProfile">
+        <xsd:sequence>
+          <xsd:element ecore:unique="true" maxOccurs="unbounded" minOccurs="0" name="values" type="ecore:EDouble">
+            <xsd:annotation>
+              <xsd:documentation>List of the values of the profile</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="startDateTime" type="ecore:EDate">
+          <xsd:annotation>
+            <xsd:documentation>Date and time of the first value in the list of values</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="3600" ecore:unsettable="false" name="intervalBetweenValues" nl.tno.esdl.attribute.unit:unit="s" type="ecore:EInt">
+          <xsd:annotation>
+            <xsd:documentation>Interval between the values in seconds. Defaults to 3600 seconds (1 hour)	.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
 </xsd:schema>

@@ -1681,5 +1681,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatProducer/maxTemperature"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GasProducer"/>
+    <genClasses ecoreClass="esdl.ecore#//StartDateTimeProfile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StartDateTimeProfile/startDateTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StartDateTimeProfile/intervalBetweenValues"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StartDateTimeProfile/values"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
