@@ -4124,9 +4124,9 @@
     <eLiterals name="ADD_GEOMETRY" value="1"/>
     <eLiterals name="MODEL_RESTRICTION" value="2"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StartDateTimeProfile" eSuperTypes="#//StaticProfile">
+  <eClassifiers xsi:type="ecore:EClass" name="TimeSeriesProfile" eSuperTypes="#//StaticProfile">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Describes a profile of which the period between the values is constant."/>
+      <details key="documentation" value="Describes a profile of which the period between the values is constant. The series of values is indexed in time order as a sequence taken at successive equally spaced points in time. It starts at the startDateTime and every next value has intervalBetweenValues seconds between them."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="startDateTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -4142,8 +4142,8 @@
         <details key="unit" value="s"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="List of the values of the profile"/>
       </eAnnotations>

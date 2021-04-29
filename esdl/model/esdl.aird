@@ -25,7 +25,7 @@
     <semanticResources>esdl-cdo.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_MiCeoLryEeeIKeRLj9tspA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MqgeILryEeeIKeRLj9tspA" name="esdl" repPath="#_MqZJYLryEeeIKeRLj9tspA" changeId="d6ed1c43-7ef2-4db0-96cb-8b55c6cefa4e">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MqgeILryEeeIKeRLj9tspA" name="esdl" repPath="#_MqZJYLryEeeIKeRLj9tspA" changeId="c6a171dc-aa34-4743-a3e2-33fc75b605c8">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="esdl.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -4994,7 +4994,7 @@
           <styles xmi:type="notation:ShapeStyle" xmi:id="_-NPBMdkjEeiAiP44lhTokg" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-NPBMtkjEeiAiP44lhTokg" x="1947" y="3392" width="120" height="126"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_n6pPkOP9Eei-rO52rQ5FJw" type="Note" fontName="Segoe UI" description="Changes since last commit:&#xD;&#xA;- Added StartDateTimeProfile&#xD;&#xA;- Added lots of unit annotations" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+        <children xmi:type="notation:Shape" xmi:id="_n6pPkOP9Eei-rO52rQ5FJw" type="Note" fontName="Segoe UI" description="Changes since last commit:&#xD;&#xA;- Updated TimeSeriesProfile&#xD;&#xA;- Added lots of unit annotations" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
           <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_n6pPkeP9Eei-rO52rQ5FJw" source="specificStyles">
             <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_n6pPkuP9Eei-rO52rQ5FJw" key="verticalAlignment" value="8"/>
           </eAnnotations>
@@ -27986,32 +27986,32 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_aDtt4J3sEeuhjvjK77_68A" name="StartDateTimeProfile" tooltipText="" outgoingEdges="_cj7LbJ3tEeuhjvjK77_68A" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//StartDateTimeProfile"/>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//StartDateTimeProfile"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_aDtt4J3sEeuhjvjK77_68A" name="TimeSeriesProfile" tooltipText="" outgoingEdges="_cj7LbJ3tEeuhjvjK77_68A" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//TimeSeriesProfile"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//TimeSeriesProfile"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_aDx_UJ3sEeuhjvjK77_68A" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_kgz-4J3sEeuhjvjK77_68A" name="startDateTime : EDate" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//StartDateTimeProfile/startDateTime"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//StartDateTimeProfile/startDateTime"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//TimeSeriesProfile/startDateTime"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//TimeSeriesProfile/startDateTime"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_kg1NAJ3sEeuhjvjK77_68A" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_pkSf0J3sEeuhjvjK77_68A" name="intervalBetweenValues : EInt = 3600" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//StartDateTimeProfile/intervalBetweenValues"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//StartDateTimeProfile/intervalBetweenValues"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//TimeSeriesProfile/intervalBetweenValues"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//TimeSeriesProfile/intervalBetweenValues"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_pkTG4J3sEeuhjvjK77_68A" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_0XXn4J3sEeuhjvjK77_68A" name="values : EDouble" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//StartDateTimeProfile/values"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//StartDateTimeProfile/values"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//TimeSeriesProfile/values"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//TimeSeriesProfile/values"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_0XYO8J3sEeuhjvjK77_68A" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -28019,8 +28019,8 @@
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_cj7LbJ3tEeuhjvjK77_68A" sourceNode="_aDtt4J3sEeuhjvjK77_68A" targetNode="_wu_MkC6vEeiK6b1j6uagLA">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//StartDateTimeProfile"/>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//StartDateTimeProfile"/>
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//TimeSeriesProfile"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//TimeSeriesProfile"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_cj8ZgJ3tEeuhjvjK77_68A" targetArrow="InputClosedArrow" routingStyle="tree">
         <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
         <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_cj8ZgZ3tEeuhjvjK77_68A" showIcon="false">
