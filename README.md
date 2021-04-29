@@ -22,7 +22,7 @@ https://energytransition.github.io/
 This website describes the classes, attributes and references in detail and is easy navigatable.
 
 - Information on tooling for ESDL can be found here:
-https://energytransition.gitbook.io/esdl/tooling-for-esdl
+https://energytransition.gitbook.io/esdl/esdl-based-tools
 Those pages describe (graphical)editors for ESDL, Java integration and Python integration examples
 
 # Contribute to ESDL
