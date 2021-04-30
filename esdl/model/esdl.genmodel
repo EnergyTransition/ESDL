@@ -1683,7 +1683,7 @@
     <genClasses ecoreClass="esdl.ecore#//GasProducer"/>
     <genClasses ecoreClass="esdl.ecore#//TimeSeriesProfile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//TimeSeriesProfile/startDateTime"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//TimeSeriesProfile/intervalBetweenValues"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//TimeSeriesProfile/timestep"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//TimeSeriesProfile/values"/>
     </genClasses>
   </genPackages>

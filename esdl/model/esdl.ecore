@@ -4133,10 +4133,10 @@
         <details key="documentation" value="Date and time of the first value in the list of values"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="intervalBetweenValues"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="3600">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestep" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="3600">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Interval between the values in seconds. Defaults to 3600 seconds (1 hour)&#x9;."/>
+        <details key="documentation" value="Time interval between the values in seconds. Defaults to 3600 seconds (1 hour)&#x9;"/>
       </eAnnotations>
       <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
         <details key="unit" value="s"/>
