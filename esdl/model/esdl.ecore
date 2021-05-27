@@ -1932,6 +1932,8 @@
         <details key="documentation" value="Raw string that can be communicated as the WHERE clause of the query"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="username" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InfluxDBProfile" eSuperTypes="#//DatabaseProfile">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

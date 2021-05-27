@@ -1085,6 +1085,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseProfile/port"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseProfile/database"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseProfile/filters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseProfile/username"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseProfile/password"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//InfluxDBProfile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//InfluxDBProfile/measurement"/>
