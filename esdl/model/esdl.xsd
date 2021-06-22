@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2101-dev" targetNamespace="http://www.tno.nl/esdl">
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2106" targetNamespace="http://www.tno.nl/esdl">
   <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
   <xsd:annotation>
     <xsd:documentation># Energy System Description Language
@@ -12,7 +12,7 @@ The Github repository is at [https://github.com/EnergyTransition/ESDL](https://g
 For more information about ESDL, see the [ESDL gitbook](https://energytransition.gitbook.io/esdl)
 A browseable version of this model is found at [https://energytransition.github.io/](https://energytransition.github.io/)
 
-ESDL version: v2101-dev
+ESDL version: v2104-1-g976dc1a
 Git commit hash $Id$</xsd:documentation>
   </xsd:annotation>
   <xsd:element ecore:ignore="true" name="EnergyAsset" type="esdl:EnergyAsset"/>
@@ -274,14 +274,15 @@ Git commit hash $Id$</xsd:documentation>
   <xsd:element ecore:ignore="true" name="EnvironmentalProfiles" type="esdl:EnvironmentalProfiles"/>
   <xsd:element ecore:ignore="true" name="AbstractBehaviour" type="esdl:AbstractBehaviour"/>
   <xsd:element ecore:ignore="true" name="GenericTransferFunction" type="esdl:GenericTransferFunction"/>
-  <xsd:element ecore:ignore="true" name="InputOutputQuantityRelation" type="esdl:InputOutputQuantityRelation"/>
+  <xsd:element ecore:ignore="true" name="InputOutputRelation" type="esdl:InputOutputRelation"/>
   <xsd:element ecore:ignore="true" name="DelayTransferFunction" type="esdl:DelayTransferFunction"/>
   <xsd:element ecore:ignore="true" name="AbstractTransferFunction" type="esdl:AbstractTransferFunction"/>
   <xsd:element ecore:ignore="true" name="CombinedTransferFunction" type="esdl:CombinedTransferFunction"/>
   <xsd:element ecore:ignore="true" name="ElectricityProducer" type="esdl:ElectricityProducer"/>
   <xsd:element ecore:ignore="true" name="HeatProducer" type="esdl:HeatProducer"/>
   <xsd:element ecore:ignore="true" name="GasProducer" type="esdl:GasProducer"/>
-  <xsd:element ecore:ignore="true" name="StartDateTimeProfile" type="esdl:StartDateTimeProfile"/>
+  <xsd:element ecore:ignore="true" name="TimeSeriesProfile" type="esdl:TimeSeriesProfile"/>
+  <xsd:element ecore:ignore="true" name="PortRelation" type="esdl:PortRelation"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -2011,14 +2012,12 @@ Git commit hash $Id$</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractActiveSwitch">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="flowCoefficient" type="esdl:Table"/>
+        </xsd:sequence>
         <xsd:attribute ecore:unsettable="false" name="type" type="esdl:ValveTypeEnum">
           <xsd:annotation>
             <xsd:documentation>Type of valve.</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="flowCoefficient" nl.tno.esdl.attribute.unit:unit="m³/h" type="ecore:EDouble">
-          <xsd:annotation>
-            <xsd:documentation>Flow coefficient (kv) in metric units [m3/h]. It is defined as the flow rate in cubic meters per hour [m3/h] of water at a temperature of 16º celsius with a pressure drop across the valve of 1 bar.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="innerDiameter" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
@@ -4674,11 +4673,13 @@ Examples of layered Matters
   <xsd:complexType name="CheckValve">
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractPassiveSwitch">
-        <xsd:sequence>
-          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="flowCoefficient" type="esdl:Table"/>
-        </xsd:sequence>
         <xsd:attribute ecore:unsettable="false" name="innerDiameter" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble"/>
         <xsd:attribute ecore:unsettable="false" name="reopenDeltaP" nl.tno.esdl.attribute.unit:unit="N/m²" type="ecore:EDouble"/>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="flowCoefficient" nl.tno.esdl.attribute.unit:unit="m³/h" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Flow coefficient (kv) in metric units [m3/h]. It is defined as the flow rate in cubic meters per hour [m3/h] of water at a temperature of 16º celsius with a pressure drop across the valve of 1 bar.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -4903,9 +4904,25 @@ Examples of layered Matters
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="InputOutputQuantityRelation">
+  <xsd:complexType name="InputOutputRelation">
+    <xsd:annotation>
+      <xsd:documentation>Describes the relation between one of the ports of an asset (the mainPort) and all other ports using a specific ratio. Can be used for conversion assets to specify how much of the carrier on the InPorts is required to produce an x amount of the carrier on the OutPort. </xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:AbstractBehaviour"/>
+      <xsd:extension base="esdl:AbstractBehaviour">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" name="mainPortRelation" type="esdl:PortRelation">
+            <xsd:annotation>
+              <xsd:documentation>relation between the main port and an other port</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute ecore:reference="esdl:Port" name="mainPort" type="xsd:anyURI" use="required">
+          <xsd:annotation>
+            <xsd:documentation>Main port for which all relations to other ports are specified</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="DelayTransferFunction">
@@ -5020,14 +5037,14 @@ Examples of layered Matters
       <xsd:enumeration value="MODEL_RESTRICTION"/>
     </xsd:restriction>
   </xsd:simpleType>
-  <xsd:complexType name="StartDateTimeProfile">
+  <xsd:complexType name="TimeSeriesProfile">
     <xsd:annotation>
-      <xsd:documentation>Describes a profile of which the period between the values is constant.</xsd:documentation>
+      <xsd:documentation>Describes a profile of which the period between the values is constant. The series of values is indexed in time order as a sequence taken at successive equally spaced points in time. It starts at the startDateTime and every next value has intervalBetweenValues seconds between them.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:StaticProfile">
         <xsd:sequence>
-          <xsd:element ecore:unique="true" maxOccurs="unbounded" minOccurs="0" name="values" type="ecore:EDouble">
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="values" type="ecore:EDouble">
             <xsd:annotation>
               <xsd:documentation>List of the values of the profile</xsd:documentation>
             </xsd:annotation>
@@ -5038,12 +5055,27 @@ Examples of layered Matters
             <xsd:documentation>Date and time of the first value in the list of values</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute default="3600" ecore:unsettable="false" name="intervalBetweenValues" nl.tno.esdl.attribute.unit:unit="s" type="ecore:EInt">
+        <xsd:attribute default="3600" ecore:unsettable="false" name="timestep" nl.tno.esdl.attribute.unit:unit="s" type="ecore:EInt">
           <xsd:annotation>
-            <xsd:documentation>Interval between the values in seconds. Defaults to 3600 seconds (1 hour)	.</xsd:documentation>
+            <xsd:documentation>Time interval between the values in seconds. Defaults to 3600 seconds (1 hour)	</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PortRelation">
+    <xsd:annotation>
+      <xsd:documentation>Specifies the relation between a port and the main port using a specific ratio.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute default="0.0" ecore:unsettable="false" name="ratio" type="ecore:EDouble">
+      <xsd:annotation>
+        <xsd:documentation>The port ratio defines the ratio of energy produced/consumed at the main port to that in this port, using the formula: energy(mainPort) = ratio * energy(port)</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:reference="esdl:Port" name="port" type="xsd:anyURI" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Port for this specific relation</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
 </xsd:schema>

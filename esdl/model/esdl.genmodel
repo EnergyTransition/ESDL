@@ -1662,7 +1662,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericTransferFunction/numerator"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GenericTransferFunction/denominator"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//InputOutputQuantityRelation"/>
+    <genClasses ecoreClass="esdl.ecore#//InputOutputRelation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//InputOutputRelation/mainPortRelation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//InputOutputRelation/mainPort"/>
+    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//DelayTransferFunction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DelayTransferFunction/timeConstant"/>
     </genClasses>
@@ -1685,6 +1688,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//TimeSeriesProfile/startDateTime"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//TimeSeriesProfile/timestep"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//TimeSeriesProfile/values"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//PortRelation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PortRelation/ratio"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//PortRelation/port"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
