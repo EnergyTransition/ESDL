@@ -4219,7 +4219,7 @@
         <details key="unit" value="m"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Depth of the top of the aquifer in meters"/>
+        <details key="documentation" value="Depth of the top of the aquifer in meters below ground surface "/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aquiferThickness" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
@@ -4227,7 +4227,7 @@
         <details key="unit" value="m"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Thickness of the aquifer in meters"/>
+        <details key="documentation" value="The vertical thickness of the aquifer in meters"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aquiferMidTemperature"
@@ -4236,17 +4236,18 @@
         <details key="unit" value="°C"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Temperature at the mid level of the aquifer in degrees Celcius"/>
+        <details key="documentation" value="The ambient temperature of the aquifer at mid depth in degrees Celcius"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aquiferNetToGross" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aquiferNetToGross" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Fraction between net thickness and gross thickness of the aquifer"/>
+        <details key="documentation" value="The ratio of the total thickness of the aquifer contributing to production over the total thickness of the aquifer (usually calculated by applying a minimum porosity and maximum clay volume cutoff). The net thickness of the aquifer is determined by multiplying the gross thickness with the net-to-gross ratio."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aquiferPorosity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The percentage of void space. It is defined as the ratio of the volume of the voids or pore space divided by the total volume. It is expressed as a fraction between 0 and 1."/>
+        <details key="documentation" value="The percentage of pore volume or void space within a rock or unconsolidated sediment, restricted to those pores that can contribute to fluid flow (effective porosity)  It is expressed as a fraction between 0 and 1."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aquiferPermeability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
@@ -4254,12 +4255,12 @@
         <details key="unit" value="mD"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Measure of the ability of a porous material to allow fluids to pass through it, expressed in millidarcys (md)"/>
+        <details key="documentation" value="Measure of the ability or ease of a volume of rock to transmit fluids, expressed in millidarcys (md)"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aquiferAnisotropy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Difference in conducitivity in 2 different directions"/>
+        <details key="documentation" value="The directional variation of the ratio between vertical and horizontal permeability of a volume of rock or unconsolidated sand"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="salinity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
@@ -4267,7 +4268,7 @@
         <details key="unit" value="ppm"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="groundwater salinity, amount of salt in the groundwater, expressed in parts per million (ppm)"/>
+        <details key="documentation" value="The dissolved salt content in the groundwater (expressed as NaCl equivalent), in parts per million (ppm)"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wellCasingSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
@@ -4283,7 +4284,7 @@
         <details key="unit" value="m"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Distance between the individual wells in meters"/>
+        <details key="documentation" value="The distance between the hot and the cold well at aquifer level in meters"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

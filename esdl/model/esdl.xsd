@@ -12,7 +12,7 @@ The Github repository is at [https://github.com/EnergyTransition/ESDL](https://g
 For more information about ESDL, see the [ESDL gitbook](https://energytransition.gitbook.io/esdl)
 A browseable version of this model is found at [https://energytransition.github.io/](https://energytransition.github.io/)
 
-ESDL version: v2104-1-g976dc1a
+ESDL version: v2107
 Git commit hash $Id$</xsd:documentation>
   </xsd:annotation>
   <xsd:element ecore:ignore="true" name="EnergyAsset" type="esdl:EnergyAsset"/>
@@ -5115,42 +5115,42 @@ Examples of layered Matters
       <xsd:extension base="esdl:HeatStorage">
         <xsd:attribute ecore:unsettable="false" name="aquiferTopDepth" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>Depth of the top of the aquifer in meters</xsd:documentation>
+            <xsd:documentation>Depth of the top of the aquifer in meters below ground surface </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="aquiferThickness" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>Thickness of the aquifer in meters</xsd:documentation>
+            <xsd:documentation>The vertical thickness of the aquifer in meters</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="aquiferMidTemperature" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>Temperature at the mid level of the aquifer in degrees Celcius</xsd:documentation>
+            <xsd:documentation>The ambient temperature of the aquifer at mid depth in degrees Celcius</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="aquiferNetToGross" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="aquiferNetToGross" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>Fraction between net thickness and gross thickness of the aquifer</xsd:documentation>
+            <xsd:documentation>The ratio of the total thickness of the aquifer contributing to production over the total thickness of the aquifer (usually calculated by applying a minimum porosity and maximum clay volume cutoff). The net thickness of the aquifer is determined by multiplying the gross thickness with the net-to-gross ratio.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="aquiferPorosity" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>The percentage of void space. It is defined as the ratio of the volume of the voids or pore space divided by the total volume. It is expressed as a fraction between 0 and 1.</xsd:documentation>
+            <xsd:documentation>The percentage of pore volume or void space within a rock or unconsolidated sediment, restricted to those pores that can contribute to fluid flow (effective porosity)  It is expressed as a fraction between 0 and 1.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="aquiferPermeability" nl.tno.esdl.attribute.unit:unit="mD" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>Measure of the ability of a porous material to allow fluids to pass through it, expressed in millidarcys (md)</xsd:documentation>
+            <xsd:documentation>Measure of the ability or ease of a volume of rock to transmit fluids, expressed in millidarcys (md)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="aquiferAnisotropy" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>Difference in conducitivity in 2 different directions</xsd:documentation>
+            <xsd:documentation>The directional variation of the ratio between vertical and horizontal permeability of a volume of rock or unconsolidated sand</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="salinity" nl.tno.esdl.attribute.unit:unit="ppm" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>groundwater salinity, amount of salt in the groundwater, expressed in parts per million (ppm)</xsd:documentation>
+            <xsd:documentation>The dissolved salt content in the groundwater (expressed as NaCl equivalent), in parts per million (ppm)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="wellCasingSize" nl.tno.esdl.attribute.unit:unit="inch" type="ecore:EDouble">
@@ -5160,7 +5160,7 @@ Examples of layered Matters
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="wellDistance" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>Distance between the individual wells in meters</xsd:documentation>
+            <xsd:documentation>The distance between the hot and the cold well at aquifer level in meters</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
