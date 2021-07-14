@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>nl.tno.esdl</groupId>
 	<artifactId>esdl.parent</artifactId>
-	<version>2.21.4</version>
+	<version>2.21.6</version>
 	<name>Parent project for ESDL</name>
 	<description>This is the parent project that describes the global properties of a Tycho-based build of ESDL. Use 'mvn clean install' to build ESDL in this folder</description>
 	<packaging>pom</packaging>
@@ -13,7 +13,7 @@
 		<!-- Use esdl.version to set the qualifier version for the released ESDL-plugins 
 			e.g. v1905 -->
 		<!-- This should be the same as the GIT tag of this release -->
-		<esdl.version>v2104-1-g976dc1a</esdl.version>
+		<esdl.version>v2106</esdl.version>
 		<tycho.version>1.7.0</tycho.version>
 		<xtext.version>2.24.0</xtext.version>
 		<emf.version>2.24.0</emf.version>
