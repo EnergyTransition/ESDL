@@ -592,6 +592,14 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MeasureTypeEnum/ADD_GEOMETRY"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//MeasureTypeEnum/MODEL_RESTRICTION"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//BufferDistanceTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BufferDistanceTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BufferDistanceTypeEnum/RISK"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BufferDistanceTypeEnum/ENVIRONMENT"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BufferDistanceTypeEnum/NOISE"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BufferDistanceTypeEnum/PARTICULATE_MATTER"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BufferDistanceTypeEnum/NOX_EMISSIONS"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/controlStrategy"/>
@@ -727,6 +735,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/state"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/material"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/manufacturer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/bufferDistance"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GenericConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//GenericProducer"/>
@@ -1692,6 +1701,22 @@
     <genClasses ecoreClass="esdl.ecore#//PortRelation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PortRelation/ratio"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//PortRelation/port"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//BufferDistance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BufferDistance/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BufferDistance/distance"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//ATES">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ATES/aquiferTopDepth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ATES/aquiferThickness"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ATES/aquiferMidTemperature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ATES/aquiferNetToGross"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ATES/aquiferPorosity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ATES/aquiferPermeability"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ATES/aquiferAnisotropy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ATES/salinity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ATES/wellCasingSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ATES/wellDistance"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

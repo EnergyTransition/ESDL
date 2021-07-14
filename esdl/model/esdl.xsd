@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2106" targetNamespace="http://www.tno.nl/esdl">
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2107" targetNamespace="http://www.tno.nl/esdl">
   <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
   <xsd:annotation>
     <xsd:documentation># Energy System Description Language
@@ -283,6 +283,8 @@ Git commit hash $Id$</xsd:documentation>
   <xsd:element ecore:ignore="true" name="GasProducer" type="esdl:GasProducer"/>
   <xsd:element ecore:ignore="true" name="TimeSeriesProfile" type="esdl:TimeSeriesProfile"/>
   <xsd:element ecore:ignore="true" name="PortRelation" type="esdl:PortRelation"/>
+  <xsd:element ecore:ignore="true" name="BufferDistance" type="esdl:BufferDistance"/>
+  <xsd:element ecore:ignore="true" name="ATES" type="esdl:ATES"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -869,6 +871,11 @@ Git commit hash $Id$</xsd:documentation>
           <xsd:element ecore:resolveProxies="true" minOccurs="0" name="material" type="esdl:AbstractMatter">
             <xsd:annotation>
               <xsd:documentation>Allows for describing of what material(s) the Asset is made</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="bufferDistance" type="esdl:BufferDistance">
+            <xsd:annotation>
+              <xsd:documentation/>
             </xsd:annotation>
           </xsd:element>
         </xsd:sequence>
@@ -5077,5 +5084,86 @@ Examples of layered Matters
         <xsd:documentation>Port for this specific relation</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType name="BufferDistance">
+    <xsd:annotation>
+      <xsd:documentation>Buffer distance around an asset that relates to risks, environment, noise, CO2, ...</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute ecore:unsettable="false" name="type" type="esdl:BufferDistanceTypeEnum">
+      <xsd:annotation>
+        <xsd:documentation>type of buffer distance (risk, environment, noise, ...)</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute ecore:unsettable="false" name="distance" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
+      <xsd:annotation>
+        <xsd:documentation>distance around the physical geometry of an asset that should be taken into account for risks, environment, noise, ....</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:simpleType name="BufferDistanceTypeEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="RISK"/>
+      <xsd:enumeration value="ENVIRONMENT"/>
+      <xsd:enumeration value="NOISE"/>
+      <xsd:enumeration value="PARTICULATE_MATTER"/>
+      <xsd:enumeration value="NOX_EMISSIONS"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="ATES">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:HeatStorage">
+        <xsd:attribute ecore:unsettable="false" name="aquiferTopDepth" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Depth of the top of the aquifer in meters</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="aquiferThickness" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Thickness of the aquifer in meters</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="aquiferMidTemperature" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Temperature at the mid level of the aquifer in degrees Celcius</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="aquiferNetToGross" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Fraction between net thickness and gross thickness of the aquifer</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="aquiferPorosity" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The percentage of void space. It is defined as the ratio of the volume of the voids or pore space divided by the total volume. It is expressed as a fraction between 0 and 1.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="aquiferPermeability" nl.tno.esdl.attribute.unit:unit="mD" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Measure of the ability of a porous material to allow fluids to pass through it, expressed in millidarcys (md)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="aquiferAnisotropy" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Difference in conducitivity in 2 different directions</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="salinity" nl.tno.esdl.attribute.unit:unit="ppm" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>groundwater salinity, amount of salt in the groundwater, expressed in parts per million (ppm)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="wellCasingSize" nl.tno.esdl.attribute.unit:unit="inch" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Diameter of the well casing in inches</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="wellDistance" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Distance between the individual wells in meters</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
   </xsd:complexType>
 </xsd:schema>
