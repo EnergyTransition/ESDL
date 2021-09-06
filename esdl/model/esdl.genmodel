@@ -674,6 +674,7 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//ElectricityCable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ElectricityCable/length"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//ElectricityCable/related"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AggregatedConsumer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedConsumer/aggregationOf"/>
@@ -788,6 +789,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pipe/length"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pipe/roughness"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pipe/diameter"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Pipe/related"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GeothermalSource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalSource/wellDepth"/>
@@ -1385,7 +1387,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SearchAreaSolar/fullLoadHours"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SearchAreaSolar/area"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//Joint"/>
+    <genClasses ecoreClass="esdl.ecore#//Joint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Joint/related"/>
+    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//StorageStrategy">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//StorageStrategy/marginalChargeCosts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//StorageStrategy/marginalDischargeCosts"/>
@@ -1478,6 +1482,7 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Bus">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Bus/voltage"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Bus/related"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AbstractSensor"/>
     <genClasses ecoreClass="esdl.ecore#//Sensor">
