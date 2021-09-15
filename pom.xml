@@ -10,17 +10,13 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<!-- Use esdl.version to set the qualifier version for the released ESDL-plugins 
-			e.g. v1905 -->
-		<!-- This should be the same as the GIT tag of this release -->
-		<esdl.version>v2109</esdl.version>
 		<tycho.version>1.7.0</tycho.version>
 		<xtext.version>2.24.0</xtext.version>
 		<emf.version>2.24.0</emf.version>
 		<emfecore.version>2.18.0</emfecore.version>
 		<emfcommon.version>2.21.0</emfcommon.version>
 		<emfxmi.version>2.16.0</emfxmi.version>
-		<mwe2.version>2.12.0</mwe2.version> <!--  2.11.0 has an old dependency issue -->
+		<mwe2.version>2.12.0</mwe2.version> <!-- 2.11.0 has an old dependency issue -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -32,22 +28,29 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<modules>
-				<module>../esdl.buildtools</module> <!-- build tools project needs to be build first -->
-				<module>../esdl</module>
-				<module>../esdl.edit</module>
-				<module>../esdl.editor</module>
+				<module>esdl.buildtools</module>
+				<module>esdl</module>
+				<module>esdl.edit</module>
+				<module>esdl.editor</module>
 			</modules>
 		</profile>
 		<profile>
 			<id>designer</id>
 			<modules>
-				<module>../esdl.buildtools</module> <!-- build tools project needs to be build first -->
-				<module>../esdl</module>
-				<module>../esdl.edit</module>
-				<module>../esdl.editor</module>
-				<module>../../esdl-designer</module> <!-- next three are in their own repositories -->
-				<module>../../esdl-designer-feature</module>
-				<module>../../esdl-update-site</module>
+				<module>esdl.buildtools</module>
+				<module>esdl</module>
+				<module>esdl.edit</module>
+				<module>esdl.editor</module>
+				<module>../esdl-designer</module> <!-- next three are in their own repositories -->
+				<module>../esdl-designer-feature</module>
+				<module>../esdl-update-site</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>cdo</id>
+			<modules>
+				<module>esdl.buildtools</module>
+				<module>esdl</module>
 			</modules>
 		</profile>
 	</profiles>
@@ -55,19 +58,18 @@
 
 
 	<repositories>
+		<!-- <repository> -->
+		<!-- <id>eclipse-2019-03</id> -->
+		<!-- <url>http://download.eclipse.org/releases/2019-03</url> -->
+		<!-- <layout>p2</layout> -->
+		<!-- </repository> -->
+		<!-- Does not work yet -->
 		<repository>
-			<id>eclipse-2019-03</id>
-			<url>http://download.eclipse.org/releases/2019-03</url>
-			<layout>p2</layout>
-		</repository>
-<!-- Does not work yet -->
-<!-- 		<repository>
 			<id>eclipse-2020-12</id>
-			<url>http://download.eclipse.org/releases/2020-12</url>
+			<url>https://download.eclipse.org/releases/2020-12</url>
 			<layout>p2</layout>
 		</repository>
- -->	
- 	</repositories>
+	</repositories>
 
 
 
@@ -132,54 +134,18 @@
 					<generateGitPropertiesFile>true</generateGitPropertiesFile>
 					<skipPoms>false</skipPoms> <!-- only run on the parent project -->
 					<verbose>false</verbose>
-<!-- 					<runOnlyOnce>true</runOnlyOnce> -->
-					<dotGitDirectory>${project.basedir}/../.git</dotGitDirectory>
+					<!-- <runOnlyOnce>true</runOnlyOnce> -->
+					<dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
 					<gitDescribe>
 						<dirty>-dev</dirty>
 					</gitDescribe>
-<!-- 					<injectAllReactorProjects>true</injectAllReactorProjects> -->
-					<!-- <validationProperties> -->
-					<!-- <validationProperty> -->
-					<!-- <name>validating current commit has a tag</name> -->
-					<!-- <value>${git.closest.tag.commit.count}</value> -->
-					<!-- <shouldMatchTo>0</shouldMatchTo> -->
-					<!-- </validationProperty> -->
-					<!-- </validationProperties> -->
-					<!-- <replacementProperties> -->
-					<!-- <replacementProperty> -->
-					<!-- <property>esdl.version</property> -->
-					<!-- <token>^.*$</token> -->
-					<!-- <value>${git.closest.tag.name}</value> -->
-					<!-- <regex>false</regex> -->
-					<!-- </replacementProperty> -->
-					<!-- </replacementProperties> -->
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-packaging-plugin</artifactId>
+				<artifactId>tycho-versions-plugin</artifactId>
 				<version>${tycho.version}</version>
-				<!-- <dependencies> -->
-				<!-- <dependency> -->
-				<!-- <groupId>org.eclipse.tycho.extras</groupId> -->
-				<!-- <artifactId>tycho-buildtimestamp-jgit</artifactId> -->
-				<!-- <version>${tycho-extras.version}</version> -->
-				<!-- </dependency> -->
-				<!-- </dependencies> -->
-				<configuration>
-					<!-- <strictBinIncludes>false</strictBinIncludes> -->
-					<!-- <format>'rev${rev}-'yyyyMMdd-HHmm</format> -->
-					<!-- <format>'v'yyMM</format> -->
-					<!-- <format>${git.closest.tag.name}</format> -->
-					<!-- <forceContextQualifier>${git.closest.tag.name}</forceContextQualifier> -->
-					<forceContextQualifier>${esdl.version}</forceContextQualifier>
-				</configuration>
 			</plugin>
-			<plugin>
-		        <groupId>org.eclipse.tycho</groupId>
-		        <artifactId>tycho-versions-plugin</artifactId>
-		        <version>${tycho.version}</version>				
-	      	</plugin>
 		</plugins>
 	</build>
 </project>

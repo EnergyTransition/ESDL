@@ -1,3 +1,4 @@
+# Updates the pom.xml and Manifest.mf versions to the specified version number
 if [ -z $1 ]; then
 	echo "Usage $0 <version>, e.g. 1.21.1"
 	exit 0

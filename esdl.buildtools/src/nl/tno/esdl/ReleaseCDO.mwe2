@@ -5,11 +5,15 @@
  * MWE2 documentation at: https://www.eclipse.org/Xtext/documentation/306_mwe2.html
  * 
  * It does: 
+ *  Tag a release with the git tag (<tt>git describe --tags</tt>)
  *  Generate model, editor and edit code 
+ *  Export image
+ * 
+ * 
  * 
  */
 
-module nl.tno.esdl.ReleaseESDL
+module nl.tno.esdl.ReleaseCDO
 
 import org.eclipse.emf.ecore.resource.impl.*
 import org.eclipse.xtext.ecore.*
@@ -34,25 +38,34 @@ Workflow {
     	platformUri = "${rootPath}"
     	scanClassPath = true
     }
-    // tag the release with git tag
-    // commit in local repo
+  
     
-    
-//    // tag the esdl file with the current git tag
-//    component = nl.tno.esdl.TagRelease {
-//    	modelFileName = "/esdl/model/esdl.ecore"
-//    	esdlParentPomFileName = "/esdl.parent/pom.xml"
-//    	rootPath = "${rootPath}"
-//    }
-    
-        // generate the code files
+    // generate the code files
     component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
-		genModel = "platform:/resource/esdl/model/esdl.genmodel"
+		genModel = "platform:/resource/esdl/model/esdl-cdo.genmodel"
 		srcPath = "platform:/resource/esdl/src-gen"
 		generateEdit = true
 		generateEditor = true
 		lineDelimiter = "\n" // otherwise .gif files give errors
 	}
+
+
+	// generate ESDL.png from AirD file
+	// does not work outside eclipse.. 	
+//	component = nl.tno.esdl.EcoreImageGenerator {
+//		airdFile = "platform:/resource/esdl/model/esdl.aird"
+//		//airdFile = "c:/data/git/esdlspec-development/esdl/model/esdl.aird"
+//		imageFileName = "c:/data/git/esdlspec-development/esdl/model/esdl2.png"
+//		resourceSet = resourceSet
+//	}
+
+	// generate documentation
+//	component = nl.tno.esdl.ESDLDocumentationGenerator {
+//		rootPath = "${rootPath}"
+//		ecoreDocgenYamlFile = "/esdl/ecore-docgen.yml"
+//	}
+
+	// 
 	
 	
 }
