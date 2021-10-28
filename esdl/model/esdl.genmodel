@@ -765,6 +765,7 @@
     <genClasses ecoreClass="esdl.ecore#//HeatStorage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatStorage/minStorageTemperature"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatStorage/maxStorageTemperature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatStorage/volume"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GasHeater">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasHeater/minimumBurnRate"/>
@@ -1222,6 +1223,7 @@
     <genClasses ecoreClass="esdl.ecore#//GasStorage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasStorage/minStoragePressure"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasStorage/maxStoragePressure"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasStorage/volume"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Services">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Services/service"/>

@@ -26,7 +26,7 @@
     <semanticResources>relatedpipes.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_MiCeoLryEeeIKeRLj9tspA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MqgeILryEeeIKeRLj9tspA" name="esdl" repPath="#_MqZJYLryEeeIKeRLj9tspA" changeId="df34daa5-a877-44ae-a4ae-ea24cf7bd94c">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MqgeILryEeeIKeRLj9tspA" name="esdl" repPath="#_MqZJYLryEeeIKeRLj9tspA" changeId="a1fd2a04-8398-4080-a93b-2a7693d7cd3e">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="esdl.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -1000,6 +1000,10 @@
             <children xmi:type="notation:Node" xmi:id="_8JdB4MugEee-24FuvtKjBw" type="3010" element="_A70PVP0SEeeeKZnzyFWydQ">
               <styles xmi:type="notation:FontStyle" xmi:id="_8Jdo8MugEee-24FuvtKjBw" fontColor="2697711" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_8Jdo8cugEee-24FuvtKjBw"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_i8jxUDfQEeyvs9auDNQWkg" type="3010" element="_i2eXcDfQEeyvs9auDNQWkg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_i8jxUTfQEeyvs9auDNQWkg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_i8jxUjfQEeyvs9auDNQWkg"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_DVM-ArsmEeeZZezrcapb6w"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_DVM-A7smEeeZZezrcapb6w"/>
@@ -3770,6 +3774,10 @@
               <styles xmi:type="notation:FontStyle" xmi:id="_VjbH8NOnEeivnZBkd7e5lg" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_VjbH8dOnEeivnZBkd7e5lg"/>
             </children>
+            <children xmi:type="notation:Node" xmi:id="_o4Hw0DfQEeyvs9auDNQWkg" type="3010" element="_oyVR4DfQEeyvs9auDNQWkg">
+              <styles xmi:type="notation:FontStyle" xmi:id="_o4Hw0TfQEeyvs9auDNQWkg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_o4Hw0jfQEeyvs9auDNQWkg"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_XrcYIrUNEeihD8S2NXrStw"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_XrcYI7UNEeihD8S2NXrStw"/>
           </children>
@@ -4995,7 +5003,7 @@
           <styles xmi:type="notation:ShapeStyle" xmi:id="_-NPBMdkjEeiAiP44lhTokg" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-NPBMtkjEeiAiP44lhTokg" x="1947" y="3392" width="120" height="126"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_n6pPkOP9Eei-rO52rQ5FJw" type="Note" fontName="Segoe UI" description="Changes since last commit:&#xD;&#xA;- Added related parameter for all AbstractConductor child classes&#xD;&#xA;- Updated to version v2107 --> v2109" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+        <children xmi:type="notation:Shape" xmi:id="_n6pPkOP9Eei-rO52rQ5FJw" type="Note" fontName="Segoe UI" description="Changes since last commit:&#xD;&#xA;- Added volume parameter to HeatStorage and GasStorage&#xD;&#xA;- Added some documentation and unit annotations&#xD;&#xA;- Updated to version v2109 --> v2110" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
           <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_n6pPkeP9Eei-rO52rQ5FJw" source="specificStyles">
             <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_n6pPkuP9Eei-rO52rQ5FJw" key="verticalAlignment" value="8"/>
           </eAnnotations>
@@ -14679,6 +14687,14 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_i2eXcDfQEeyvs9auDNQWkg" name="volume : EDouble = 0.0" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//HeatStorage/volume"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//HeatStorage/volume"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_i2eXcTfQEeyvs9auDNQWkg" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_8nmysLsnEeeZZezrcapb6w" name="GasHeater" tooltipText="" outgoingEdges="_A9BJM_0SEeeeKZnzyFWydQ" width="12" height="10">
       <target xmi:type="ecore:EClass" href="esdl.ecore#//GasHeater"/>
@@ -20666,6 +20682,14 @@
         <target xmi:type="ecore:EAttribute" href="esdl.ecore#//GasStorage/maxStoragePressure"/>
         <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//GasStorage/maxStoragePressure"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_Vhf1UdOnEeivnZBkd7e5lg" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_oyVR4DfQEeyvs9auDNQWkg" name="volume : EDouble = 0.0" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//GasStorage/volume"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//GasStorage/volume"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_oyV48DfQEeyvs9auDNQWkg" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>

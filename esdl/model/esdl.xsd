@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2109" targetNamespace="http://www.tno.nl/esdl">
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2110" targetNamespace="http://www.tno.nl/esdl">
   <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
   <xsd:annotation>
     <xsd:documentation># Energy System Description Language
@@ -348,7 +348,11 @@ A browseable version of this model is found at [https://energytransition.github.
     <xsd:complexContent>
       <xsd:extension base="esdl:EnergyAsset">
         <xsd:sequence>
-          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="profile" type="esdl:GenericProfile"/>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="profile" type="esdl:GenericProfile">
+            <xsd:annotation>
+              <xsd:documentation>state of charge profile</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
         </xsd:sequence>
         <xsd:attribute ecore:unsettable="false" name="capacity" nl.tno.esdl.attribute.unit:unit="J" type="ecore:EDouble">
           <xsd:annotation>
@@ -371,9 +375,9 @@ A browseable version of this model is found at [https://energytransition.github.
 </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="fillLevel" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="fillLevel" nl.tno.esdl.attribute.unit:unit="%" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>The fill level of the storage asset as a percentage of its capacity</xsd:documentation>
+            <xsd:documentation>The (initial) fill level of the storage asset as a percentage of its capacity</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute default="0.0" ecore:unsettable="false" name="maxChargeRate" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
@@ -1087,8 +1091,21 @@ A browseable version of this model is found at [https://energytransition.github.
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Storage">
-        <xsd:attribute ecore:unsettable="false" name="minStorageTemperature" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble"/>
-        <xsd:attribute ecore:unsettable="false" name="maxStorageTemperature" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="minStorageTemperature" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>minimum temperature of the heat that can be stored</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="maxStorageTemperature" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>maximum temperature of the heat that can be stored</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="volume" nl.tno.esdl.attribute.unit:unit="m³" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>volume (im m³) of the heat storage</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -2918,8 +2935,21 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Storage">
-        <xsd:attribute ecore:unsettable="false" name="minStoragePressure" type="ecore:EDouble"/>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="maxStoragePressure" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="minStoragePressure" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>minimum pressure of the gas that can be stored</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="maxStoragePressure" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>maximum pressure of the gas that can be stored</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="volume" nl.tno.esdl.attribute.unit:unit="m³" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>volume (im m³) of the gas storage</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
