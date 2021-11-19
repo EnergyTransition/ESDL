@@ -1888,8 +1888,16 @@ A browseable version of this model is found at [https://energytransition.github.
     <xsd:complexContent>
       <xsd:extension base="esdl:Carrier">
         <xsd:sequence>
-          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="energyContentUnit" type="esdl:AbstractQuantityAndUnit"/>
-          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="emissionUnit" type="esdl:AbstractQuantityAndUnit"/>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="energyContentUnit" type="esdl:AbstractQuantityAndUnit">
+            <xsd:annotation>
+              <xsd:documentation>the unit of the energyContent attribute of the EnergyCarrier</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="emissionUnit" type="esdl:AbstractQuantityAndUnit">
+            <xsd:annotation>
+              <xsd:documentation>the unit of the emission attribute of the EnergyCarrier</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
           <xsd:element ecore:resolveProxies="true" minOccurs="0" name="composition" type="esdl:AbstractMatter">
             <xsd:annotation>
               <xsd:documentation>Allows describing the composition of the energy carrier into different Fuels</xsd:documentation>
@@ -2529,8 +2537,23 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Carrier">
-        <xsd:attribute ecore:unsettable="false" name="emission" type="ecore:EDouble"/>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="renewableFactor" type="ecore:EDouble"/>
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="emissionUnit" type="esdl:AbstractQuantityAndUnit">
+            <xsd:annotation>
+              <xsd:documentation>the unit of the emission attribute of the Commodity</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute ecore:unsettable="false" name="emission" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The amount of emission (CO2, NOx) produced when a fuel is burned. The unit must be defined by the emissionUnit attribute.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="renewableFactor" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Describes to what extent this commodity is generated using renewable energy. Example: ElectricityCommodity.renewableFactor = 0.24 means that 24% of this electricity was generated using renewable energy.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>

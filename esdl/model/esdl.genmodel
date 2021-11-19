@@ -1110,6 +1110,7 @@
     <genClasses image="false" ecoreClass="esdl.ecore#//Commodity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Commodity/emission"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Commodity/renewableFactor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Commodity/emissionUnit"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GasCommodity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasCommodity/pressure"/>

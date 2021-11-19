@@ -1530,9 +1530,17 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyCarrierType" eType="#//RenewableTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="energyContentUnit" eType="#//AbstractQuantityAndUnit"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="the unit of the energyContent attribute of the EnergyCarrier"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="emissionUnit" eType="#//AbstractQuantityAndUnit"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="the unit of the emission attribute of the EnergyCarrier"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="composition" eType="#//AbstractMatter"
         containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2062,9 +2070,23 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Abstract class for commodities"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emission" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emission" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The amount of emission (CO2, NOx) produced when a fuel is burned. The unit must be defined by the emissionUnit attribute."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="renewableFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0.0"/>
+        defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Describes to what extent this commodity is generated using renewable energy. Example: ElectricityCommodity.renewableFactor = 0.24 means that 24% of this electricity was generated using renewable energy."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="emissionUnit" eType="#//AbstractQuantityAndUnit"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="the unit of the emission attribute of the Commodity"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GasCommodity" eSuperTypes="#//Commodity">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
