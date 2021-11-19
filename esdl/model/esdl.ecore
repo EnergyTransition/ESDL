@@ -5,7 +5,7 @@
     <details key="documentation" value="# Energy System Description Language&#xD;&#xA;&#xD;&#xA;The Energy System Description Language (ESDL) is a modelling language created for modelling the components in an energy system and their relations towards each other. Furthermore ESDL is capable of expressing the dynamic behaviour of components in the energy system. For instance the power consumption of an neighbourhood. ESDL describes components by their basic functionality (so called Energy Capabilities), these are modelled in 5 abstract categories: Production, Consumption, Storage, Transport and Conversion. ESDL enables energy modelers to model a complex energy system in a generic way. The language is machine readable so makers of energy transition calculation tools and GIS applications can support ESDL in order to enforce the interoperability of their products.&#xD;&#xA;&#xD;&#xA;ESDL is currently developed by [TNO](https://www.tno.nl), and is open source. &#xD;&#xA;The Github repository is at [https://github.com/EnergyTransition/ESDL](https://github.com/EnergyTransition/ESDL)&#xD;&#xA;&#xD;&#xA;For more information about ESDL, see the [ESDL gitbook](https://energytransition.gitbook.io/esdl)&#xD;&#xA;A browseable version of this model is found at [https://energytransition.github.io/](https://energytransition.github.io/)&#xD;&#xA;"/>
   </eAnnotations>
   <eAnnotations source="http://www.tno.nl/esdl/version">
-    <details key="version" value="v2110"/>
+    <details key="version" value="v2111"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyAsset" abstract="true" eSuperTypes="#//Asset">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -129,23 +129,10 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An abstract class that describes EnergyAssets that can convert one energy carrier into another. It is one of the 5 capabilities in ESDL"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="efficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The efficiency of the conversion asset. Allows to specify conversion losses as a percentage"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationalHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullLoadHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An annual number of full-load hours is the time it will take a given conversion asset to yield its annual production if it is able to produce with its installed capacity all of the time. The capacity is defined by the 'power' attribute"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Maximum power / capacity in Watt"/>
-      </eAnnotations>
-      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
-        <details key="unit" value="W"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="residualHeatSourcePotential"
@@ -679,7 +666,7 @@
       <details key="documentation" value="Generic transport class that can be used in cases that the actual asset type is not important or not supported yet in ESDL"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GenericConversion" eSuperTypes="#//Conversion">
+  <eClassifiers xsi:type="ecore:EClass" name="GenericConversion" eSuperTypes="#//AbstractBasicConversion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Generic conversion class that can be used in cases that the actual asset type is not important or not supported yet in ESDL"/>
     </eAnnotations>
@@ -691,7 +678,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationOf" upperBound="-1"
         eType="#//Transport"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AggregatedConversion" eSuperTypes="#//Conversion">
+  <eClassifiers xsi:type="ecore:EClass" name="AggregatedConversion" eSuperTypes="#//AbstractBasicConversion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Represents an aggregation of multiple conversion assets as one aggregated conversion asset. It allows you to reference the conversion asset it is aggregated of by using the aggregationOf reference. Can be used to aggregate a heterogeneous collection of conversion assets (e.g. of different types)"/>
     </eAnnotations>
@@ -789,7 +776,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GasHeater" eSuperTypes="#//Conversion">
+  <eClassifiers xsi:type="ecore:EClass" name="GasHeater" eSuperTypes="#//AbstractBasicConversion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Converts gas to heat, e.g. a gas boiler or gas heater"/>
     </eAnnotations>
@@ -945,7 +932,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CoGeneration" abstract="true" eSuperTypes="#//Conversion">
+  <eClassifiers xsi:type="ecore:EClass" name="CoGeneration" abstract="true" eSuperTypes="#//AbstractBasicConversion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Abstract asset describing a co-generation plant that produces heat and electricity"/>
     </eAnnotations>
@@ -970,7 +957,7 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="leadCommodity" eType="#//CommodityEnum"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HeatPump" eSuperTypes="#//Conversion">
+  <eClassifiers xsi:type="ecore:EClass" name="HeatPump" eSuperTypes="#//AbstractBasicConversion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Describes a Heat Pump"/>
     </eAnnotations>
@@ -1330,7 +1317,7 @@
       <details key="documentation" value="Gas connection of a building. Defines the demarcation between the inhouse network and the gas grid (location where the (smart) meter is located)"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PowerPlant" eSuperTypes="#//Conversion">
+  <eClassifiers xsi:type="ecore:EClass" name="PowerPlant" eSuperTypes="#//AbstractBasicConversion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines an electricity generating plant"/>
     </eAnnotations>
@@ -1560,7 +1547,7 @@
       <details key="documentation" value="Used to define losses explicitly (as a Consumer capability)"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PowerToX" eSuperTypes="#//Conversion">
+  <eClassifiers xsi:type="ecore:EClass" name="PowerToX" eSuperTypes="#//AbstractBasicConversion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Represents the ability to convert electricity to some other form of energy"/>
     </eAnnotations>
@@ -1603,7 +1590,7 @@
       <details key="documentation" value="Defines a Fuel Cell"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="XToPower" eSuperTypes="#//Conversion">
+  <eClassifiers xsi:type="ecore:EClass" name="XToPower" eSuperTypes="#//AbstractBasicConversion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Represents the ability to convert some other form of energy to electricity"/>
     </eAnnotations>
@@ -1797,7 +1784,7 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deviceType" eType="#//CoolingDeviceType"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Airco" eSuperTypes="#//Conversion">
+  <eClassifiers xsi:type="ecore:EClass" name="Airco" eSuperTypes="#//AbstractBasicConversion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Represents an air conditioning unit"/>
     </eAnnotations>
@@ -1832,6 +1819,8 @@
         eType="#//GenericProfile" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variableMaintenanceCosts"
         eType="#//GenericProfile" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="developmentCosts" eType="#//GenericProfile"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SpecificLabelDistribution" abstract="true"
       eSuperTypes="#//GenericDistribution">
@@ -2073,6 +2062,9 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Abstract class for commodities"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emission" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="renewableFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GasCommodity" eSuperTypes="#//Commodity">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2256,7 +2248,7 @@
     <eLiterals name="COOLING_HOUSE" value="3"/>
     <eLiterals name="OTHER" value="4"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FermentationPlant" eSuperTypes="#//Conversion">
+  <eClassifiers xsi:type="ecore:EClass" name="FermentationPlant" eSuperTypes="#//AbstractBasicConversion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines a plant fuelled by biomass"/>
     </eAnnotations>
@@ -2434,7 +2426,15 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="volume" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="volume (im m³) of the gas storage"/>
+        <details key="documentation" value="physical volume (im m³) of the gas storage"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m³"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="workingVolume" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The working volume represents the amount of gas (im m³) at atmospheric conditions that can be stored in the gas storage between minStoragePressure and maxStoragePressure"/>
       </eAnnotations>
       <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
         <details key="unit" value="m³"/>
@@ -2680,7 +2680,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GasConversion" eSuperTypes="#//Conversion">
+  <eClassifiers xsi:type="ecore:EClass" name="GasConversion" eSuperTypes="#//AbstractBasicConversion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines an asset that can convert gas into another form of gas. E.g. SMR or ATR."/>
     </eAnnotations>
@@ -2960,7 +2960,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fromDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="toDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RoomHeater" eSuperTypes="#//Conversion">
+  <eClassifiers xsi:type="ecore:EClass" name="RoomHeater" eSuperTypes="#//AbstractBasicConversion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines an asset for heating rooms, such as infra red panels, gas stove, etc."/>
     </eAnnotations>
@@ -2987,7 +2987,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BiomassHeater" eSuperTypes="#//Conversion">
+  <eClassifiers xsi:type="ecore:EClass" name="BiomassHeater" eSuperTypes="#//AbstractBasicConversion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Converts biomass into heat and/or electricity"/>
     </eAnnotations>
@@ -3811,6 +3811,8 @@
         <details key="documentation" value="in m"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="doorArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uDoor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundAsset" eSuperTypes="#//Asset">
     <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
@@ -4346,6 +4348,70 @@
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The distance between the hot and the cold well at aquifer level in meters"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HybridHeatpump" eSuperTypes="#//Conversion">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Hybrid heatpump with both an electric heatpump and a gasheater part"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gasHeaterThermalPower"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Thermal output power of the gasheater part of the hybrid heatpump (in Watts)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="W"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gasHeaterEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Efficiency of the gasheater part of the hybrid heatpump (in Watts)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatpumpThermalPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Thermal output power of the electric heatpump part of the hybrid heatpump (in Watts) used for heating"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="W"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatpumpCOP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="COP of the electric heatpump part of the hybrid heatpump (in Watts) used for heating"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatpumpCoolingPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="output power of the electric heatpump part of the hybrid heatpump (in Watts) used for cooling"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="W"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatpumpCoolingCOP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="COP of the electric heatpump part of the hybrid heatpump (in Watts) used for cooling"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractBasicConversion" abstract="true"
+      eSuperTypes="#//Conversion">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract class for all simple conversion assets that have a power and an efficiency attribute"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Maximum power / capacity in Watt"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="W"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="efficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The efficiency of the conversion asset. Allows to specify conversion losses as a percentage"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
