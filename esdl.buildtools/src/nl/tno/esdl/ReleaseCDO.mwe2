@@ -5,11 +5,15 @@
  * MWE2 documentation at: https://www.eclipse.org/Xtext/documentation/306_mwe2.html
  * 
  * It does: 
+ *  Tag a release with the git tag (<tt>git describe --tags</tt>)
  *  Generate model, editor and edit code 
+ *  Export image
+ * 
+ * 
  * 
  */
 
-module nl.tno.esdl.ReleaseESDL
+module nl.tno.esdl.ReleaseCDO
 
 import org.eclipse.emf.ecore.resource.impl.*
 import org.eclipse.xtext.ecore.*
@@ -29,15 +33,15 @@ Workflow {
     	platformUri = "${rootPath}"
     	scanClassPath = true
     }
+  
     
-        // generate the code files
+    // generate the code files
     component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {
-		genModel = "platform:/resource/esdl/model/esdl.genmodel"
+		genModel = "platform:/resource/esdl/model/esdl-cdo.genmodel"
 		srcPath = "platform:/resource/esdl/src-gen"
 		generateEdit = true
 		generateEditor = true
 		lineDelimiter = "\n" // otherwise .gif files give errors
 	}
-	
-	
+
 }
