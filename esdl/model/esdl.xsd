@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2110" targetNamespace="http://www.tno.nl/esdl">
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2111" targetNamespace="http://www.tno.nl/esdl">
   <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
   <xsd:annotation>
     <xsd:documentation># Energy System Description Language
@@ -283,6 +283,8 @@ A browseable version of this model is found at [https://energytransition.github.
   <xsd:element ecore:ignore="true" name="PortRelation" type="esdl:PortRelation"/>
   <xsd:element ecore:ignore="true" name="BufferDistance" type="esdl:BufferDistance"/>
   <xsd:element ecore:ignore="true" name="ATES" type="esdl:ATES"/>
+  <xsd:element ecore:ignore="true" name="HybridHeatpump" type="esdl:HybridHeatpump"/>
+  <xsd:element ecore:ignore="true" name="AbstractBasicConversion" type="esdl:AbstractBasicConversion"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -399,20 +401,10 @@ A browseable version of this model is found at [https://energytransition.github.
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:EnergyAsset">
-        <xsd:attribute ecore:unsettable="false" name="efficiency" type="ecore:EDouble">
-          <xsd:annotation>
-            <xsd:documentation>The efficiency of the conversion asset. Allows to specify conversion losses as a percentage</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="operationalHours" type="ecore:EInt"/>
         <xsd:attribute ecore:unsettable="false" name="fullLoadHours" type="ecore:EInt">
           <xsd:annotation>
             <xsd:documentation>An annual number of full-load hours is the time it will take a given conversion asset to yield its annual production if it is able to produce with its installed capacity all of the time. The capacity is defined by the 'power' attribute</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="power" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
-          <xsd:annotation>
-            <xsd:documentation>Maximum power / capacity in Watt</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:opposite="associatedConversionAsset" ecore:reference="esdl:ResidualHeatSourcePotential" name="residualHeatSourcePotential" type="xsd:anyURI"/>
@@ -978,7 +970,7 @@ A browseable version of this model is found at [https://energytransition.github.
       <xsd:documentation>Generic conversion class that can be used in cases that the actual asset type is not important or not supported yet in ESDL</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Conversion"/>
+      <xsd:extension base="esdl:AbstractBasicConversion"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="AggregatedTransport">
@@ -1000,7 +992,7 @@ A browseable version of this model is found at [https://energytransition.github.
       <xsd:documentation>Represents an aggregation of multiple conversion assets as one aggregated conversion asset. It allows you to reference the conversion asset it is aggregated of by using the aggregationOf reference. Can be used to aggregate a heterogeneous collection of conversion assets (e.g. of different types)</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Conversion">
+      <xsd:extension base="esdl:AbstractBasicConversion">
         <xsd:attribute ecore:reference="esdl:Conversion" name="aggregationOf">
           <xsd:simpleType>
             <xsd:list itemType="xsd:anyURI"/>
@@ -1114,7 +1106,7 @@ A browseable version of this model is found at [https://energytransition.github.
       <xsd:documentation>Converts gas to heat, e.g. a gas boiler or gas heater</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Conversion">
+      <xsd:extension base="esdl:AbstractBasicConversion">
         <xsd:attribute default="0.0" ecore:unsettable="false" name="minimumBurnRate" type="ecore:EDouble"/>
         <xsd:attribute ecore:unsettable="false" name="type" type="esdl:GasHeaterTypeEnum"/>
       </xsd:extension>
@@ -1259,7 +1251,7 @@ A browseable version of this model is found at [https://energytransition.github.
       <xsd:documentation>Abstract asset describing a co-generation plant that produces heat and electricity</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Conversion">
+      <xsd:extension base="esdl:AbstractBasicConversion">
         <xsd:attribute default="0.0" ecore:unsettable="false" name="heatEfficiency" type="ecore:EDouble"/>
         <xsd:attribute default="0.0" ecore:unsettable="false" name="electricalEfficiency" type="ecore:EDouble"/>
         <xsd:attribute ecore:reference="esdl:EnergyCarrier" name="energyCarrier" type="xsd:anyURI">
@@ -1286,7 +1278,7 @@ A browseable version of this model is found at [https://energytransition.github.
       <xsd:documentation>Describes a Heat Pump</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Conversion">
+      <xsd:extension base="esdl:AbstractBasicConversion">
         <xsd:attribute ecore:unsettable="false" name="source" type="esdl:SourceTypeEnum">
           <xsd:annotation>
             <xsd:documentation>Type of the source, e.g. Air, subsurface, aquifer</xsd:documentation>
@@ -1675,7 +1667,7 @@ A browseable version of this model is found at [https://energytransition.github.
       <xsd:documentation>Defines an electricity generating plant</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Conversion">
+      <xsd:extension base="esdl:AbstractBasicConversion">
         <xsd:sequence>
           <xsd:element ecore:resolveProxies="true" minOccurs="0" name="mustRun" type="esdl:GenericProfile"/>
         </xsd:sequence>
@@ -1896,8 +1888,16 @@ A browseable version of this model is found at [https://energytransition.github.
     <xsd:complexContent>
       <xsd:extension base="esdl:Carrier">
         <xsd:sequence>
-          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="energyContentUnit" type="esdl:AbstractQuantityAndUnit"/>
-          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="emissionUnit" type="esdl:AbstractQuantityAndUnit"/>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="energyContentUnit" type="esdl:AbstractQuantityAndUnit">
+            <xsd:annotation>
+              <xsd:documentation>the unit of the energyContent attribute of the EnergyCarrier</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="emissionUnit" type="esdl:AbstractQuantityAndUnit">
+            <xsd:annotation>
+              <xsd:documentation>the unit of the emission attribute of the EnergyCarrier</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
           <xsd:element ecore:resolveProxies="true" minOccurs="0" name="composition" type="esdl:AbstractMatter">
             <xsd:annotation>
               <xsd:documentation>Allows describing the composition of the energy carrier into different Fuels</xsd:documentation>
@@ -1932,7 +1932,7 @@ A browseable version of this model is found at [https://energytransition.github.
       <xsd:documentation>Represents the ability to convert electricity to some other form of energy</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Conversion"/>
+      <xsd:extension base="esdl:AbstractBasicConversion"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="CCS">
@@ -1987,7 +1987,7 @@ A browseable version of this model is found at [https://energytransition.github.
       <xsd:documentation>Represents the ability to convert some other form of energy to electricity</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Conversion"/>
+      <xsd:extension base="esdl:AbstractBasicConversion"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="EnergySystemInformation">
@@ -2198,7 +2198,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Represents an air conditioning unit</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Conversion"/>
+      <xsd:extension base="esdl:AbstractBasicConversion"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="CostInformation">
@@ -2216,6 +2216,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="fixedMaintenanceCosts" type="esdl:GenericProfile"/>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="fixedOperationalCosts" type="esdl:GenericProfile"/>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="variableMaintenanceCosts" type="esdl:GenericProfile"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="developmentCosts" type="esdl:GenericProfile"/>
     </xsd:sequence>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString">
       <xsd:annotation>
@@ -2535,7 +2536,25 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Abstract class for commodities</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Carrier"/>
+      <xsd:extension base="esdl:Carrier">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="emissionUnit" type="esdl:AbstractQuantityAndUnit">
+            <xsd:annotation>
+              <xsd:documentation>the unit of the emission attribute of the Commodity</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute ecore:unsettable="false" name="emission" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The amount of emission (CO2, NOx) produced when a fuel is burned. The unit must be defined by the emissionUnit attribute.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="renewableFactor" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Describes to what extent this commodity is generated using renewable energy. Example: ElectricityCommodity.renewableFactor = 0.24 means that 24% of this electricity was generated using renewable energy.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="GasCommodity">
@@ -2760,7 +2779,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Defines a plant fuelled by biomass</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Conversion"/>
+      <xsd:extension base="esdl:AbstractBasicConversion"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="ResidualHeatSourcePotential">
@@ -2947,7 +2966,12 @@ When a model queries for a value from a certain date (and to a certain date), th
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="volume" nl.tno.esdl.attribute.unit:unit="m³" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>volume (im m³) of the gas storage</xsd:documentation>
+            <xsd:documentation>physical volume (im m³) of the gas storage</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="workingVolume" nl.tno.esdl.attribute.unit:unit="m³" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The working volume represents the amount of gas (im m³) at atmospheric conditions that can be stored in the gas storage between minStoragePressure and maxStoragePressure</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -3229,7 +3253,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Defines an asset that can convert gas into another form of gas. E.g. SMR or ATR.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Conversion">
+      <xsd:extension base="esdl:AbstractBasicConversion">
         <xsd:attribute ecore:unsettable="false" name="type" type="esdl:GasConversionTypeEnum"/>
         <xsd:attribute ecore:unsettable="false" name="outputPressure" nl.tno.esdl.attribute.unit:unit="bar" type="ecore:EDouble"/>
       </xsd:extension>
@@ -3603,7 +3627,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Defines an asset for heating rooms, such as infra red panels, gas stove, etc.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Conversion">
+      <xsd:extension base="esdl:AbstractBasicConversion">
         <xsd:attribute ecore:unsettable="false" name="type" type="esdl:RoomHeaterTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -3639,7 +3663,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Converts biomass into heat and/or electricity</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Conversion"/>
+      <xsd:extension base="esdl:AbstractBasicConversion"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:simpleType name="BiomassHeaterTypeEnum">
@@ -4662,6 +4686,8 @@ Examples of layered Matters
             <xsd:documentation>in m</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="doorArea" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="uDoor" type="ecore:EDouble"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -5222,6 +5248,64 @@ Examples of layered Matters
         <xsd:attribute ecore:unsettable="false" name="wellDistance" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The distance between the hot and the cold well at aquifer level in meters</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="HybridHeatpump">
+    <xsd:annotation>
+      <xsd:documentation>Hybrid heatpump with both an electric heatpump and a gasheater part</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Conversion">
+        <xsd:attribute ecore:unsettable="false" name="gasHeaterThermalPower" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Thermal output power of the gasheater part of the hybrid heatpump (in Watts)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="gasHeaterEfficiency" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Efficiency of the gasheater part of the hybrid heatpump (in Watts)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="heatpumpThermalPower" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Thermal output power of the electric heatpump part of the hybrid heatpump (in Watts) used for heating</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="heatpumpCOP" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>COP of the electric heatpump part of the hybrid heatpump (in Watts) used for heating</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="heatpumpCoolingPower" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>output power of the electric heatpump part of the hybrid heatpump (in Watts) used for cooling</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="heatpumpCoolingCOP" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>COP of the electric heatpump part of the hybrid heatpump (in Watts) used for cooling</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="AbstractBasicConversion">
+    <xsd:annotation>
+      <xsd:documentation>Abstract class for all simple conversion assets that have a power and an efficiency attribute</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Conversion">
+        <xsd:attribute ecore:unsettable="false" name="power" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Maximum power / capacity in Watt</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="efficiency" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The efficiency of the conversion asset. Allows to specify conversion losses as a percentage</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
