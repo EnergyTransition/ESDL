@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>nl.tno.esdl</groupId>
 	<artifactId>esdl.parent</artifactId>
-	<version>2.21.11</version>
+	<version>2.21.11.cdo</version>
 	<name>Parent project for ESDL</name>
 	<description>This is the parent project that describes the global properties of a Tycho-based build of ESDL. Use 'mvn clean install' to build ESDL in this folder</description>
 	<packaging>pom</packaging>
@@ -28,29 +28,29 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<modules>
-				<module>esdl.buildtools</module>
-				<module>esdl</module>
-				<module>esdl.edit</module>
-				<module>esdl.editor</module>
+				<module>../esdl.buildtools</module>
+				<module>../esdl</module>
+				<module>../esdl.edit</module>
+				<module>../esdl.editor</module>
 			</modules>
 		</profile>
 		<profile>
 			<id>designer</id>
 			<modules>
-				<module>esdl.buildtools</module>
-				<module>esdl</module>
-				<module>esdl.edit</module>
-				<module>esdl.editor</module>
-				<module>../esdl-designer</module> <!-- next three are in their own repositories -->
-				<module>../esdl-designer-feature</module>
-				<module>../esdl-update-site</module>
+				<module>../esdl.buildtools</module>
+				<module>../esdl</module>
+				<module>../esdl.edit</module>
+				<module>../esdl.editor</module>
+				<module>../../esdl-designer</module> <!-- next three are in their own repositories -->
+				<module>../../esdl-designer-feature</module>
+				<module>../../esdl-update-site</module>
 			</modules>
 		</profile>
 		<profile>
 			<id>cdo</id>
 			<modules>
-				<module>esdl.buildtools</module>
-				<module>esdl</module>
+				<module>../esdl.buildtools</module>
+				<module>../esdl</module>
 			</modules>
 		</profile>
 	</profiles>

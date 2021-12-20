@@ -21,12 +21,7 @@ import org.eclipse.emf.mwe.utils.*
 import org.eclipse.emf.mwe2.ecore.*
 import java.nio.file.*
 
-
-
- 
-
-//var rootPath = "c:/data/git/esdlspec-development/"
-var rootPath = "./"
+var rootPath = "../" // use parent folder, as parent pom is in esdl.parent folder. 
     
 Workflow {
 	
@@ -49,23 +44,4 @@ Workflow {
 		lineDelimiter = "\n" // otherwise .gif files give errors
 	}
 
-
-	// generate ESDL.png from AirD file
-	// does not work outside eclipse.. 	
-//	component = nl.tno.esdl.EcoreImageGenerator {
-//		airdFile = "platform:/resource/esdl/model/esdl.aird"
-//		//airdFile = "c:/data/git/esdlspec-development/esdl/model/esdl.aird"
-//		imageFileName = "c:/data/git/esdlspec-development/esdl/model/esdl2.png"
-//		resourceSet = resourceSet
-//	}
-
-	// generate documentation
-//	component = nl.tno.esdl.ESDLDocumentationGenerator {
-//		rootPath = "${rootPath}"
-//		ecoreDocgenYamlFile = "/esdl/ecore-docgen.yml"
-//	}
-
-	// 
-	
-	
 }

@@ -17,12 +17,7 @@ import org.eclipse.emf.mwe.utils.*
 import org.eclipse.emf.mwe2.ecore.*
 import java.nio.file.*
 
-
-
- 
-
-//var rootPath = "c:/data/git/esdlspec-development/"
-var rootPath = "./"
+var rootPath = "../" // use parent folder, as parent pom is in esdl.parent folder. 
     
 Workflow {
 	
@@ -34,16 +29,6 @@ Workflow {
     	platformUri = "${rootPath}"
     	scanClassPath = true
     }
-    // tag the release with git tag
-    // commit in local repo
-    
-    
-//    // tag the esdl file with the current git tag
-//    component = nl.tno.esdl.TagRelease {
-//    	modelFileName = "/esdl/model/esdl.ecore"
-//    	esdlParentPomFileName = "/esdl.parent/pom.xml"
-//    	rootPath = "${rootPath}"
-//    }
     
         // generate the code files
     component = org.eclipse.emf.mwe2.ecore.EcoreGenerator {

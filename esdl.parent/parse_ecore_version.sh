@@ -1,5 +1,5 @@
 # convert esdl version in ecore file (e.g. v2101) to maven version (e.g. 2.21.1) such that it removes the 0 before the 1 in the month
-ECORE_FILE="esdl/model/esdl.ecore"
+ECORE_FILE="../esdl/model/esdl.ecore"
 ECORE_VERSION=$(cat "$ECORE_FILE" | grep "http://www.tno.nl/esdl/version" -A 2 | grep "<details key=\"version\"")
 if [ -z "$ECORE_VERSION" ]; then 
 	echo "Can't find ESDL version in esdl.ecore at $ECORE_FILE"; 
