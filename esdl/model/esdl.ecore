@@ -1847,8 +1847,12 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines a distribution in terms of energy labels"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="labelPerc" upperBound="-1"
-        eType="#//EnergyLabelPerc" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bin" upperBound="-1" eType="#//EnergyLabelBin"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The collection of bins in the distribution"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StringItem">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1858,12 +1862,16 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EnergyLabelPerc">
+  <eClassifiers xsi:type="ecore:EClass" name="EnergyLabelBin">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Defines an energy label and a percentage, used in EnergyLabelDistribution"/>
+      <details key="documentation" value="Defines a bin for an energy label with a percentage, used in EnergyLabelDistribution"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="energyLabel" eType="#//EnergyLabelEnum"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FromToDistribution" eSuperTypes="#//GenericLabelDistribution">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3333,16 +3341,16 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Specifies the way the building type is distributed in this area (e.g. Utility, Residential), specifing the percentage of buildings per type."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="buildingTypePercentage"
-        upperBound="-1" eType="#//BuildingTypePercentage" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bin" upperBound="-1" eType="#//BuildingTypeBin"
+        containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The distribution in percentages"/>
+        <details key="documentation" value="The collection of bins in the distribution"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BuildingTypePercentage">
+  <eClassifiers xsi:type="ecore:EClass" name="BuildingTypeBin">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Specifies the percentage of the selected building type"/>
+      <details key="documentation" value="Defines a bin for a building type with a percentage, used in BuildingTypeDistribution "/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildingType" eType="#//BuildingTypeEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -3352,16 +3360,16 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Specifies the way the residential building type is distributed in this area (e.g. Vrijstaande Woning, Hoekwoning, Flatwoning), specifing the percentage of buildings per residential type."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="residentialBuildingTypePercentage"
-        upperBound="-1" eType="#//ResidentialBuildingTypePercentage" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bin" upperBound="-1" eType="#//ResidentialBuildingTypeBin"
+        containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The distribution in percentages"/>
+        <details key="documentation" value="The collection of bins in the distribution"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ResidentialBuildingTypePercentage">
+  <eClassifiers xsi:type="ecore:EClass" name="ResidentialBuildingTypeBin">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Specifies the percentage of the selected residential building type"/>
+      <details key="documentation" value="Defines a bin for a residential building type with a percentage, used in ResidentialBuildingTypeDistribution "/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="residentialBuildingType"
         eType="#//ResidentialBuildingTypeEnum">
@@ -3375,16 +3383,16 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Specifies the way the housing type is distributed in this area (e.g. Owner occupied, Housing Association, Private Rental), specifing the percentage of buildings per housing type."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownershipRentalTypePercentage"
-        upperBound="-1" eType="#//OwnershipRentalTypePercentage" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bin" upperBound="-1" eType="#//OwnershipRentalTypeBin"
+        containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The distribution in percentages"/>
+        <details key="documentation" value="The collection of bins in the distribution"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OwnershipRentalTypePercentage">
+  <eClassifiers xsi:type="ecore:EClass" name="OwnershipRentalTypeBin">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Specifies the percentage of the selected housing type"/>
+      <details key="documentation" value="Defines a bin for a ownership/rental type with a percentage, used in OwnershipRentalTypeDistribution "/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ownershipRentalType" eType="#//OwnershipRentalTypeEnum"
         defaultValueLiteral="UNDEFINED"/>

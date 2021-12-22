@@ -1043,15 +1043,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//StringLabelDistribution/stringItem"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EnergyLabelDistribution">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyLabelDistribution/labelPerc"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyLabelDistribution/bin"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//StringItem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StringItem/label"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//StringItem/value"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//EnergyLabelPerc">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergyLabelPerc/energyLabel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergyLabelPerc/percentage"/>
+    <genClasses ecoreClass="esdl.ecore#//EnergyLabelBin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergyLabelBin/energyLabel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergyLabelBin/percentage"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//FromToDistribution">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//FromToDistribution/fromToItem"/>
@@ -1442,25 +1442,25 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUsageInformation/id"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//BuildingTypeDistribution">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//BuildingTypeDistribution/buildingTypePercentage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//BuildingTypeDistribution/bin"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//BuildingTypePercentage">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingTypePercentage/buildingType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingTypePercentage/percentage"/>
+    <genClasses ecoreClass="esdl.ecore#//BuildingTypeBin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingTypeBin/buildingType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingTypeBin/percentage"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//ResidentialBuildingTypeDistribution">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//ResidentialBuildingTypeDistribution/residentialBuildingTypePercentage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//ResidentialBuildingTypeDistribution/bin"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//ResidentialBuildingTypePercentage">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ResidentialBuildingTypePercentage/residentialBuildingType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ResidentialBuildingTypePercentage/percentage"/>
+    <genClasses ecoreClass="esdl.ecore#//ResidentialBuildingTypeBin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ResidentialBuildingTypeBin/residentialBuildingType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ResidentialBuildingTypeBin/percentage"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//OwnershipRentalTypeDistribution">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//OwnershipRentalTypeDistribution/ownershipRentalTypePercentage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//OwnershipRentalTypeDistribution/bin"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//OwnershipRentalTypePercentage">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//OwnershipRentalTypePercentage/ownershipRentalType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//OwnershipRentalTypePercentage/percentage"/>
+    <genClasses ecoreClass="esdl.ecore#//OwnershipRentalTypeBin">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//OwnershipRentalTypeBin/ownershipRentalType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//OwnershipRentalTypeBin/percentage"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//DoubleKPI">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DoubleKPI/value"/>

@@ -26,7 +26,7 @@
     <semanticResources>relatedpipes.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_MiCeoLryEeeIKeRLj9tspA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MqgeILryEeeIKeRLj9tspA" name="esdl" repPath="#_MqZJYLryEeeIKeRLj9tspA" changeId="4aeb346c-b0f2-4220-bc37-7c46cdea652d">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MqgeILryEeeIKeRLj9tspA" name="esdl" repPath="#_MqZJYLryEeeIKeRLj9tspA" changeId="e9d88750-fac7-427d-9c20-5904a3f880b9">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="esdl.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -5007,7 +5007,7 @@
           <styles xmi:type="notation:ShapeStyle" xmi:id="_-NPBMdkjEeiAiP44lhTokg" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-NPBMtkjEeiAiP44lhTokg" x="1947" y="3392" width="120" height="126"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_n6pPkOP9Eei-rO52rQ5FJw" type="Note" fontName="Segoe UI" description="Changes since last commit:&#xD;&#xA;- Added quantity and unit information to the InputOutputRelation&#xD;&#xA;- Updated to version v2111--> v2112" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+        <children xmi:type="notation:Shape" xmi:id="_n6pPkOP9Eei-rO52rQ5FJw" type="Note" fontName="Segoe UI" description="Changes since last commit:&#xD;&#xA;- Added quantity and unit information to the InputOutputRelation&#xD;&#xA;- Changes in naming of AggregatedBuilding distribution information (breaking change)&#xD;&#xA;- Updated to version v2111--> v2112" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
           <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_n6pPkeP9Eei-rO52rQ5FJw" source="specificStyles">
             <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_n6pPkuP9Eei-rO52rQ5FJw" key="verticalAlignment" value="8"/>
           </eAnnotations>
@@ -10758,17 +10758,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_dblgAGgxEemrq79eHTNoiA" type="4001" element="_dZCi1GgxEemrq79eHTNoiA" source="_scP4QGgwEemrq79eHTNoiA" target="_SQMt8D8NEei9rvcHqHEJ0Q">
           <children xmi:type="notation:Node" xmi:id="_dblgBGgxEemrq79eHTNoiA" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dblgBWgxEemrq79eHTNoiA" x="-207" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dblgBWgxEemrq79eHTNoiA" x="-388" y="-1"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_dblgBmgxEemrq79eHTNoiA" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dblgB2gxEemrq79eHTNoiA" x="-54" y="-22"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dblgB2gxEemrq79eHTNoiA" x="-49" y="-23"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_dblgCGgxEemrq79eHTNoiA" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dblgCWgxEemrq79eHTNoiA" x="43" y="64"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dblgCWgxEemrq79eHTNoiA" x="148" y="41"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_dblgAWgxEemrq79eHTNoiA" routing="Tree"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_dblgAmgxEemrq79eHTNoiA" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_dblgA2gxEemrq79eHTNoiA" points="[0, 0, 435, 153]$[0, -22, 435, 131]$[-438, -22, -3, 131]$[-438, -104, -3, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_dblgA2gxEemrq79eHTNoiA" points="[0, 0, 442, 278]$[0, -30, 442, 248]$[-445, -30, -3, 248]$[-445, -229, -3, 49]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_dbmHEGgxEemrq79eHTNoiA" id="(0.6474358974358975,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_dbmHEWgxEemrq79eHTNoiA" id="(0.3734177215189873,0.5)"/>
         </edges>
@@ -11366,17 +11366,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_COCLcH2EEeqm_YT97GyQmg" type="4001" element="_eZbesD8PEei9rvcHqHEJ0Q" source="_AxPuUD8OEei9rvcHqHEJ0Q" target="_42VcQH2DEeqm_YT97GyQmg">
           <children xmi:type="notation:Node" xmi:id="_COCLdH2EEeqm_YT97GyQmg" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_COCLdX2EEeqm_YT97GyQmg" x="-76" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_COCLdX2EEeqm_YT97GyQmg" x="-20" y="-179"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_COCLdn2EEeqm_YT97GyQmg" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_COCLd32EEeqm_YT97GyQmg" x="-13" y="13"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_COCLd32EEeqm_YT97GyQmg" x="-30" y="12"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_COCLeH2EEeqm_YT97GyQmg" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_COCLeX2EEeqm_YT97GyQmg" x="-31" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_COCLeX2EEeqm_YT97GyQmg" x="-163" y="-73"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_COCLcX2EEeqm_YT97GyQmg" routing="Tree"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_COCLcn2EEeqm_YT97GyQmg" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_COCLc32EEeqm_YT97GyQmg" points="[0, 0, -178, 104]$[0, -10, -178, 94]$[176, -10, -2, 94]$[176, -104, -2, 0]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_COCLc32EEeqm_YT97GyQmg" points="[0, 0, -171, 229]$[0, -16, -171, 213]$[169, -16, -2, 213]$[169, -229, -2, 0]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_COCLen2EEeqm_YT97GyQmg" id="(0.5,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_COCLe32EEeqm_YT97GyQmg" id="(0.5069444444444444,1.0)"/>
         </edges>
@@ -18315,9 +18315,9 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_liF1YD8NEei9rvcHqHEJ0Q" name="EnergyLabelPerc" tooltipText="" incomingEdges="_ooxScD8NEei9rvcHqHEJ0Q" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//EnergyLabelPerc"/>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//EnergyLabelPerc"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_liF1YD8NEei9rvcHqHEJ0Q" name="EnergyLabelBin" tooltipText="" incomingEdges="_ooxScD8NEei9rvcHqHEJ0Q" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//EnergyLabelBin"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//EnergyLabelBin"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -18326,16 +18326,16 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_wndnUD8NEei9rvcHqHEJ0Q" name="energyLabel : EnergyLabelEnum = UNDEFINED" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyLabelPerc/energyLabel"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyLabelPerc/energyLabel"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyLabelBin/energyLabel"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyLabelBin/energyLabel"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_1L-UUD8NEei9rvcHqHEJ0Q" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_2JyAYD8NEei9rvcHqHEJ0Q" name="percentage : EDouble = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyLabelPerc/percentage"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyLabelPerc/percentage"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyLabelBin/percentage"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyLabelBin/percentage"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_3JfJ4D8NEei9rvcHqHEJ0Q" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -18355,9 +18355,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ooxScD8NEei9rvcHqHEJ0Q" name="[0..*] labelPerc" sourceNode="_chjB8D8NEei9rvcHqHEJ0Q" targetNode="_liF1YD8NEei9rvcHqHEJ0Q">
-      <target xmi:type="ecore:EReference" href="esdl.ecore#//EnergyLabelDistribution/labelPerc"/>
-      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//EnergyLabelDistribution/labelPerc"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_ooxScD8NEei9rvcHqHEJ0Q" name="[0..*] bin" sourceNode="_chjB8D8NEei9rvcHqHEJ0Q" targetNode="_liF1YD8NEei9rvcHqHEJ0Q">
+      <target xmi:type="ecore:EReference" href="esdl.ecore#//EnergyLabelDistribution/bin"/>
+      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//EnergyLabelDistribution/bin"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ooxScT8NEei9rvcHqHEJ0Q" description="_-krrUMB1EeeJ9PYBAF2PgA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_ooxScj8NEei9rvcHqHEJ0Q" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -24816,9 +24816,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_MZ9u4GgtEemrq79eHTNoiA" name="BuildingTypePercentage" tooltipText="" incomingEdges="_S9fwgGgxEemrq79eHTNoiA" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//BuildingTypePercentage"/>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//BuildingTypePercentage"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_MZ9u4GgtEemrq79eHTNoiA" name="BuildingTypeBin" tooltipText="" incomingEdges="_S9fwgGgxEemrq79eHTNoiA" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//BuildingTypeBin"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//BuildingTypeBin"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -24827,16 +24827,16 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_Rb4JkGgtEemrq79eHTNoiA" name="buildingType : BuildingTypeEnum = UNDEFINED" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingTypePercentage/buildingType"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingTypePercentage/buildingType"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingTypeBin/buildingType"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingTypeBin/buildingType"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_Rb4JkWgtEemrq79eHTNoiA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_WdCWUGgtEemrq79eHTNoiA" name="percentage : EDouble = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingTypePercentage/percentage"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingTypePercentage/percentage"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingTypeBin/percentage"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingTypeBin/percentage"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_WdCWUWgtEemrq79eHTNoiA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -24854,9 +24854,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_YvA4oGgwEemrq79eHTNoiA" name="ResidentialBuildingTypePercentage" tooltipText="" incomingEdges="_V8FBjGgxEemrq79eHTNoiA" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//ResidentialBuildingTypePercentage"/>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//ResidentialBuildingTypePercentage"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_YvA4oGgwEemrq79eHTNoiA" name="ResidentialBuildingTypeBin" tooltipText="" incomingEdges="_V8FBjGgxEemrq79eHTNoiA" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//ResidentialBuildingTypeBin"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//ResidentialBuildingTypeBin"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -24865,16 +24865,16 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_eqmGQGgwEemrq79eHTNoiA" name="residentialBuildingType : ResidentialBuildingTypeEnum = UNDEFINED" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//ResidentialBuildingTypePercentage/residentialBuildingType"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//ResidentialBuildingTypePercentage/residentialBuildingType"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//ResidentialBuildingTypeBin/residentialBuildingType"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//ResidentialBuildingTypeBin/residentialBuildingType"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_eqmGQWgwEemrq79eHTNoiA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_lH3EoGgwEemrq79eHTNoiA" name="percentage : EDouble = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//ResidentialBuildingTypePercentage/percentage"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//ResidentialBuildingTypePercentage/percentage"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//ResidentialBuildingTypeBin/percentage"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//ResidentialBuildingTypeBin/percentage"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_lH3EoWgwEemrq79eHTNoiA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
@@ -24892,9 +24892,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_Il8t4GgxEemrq79eHTNoiA" name="OwnershipRentalTypePercentage" tooltipText="" incomingEdges="_a4-ZVmgxEemrq79eHTNoiA" width="12" height="10">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//OwnershipRentalTypePercentage"/>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//OwnershipRentalTypePercentage"/>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_Il8t4GgxEemrq79eHTNoiA" name="OwnershipRentalTypeBin" tooltipText="" incomingEdges="_a4-ZVmgxEemrq79eHTNoiA" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//OwnershipRentalTypeBin"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//OwnershipRentalTypeBin"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
@@ -24903,25 +24903,25 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_MlQcEGgxEemrq79eHTNoiA" name="ownershipRentalType : OwnershipRentalTypeEnum = UNDEFINED" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//OwnershipRentalTypePercentage/ownershipRentalType"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//OwnershipRentalTypePercentage/ownershipRentalType"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//OwnershipRentalTypeBin/ownershipRentalType"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//OwnershipRentalTypeBin/ownershipRentalType"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_MlQcEWgxEemrq79eHTNoiA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_Oq2PkGgxEemrq79eHTNoiA" name="percentage : EDouble = 0.0" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//OwnershipRentalTypePercentage/percentage"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//OwnershipRentalTypePercentage/percentage"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//OwnershipRentalTypeBin/percentage"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//OwnershipRentalTypeBin/percentage"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_Oq2PkWgxEemrq79eHTNoiA" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_S9fwgGgxEemrq79eHTNoiA" name="[0..*] buildingTypePercentage" sourceNode="_FoLSAGgtEemrq79eHTNoiA" targetNode="_MZ9u4GgtEemrq79eHTNoiA">
-      <target xmi:type="ecore:EReference" href="esdl.ecore#//BuildingTypeDistribution/buildingTypePercentage"/>
-      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//BuildingTypeDistribution/buildingTypePercentage"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_S9fwgGgxEemrq79eHTNoiA" name="[0..*] bin" sourceNode="_FoLSAGgtEemrq79eHTNoiA" targetNode="_MZ9u4GgtEemrq79eHTNoiA">
+      <target xmi:type="ecore:EReference" href="esdl.ecore#//BuildingTypeDistribution/bin"/>
+      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//BuildingTypeDistribution/bin"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_S9fwgWgxEemrq79eHTNoiA" description="_-krrUMB1EeeJ9PYBAF2PgA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_S9fwg2gxEemrq79eHTNoiA" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -24932,9 +24932,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_V8FBjGgxEemrq79eHTNoiA" name="[0..*] residentialBuildingTypePercentage" sourceNode="_QSEhgGgwEemrq79eHTNoiA" targetNode="_YvA4oGgwEemrq79eHTNoiA">
-      <target xmi:type="ecore:EReference" href="esdl.ecore#//ResidentialBuildingTypeDistribution/residentialBuildingTypePercentage"/>
-      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//ResidentialBuildingTypeDistribution/residentialBuildingTypePercentage"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_V8FBjGgxEemrq79eHTNoiA" name="[0..*] bin" sourceNode="_QSEhgGgwEemrq79eHTNoiA" targetNode="_YvA4oGgwEemrq79eHTNoiA">
+      <target xmi:type="ecore:EReference" href="esdl.ecore#//ResidentialBuildingTypeDistribution/bin"/>
+      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//ResidentialBuildingTypeDistribution/bin"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_V8FBjWgxEemrq79eHTNoiA" description="_-krrUMB1EeeJ9PYBAF2PgA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_V8FBj2gxEemrq79eHTNoiA" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -24945,9 +24945,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_a4-ZVmgxEemrq79eHTNoiA" name="[0..*] ownershipRentalTypePercentage" sourceNode="_sZqeUGgwEemrq79eHTNoiA" targetNode="_Il8t4GgxEemrq79eHTNoiA">
-      <target xmi:type="ecore:EReference" href="esdl.ecore#//OwnershipRentalTypeDistribution/ownershipRentalTypePercentage"/>
-      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//OwnershipRentalTypeDistribution/ownershipRentalTypePercentage"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_a4-ZVmgxEemrq79eHTNoiA" name="[0..*] bin" sourceNode="_sZqeUGgwEemrq79eHTNoiA" targetNode="_Il8t4GgxEemrq79eHTNoiA">
+      <target xmi:type="ecore:EReference" href="esdl.ecore#//OwnershipRentalTypeDistribution/bin"/>
+      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//OwnershipRentalTypeDistribution/bin"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_a4-ZV2gxEemrq79eHTNoiA" description="_-krrUMB1EeeJ9PYBAF2PgA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_a4-ZWWgxEemrq79eHTNoiA" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -32420,8 +32420,8 @@
     <lines xmi:type="table:DLine" uid="_-TPgIlFUEemdwPTMMldKDA" label="EClass : EnergyLabelDistribution">
       <target xmi:type="ecore:EClass" href="esdl.ecore#//EnergyLabelDistribution"/>
       <lines xmi:type="table:DLine" uid="_-UL7W1FUEemdwPTMMldKDA" label="EReference : labelPerc">
-        <target xmi:type="ecore:EReference" href="esdl.ecore#//EnergyLabelDistribution/labelPerc"/>
-        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//EnergyLabelDistribution/labelPerc"/>
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//EnergyLabelDistribution/bin"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//EnergyLabelDistribution/bin"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//EnergyLabelDistribution"/>
@@ -32459,22 +32459,22 @@
       </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_-TR8YVFUEemdwPTMMldKDA" label="EClass : EnergyLabelPerc">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//EnergyLabelPerc"/>
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//EnergyLabelBin"/>
       <lines xmi:type="table:DLine" uid="_-UMiZVFUEemdwPTMMldKDA" label="EAttribute : energyLabel">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyLabelPerc/energyLabel"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyLabelPerc/energyLabel"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyLabelBin/energyLabel"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyLabelBin/energyLabel"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <lines xmi:type="table:DLine" uid="_-UMiZ1FUEemdwPTMMldKDA" label="EAttribute : percentage">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyLabelPerc/percentage"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyLabelPerc/percentage"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyLabelBin/percentage"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//EnergyLabelBin/percentage"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//EnergyLabelPerc"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//EnergyLabelBin"/>
       <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
       <cells xmi:type="table:DCell" uid="_-edVEF9fEemf2fuoUiMDyQ" label="Defines an energy label and a percentage, used in EnergyLabelDistribution" column="_XjYH2rsmEeeZZezrcapb6w">
-        <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergyLabelPerc/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergyLabelPerc/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergyLabelBin/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//EnergyLabelBin/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
         <currentStyle xmi:type="table:DCellStyle" uid="_-edVEV9fEemf2fuoUiMDyQ" defaultBackgroundStyle="true" backgroundColor="220,234,183">
           <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
         </currentStyle>
@@ -35369,12 +35369,12 @@
     <lines xmi:type="table:DLine" uid="_AjoKqHCfEem-IvGAVOB1ag" label="EClass : BuildingTypeDistribution">
       <target xmi:type="ecore:EClass" href="esdl.ecore#//BuildingTypeDistribution"/>
       <lines xmi:type="table:DLine" uid="_AkLkR3CfEem-IvGAVOB1ag" label="EReference : buildingTypePercentage">
-        <target xmi:type="ecore:EReference" href="esdl.ecore#//BuildingTypeDistribution/buildingTypePercentage"/>
-        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//BuildingTypeDistribution/buildingTypePercentage"/>
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//BuildingTypeDistribution/bin"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//BuildingTypeDistribution/bin"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
         <cells xmi:type="table:DCell" uid="_f9rKsKbZEemB37tvy2fp_g" label="The distribution in percentages" column="_XjYH2rsmEeeZZezrcapb6w">
-          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//BuildingTypeDistribution/buildingTypePercentage/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//BuildingTypeDistribution/buildingTypePercentage/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//BuildingTypeDistribution/bin/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//BuildingTypeDistribution/bin/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
           <currentStyle xmi:type="table:DCellStyle" uid="_f9rKsabZEemB37tvy2fp_g" defaultBackgroundStyle="true" backgroundColor="220,234,183">
             <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
           </currentStyle>
@@ -35393,22 +35393,22 @@
       </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_AjpYwHCfEem-IvGAVOB1ag" label="EClass : BuildingTypePercentage">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//BuildingTypePercentage"/>
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//BuildingTypeBin"/>
       <lines xmi:type="table:DLine" uid="_AkLkSXCfEem-IvGAVOB1ag" label="EAttribute : buildingType">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingTypePercentage/buildingType"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingTypePercentage/buildingType"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingTypeBin/buildingType"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingTypeBin/buildingType"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <lines xmi:type="table:DLine" uid="_AkLkS3CfEem-IvGAVOB1ag" label="EAttribute : percentage">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingTypePercentage/percentage"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingTypePercentage/percentage"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingTypeBin/percentage"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//BuildingTypeBin/percentage"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//BuildingTypePercentage"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//BuildingTypeBin"/>
       <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
       <cells xmi:type="table:DCell" uid="_lNF14KbZEemB37tvy2fp_g" label="Specifies the percentage of the selected building type" column="_XjYH2rsmEeeZZezrcapb6w">
-        <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//BuildingTypePercentage/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//BuildingTypePercentage/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//BuildingTypeBin/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//BuildingTypeBin/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
         <currentStyle xmi:type="table:DCellStyle" uid="_lNF14abZEemB37tvy2fp_g" defaultBackgroundStyle="true" backgroundColor="220,234,183">
           <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
         </currentStyle>
@@ -35418,12 +35418,12 @@
     <lines xmi:type="table:DLine" uid="_AjpYwnCfEem-IvGAVOB1ag" label="EClass : ResidentialBuildingTypeDistribution">
       <target xmi:type="ecore:EClass" href="esdl.ecore#//ResidentialBuildingTypeDistribution"/>
       <lines xmi:type="table:DLine" uid="_AkMLUXCfEem-IvGAVOB1ag" label="EReference : residentialBuildingTypePercentage">
-        <target xmi:type="ecore:EReference" href="esdl.ecore#//ResidentialBuildingTypeDistribution/residentialBuildingTypePercentage"/>
-        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//ResidentialBuildingTypeDistribution/residentialBuildingTypePercentage"/>
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//ResidentialBuildingTypeDistribution/bin"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//ResidentialBuildingTypeDistribution/bin"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
         <cells xmi:type="table:DCell" uid="_wmRUoKbZEemB37tvy2fp_g" label="The distribution in percentages" column="_XjYH2rsmEeeZZezrcapb6w">
-          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//ResidentialBuildingTypeDistribution/residentialBuildingTypePercentage/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//ResidentialBuildingTypeDistribution/residentialBuildingTypePercentage/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//ResidentialBuildingTypeDistribution/bin/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//ResidentialBuildingTypeDistribution/bin/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
           <currentStyle xmi:type="table:DCellStyle" uid="_wmRUoabZEemB37tvy2fp_g" defaultBackgroundStyle="true" backgroundColor="220,234,183">
             <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
           </currentStyle>
@@ -35442,14 +35442,14 @@
       </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_AjpYxHCfEem-IvGAVOB1ag" label="EClass : ResidentialBuildingTypePercentage">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//ResidentialBuildingTypePercentage"/>
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//ResidentialBuildingTypeBin"/>
       <lines xmi:type="table:DLine" uid="_AkMLU3CfEem-IvGAVOB1ag" label="EAttribute : residentialBuildingType">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//ResidentialBuildingTypePercentage/residentialBuildingType"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//ResidentialBuildingTypePercentage/residentialBuildingType"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//ResidentialBuildingTypeBin/residentialBuildingType"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//ResidentialBuildingTypeBin/residentialBuildingType"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
         <cells xmi:type="table:DCell" uid="_1zwtMKbZEemB37tvy2fp_g" label="" column="_XjYH2rsmEeeZZezrcapb6w">
-          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//ResidentialBuildingTypePercentage/residentialBuildingType/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//ResidentialBuildingTypePercentage/residentialBuildingType/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//ResidentialBuildingTypeBin/residentialBuildingType/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//ResidentialBuildingTypeBin/residentialBuildingType/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
           <currentStyle xmi:type="table:DCellStyle" uid="_1zwtMabZEemB37tvy2fp_g" defaultBackgroundStyle="true" backgroundColor="220,234,183">
             <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
           </currentStyle>
@@ -35457,15 +35457,15 @@
         </cells>
       </lines>
       <lines xmi:type="table:DLine" uid="_AkMLVXCfEem-IvGAVOB1ag" label="EAttribute : percentage">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//ResidentialBuildingTypePercentage/percentage"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//ResidentialBuildingTypePercentage/percentage"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//ResidentialBuildingTypeBin/percentage"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//ResidentialBuildingTypeBin/percentage"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//ResidentialBuildingTypePercentage"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//ResidentialBuildingTypeBin"/>
       <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
       <cells xmi:type="table:DCell" uid="_zLbZAKbZEemB37tvy2fp_g" label="Specifies the percentage of the selected residential building type" column="_XjYH2rsmEeeZZezrcapb6w">
-        <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//ResidentialBuildingTypePercentage/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//ResidentialBuildingTypePercentage/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//ResidentialBuildingTypeBin/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//ResidentialBuildingTypeBin/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
         <currentStyle xmi:type="table:DCellStyle" uid="_zLbZAabZEemB37tvy2fp_g" defaultBackgroundStyle="true" backgroundColor="220,234,183">
           <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
         </currentStyle>
@@ -35475,12 +35475,12 @@
     <lines xmi:type="table:DLine" uid="_Ajp_0XCfEem-IvGAVOB1ag" label="EClass : HousingTypeDistribution">
       <target xmi:type="ecore:EClass" href="esdl.ecore#//OwnershipRentalTypeDistribution"/>
       <lines xmi:type="table:DLine" uid="_AkMLV3CfEem-IvGAVOB1ag" label="EReference : housingTypePercentage">
-        <target xmi:type="ecore:EReference" href="esdl.ecore#//OwnershipRentalTypeDistribution/ownershipRentalTypePercentage"/>
-        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//OwnershipRentalTypeDistribution/ownershipRentalTypePercentage"/>
+        <target xmi:type="ecore:EReference" href="esdl.ecore#//OwnershipRentalTypeDistribution/bin"/>
+        <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//OwnershipRentalTypeDistribution/bin"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
         <cells xmi:type="table:DCell" uid="_-nz8wKbZEemB37tvy2fp_g" label="The distribution in percentages" column="_XjYH2rsmEeeZZezrcapb6w">
-          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//OwnershipRentalTypeDistribution/ownershipRentalTypePercentage/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//OwnershipRentalTypeDistribution/ownershipRentalTypePercentage/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//OwnershipRentalTypeDistribution/bin/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+          <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//OwnershipRentalTypeDistribution/bin/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
           <currentStyle xmi:type="table:DCellStyle" uid="_-nz8wabZEemB37tvy2fp_g" defaultBackgroundStyle="true" backgroundColor="220,234,183">
             <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
           </currentStyle>
@@ -35499,22 +35499,22 @@
       </cells>
     </lines>
     <lines xmi:type="table:DLine" uid="_Ajp_03CfEem-IvGAVOB1ag" label="EClass : HousingTypePercentage">
-      <target xmi:type="ecore:EClass" href="esdl.ecore#//OwnershipRentalTypePercentage"/>
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//OwnershipRentalTypeBin"/>
       <lines xmi:type="table:DLine" uid="_AkMLWXCfEem-IvGAVOB1ag" label="EAttribute : housingType">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//OwnershipRentalTypePercentage/ownershipRentalType"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//OwnershipRentalTypePercentage/ownershipRentalType"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//OwnershipRentalTypeBin/ownershipRentalType"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//OwnershipRentalTypeBin/ownershipRentalType"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
       <lines xmi:type="table:DLine" uid="_AkMyYHCfEem-IvGAVOB1ag" label="EAttribute : percentage">
-        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//OwnershipRentalTypePercentage/percentage"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//OwnershipRentalTypePercentage/percentage"/>
+        <target xmi:type="ecore:EAttribute" href="esdl.ecore#//OwnershipRentalTypeBin/percentage"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="esdl.ecore#//OwnershipRentalTypeBin/percentage"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']/@ownedSubLines[name='Doc%20EStructural%20Features']"/>
       </lines>
-      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//OwnershipRentalTypePercentage"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//OwnershipRentalTypeBin"/>
       <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedLineMappings[name='Doc%20EClassifiers']"/>
       <cells xmi:type="table:DCell" uid="__PRlYKbZEemB37tvy2fp_g" label="Specifies the percentage of the selected housing type" column="_XjYH2rsmEeeZZezrcapb6w">
-        <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//OwnershipRentalTypePercentage/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
-        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//OwnershipRentalTypePercentage/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <target xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//OwnershipRentalTypeBin/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
+        <semanticElements xmi:type="ecore:EStringToStringMapEntry" href="esdl.ecore#//OwnershipRentalTypeBin/%http:%2F%2Fwww.eclipse.org%2Femf%2F2002%2FGenModel%/@details.0"/>
         <currentStyle xmi:type="table:DCellStyle" uid="__PRlYabZEemB37tvy2fp_g" defaultBackgroundStyle="true" backgroundColor="220,234,183">
           <backgroundStyleOrigin xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
         </currentStyle>

@@ -106,7 +106,7 @@ A browseable version of this model is found at [https://energytransition.github.
   <xsd:element ecore:ignore="true" name="StringLabelDistribution" type="esdl:StringLabelDistribution"/>
   <xsd:element ecore:ignore="true" name="EnergyLabelDistribution" type="esdl:EnergyLabelDistribution"/>
   <xsd:element ecore:ignore="true" name="StringItem" type="esdl:StringItem"/>
-  <xsd:element ecore:ignore="true" name="EnergyLabelPerc" type="esdl:EnergyLabelPerc"/>
+  <xsd:element ecore:ignore="true" name="EnergyLabelBin" type="esdl:EnergyLabelBin"/>
   <xsd:element ecore:ignore="true" name="FromToDistribution" type="esdl:FromToDistribution"/>
   <xsd:element ecore:ignore="true" name="FromToItem" type="esdl:FromToItem"/>
   <xsd:element ecore:ignore="true" name="PItemStat" type="esdl:PItemStat"/>
@@ -210,11 +210,11 @@ A browseable version of this model is found at [https://energytransition.github.
   <xsd:element ecore:ignore="true" name="BuildingUsageReference" type="esdl:BuildingUsageReference"/>
   <xsd:element ecore:ignore="true" name="BuildingUsageInformation" type="esdl:BuildingUsageInformation"/>
   <xsd:element ecore:ignore="true" name="BuildingTypeDistribution" type="esdl:BuildingTypeDistribution"/>
-  <xsd:element ecore:ignore="true" name="BuildingTypePercentage" type="esdl:BuildingTypePercentage"/>
+  <xsd:element ecore:ignore="true" name="BuildingTypeBin" type="esdl:BuildingTypeBin"/>
   <xsd:element ecore:ignore="true" name="ResidentialBuildingTypeDistribution" type="esdl:ResidentialBuildingTypeDistribution"/>
-  <xsd:element ecore:ignore="true" name="ResidentialBuildingTypePercentage" type="esdl:ResidentialBuildingTypePercentage"/>
+  <xsd:element ecore:ignore="true" name="ResidentialBuildingTypeBin" type="esdl:ResidentialBuildingTypeBin"/>
   <xsd:element ecore:ignore="true" name="OwnershipRentalTypeDistribution" type="esdl:OwnershipRentalTypeDistribution"/>
-  <xsd:element ecore:ignore="true" name="OwnershipRentalTypePercentage" type="esdl:OwnershipRentalTypePercentage"/>
+  <xsd:element ecore:ignore="true" name="OwnershipRentalTypeBin" type="esdl:OwnershipRentalTypeBin"/>
   <xsd:element ecore:ignore="true" name="DoubleKPI" type="esdl:DoubleKPI"/>
   <xsd:element ecore:ignore="true" name="StringKPI" type="esdl:StringKPI"/>
   <xsd:element ecore:ignore="true" name="IntKPI" type="esdl:IntKPI"/>
@@ -2251,7 +2251,11 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:complexContent>
       <xsd:extension base="esdl:SpecificLabelDistribution">
         <xsd:sequence>
-          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="labelPerc" type="esdl:EnergyLabelPerc"/>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="bin" type="esdl:EnergyLabelBin">
+            <xsd:annotation>
+              <xsd:documentation>The collection of bins in the distribution</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -2263,12 +2267,16 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:attribute name="label" type="ecore:EString"/>
     <xsd:attribute default="0.0" ecore:unsettable="false" name="value" type="ecore:EDouble"/>
   </xsd:complexType>
-  <xsd:complexType name="EnergyLabelPerc">
+  <xsd:complexType name="EnergyLabelBin">
     <xsd:annotation>
-      <xsd:documentation>Defines an energy label and a percentage, used in EnergyLabelDistribution</xsd:documentation>
+      <xsd:documentation>Defines a bin for an energy label with a percentage, used in EnergyLabelDistribution</xsd:documentation>
     </xsd:annotation>
     <xsd:attribute ecore:unsettable="false" name="energyLabel" type="esdl:EnergyLabelEnum"/>
-    <xsd:attribute ecore:unsettable="false" name="percentage" type="ecore:EDouble"/>
+    <xsd:attribute ecore:unsettable="false" name="percentage" type="ecore:EDouble">
+      <xsd:annotation>
+        <xsd:documentation/>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
   <xsd:complexType name="FromToDistribution">
     <xsd:annotation>
@@ -4036,18 +4044,18 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:complexContent>
       <xsd:extension base="esdl:SpecificLabelDistribution">
         <xsd:sequence>
-          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="buildingTypePercentage" type="esdl:BuildingTypePercentage">
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="bin" type="esdl:BuildingTypeBin">
             <xsd:annotation>
-              <xsd:documentation>The distribution in percentages</xsd:documentation>
+              <xsd:documentation>The collection of bins in the distribution</xsd:documentation>
             </xsd:annotation>
           </xsd:element>
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="BuildingTypePercentage">
+  <xsd:complexType name="BuildingTypeBin">
     <xsd:annotation>
-      <xsd:documentation>Specifies the percentage of the selected building type</xsd:documentation>
+      <xsd:documentation>Defines a bin for a building type with a percentage, used in BuildingTypeDistribution </xsd:documentation>
     </xsd:annotation>
     <xsd:attribute ecore:unsettable="false" name="buildingType" type="esdl:BuildingTypeEnum"/>
     <xsd:attribute ecore:unsettable="false" name="percentage" type="ecore:EDouble"/>
@@ -4059,18 +4067,18 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:complexContent>
       <xsd:extension base="esdl:SpecificLabelDistribution">
         <xsd:sequence>
-          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="residentialBuildingTypePercentage" type="esdl:ResidentialBuildingTypePercentage">
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="bin" type="esdl:ResidentialBuildingTypeBin">
             <xsd:annotation>
-              <xsd:documentation>The distribution in percentages</xsd:documentation>
+              <xsd:documentation>The collection of bins in the distribution</xsd:documentation>
             </xsd:annotation>
           </xsd:element>
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="ResidentialBuildingTypePercentage">
+  <xsd:complexType name="ResidentialBuildingTypeBin">
     <xsd:annotation>
-      <xsd:documentation>Specifies the percentage of the selected residential building type</xsd:documentation>
+      <xsd:documentation>Defines a bin for a residential building type with a percentage, used in ResidentialBuildingTypeDistribution </xsd:documentation>
     </xsd:annotation>
     <xsd:attribute ecore:unsettable="false" name="residentialBuildingType" type="esdl:ResidentialBuildingTypeEnum">
       <xsd:annotation>
@@ -4086,18 +4094,18 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:complexContent>
       <xsd:extension base="esdl:SpecificLabelDistribution">
         <xsd:sequence>
-          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="ownershipRentalTypePercentage" type="esdl:OwnershipRentalTypePercentage">
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="bin" type="esdl:OwnershipRentalTypeBin">
             <xsd:annotation>
-              <xsd:documentation>The distribution in percentages</xsd:documentation>
+              <xsd:documentation>The collection of bins in the distribution</xsd:documentation>
             </xsd:annotation>
           </xsd:element>
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="OwnershipRentalTypePercentage">
+  <xsd:complexType name="OwnershipRentalTypeBin">
     <xsd:annotation>
-      <xsd:documentation>Specifies the percentage of the selected housing type</xsd:documentation>
+      <xsd:documentation>Defines a bin for a ownership/rental type with a percentage, used in OwnershipRentalTypeDistribution </xsd:documentation>
     </xsd:annotation>
     <xsd:attribute default="UNDEFINED" ecore:unsettable="false" name="ownershipRentalType" type="esdl:OwnershipRentalTypeEnum"/>
     <xsd:attribute ecore:unsettable="false" name="percentage" type="ecore:EDouble"/>
