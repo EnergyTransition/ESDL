@@ -733,6 +733,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/material"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/manufacturer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/bufferDistance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/constraint"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/containingAsset"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GenericConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//GenericProducer"/>
@@ -895,6 +897,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AbstractBuilding/asset"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AbstractBuilding/buildingUsage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AbstractBuilding/potential"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AbstractBuilding/measures"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Instance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Instance/id"/>
@@ -1570,8 +1573,7 @@
     <genClasses ecoreClass="esdl.ecore#//LabelJump">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//LabelJump/fromLabel"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//LabelJump/toLabel"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//LabelJump/buildingType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//LabelJump/buildingYearRange"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//LabelJump/savings"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AbstractMeasure"/>
     <genClasses ecoreClass="esdl.ecore#//MeasureReference">
@@ -1604,7 +1606,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingStructureInformation/uDoor"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//CompoundAsset">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CompoundAsset/asset"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//CompoundAsset/asset"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//InitialValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//InitialValue/value"/>
@@ -1731,17 +1733,35 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ATES/wellCasingSize"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ATES/wellDistance"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//HybridHeatpump">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HybridHeatpump/gasHeaterThermalPower"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HybridHeatpump/gasHeaterEfficiency"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HybridHeatpump/heatpumpThermalPower"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HybridHeatpump/heatpumpCOP"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HybridHeatpump/heatpumpCoolingPower"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HybridHeatpump/heatpumpCoolingCOP"/>
+    <genClasses ecoreClass="esdl.ecore#//HybridHeatPump">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HybridHeatPump/gasHeaterThermalPower"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HybridHeatPump/gasHeaterEfficiency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HybridHeatPump/heatPumpThermalPower"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HybridHeatPump/heatPumpCOP"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HybridHeatPump/heatPumpCoolingPower"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HybridHeatPump/heatPumpCoolingCOP"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//AbstractBasicConversion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractBasicConversion/power"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractBasicConversion/efficiency"/>
     </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//ResidentialBuildingTypeRestriction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ResidentialBuildingTypeRestriction/type"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//BuildingYearRestriction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//BuildingYearRestriction/range"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//Constraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Constraint/attributeReference"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//RangedConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//RangedConstraint/range"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//ExposedPortsAsset">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//ExposedPortsAsset/port"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//ConnectableAsset"/>
+    <genClasses ecoreClass="esdl.ecore#//PumpedHydroPower"/>
+    <genClasses ecoreClass="esdl.ecore#//CAES"/>
   </genPackages>
 </genmodel:GenModel>

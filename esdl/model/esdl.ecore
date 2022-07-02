@@ -5,9 +5,9 @@
     <details key="documentation" value="# Energy System Description Language&#xD;&#xA;&#xD;&#xA;The Energy System Description Language (ESDL) is a modelling language created for modelling the components in an energy system and their relations towards each other. Furthermore ESDL is capable of expressing the dynamic behaviour of components in the energy system. For instance the power consumption of an neighbourhood. ESDL describes components by their basic functionality (so called Energy Capabilities), these are modelled in 5 abstract categories: Production, Consumption, Storage, Transport and Conversion. ESDL enables energy modelers to model a complex energy system in a generic way. The language is machine readable so makers of energy transition calculation tools and GIS applications can support ESDL in order to enforce the interoperability of their products.&#xD;&#xA;&#xD;&#xA;ESDL is currently developed by [TNO](https://www.tno.nl), and is open source. &#xD;&#xA;The Github repository is at [https://github.com/EnergyTransition/ESDL](https://github.com/EnergyTransition/ESDL)&#xD;&#xA;&#xD;&#xA;For more information about ESDL, see the [ESDL gitbook](https://energytransition.gitbook.io/esdl)&#xD;&#xA;A browseable version of this model is found at [https://energytransition.github.io/](https://energytransition.github.io/)&#xD;&#xA;"/>
   </eAnnotations>
   <eAnnotations source="http://www.tno.nl/esdl/version">
-    <details key="version" value="v2112"/>
+    <details key="version" value="v2207"/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="EnergyAsset" abstract="true" eSuperTypes="#//Asset">
+  <eClassifiers xsi:type="ecore:EClass" name="EnergyAsset" abstract="true" eSuperTypes="#//ConnectableAsset">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport "/>
     </eAnnotations>
@@ -645,6 +645,10 @@
         <details key="documentation" value=""/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" upperBound="-1"
+        eType="#//Constraint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containingAsset" eType="#//CompoundAsset"
+        eOpposite="#//CompoundAsset/asset"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericConsumer" eSuperTypes="#//Consumer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1367,7 +1371,7 @@
     <eLiterals name="URANIUM" value="4"/>
     <eLiterals name="HYDROGEN" value="5"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractBuilding" abstract="true" eSuperTypes="#//Asset">
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractBuilding" abstract="true" eSuperTypes="#//ExposedPortsAsset">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Describes the shared properties of building, building unit and aggregated building"/>
     </eAnnotations>
@@ -1377,6 +1381,12 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="potential" upperBound="-1"
         eType="#//Potential" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="measures" eType="#//Measures"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Measures collection for a specific building. Allows you to specify different possibilities for different buildings (or building types)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Instance">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3668,11 +3678,21 @@
       </eAnnotations>
     </eLiterals>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Restriction" abstract="true" eSuperTypes="#//Item"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Restriction" abstract="true" eSuperTypes="#//Item">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Allows to specify restrictions to measures"/>
+    </eAnnotations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuildingTypeRestriction" eSuperTypes="#//Restriction">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Defines a restriction on the type of building (the purpose for which the building is used)."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" upperBound="-1" eType="#//BuildingTypeEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AreaTypeRestriction" eSuperTypes="#//Restriction">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Defines a restriction on the type of area (road, railway, built, water, ...)"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" upperBound="-1" eType="#//AreaTypeEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Templates">
@@ -3700,7 +3720,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Address">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="The address of a building unit."/>
+      <details key="documentation" value="The address of a building or building unit."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="streetName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="houseNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -3734,14 +3754,20 @@
     </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MinimumLabelRestriction" eSuperTypes="#//Restriction">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Defines a restriction on the minimum label required. Allows to specify for example to only apply a heatpump in a house with energy label B or better."/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="#//EnergyLabelEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LabelJump">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fromLabel" eType="#//EnergyLabelEnum"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="toLabel" eType="#//EnergyLabelEnum"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildingType" eType="#//ResidentialBuildingTypeEnum"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="buildingYearRange" eType="#//Range"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="savings" eType="#//SingleValue"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The (energy) savings belonging to the energy label jump. Can be expressed as an absolute value (in kWh, GJ, kWh/m2, ...) or a relative value (%) using the profileQuanityAndUnit reference."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractMeasure" abstract="true" eSuperTypes="#//Item"/>
   <eClassifiers xsi:type="ecore:EClass" name="MeasureReference" eSuperTypes="#//AbstractMeasure">
@@ -3844,9 +3870,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="doorArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uDoor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CompoundAsset" eSuperTypes="#//Asset">
+  <eClassifiers xsi:type="ecore:EClass" name="CompoundAsset" eSuperTypes="#//ExposedPortsAsset">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Asset that can contain multiple other assets that belong together. Can for example be used for modelling a certain storage technology, that consists of individual processes for charging and discharging, next to the storage capability itself"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="asset" upperBound="-1"
-        eType="#//Asset" containment="true"/>
+        eType="#//Asset" containment="true" eOpposite="#//Asset/containingAsset"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InitialValue" eSuperTypes="#//StaticProfile">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -4319,6 +4348,9 @@
     <eLiterals name="NOX_EMISSIONS" value="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ATES" eSuperTypes="#//HeatStorage">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Aquifer Thermal Energy Storage"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aquiferTopDepth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
         <details key="unit" value="m"/>
@@ -4393,7 +4425,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="HybridHeatpump" eSuperTypes="#//Conversion">
+  <eClassifiers xsi:type="ecore:EClass" name="HybridHeatPump" eSuperTypes="#//Conversion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Hybrid heatpump with both an electric heatpump and a gasheater part"/>
     </eAnnotations>
@@ -4411,7 +4443,8 @@
         <details key="documentation" value="Efficiency of the gasheater part of the hybrid heatpump (in Watts)"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatpumpThermalPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatPumpThermalPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Thermal output power of the electric heatpump part of the hybrid heatpump (in Watts) used for heating"/>
       </eAnnotations>
@@ -4419,12 +4452,14 @@
         <details key="unit" value="W"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatpumpCOP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatPumpCOP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="COP of the electric heatpump part of the hybrid heatpump (in Watts) used for heating"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatpumpCoolingPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatPumpCoolingPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="output power of the electric heatpump part of the hybrid heatpump (in Watts) used for cooling"/>
       </eAnnotations>
@@ -4432,7 +4467,8 @@
         <details key="unit" value="W"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatpumpCoolingCOP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatPumpCoolingCOP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="COP of the electric heatpump part of the hybrid heatpump (in Watts) used for cooling"/>
       </eAnnotations>
@@ -4456,5 +4492,53 @@
         <details key="documentation" value="The efficiency of the conversion asset. Allows to specify conversion losses as a percentage"/>
       </eAnnotations>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResidentialBuildingTypeRestriction"
+      eSuperTypes="#//Restriction">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Defines a restriction on the residential type of the building (terraced, free standing, appartment, ...)."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" upperBound="-1" eType="#//ResidentialBuildingTypeEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BuildingYearRestriction" eSuperTypes="#//Restriction">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Defines a restriction on the building year range"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="range" eType="#//Range"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint" abstract="true" eSuperTypes="#//Item">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Allows to specify constraints for asset attributes."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributeReference" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Allows to explicitly create the contraint on a specific attribute of the asset in case this is ambiguous, e.g. a power constraint on the output power of a hybrid heatpump (gasheater power or heatpump power)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RangedConstraint" eSuperTypes="#//Constraint">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Allow to specify a certain constraint as a range (with min and max values) "/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="range" eType="#//Range"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExposedPortsAsset" abstract="true" eSuperTypes="#//ConnectableAsset">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract class with a reference to exposed ports. It's the super class of CompoundAsset and all Buildings"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="port" upperBound="-1" eType="#//Port"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConnectableAsset" abstract="true" eSuperTypes="#//Asset">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract class to group sub classes that have exposed ports or ports of its own"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PumpedHydroPower" eSuperTypes="#//Storage"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CAES" eSuperTypes="#//Storage">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Compressed Air Energy Storage"/>
+    </eAnnotations>
   </eClassifiers>
 </ecore:EPackage>

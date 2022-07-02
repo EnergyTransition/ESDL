@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2112" targetNamespace="http://www.tno.nl/esdl">
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2207" targetNamespace="http://www.tno.nl/esdl">
   <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
   <xsd:annotation>
     <xsd:documentation># Energy System Description Language
@@ -283,14 +283,22 @@ A browseable version of this model is found at [https://energytransition.github.
   <xsd:element ecore:ignore="true" name="PortRelation" type="esdl:PortRelation"/>
   <xsd:element ecore:ignore="true" name="BufferDistance" type="esdl:BufferDistance"/>
   <xsd:element ecore:ignore="true" name="ATES" type="esdl:ATES"/>
-  <xsd:element ecore:ignore="true" name="HybridHeatpump" type="esdl:HybridHeatpump"/>
+  <xsd:element ecore:ignore="true" name="HybridHeatPump" type="esdl:HybridHeatPump"/>
   <xsd:element ecore:ignore="true" name="AbstractBasicConversion" type="esdl:AbstractBasicConversion"/>
+  <xsd:element ecore:ignore="true" name="ResidentialBuildingTypeRestriction" type="esdl:ResidentialBuildingTypeRestriction"/>
+  <xsd:element ecore:ignore="true" name="BuildingYearRestriction" type="esdl:BuildingYearRestriction"/>
+  <xsd:element ecore:ignore="true" name="Constraint" type="esdl:Constraint"/>
+  <xsd:element ecore:ignore="true" name="RangedConstraint" type="esdl:RangedConstraint"/>
+  <xsd:element ecore:ignore="true" name="ExposedPortsAsset" type="esdl:ExposedPortsAsset"/>
+  <xsd:element ecore:ignore="true" name="ConnectableAsset" type="esdl:ConnectableAsset"/>
+  <xsd:element ecore:ignore="true" name="PumpedHydroPower" type="esdl:PumpedHydroPower"/>
+  <xsd:element ecore:ignore="true" name="CAES" type="esdl:CAES"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Asset">
+      <xsd:extension base="esdl:ConnectableAsset">
         <xsd:sequence>
           <xsd:element ecore:opposite="energyasset" ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="port" type="esdl:Port"/>
           <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="behaviour" type="esdl:AbstractBehaviour">
@@ -880,6 +888,7 @@ A browseable version of this model is found at [https://energytransition.github.
               <xsd:documentation/>
             </xsd:annotation>
           </xsd:element>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="constraint" type="esdl:Constraint"/>
         </xsd:sequence>
         <xsd:attribute ecore:unsettable="false" name="surfaceArea" nl.tno.esdl.attribute.unit:unit="m²" type="ecore:EInt">
           <xsd:annotation>
@@ -930,6 +939,7 @@ A browseable version of this model is found at [https://energytransition.github.
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="state" type="esdl:AssetStateEnum"/>
         <xsd:attribute name="manufacturer" type="ecore:EString"/>
+        <xsd:attribute ecore:opposite="asset" ecore:reference="esdl:CompoundAsset" name="containingAsset" type="xsd:anyURI"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1718,11 +1728,16 @@ A browseable version of this model is found at [https://energytransition.github.
       <xsd:documentation>Describes the shared properties of building, building unit and aggregated building</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Asset">
+      <xsd:extension base="esdl:ExposedPortsAsset">
         <xsd:sequence>
           <xsd:element ecore:opposite="containingBuilding" ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset"/>
           <xsd:element ecore:resolveProxies="true" minOccurs="0" name="buildingUsage" type="esdl:AbstractBuildingUsage"/>
           <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="potential" type="esdl:Potential"/>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="measures" type="esdl:Measures">
+            <xsd:annotation>
+              <xsd:documentation>Measures collection for a specific building. Allows you to specify different possibilities for different buildings (or building types).</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -4460,11 +4475,17 @@ Examples of layered Matters
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:complexType abstract="true" name="Restriction">
+    <xsd:annotation>
+      <xsd:documentation>Allows to specify restrictions to measures</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Item"/>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="BuildingTypeRestriction">
+    <xsd:annotation>
+      <xsd:documentation>Defines a restriction on the type of building (the purpose for which the building is used).</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Restriction">
         <xsd:sequence>
@@ -4474,6 +4495,9 @@ Examples of layered Matters
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="AreaTypeRestriction">
+    <xsd:annotation>
+      <xsd:documentation>Defines a restriction on the type of area (road, railway, built, water, ...)</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Restriction">
         <xsd:sequence>
@@ -4519,7 +4543,7 @@ Examples of layered Matters
   </xsd:complexType>
   <xsd:complexType name="Address">
     <xsd:annotation>
-      <xsd:documentation>The address of a building unit.</xsd:documentation>
+      <xsd:documentation>The address of a building or building unit.</xsd:documentation>
     </xsd:annotation>
     <xsd:attribute name="streetName" type="ecore:EString"/>
     <xsd:attribute ecore:unsettable="false" name="houseNumber" type="ecore:EInt"/>
@@ -4569,6 +4593,9 @@ Examples of layered Matters
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="MinimumLabelRestriction">
+    <xsd:annotation>
+      <xsd:documentation>Defines a restriction on the minimum label required. Allows to specify for example to only apply a heatpump in a house with energy label B or better.</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Restriction">
         <xsd:attribute ecore:unsettable="false" name="label" type="esdl:EnergyLabelEnum"/>
@@ -4577,11 +4604,14 @@ Examples of layered Matters
   </xsd:complexType>
   <xsd:complexType name="LabelJump">
     <xsd:sequence>
-      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="buildingYearRange" type="esdl:Range"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="savings" type="esdl:SingleValue">
+        <xsd:annotation>
+          <xsd:documentation>The (energy) savings belonging to the energy label jump. Can be expressed as an absolute value (in kWh, GJ, kWh/m2, ...) or a relative value (%) using the profileQuanityAndUnit reference.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
     <xsd:attribute ecore:unsettable="false" name="fromLabel" type="esdl:EnergyLabelEnum"/>
     <xsd:attribute ecore:unsettable="false" name="toLabel" type="esdl:EnergyLabelEnum"/>
-    <xsd:attribute ecore:unsettable="false" name="buildingType" type="esdl:ResidentialBuildingTypeEnum"/>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="AbstractMeasure">
     <xsd:complexContent>
@@ -4700,10 +4730,13 @@ Examples of layered Matters
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="CompoundAsset">
+    <xsd:annotation>
+      <xsd:documentation>Asset that can contain multiple other assets that belong together. Can for example be used for modelling a certain storage technology, that consists of individual processes for charging and discharging, next to the storage capability itself</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Asset">
+      <xsd:extension base="esdl:ExposedPortsAsset">
         <xsd:sequence>
-          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset"/>
+          <xsd:element ecore:opposite="containingAsset" ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset"/>
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -5218,6 +5251,9 @@ Examples of layered Matters
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:complexType name="ATES">
+    <xsd:annotation>
+      <xsd:documentation>Aquifer Thermal Energy Storage</xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:HeatStorage">
         <xsd:attribute ecore:unsettable="false" name="aquiferTopDepth" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
@@ -5273,7 +5309,7 @@ Examples of layered Matters
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="HybridHeatpump">
+  <xsd:complexType name="HybridHeatPump">
     <xsd:annotation>
       <xsd:documentation>Hybrid heatpump with both an electric heatpump and a gasheater part</xsd:documentation>
     </xsd:annotation>
@@ -5289,22 +5325,22 @@ Examples of layered Matters
             <xsd:documentation>Efficiency of the gasheater part of the hybrid heatpump (in Watts)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="heatpumpThermalPower" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="heatPumpThermalPower" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Thermal output power of the electric heatpump part of the hybrid heatpump (in Watts) used for heating</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="heatpumpCOP" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="heatPumpCOP" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>COP of the electric heatpump part of the hybrid heatpump (in Watts) used for heating</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="heatpumpCoolingPower" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="heatPumpCoolingPower" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>output power of the electric heatpump part of the hybrid heatpump (in Watts) used for cooling</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="heatpumpCoolingCOP" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="heatPumpCoolingCOP" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>COP of the electric heatpump part of the hybrid heatpump (in Watts) used for cooling</xsd:documentation>
           </xsd:annotation>
@@ -5329,6 +5365,91 @@ Examples of layered Matters
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ResidentialBuildingTypeRestriction">
+    <xsd:annotation>
+      <xsd:documentation>Defines a restriction on the residential type of the building (terraced, free standing, appartment, ...).</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Restriction">
+        <xsd:sequence>
+          <xsd:element ecore:unique="true" maxOccurs="unbounded" minOccurs="0" name="type" type="esdl:ResidentialBuildingTypeEnum"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="BuildingYearRestriction">
+    <xsd:annotation>
+      <xsd:documentation>Defines a restriction on the building year range</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Restriction">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="range" type="esdl:Range"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="Constraint">
+    <xsd:annotation>
+      <xsd:documentation>Allows to specify constraints for asset attributes.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Item">
+        <xsd:attribute name="attributeReference" type="ecore:EString">
+          <xsd:annotation>
+            <xsd:documentation>Allows to explicitly create the contraint on a specific attribute of the asset in case this is ambiguous, e.g. a power constraint on the output power of a hybrid heatpump (gasheater power or heatpump power)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="RangedConstraint">
+    <xsd:annotation>
+      <xsd:documentation>Allow to specify a certain constraint as a range (with min and max values) </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Constraint">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="range" type="esdl:Range"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="ExposedPortsAsset">
+    <xsd:annotation>
+      <xsd:documentation>Abstract class with a reference to exposed ports. It's the super class of CompoundAsset and all Buildings</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:ConnectableAsset">
+        <xsd:attribute ecore:reference="esdl:Port" name="port">
+          <xsd:simpleType>
+            <xsd:list itemType="xsd:anyURI"/>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="ConnectableAsset">
+    <xsd:annotation>
+      <xsd:documentation>Abstract class to group sub classes that have exposed ports or ports of its own</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Asset"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PumpedHydroPower">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Storage"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CAES">
+    <xsd:annotation>
+      <xsd:documentation>Compressed Air Energy Storage</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Storage"/>
     </xsd:complexContent>
   </xsd:complexType>
 </xsd:schema>
