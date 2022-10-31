@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2207" targetNamespace="http://www.tno.nl/esdl">
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2210" targetNamespace="http://www.tno.nl/esdl">
   <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
   <xsd:annotation>
     <xsd:documentation># Energy System Description Language
@@ -293,6 +293,7 @@ A browseable version of this model is found at [https://energytransition.github.
   <xsd:element ecore:ignore="true" name="ConnectableAsset" type="esdl:ConnectableAsset"/>
   <xsd:element ecore:ignore="true" name="PumpedHydroPower" type="esdl:PumpedHydroPower"/>
   <xsd:element ecore:ignore="true" name="CAES" type="esdl:CAES"/>
+  <xsd:element ecore:ignore="true" name="DataSourceList" type="esdl:DataSourceList"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -558,6 +559,11 @@ A browseable version of this model is found at [https://energytransition.github.
     <xsd:complexContent>
       <xsd:extension base="esdl:Storage">
         <xsd:attribute ecore:unsettable="false" name="maxChargeDischargeCycles" type="ecore:EInt"/>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="powerFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -703,7 +709,7 @@ A browseable version of this model is found at [https://energytransition.github.
     </xsd:attribute>
     <xsd:attribute ecore:unsettable="false" name="buildingDensity" type="ecore:EDouble">
       <xsd:annotation>
-        <xsd:documentation>(experimental) Defines the number of buildings per m2</xsd:documentation>
+        <xsd:documentation>(experimental) Defines the number of buildings per m²</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
     <xsd:attribute ecore:reference="esdl:Sector" name="sector" type="xsd:anyURI"/>
@@ -718,6 +724,7 @@ A browseable version of this model is found at [https://energytransition.github.
           <xsd:documentation>Contains the profile attached to this port. Profiles </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="constraint" type="esdl:Constraint"/>
     </xsd:sequence>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString" use="required">
       <xsd:annotation>
@@ -892,7 +899,7 @@ A browseable version of this model is found at [https://energytransition.github.
         </xsd:sequence>
         <xsd:attribute ecore:unsettable="false" name="surfaceArea" nl.tno.esdl.attribute.unit:unit="m²" type="ecore:EInt">
           <xsd:annotation>
-            <xsd:documentation>The surface that is occupied by this asset in m2</xsd:documentation>
+            <xsd:documentation>The surface that is occupied by this asset in m²</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute name="commissioningDate" type="ecore:EDate">
@@ -1069,7 +1076,7 @@ A browseable version of this model is found at [https://energytransition.github.
         <xsd:attribute ecore:unsettable="false" name="buildingYear" type="ecore:EInt"/>
         <xsd:attribute ecore:unsettable="false" name="floorArea" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>in m2</xsd:documentation>
+            <xsd:documentation>in m²</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="numberOfFloors" type="ecore:EInt"/>
@@ -1253,6 +1260,11 @@ A browseable version of this model is found at [https://energytransition.github.
             <xsd:documentation>references the potential this source is part of</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="powerFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1280,6 +1292,11 @@ A browseable version of this model is found at [https://energytransition.github.
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="leadCommodity" type="esdl:CommodityEnum"/>
+        <xsd:attribute ecore:unsettable="false" name="powerFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1307,6 +1324,12 @@ A browseable version of this model is found at [https://energytransition.github.
         <xsd:attribute ecore:unsettable="false" name="additionalHeatingSourceType" type="esdl:AdditionalHeatingSourceTypeEnum">
           <xsd:annotation>
             <xsd:documentation>(legacy/experimental) In case of hybrid usage</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="powerFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). 
+</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -1394,7 +1417,13 @@ A browseable version of this model is found at [https://energytransition.github.
       <xsd:documentation>Describes the electricity demand of e.g. a household, area, etc.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Consumer"/>
+      <xsd:extension base="esdl:Consumer">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="powerFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="GasDemand">
@@ -1707,6 +1736,11 @@ A browseable version of this model is found at [https://energytransition.github.
             <xsd:documentation>Reference to the source of the plant</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="powerFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1805,7 +1839,13 @@ A browseable version of this model is found at [https://energytransition.github.
       <xsd:documentation>Represents a charging station for electrical vehicles. Both single private-owned car chargers and public charging spaces can be modelled by this class</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Consumer"/>
+      <xsd:extension base="esdl:Consumer">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="powerFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="Potential">
@@ -2038,7 +2078,7 @@ A browseable version of this model is found at [https://energytransition.github.
         </xsd:sequence>
         <xsd:attribute ecore:unsettable="false" name="pumpCapacity" nl.tno.esdl.attribute.unit:unit="m³/h" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>Capacity of the pump in m3/h</xsd:documentation>
+            <xsd:documentation>Capacity of the pump in m³/h</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute default="0.0" ecore:unsettable="false" name="pumpEfficiency" type="ecore:EDouble">
@@ -2046,14 +2086,19 @@ A browseable version of this model is found at [https://energytransition.github.
             <xsd:documentation>Efficiency of the pump.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="polarMomentOfInertia" nl.tno.esdl.attribute.unit:unit="kg/m2" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="polarMomentOfInertia" nl.tno.esdl.attribute.unit:unit="kg/m²" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>The polar moment of inertia of the pump in kg/m2</xsd:documentation>
+            <xsd:documentation>The polar moment of inertia of the pump in kg/m²</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="ratedSpeed" nl.tno.esdl.attribute.unit:unit="rad/s" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The rated speed of the pump in rad/s</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="powerFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -2213,7 +2258,13 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Represents an air conditioning unit</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:AbstractBasicConversion"/>
+      <xsd:extension base="esdl:AbstractBasicConversion">
+        <xsd:attribute ecore:unsettable="false" name="powerFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="CostInformation">
@@ -2627,7 +2678,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType abstract="true" ecore:interface="true" name="Carrier">
+  <xsd:complexType abstract="true" name="Carrier">
     <xsd:annotation>
       <xsd:documentation>Abstract class to define the carrier of energy, e.g. a energy carrier or a commodity (such as electricity)</xsd:documentation>
     </xsd:annotation>
@@ -2752,7 +2803,17 @@ When a model queries for a value from a certain date (and to a certain date), th
         <xsd:attribute name="attribution" type="ecore:EString"/>
         <xsd:attribute name="releaseDate" type="ecore:EDate"/>
         <xsd:attribute name="version" type="ecore:EString"/>
-        <xsd:attribute name="licence" type="ecore:EString"/>
+        <xsd:attribute name="license" type="ecore:EString"/>
+        <xsd:attribute name="author" type="ecore:EString">
+          <xsd:annotation>
+            <xsd:documentation>The name of the author of the data source</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="contactDetails" type="ecore:EString">
+          <xsd:annotation>
+            <xsd:documentation>Email address, phone number, etc.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -2968,6 +3029,11 @@ When a model queries for a value from a certain date (and to a certain date), th
         <xsd:attribute ecore:unsettable="false" name="minLoad" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EInt"/>
         <xsd:attribute ecore:unsettable="false" name="effMaxLoad" type="ecore:EDouble"/>
         <xsd:attribute ecore:unsettable="false" name="effMinLoad" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="powerFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -3760,7 +3826,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:extension base="esdl:Asset">
         <xsd:attribute ecore:unsettable="false" name="uWindow" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>The u-value of the window (thermal isolation) in W/m2.K</xsd:documentation>
+            <xsd:documentation>The u-value of the window (thermal isolation) in W/m².K</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute default="UNDEFINED" ecore:unsettable="false" name="glazingType" type="esdl:GlazingTypeEnum">
@@ -3904,6 +3970,11 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:complexContent>
       <xsd:extension base="esdl:Producer">
         <xsd:attribute default="UNDEFINED" ecore:unsettable="false" name="type" type="esdl:SolarCollectorTypeEnum"/>
+        <xsd:attribute ecore:unsettable="false" name="powerFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -4220,9 +4291,9 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractMatter">
-        <xsd:attribute ecore:unsettable="false" name="density" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="density" nl.tno.esdl.attribute.unit:unit="kg/m³" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>Density of the matter in kg/m3 (kilogram per cubic meter)</xsd:documentation>
+            <xsd:documentation>Density of the matter in kg/m³ (kilogram per cubic meter)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="stateOfMatter" type="esdl:StateOfMatterEnum"/>
@@ -4306,7 +4377,13 @@ When a model queries for a value from a certain date (and to a certain date), th
   </xsd:complexType>
   <xsd:complexType name="Compressor">
     <xsd:complexContent>
-      <xsd:extension base="esdl:AbstractTransformer"/>
+      <xsd:extension base="esdl:AbstractTransformer">
+        <xsd:attribute ecore:unsettable="false" name="powerFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="PressureReducingValve">
@@ -4349,14 +4426,14 @@ Examples of layered Matters
     <xsd:sequence>
       <xsd:element ecore:resolveProxies="true" name="matter" type="esdl:AbstractMatter"/>
     </xsd:sequence>
-    <xsd:attribute default="0.0" ecore:unsettable="false" name="mixFraction" type="ecore:EDouble">
+    <xsd:attribute default="0.0" ecore:unsettable="false" name="mixFraction" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
       <xsd:annotation>
         <xsd:documentation>In case of a mix of matters, the mixFraction allows to describe the percentage of this fraction in the total mix</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute ecore:unsettable="false" name="layerWidth" type="ecore:EDouble">
+    <xsd:attribute ecore:unsettable="false" name="layerWidth" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
       <xsd:annotation>
-        <xsd:documentation>In case of a collection of layers of matters, the layerWidth allows to describe the width of this layer of matter in the total collection</xsd:documentation>
+        <xsd:documentation>In case of a collection of layers of matters, the layerWidth allows to describe the width of this layer of matter in the total collection (in meter)</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
   </xsd:complexType>
@@ -4606,7 +4683,7 @@ Examples of layered Matters
     <xsd:sequence>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="savings" type="esdl:SingleValue">
         <xsd:annotation>
-          <xsd:documentation>The (energy) savings belonging to the energy label jump. Can be expressed as an absolute value (in kWh, GJ, kWh/m2, ...) or a relative value (%) using the profileQuanityAndUnit reference.</xsd:documentation>
+          <xsd:documentation>The (energy) savings belonging to the energy label jump. Can be expressed as an absolute value (in kWh, GJ, kWh/m², ...) or a relative value (%) using the profileQuanityAndUnit reference.</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
@@ -4656,12 +4733,12 @@ Examples of layered Matters
       <xsd:extension base="esdl:BuildingInformation">
         <xsd:attribute ecore:unsettable="false" name="slantedRoofArea" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>in m2</xsd:documentation>
+            <xsd:documentation>in m²</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="wallArea" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>in m2</xsd:documentation>
+            <xsd:documentation>in m²</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="roofType" type="esdl:RoofTypeEnum">
@@ -4671,12 +4748,12 @@ Examples of layered Matters
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="flatRoofArea" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>in m2</xsd:documentation>
+            <xsd:documentation>in m²</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="windowArea" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>in m2</xsd:documentation>
+            <xsd:documentation>in m²</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="glassType" type="esdl:GlazingTypeEnum">
@@ -4812,7 +4889,7 @@ Examples of layered Matters
         <xsd:attribute ecore:unsettable="false" name="reopenDeltaP" nl.tno.esdl.attribute.unit:unit="N/m²" type="ecore:EDouble"/>
         <xsd:attribute default="0.0" ecore:unsettable="false" name="flowCoefficient" nl.tno.esdl.attribute.unit:unit="m³/h" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>Flow coefficient (kv) in metric units [m3/h]. It is defined as the flow rate in cubic meters per hour [m3/h] of water at a temperature of 16º celsius with a pressure drop across the valve of 1 bar.</xsd:documentation>
+            <xsd:documentation>Flow coefficient (kv) in metric units [m³/h]. It is defined as the flow rate in cubic meters per hour [m³/h] of water at a temperature of 16º celsius with a pressure drop across the valve of 1 bar.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -4902,24 +4979,24 @@ Examples of layered Matters
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Matter">
-        <xsd:attribute ecore:unsettable="false" name="thermalConductivity" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="thermalConductivity" nl.tno.esdl.attribute.unit:unit="W/mK" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Thermal conductivity of the material in W/mK (Watt per meter Kelvin)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="electricalConductivity" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="electricalConductivity" nl.tno.esdl.attribute.unit:unit="S/m" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Electrical conductivity in S/m (Siemens per meter)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="youngsModulus" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="youngsModulus" nl.tno.esdl.attribute.unit:unit="N/m²" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>The Young's modulus is a mechanical property that measures the stiffness of a solid material (in Pascal or Newton/m2)</xsd:documentation>
+            <xsd:documentation>The Young's modulus is a mechanical property that measures the stiffness of a solid material (in Pascal or Newton/m²)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="specificHeatCapacity" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="specificHeatCapacity" nl.tno.esdl.attribute.unit:unit="J/Kkg" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>The specific heat capacity of the material in J/(K kg) (Joule per Kelvin kilogram)</xsd:documentation>
+            <xsd:documentation>The specific heat capacity of the material in J/Kkg (Joule per Kelvin kilogram)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -4936,16 +5013,9 @@ Examples of layered Matters
     <xsd:annotation>
       <xsd:documentation>Abstract class for describing Matters, can be instantiated as a subclass of Matter or as a MatterReference.</xsd:documentation>
     </xsd:annotation>
-    <xsd:attribute ecore:id="true" name="id" type="ecore:EString">
-      <xsd:annotation>
-        <xsd:documentation>Unique identifier for this object</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="name" type="ecore:EString">
-      <xsd:annotation>
-        <xsd:documentation>Name of the Matter</xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Carrier"/>
+    </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType name="MatterReference">
     <xsd:annotation>
@@ -4973,7 +5043,7 @@ Examples of layered Matters
       </xsd:element>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="solarIrradianceProfile" type="esdl:GenericProfile">
         <xsd:annotation>
-          <xsd:documentation>Solar irradiance profile in W/m2, unless specified otherwise.</xsd:documentation>
+          <xsd:documentation>Solar irradiance profile in W/m², unless specified otherwise.</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="windSpeedProfile" type="esdl:GenericProfile">
@@ -5138,6 +5208,11 @@ Examples of layered Matters
         <xsd:attribute ecore:unsettable="false" name="minPower" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>the minimum power (in Watt) the producer can deliver once it's turned on</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="powerFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -5345,6 +5420,11 @@ Examples of layered Matters
             <xsd:documentation>COP of the electric heatpump part of the hybrid heatpump (in Watts) used for cooling</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="powerFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -5450,6 +5530,15 @@ Examples of layered Matters
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Storage"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="DataSourceList">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractDataSource">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="dataSource" type="esdl:DataSource"/>
+        </xsd:sequence>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
 </xsd:schema>

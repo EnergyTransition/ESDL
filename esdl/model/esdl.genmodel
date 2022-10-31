@@ -666,6 +666,7 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Battery">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Battery/maxChargeDischargeCycles"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Battery/powerFactor"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//ElectricityNetwork">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ElectricityNetwork/voltage"/>
@@ -706,6 +707,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/carrier"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/simultaneousPower"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Port/constraint"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AggregatedProducer">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//AggregatedProducer/aggregationOf"/>
@@ -800,6 +802,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalSource/flowRate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalSource/pumpPower"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//GeothermalSource/geothermalPotential"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalSource/powerFactor"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//CoGeneration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CoGeneration/heatEfficiency"/>
@@ -808,12 +811,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CoGeneration/HERatio"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CoGeneration/fuelType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CoGeneration/leadCommodity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CoGeneration/powerFactor"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HeatPump">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/source"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/stages"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/COP"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/additionalHeatingSourceType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/powerFactor"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HeatingDemand">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatingDemand/type"/>
@@ -821,7 +826,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatingDemand/minTemperature"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatingDemand/maxTemperature"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//ElectricityDemand"/>
+    <genClasses ecoreClass="esdl.ecore#//ElectricityDemand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ElectricityDemand/powerFactor"/>
+    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GasDemand"/>
     <genClasses ecoreClass="esdl.ecore#//GeothermalPotential">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalPotential/temperature"/>
@@ -894,6 +901,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PowerPlant/effMinLoad"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//PowerPlant/energyCarrier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//PowerPlant/mustRun"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PowerPlant/powerFactor"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//AbstractBuilding">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AbstractBuilding/asset"/>
@@ -912,7 +920,9 @@
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Service"/>
     <genClasses ecoreClass="esdl.ecore#//AggregatorService"/>
-    <genClasses ecoreClass="esdl.ecore#//EVChargingStation"/>
+    <genClasses ecoreClass="esdl.ecore#//EVChargingStation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EVChargingStation/powerFactor"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Potential">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Potential/geometry"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Potential/geometryReference"/>
@@ -974,6 +984,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pump/polarMomentOfInertia"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pump/ratedSpeed"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Pump/pumpCurveTable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pump/powerFactor"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Valve">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Valve/type"/>
@@ -1026,7 +1037,9 @@
     <genClasses ecoreClass="esdl.ecore#//CoolingDemand">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CoolingDemand/deviceType"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//Airco"/>
+    <genClasses ecoreClass="esdl.ecore#//Airco">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Airco/powerFactor"/>
+    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//CostInformation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/investmentCosts"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/installationCosts"/>
@@ -1169,7 +1182,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSource/attribution"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSource/releaseDate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSource/version"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSource/licence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSource/license"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSource/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSource/contactDetails"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//EnergyDemand"/>
     <genClasses ecoreClass="esdl.ecore#//SolarCollector">
@@ -1225,6 +1240,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Electrolyzer/minLoad"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Electrolyzer/effMaxLoad"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Electrolyzer/effMinLoad"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Electrolyzer/powerFactor"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GasStorage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GasStorage/minStoragePressure"/>
@@ -1408,6 +1424,7 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//PVTInstallation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVTInstallation/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PVTInstallation/powerFactor"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//BuildingUsage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BuildingUsage/id"/>
@@ -1498,7 +1515,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Sensor/quantityAndUnit"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Switch"/>
-    <genClasses ecoreClass="esdl.ecore#//Compressor"/>
+    <genClasses ecoreClass="esdl.ecore#//Compressor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Compressor/powerFactor"/>
+    </genClasses>
     <genClasses ecoreClass="esdl.ecore#//PressureReducingValve">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PressureReducingValve/valveCoefficient"/>
     </genClasses>
@@ -1662,10 +1681,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Matters/dataSource"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Matters/matter"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//AbstractMatter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractMatter/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractMatter/name"/>
-    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//AbstractMatter"/>
     <genClasses ecoreClass="esdl.ecore#//MatterReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//MatterReference/reference"/>
     </genClasses>
@@ -1703,6 +1719,7 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//ElectricityProducer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ElectricityProducer/minPower"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ElectricityProducer/powerFactor"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HeatProducer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatProducer/minTemperature"/>
@@ -1742,6 +1759,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HybridHeatPump/heatPumpCOP"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HybridHeatPump/heatPumpCoolingPower"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HybridHeatPump/heatPumpCoolingCOP"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HybridHeatPump/powerFactor"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//AbstractBasicConversion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractBasicConversion/power"/>
@@ -1765,5 +1783,8 @@
     <genClasses ecoreClass="esdl.ecore#//ConnectableAsset"/>
     <genClasses ecoreClass="esdl.ecore#//PumpedHydroPower"/>
     <genClasses ecoreClass="esdl.ecore#//CAES"/>
+    <genClasses ecoreClass="esdl.ecore#//DataSourceList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//DataSourceList/dataSource"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

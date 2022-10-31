@@ -5,7 +5,7 @@
     <details key="documentation" value="# Energy System Description Language&#xD;&#xA;&#xD;&#xA;The Energy System Description Language (ESDL) is a modelling language created for modelling the components in an energy system and their relations towards each other. Furthermore ESDL is capable of expressing the dynamic behaviour of components in the energy system. For instance the power consumption of an neighbourhood. ESDL describes components by their basic functionality (so called Energy Capabilities), these are modelled in 5 abstract categories: Production, Consumption, Storage, Transport and Conversion. ESDL enables energy modelers to model a complex energy system in a generic way. The language is machine readable so makers of energy transition calculation tools and GIS applications can support ESDL in order to enforce the interoperability of their products.&#xD;&#xA;&#xD;&#xA;ESDL is currently developed by [TNO](https://www.tno.nl), and is open source. &#xD;&#xA;The Github repository is at [https://github.com/EnergyTransition/ESDL](https://github.com/EnergyTransition/ESDL)&#xD;&#xA;&#xD;&#xA;For more information about ESDL, see the [ESDL gitbook](https://energytransition.gitbook.io/esdl)&#xD;&#xA;A browseable version of this model is found at [https://energytransition.github.io/](https://energytransition.github.io/)&#xD;&#xA;"/>
   </eAnnotations>
   <eAnnotations source="http://www.tno.nl/esdl/version">
-    <details key="version" value="v2207"/>
+    <details key="version" value="v2210"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyAsset" abstract="true" eSuperTypes="#//ConnectableAsset">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -286,6 +286,15 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxChargeDischargeCycles"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). "/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElectricityNetwork" eSuperTypes="#//EnergyNetwork">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -403,7 +412,7 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildingDensity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="(experimental) Defines the number of buildings per m2"/>
+        <details key="documentation" value="(experimental) Defines the number of buildings per m²"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="KPIs" eType="#//KPIs" containment="true">
@@ -473,6 +482,8 @@
         <details key="documentation" value="Name of the port"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" upperBound="-1"
+        eType="#//Constraint" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AggregatedProducer" eSuperTypes="#//Producer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -566,7 +577,7 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="surfaceArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The surface that is occupied by this asset in m2"/>
+        <details key="documentation" value="The surface that is occupied by this asset in m²"/>
       </eAnnotations>
       <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
         <details key="unit" value="m²"/>
@@ -729,7 +740,7 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="floorArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m2"/>
+        <details key="documentation" value="in m²"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfFloors" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -935,6 +946,14 @@
         <details key="documentation" value="references the potential this source is part of"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). "/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CoGeneration" abstract="true" eSuperTypes="#//AbstractBasicConversion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -960,6 +979,14 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="leadCommodity" eType="#//CommodityEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). "/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HeatPump" eSuperTypes="#//AbstractBasicConversion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -985,6 +1012,14 @@
         eType="#//AdditionalHeatingSourceTypeEnum">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="(legacy/experimental) In case of hybrid usage"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). &#xD;&#xA;"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -1065,6 +1100,15 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Describes the electricity demand of e.g. a household, area, etc."/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). "/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GasDemand" eSuperTypes="#//Consumer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1359,6 +1403,14 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mustRun" eType="#//GenericProfile"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). "/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PowerPlantFuelEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1445,6 +1497,15 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Represents a charging station for electrical vehicles. Both single private-owned car chargers and public charging spaces can be modelled by this class"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). "/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Potential" abstract="true" eSuperTypes="#//Item">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1646,7 +1707,7 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pumpCapacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Capacity of the pump in m3/h"/>
+        <details key="documentation" value="Capacity of the pump in m³/h"/>
       </eAnnotations>
       <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
         <details key="unit" value="m³/h"/>
@@ -1660,10 +1721,10 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="polarMomentOfInertia" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The polar moment of inertia of the pump in kg/m2"/>
+        <details key="documentation" value="The polar moment of inertia of the pump in kg/m²"/>
       </eAnnotations>
       <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
-        <details key="unit" value="kg/m2"/>
+        <details key="unit" value="kg/m²"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ratedSpeed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
@@ -1678,6 +1739,14 @@
         containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The pump curve specified as a table"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). "/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -1806,6 +1875,14 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Represents an air conditioning unit"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). "/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CostInformation">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2142,7 +2219,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Carrier" abstract="true" interface="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Carrier" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Abstract class to define the carrier of energy, e.g. a energy carrier or a commodity (such as electricity)"/>
     </eAnnotations>
@@ -2257,7 +2334,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="attribution" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="releaseDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="licence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="license" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="author" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The name of the author of the data source"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contactDetails" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Email address, phone number, etc."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyDemand" eSuperTypes="#//Consumer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2448,6 +2535,14 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMaxLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMinLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). "/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GasStorage" eSuperTypes="#//Storage">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3090,7 +3185,7 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uWindow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The u-value of the window (thermal isolation) in W/m2.K"/>
+        <details key="documentation" value="The u-value of the window (thermal isolation) in W/m².K"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="glazingType" eType="#//GlazingTypeEnum"
@@ -3200,6 +3295,14 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//SolarCollectorTypeEnum"
         defaultValueLiteral="UNDEFINED"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). "/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuildingUsage" eSuperTypes="#//AbstractBuildingUsage">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3476,7 +3579,10 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="density" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Density of the matter in kg/m3 (kilogram per cubic meter)"/>
+        <details key="documentation" value="Density of the matter in kg/m³ (kilogram per cubic meter)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="kg/m³"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stateOfMatter" eType="#//StateOfMatterEnum"/>
@@ -3539,7 +3645,16 @@
         eType="#//AbstractQuantityAndUnit" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Switch" eSuperTypes="#//AbstractActiveSwitch"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Compressor" eSuperTypes="#//AbstractTransformer"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Compressor" eSuperTypes="#//AbstractTransformer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). "/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PressureReducingValve" eSuperTypes="#//AbstractTransformer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valveCoefficient" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0">
@@ -3569,12 +3684,18 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="In case of a mix of matters, the mixFraction allows to describe the percentage of this fraction in the total mix"/>
       </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="matter" lowerBound="1"
         eType="#//AbstractMatter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="layerWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="In case of a collection of layers of matters, the layerWidth allows to describe the width of this layer of matter in the total collection"/>
+        <details key="documentation" value="In case of a collection of layers of matters, the layerWidth allows to describe the width of this layer of matter in the total collection (in meter)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -3765,7 +3886,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="savings" eType="#//SingleValue"
         containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The (energy) savings belonging to the energy label jump. Can be expressed as an absolute value (in kWh, GJ, kWh/m2, ...) or a relative value (%) using the profileQuanityAndUnit reference."/>
+        <details key="documentation" value="The (energy) savings belonging to the energy label jump. Can be expressed as an absolute value (in kWh, GJ, kWh/m², ...) or a relative value (%) using the profileQuanityAndUnit reference."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -3799,12 +3920,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="BuildingStructureInformation" eSuperTypes="#//BuildingInformation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="slantedRoofArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m2"/>
+        <details key="documentation" value="in m²"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wallArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m2"/>
+        <details key="documentation" value="in m²"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="roofType" eType="#//RoofTypeEnum">
@@ -3814,12 +3935,12 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="flatRoofArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m2"/>
+        <details key="documentation" value="in m²"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="windowArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m2"/>
+        <details key="documentation" value="in m²"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="glassType" eType="#//GlazingTypeEnum">
@@ -3943,7 +4064,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowCoefficient" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Flow coefficient (kv) in metric units [m3/h]. It is defined as the flow rate in cubic meters per hour [m3/h] of water at a temperature of 16º celsius with a pressure drop across the valve of 1 bar."/>
+        <details key="documentation" value="Flow coefficient (kv) in metric units [m³/h]. It is defined as the flow rate in cubic meters per hour [m³/h] of water at a temperature of 16º celsius with a pressure drop across the valve of 1 bar."/>
       </eAnnotations>
       <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
         <details key="unit" value="m³/h"/>
@@ -4028,21 +4149,33 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Thermal conductivity of the material in W/mK (Watt per meter Kelvin)"/>
       </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="W/mK"/>
+      </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="electricalConductivity"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Electrical conductivity in S/m (Siemens per meter)"/>
       </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="S/m"/>
+      </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="youngsModulus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The Young's modulus is a mechanical property that measures the stiffness of a solid material (in Pascal or Newton/m2)"/>
+        <details key="documentation" value="The Young's modulus is a mechanical property that measures the stiffness of a solid material (in Pascal or Newton/m²)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="N/m²"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="specificHeatCapacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The specific heat capacity of the material in J/(K kg) (Joule per Kelvin kilogram)"/>
+        <details key="documentation" value="The specific heat capacity of the material in J/Kkg (Joule per Kelvin kilogram)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="J/Kkg"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -4054,21 +4187,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="matter" upperBound="-1"
         eType="#//Matter" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AbstractMatter" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractMatter" abstract="true" eSuperTypes="#//Carrier">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Abstract class for describing Matters, can be instantiated as a subclass of Matter or as a MatterReference."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Unique identifier for this object"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Name of the Matter"/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MatterReference" eSuperTypes="#//AbstractMatter">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -4092,7 +4214,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="solarIrradianceProfile"
         eType="#//GenericProfile" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Solar irradiance profile in W/m2, unless specified otherwise."/>
+        <details key="documentation" value="Solar irradiance profile in W/m², unless specified otherwise."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="windSpeedProfile" eType="#//GenericProfile"
@@ -4240,6 +4362,14 @@
       </eAnnotations>
       <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
         <details key="unit" value="W"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). "/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -4473,6 +4603,14 @@
         <details key="documentation" value="COP of the electric heatpump part of the hybrid heatpump (in Watts) used for cooling"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). "/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractBasicConversion" abstract="true"
       eSuperTypes="#//Conversion">
@@ -4540,5 +4678,9 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Compressed Air Energy Storage"/>
     </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSourceList" eSuperTypes="#//AbstractDataSource">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" upperBound="-1"
+        eType="#//DataSource" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
