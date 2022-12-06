@@ -5,7 +5,7 @@
     <details key="documentation" value="# Energy System Description Language&#xD;&#xA;&#xD;&#xA;The Energy System Description Language (ESDL) is a modelling language created for modelling the components in an energy system and their relations towards each other. Furthermore ESDL is capable of expressing the dynamic behaviour of components in the energy system. For instance the power consumption of an neighbourhood. ESDL describes components by their basic functionality (so called Energy Capabilities), these are modelled in 5 abstract categories: Production, Consumption, Storage, Transport and Conversion. ESDL enables energy modelers to model a complex energy system in a generic way. The language is machine readable so makers of energy transition calculation tools and GIS applications can support ESDL in order to enforce the interoperability of their products.&#xD;&#xA;&#xD;&#xA;ESDL is currently developed by [TNO](https://www.tno.nl), and is open source. &#xD;&#xA;The Github repository is at [https://github.com/EnergyTransition/ESDL](https://github.com/EnergyTransition/ESDL)&#xD;&#xA;&#xD;&#xA;For more information about ESDL, see the [ESDL gitbook](https://energytransition.gitbook.io/esdl)&#xD;&#xA;A browseable version of this model is found at [https://energytransition.github.io/](https://energytransition.github.io/)&#xD;&#xA;"/>
   </eAnnotations>
   <eAnnotations source="http://www.tno.nl/esdl/version">
-    <details key="version" value="v2210"/>
+    <details key="version" value="v2211"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyAsset" abstract="true" eSuperTypes="#//ConnectableAsset">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -32,10 +32,16 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Defines the amount of time it is operational in hours during the year (e.g. the producer is not in maintenance and not actively turned off)"/>
       </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="hours"/>
+      </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullLoadHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An annual number of full-load hours is the time it will take a given Producer to yield its annual production if it is able to produce with its installed capacity all of the time. The capacity is defined by the 'power' attribute"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="hours"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
@@ -68,7 +74,7 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The capacity of the storage asset in Joules&#x9;"/>
+        <details key="documentation" value="The capacity of the storage asset in Joules (as opposed to the Transport capacity, which is in Watts)."/>
       </eAnnotations>
       <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
         <details key="unit" value="J"/>
@@ -77,7 +83,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="chargeEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The efficiency with which the storage asset can be charged (in %)"/>
+        <details key="documentation" value="The efficiency with which the storage asset can be charged (unitless)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="profile" eType="#//GenericProfile"
@@ -89,21 +98,27 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dischargeEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The efficiency with which the storage asset can be discharged (in %)"/>
+        <details key="documentation" value="The efficiency with which the storage asset can be discharged (unitless)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="selfDischargeRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The self discharge rate with which the storage asset looses energy (in J/s)&#xD;&#xA;"/>
+        <details key="documentation" value="The self discharge rate with which the storage asset looses energy (in J/s or Watt)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="W"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fillLevel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The (initial) fill level of the storage asset as a percentage of its capacity"/>
+        <details key="documentation" value="The (initial) fill level of the storage asset as a ratio of its capacity"/>
       </eAnnotations>
       <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
-        <details key="unit" value="%"/>
+        <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxChargeRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
@@ -129,10 +144,23 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An abstract class that describes EnergyAssets that can convert one energy carrier into another. It is one of the 5 capabilities in ESDL"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationalHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+      <details key="unit" value="hours"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationalHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="hours"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The amount of hours per year the conversion asset is operational"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullLoadHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An annual number of full-load hours is the time it will take a given conversion asset to yield its annual production if it is able to produce with its installed capacity all of the time. The capacity is defined by the 'power' attribute"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="hours"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="residualHeatSourcePotential"
@@ -144,15 +172,18 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The capacity of the transport asset in Joules&#x9;"/>
+        <details key="documentation" value="The capacity of the transport asset in Watts (as opposed to the Storage capacity, which is in Joules).&#x9;"/>
       </eAnnotations>
       <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
-        <details key="unit" value="J"/>
+        <details key="unit" value="W"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="efficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The efficiency of the transport asset. Allows to specify transmission losses as a percentage"/>
+        <details key="documentation" value="The efficiency of the transport asset. Allows to specify transmission losses as a ratio"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -261,8 +292,22 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Describes an individual PV panel. See PVInstallation for multiple PV panels. This is a Producer capability"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="panelEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inverterEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="panelEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The efficiency of the solar panels (unitless)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inverterEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The efficiency of the inverter (unitless)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="angle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The tilt angle of the PV installation in degrees (e.g. 0 is flat, 90 is perpendicular to a horizontal surface)."/>
@@ -285,7 +330,14 @@
       <details key="documentation" value="A battery can store electrical energy. This is a Storage capability"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxChargeDischargeCycles"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The maximum number of charge / discharge cycles (unitless)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -454,6 +506,9 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Maximum power in Watt"/>
       </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="W"/>
+      </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="energyasset" lowerBound="1"
         eType="#//EnergyAsset" eOpposite="#//EnergyAsset/port">
@@ -475,6 +530,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="simultaneousPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="simultaneous power in Watt (under discussion)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="W"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -627,6 +685,9 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Number of assets that are aggregated"/>
       </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="installationDuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -742,6 +803,9 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="in m²"/>
       </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m²"/>
+      </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfFloors" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="address" eType="#//Address"
@@ -796,7 +860,14 @@
       <details key="documentation" value="Converts gas to heat, e.g. a gas boiler or gas heater"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimumBurnRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0.0"/>
+        defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The minimum burn rate of the gasheater when turned on specified as a ratio between 0 and 1 (unitless)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//GasHeaterTypeEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HeatNetwork" eSuperTypes="#//EnergyNetwork">
@@ -833,7 +904,11 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Describes insulation that can be added to a building. The relation with the heat consumption is not defined and requires manual modelling"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="thermalInsulation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="thermalInsulation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m²K/W"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Import" eSuperTypes="#//Producer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -913,7 +988,10 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="COP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Coefficient of Performance of this source"/>
+        <details key="documentation" value="Coefficient of Performance of this source (unitless)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aquiferTemperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
@@ -960,9 +1038,23 @@
       <details key="documentation" value="Abstract asset describing a co-generation plant that produces heat and electricity"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0.0"/>
+        defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The efficiency of the heat part of the cogeneration asset specified as a ratio between 0 and 1 (unitless)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="electricalEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0.0"/>
+        defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The efficiency of the electrical part of the cogeneration asset specified as a ratio between 0 and 1 (unitless)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="energyCarrier" eType="#//EnergyCarrier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="(legacy/experimental) input energy carrier of this plant"/>
@@ -971,6 +1063,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="HERatio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Ratio between heat and electricity in its output"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fuelType" eType="#//PowerPlantFuelEnum">
@@ -1002,10 +1097,16 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="number of heat pump stages"/>
       </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="COP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Coefficient of performance of this Heat Pump"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="additionalHeatingSourceType"
@@ -1226,8 +1327,22 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Electrical transformer between different voltage levels"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="voltagePrimary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="voltageSecundary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="voltagePrimary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The voltage at the primary side of the transformer"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="V"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="voltageSecundary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The voltage at the secundary side of the transformer"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="V"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HeatExchange" eSuperTypes="#//AbstractTransformer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1388,12 +1503,18 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMaxLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The efficiency of the power plant at maximum load"/>
+        <details key="documentation" value="The efficiency of the power plant at maximum load (unitless)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMinLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The efficiency of the power plant at minimum load"/>
+        <details key="documentation" value="The efficiency of the power plant at minimum load (unitless)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="energyCarrier" eType="#//EnergyCarrier">
@@ -1411,6 +1532,7 @@
         <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//PowerPlantTypeEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PowerPlantFuelEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1663,6 +1785,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FuelCell" eSuperTypes="#//CoGeneration">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1814,14 +1938,14 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="ProfileElement describes a single profile element describing a range and a value which is valid for this range. From-field is inclusive, To-field is exclusive, allowing you to describe ranges such as 1-1-2017T00:00:00.000 to 1-1-2018T00:00:00.000 instead of 31-12-2017T23:59:59:999. The to-field may be ommitted, meaning this value is valid for all time after the specified to-datetime.&#xD;&#xA;Examples: The heat demand of a municipality in 2013 is 20 PJ. The range you define is then from 1-1-2013T to 1-1-2014T and the value 20 and ProfileType ENERGY_IN_PJ"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="including the value itself"/>
+        <details key="documentation" value="Start datetime of the profile element, the given datetime is part of the period. At least one of the attributes from/to must be given (so one, or both)."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="exclusive the value itself"/>
+        <details key="documentation" value="Start endtime of the profile element, the given datetime is NOT part of the period. At least one of the attributes from/to must be given (so one, or both)."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -1916,6 +2040,8 @@
         eType="#//GenericProfile" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="developmentCosts" eType="#//GenericProfile"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SpecificLabelDistribution" abstract="true"
       eSuperTypes="#//GenericDistribution">
@@ -2175,6 +2301,9 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Describes to what extent this commodity is generated using renewable energy. Example: ElectricityCommodity.renewableFactor = 0.24 means that 24% of this electricity was generated using renewable energy."/>
       </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="emissionUnit" eType="#//AbstractQuantityAndUnit"
         containment="true">
@@ -2191,6 +2320,9 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The pressure of the gas commodity (in Pa)"/>
       </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="Pa"/>
+      </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HeatCommodity" eSuperTypes="#//Commodity">
@@ -2202,10 +2334,16 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The supply temperature used in the heat system (in degrees Celcius)"/>
       </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="°C"/>
+      </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnTemperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The return temperature used in the heat system (in degrees Celcius)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="°C"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -2216,6 +2354,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="voltage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The voltage of the electricity commodity (in Volt)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="V"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -2307,6 +2448,8 @@
         <details key="documentation" value="Unique identifier for the Profiles collection"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parties">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2323,6 +2466,8 @@
         eType="#//DataSource" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataSource" eSuperTypes="#//AbstractDataSource">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2480,6 +2625,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VehicleFuelEfficiency">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2527,14 +2674,34 @@
       <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
         <details key="unit" value="W"/>
       </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The maximum allowed load in Watt"/>
+      </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
         <details key="unit" value="W"/>
       </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The minimum allowed load in Watt"/>
+      </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMaxLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMinLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMaxLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The efficiency of the electrolyzer at maximum load (unitless)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="effMinLoad" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The efficiency of the electrolyzer at minimum load (unitless)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). "/>
@@ -2550,13 +2717,19 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minStoragePressure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="minimum pressure of the gas that can be stored"/>
+        <details key="documentation" value="minimum pressure of the gas that can be stored (in Pa)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="Pa"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxStoragePressure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="maximum pressure of the gas that can be stored"/>
+        <details key="documentation" value="maximum pressure of the gas that can be stored (in Pa)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="Pa"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="volume" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
@@ -2584,6 +2757,8 @@
         eType="#//Service" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ControlStrategy" abstract="true" eSuperTypes="#//EnergyService">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2773,6 +2948,19 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="quantityAndUnit" eType="#//AbstractQuantityAndUnit"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kpi" upperBound="-1" eType="#//KPI"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Sub KPIs of the parent KPI."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sector" upperBound="-1"
+        eType="#//Sector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="carrier" upperBound="-1"
+        eType="#//Carrier"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="matter" upperBound="-1"
+        eType="#//Matter"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QuantityAndUnits">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2786,6 +2974,8 @@
         <details key="documentation" value="Unique identifier for the QuantityAndUnits collection"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractQuantityAndUnit" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2831,8 +3021,21 @@
       <details key="documentation" value="Type of gas conversion, e.g. SMR or ATR"/>
     </eAnnotations>
     <eLiterals name="UNDEFINED"/>
-    <eLiterals name="SMR" value="1"/>
-    <eLiterals name="ATR" value="2"/>
+    <eLiterals name="SMR" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Steam Methane Reforming"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="ATR" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Autothermal reforming&#xD;&#xA;"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="METHANATION" value="3">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Methanation is the conversion of carbon monoxide and carbon dioxide (COx) to methane (CH4) through hydrogenation."/>
+      </eAnnotations>
+    </eLiterals>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameters" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2893,7 +3096,14 @@
       <details key="documentation" value="Defines a Photo Voltaic Installation, e.g. roof top PV, a PV field or parc."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//PVInstallationTypeEnum"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfPanels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfPanels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The number of solar panels of the PV installation (unitless)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PVInstallationTypeEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2906,6 +3116,7 @@
     <eLiterals name="ROAD" value="4"/>
     <eLiterals name="FIELD" value="5"/>
     <eLiterals name="WATER" value="6"/>
+    <eLiterals name="CONCENTRATED_SOLAR" value="7"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="WindTurbineTypeEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2974,6 +3185,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sector">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2986,6 +3199,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sector" upperBound="-1"
+        eType="#//Sector" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Subsectors of the parent sector."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyNetwork" eSuperTypes="#//Transport">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3056,9 +3275,23 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines the geothermal potential in a specific area. This type focusses on energy and depth of the well. See GeothermalPotental for class focussing on temperature"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="depth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="depth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="the depth at which the geothermal energy potential is located (in meters)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0.0"/>
+        defaultValueLiteral="0.0">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The potential energy that can be extracted from this potential geothermal source (in Joules)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="J"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractGTPotential" abstract="true"
       eSuperTypes="#//Potential">
@@ -3186,6 +3419,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uWindow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The u-value of the window (thermal isolation) in W/m².K"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="W/m²K"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="glazingType" eType="#//GlazingTypeEnum"
@@ -3449,6 +3685,8 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BuildingTypeDistribution" eSuperTypes="#//SpecificLabelDistribution">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3659,7 +3897,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valveCoefficient" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The valve coefficient of a valve describes the relationship between the pressure drop across the valve and the corresponding flow rate"/>
+        <details key="documentation" value="The valve coefficient of a valve describes the relationship between the pressure drop across the valve and the corresponding flow rate. It is defined as the flow rate in cubic meters per hour [m³/h] of water at a temperature of 16º celsius with a pressure drop across the valve of 1 bar."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m³/h"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -3735,13 +3976,27 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines a PV park of multiple panels"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfPanels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfPanels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The number of solar panels in the solar park (unitless)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WindPark" eSuperTypes="#//WindTurbine">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines a wind park of multiple turbines"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfTurbines" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfTurbines" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The number of turbines in the wind park (unitless)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntTargetKPI">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
@@ -3822,6 +4077,9 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="assetTemplate" upperBound="-1"
         eType="#//AssetTemplate" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AssetTemplate" eSuperTypes="#//Item">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3920,12 +4178,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="BuildingStructureInformation" eSuperTypes="#//BuildingInformation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="slantedRoofArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m²"/>
+        <details key="documentation" value="Total area of slanted roofs in m²."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m²"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="wallArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m²"/>
+        <details key="documentation" value="Total area of all outer walls of the building in m²."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m²"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="roofType" eType="#//RoofTypeEnum">
@@ -3935,12 +4199,18 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="flatRoofArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m²"/>
+        <details key="documentation" value="Total area of flat roofs in m²."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m²"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="windowArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m²"/>
+        <details key="documentation" value="Total area of all windows of the building in m²."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m²"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="glassType" eType="#//GlazingTypeEnum">
@@ -3950,22 +4220,34 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m"/>
+        <details key="documentation" value="Height of the building in m."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="orientation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="(experimental, no usage yet) in degrees"/>
+        <details key="documentation" value="(experimental, no usage yet) in degrees with respect to north in degrees."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="°"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rcWall" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m2K/W"/>
+        <details key="documentation" value="Thermal insulation value of the walls in m²K/W."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m²K/W"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rcRoof" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m2K/W"/>
+        <details key="documentation" value="Thermal insulation value of the roof in m²K/W."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m²K/W"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ventilationType" eType="#//VentilationTypeEnum">
@@ -3975,21 +4257,44 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rcFloor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m2K/W"/>
+        <details key="documentation" value="Thermal insulation value of the floor in m²K/W."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m²K/W"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uWindow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in W/m2K"/>
+        <details key="documentation" value="Heat transfer coefficient of the windows in W/m²K."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="W/m²K"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="perimeter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in m"/>
+        <details key="documentation" value="Total perimeter of the building footprint in m."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="doorArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uDoor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="doorArea" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Total area of all doors of the building in m²."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m²"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uDoor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Heat transfer coefficient of the doors in W/m²K."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="W/m²K"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundAsset" eSuperTypes="#//ExposedPortsAsset">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -4046,7 +4351,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractActiveSwitch" abstract="true"
       eSuperTypes="#//AbstractSwitch">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="position of the switch"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractPassiveSwitch" abstract="true"
       eSuperTypes="#//AbstractSwitch"/>
@@ -4084,6 +4396,8 @@
         <details key="documentation" value="Unique identifier for the Notes collection"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Note">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -4186,6 +4500,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="matter" upperBound="-1"
         eType="#//Matter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractMatter" abstract="true" eSuperTypes="#//Carrier">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -4247,6 +4563,8 @@
         <details key="documentation" value="Unique identifier for the EnvironmentalProfiles collection"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractBehaviour" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -4511,10 +4829,16 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The ratio of the total thickness of the aquifer contributing to production over the total thickness of the aquifer (usually calculated by applying a minimum porosity and maximum clay volume cutoff). The net thickness of the aquifer is determined by multiplying the gross thickness with the net-to-gross ratio."/>
       </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
+      </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aquiferPorosity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The percentage of pore volume or void space within a rock or unconsolidated sediment, restricted to those pores that can contribute to fluid flow (effective porosity)  It is expressed as a fraction between 0 and 1."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aquiferPermeability" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
@@ -4528,6 +4852,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aquiferAnisotropy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The directional variation of the ratio between vertical and horizontal permeability of a volume of rock or unconsolidated sand"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="salinity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
@@ -4570,7 +4897,10 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="gasHeaterEfficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Efficiency of the gasheater part of the hybrid heatpump (in Watts)"/>
+        <details key="documentation" value="Efficiency of the gasheater part of the hybrid heatpump (unitless)"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatPumpThermalPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
@@ -4585,7 +4915,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatPumpCOP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="COP of the electric heatpump part of the hybrid heatpump (in Watts) used for heating"/>
+        <details key="documentation" value="COP of the electric heatpump part of the hybrid heatpump (unitless) used for heating"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatPumpCoolingPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
@@ -4600,7 +4933,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="heatPumpCoolingCOP" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="COP of the electric heatpump part of the hybrid heatpump (in Watts) used for cooling"/>
+        <details key="documentation" value="COP of the electric heatpump part of the hybrid heatpump (unitless) used for cooling"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
@@ -4627,7 +4963,10 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="efficiency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The efficiency of the conversion asset. Allows to specify conversion losses as a percentage"/>
+        <details key="documentation" value="The efficiency of the conversion asset. Allows to specify conversion losses as a ratio"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -4682,5 +5021,19 @@
   <eClassifiers xsi:type="ecore:EClass" name="DataSourceList" eSuperTypes="#//AbstractDataSource">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" upperBound="-1"
         eType="#//DataSource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PowerPlantTypeEnum">
+    <eLiterals name="UNDEFINED"/>
+    <eLiterals name="STEAM_TURBINE" value="1"/>
+    <eLiterals name="INTERNAL_COMBUSTION" value="2"/>
+    <eLiterals name="COMBINED_CYCLE_GAS_TURBINE" value="3"/>
+    <eLiterals name="OPEN_CYCLE_GAS_TURBINE" value="4"/>
+    <eLiterals name="INTEGRARED_COMBUSTION_COMBINED_CYCLE" value="5"/>
+    <eLiterals name="SUPER_CRITICAL_STEAM_TURBINE" value="6"/>
+    <eLiterals name="NUCLEAR_2ND_GENERATION" value="7"/>
+    <eLiterals name="NUCLEAR_3RD_GENERATION" value="8"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElectricBoiler" eSuperTypes="#//AbstractBasicConversion"/>
 </ecore:EPackage>
