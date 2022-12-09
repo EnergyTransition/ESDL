@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2210" targetNamespace="http://www.tno.nl/esdl">
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2211" targetNamespace="http://www.tno.nl/esdl">
   <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
   <xsd:annotation>
     <xsd:documentation># Energy System Description Language
@@ -294,6 +294,7 @@ A browseable version of this model is found at [https://energytransition.github.
   <xsd:element ecore:ignore="true" name="PumpedHydroPower" type="esdl:PumpedHydroPower"/>
   <xsd:element ecore:ignore="true" name="CAES" type="esdl:CAES"/>
   <xsd:element ecore:ignore="true" name="DataSourceList" type="esdl:DataSourceList"/>
+  <xsd:element ecore:ignore="true" name="ElectricBoiler" type="esdl:ElectricBoiler"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -319,12 +320,12 @@ A browseable version of this model is found at [https://energytransition.github.
     <xsd:complexContent>
       <xsd:extension base="esdl:EnergyAsset">
         <xsd:attribute default="RENEWABLE" ecore:unsettable="false" name="prodType" type="esdl:RenewableTypeEnum"/>
-        <xsd:attribute ecore:unsettable="false" name="operationalHours" type="ecore:EInt">
+        <xsd:attribute ecore:unsettable="false" name="operationalHours" nl.tno.esdl.attribute.unit:unit="hours" type="ecore:EInt">
           <xsd:annotation>
             <xsd:documentation>Defines the amount of time it is operational in hours during the year (e.g. the producer is not in maintenance and not actively turned off)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="fullLoadHours" type="ecore:EInt">
+        <xsd:attribute ecore:unsettable="false" name="fullLoadHours" nl.tno.esdl.attribute.unit:unit="hours" type="ecore:EInt">
           <xsd:annotation>
             <xsd:documentation>An annual number of full-load hours is the time it will take a given Producer to yield its annual production if it is able to produce with its installed capacity all of the time. The capacity is defined by the 'power' attribute</xsd:documentation>
           </xsd:annotation>
@@ -367,28 +368,27 @@ A browseable version of this model is found at [https://energytransition.github.
         </xsd:sequence>
         <xsd:attribute ecore:unsettable="false" name="capacity" nl.tno.esdl.attribute.unit:unit="J" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>The capacity of the storage asset in Joules	</xsd:documentation>
+            <xsd:documentation>The capacity of the storage asset in Joules (as opposed to the Transport capacity, which is in Watts).</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="chargeEfficiency" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="chargeEfficiency" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>The efficiency with which the storage asset can be charged (in %)</xsd:documentation>
+            <xsd:documentation>The efficiency with which the storage asset can be charged (unitless)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="dischargeEfficiency" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="dischargeEfficiency" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>The efficiency with which the storage asset can be discharged (in %)</xsd:documentation>
+            <xsd:documentation>The efficiency with which the storage asset can be discharged (unitless)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="selfDischargeRate" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="selfDischargeRate" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>The self discharge rate with which the storage asset looses energy (in J/s)
-</xsd:documentation>
+            <xsd:documentation>The self discharge rate with which the storage asset looses energy (in J/s or Watt)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="fillLevel" nl.tno.esdl.attribute.unit:unit="%" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="fillLevel" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>The (initial) fill level of the storage asset as a percentage of its capacity</xsd:documentation>
+            <xsd:documentation>The (initial) fill level of the storage asset as a ratio of its capacity</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute default="0.0" ecore:unsettable="false" name="maxChargeRate" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
@@ -404,14 +404,18 @@ A browseable version of this model is found at [https://energytransition.github.
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType abstract="true" name="Conversion">
+  <xsd:complexType abstract="true" name="Conversion" nl.tno.esdl.attribute.unit:unit="hours">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes EnergyAssets that can convert one energy carrier into another. It is one of the 5 capabilities in ESDL</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:EnergyAsset">
-        <xsd:attribute ecore:unsettable="false" name="operationalHours" type="ecore:EInt"/>
-        <xsd:attribute ecore:unsettable="false" name="fullLoadHours" type="ecore:EInt">
+        <xsd:attribute ecore:unsettable="false" name="operationalHours" nl.tno.esdl.attribute.unit:unit="hours" type="ecore:EInt">
+          <xsd:annotation>
+            <xsd:documentation>The amount of hours per year the conversion asset is operational</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="fullLoadHours" nl.tno.esdl.attribute.unit:unit="hours" type="ecore:EInt">
           <xsd:annotation>
             <xsd:documentation>An annual number of full-load hours is the time it will take a given conversion asset to yield its annual production if it is able to produce with its installed capacity all of the time. The capacity is defined by the 'power' attribute</xsd:documentation>
           </xsd:annotation>
@@ -426,14 +430,14 @@ A browseable version of this model is found at [https://energytransition.github.
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:EnergyAsset">
-        <xsd:attribute ecore:unsettable="false" name="capacity" nl.tno.esdl.attribute.unit:unit="J" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="capacity" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>The capacity of the transport asset in Joules	</xsd:documentation>
+            <xsd:documentation>The capacity of the transport asset in Watts (as opposed to the Storage capacity, which is in Joules).	</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="efficiency" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="efficiency" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>The efficiency of the transport asset. Allows to specify transmission losses as a percentage</xsd:documentation>
+            <xsd:documentation>The efficiency of the transport asset. Allows to specify transmission losses as a ratio</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -537,8 +541,16 @@ A browseable version of this model is found at [https://energytransition.github.
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:ElectricityProducer">
-        <xsd:attribute ecore:unsettable="false" name="panelEfficiency" type="ecore:EDouble"/>
-        <xsd:attribute ecore:unsettable="false" name="inverterEfficiency" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="panelEfficiency" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The efficiency of the solar panels (unitless)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="inverterEfficiency" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The efficiency of the inverter (unitless)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="angle" nl.tno.esdl.attribute.unit:unit="°" type="ecore:EInt">
           <xsd:annotation>
             <xsd:documentation>The tilt angle of the PV installation in degrees (e.g. 0 is flat, 90 is perpendicular to a horizontal surface).</xsd:documentation>
@@ -558,7 +570,11 @@ A browseable version of this model is found at [https://energytransition.github.
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Storage">
-        <xsd:attribute ecore:unsettable="false" name="maxChargeDischargeCycles" type="ecore:EInt"/>
+        <xsd:attribute ecore:unsettable="false" name="maxChargeDischargeCycles" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EInt">
+          <xsd:annotation>
+            <xsd:documentation>The maximum number of charge / discharge cycles (unitless)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
         <xsd:attribute default="0.0" ecore:unsettable="false" name="powerFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). </xsd:documentation>
@@ -731,7 +747,7 @@ A browseable version of this model is found at [https://energytransition.github.
         <xsd:documentation>Unique identifier for this port</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute ecore:unsettable="false" name="maxPower" type="ecore:EDouble">
+    <xsd:attribute ecore:unsettable="false" name="maxPower" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
       <xsd:annotation>
         <xsd:documentation>Maximum power in Watt</xsd:documentation>
       </xsd:annotation>
@@ -746,7 +762,7 @@ A browseable version of this model is found at [https://energytransition.github.
         <xsd:documentation>Defines the carrier of this port</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute ecore:unsettable="false" name="simultaneousPower" type="ecore:EDouble">
+    <xsd:attribute ecore:unsettable="false" name="simultaneousPower" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
       <xsd:annotation>
         <xsd:documentation>simultaneous power in Watt (under discussion)</xsd:documentation>
       </xsd:annotation>
@@ -929,7 +945,7 @@ A browseable version of this model is found at [https://energytransition.github.
             <xsd:documentation>Defines if this Asset is aggregated of other assets of the same type</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute default="1" ecore:unsettable="false" name="aggregationCount" type="ecore:EInt">
+        <xsd:attribute default="1" ecore:unsettable="false" name="aggregationCount" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EInt">
           <xsd:annotation>
             <xsd:documentation>Number of assets that are aggregated</xsd:documentation>
           </xsd:annotation>
@@ -1074,7 +1090,7 @@ A browseable version of this model is found at [https://energytransition.github.
           <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="buildinginformation" type="esdl:BuildingInformation"/>
         </xsd:sequence>
         <xsd:attribute ecore:unsettable="false" name="buildingYear" type="ecore:EInt"/>
-        <xsd:attribute ecore:unsettable="false" name="floorArea" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="floorArea" nl.tno.esdl.attribute.unit:unit="m²" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>in m²</xsd:documentation>
           </xsd:annotation>
@@ -1124,7 +1140,11 @@ A browseable version of this model is found at [https://energytransition.github.
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractBasicConversion">
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="minimumBurnRate" type="ecore:EDouble"/>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="minimumBurnRate" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The minimum burn rate of the gasheater when turned on specified as a ratio between 0 and 1 (unitless)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="type" type="esdl:GasHeaterTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -1157,7 +1177,7 @@ A browseable version of this model is found at [https://energytransition.github.
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Asset">
-        <xsd:attribute ecore:unsettable="false" name="thermalInsulation" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="thermalInsulation" nl.tno.esdl.attribute.unit:unit="m²K/W" type="ecore:EDouble"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1235,9 +1255,9 @@ A browseable version of this model is found at [https://energytransition.github.
             <xsd:documentation>type of production of this source, e.g. Heat or Electricity</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:name="COP" ecore:unsettable="false" name="COP" type="ecore:EDouble">
+        <xsd:attribute ecore:name="COP" ecore:unsettable="false" name="COP" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>Coefficient of Performance of this source</xsd:documentation>
+            <xsd:documentation>Coefficient of Performance of this source (unitless)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="aquiferTemperature" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble">
@@ -1274,14 +1294,22 @@ A browseable version of this model is found at [https://energytransition.github.
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractBasicConversion">
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="heatEfficiency" type="ecore:EDouble"/>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="electricalEfficiency" type="ecore:EDouble"/>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="heatEfficiency" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The efficiency of the heat part of the cogeneration asset specified as a ratio between 0 and 1 (unitless)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="electricalEfficiency" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The efficiency of the electrical part of the cogeneration asset specified as a ratio between 0 and 1 (unitless)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
         <xsd:attribute ecore:reference="esdl:EnergyCarrier" name="energyCarrier" type="xsd:anyURI">
           <xsd:annotation>
             <xsd:documentation>(legacy/experimental) input energy carrier of this plant</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:name="HERatio" ecore:unsettable="false" name="HERatio" type="ecore:EDouble">
+        <xsd:attribute ecore:name="HERatio" ecore:unsettable="false" name="HERatio" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Ratio between heat and electricity in its output</xsd:documentation>
           </xsd:annotation>
@@ -1311,12 +1339,12 @@ A browseable version of this model is found at [https://energytransition.github.
             <xsd:documentation>Type of the source, e.g. Air, subsurface, aquifer</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute default="1" ecore:unsettable="false" name="stages" type="ecore:EInt">
+        <xsd:attribute default="1" ecore:unsettable="false" name="stages" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EInt">
           <xsd:annotation>
             <xsd:documentation>number of heat pump stages</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:name="COP" ecore:unsettable="false" name="COP" type="ecore:EDouble">
+        <xsd:attribute ecore:name="COP" ecore:unsettable="false" name="COP" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Coefficient of performance of this Heat Pump</xsd:documentation>
           </xsd:annotation>
@@ -1571,8 +1599,16 @@ A browseable version of this model is found at [https://energytransition.github.
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractTransformer">
-        <xsd:attribute ecore:unsettable="false" name="voltagePrimary" type="ecore:EDouble"/>
-        <xsd:attribute ecore:unsettable="false" name="voltageSecundary" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="voltagePrimary" nl.tno.esdl.attribute.unit:unit="V" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The voltage at the primary side of the transformer</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="voltageSecundary" nl.tno.esdl.attribute.unit:unit="V" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The voltage at the secundary side of the transformer</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1721,14 +1757,14 @@ A browseable version of this model is found at [https://energytransition.github.
             <xsd:documentation>The minimum allowed load in Watt</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="effMaxLoad" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="effMaxLoad" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>The efficiency of the power plant at maximum load</xsd:documentation>
+            <xsd:documentation>The efficiency of the power plant at maximum load (unitless)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="effMinLoad" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="effMinLoad" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>The efficiency of the power plant at minimum load</xsd:documentation>
+            <xsd:documentation>The efficiency of the power plant at minimum load (unitless)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:reference="esdl:EnergyCarrier" name="energyCarrier" type="xsd:anyURI">
@@ -1741,6 +1777,7 @@ A browseable version of this model is found at [https://energytransition.github.
             <xsd:documentation>The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="type" type="esdl:PowerPlantTypeEnum"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -2028,6 +2065,8 @@ A browseable version of this model is found at [https://energytransition.github.
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="dataSource" type="esdl:AbstractDataSource"/>
     </xsd:sequence>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
+    <xsd:attribute name="name" type="ecore:EString"/>
+    <xsd:attribute name="description" type="ecore:EString"/>
   </xsd:complexType>
   <xsd:complexType name="FuelCell">
     <xsd:annotation>
@@ -2178,14 +2217,14 @@ A browseable version of this model is found at [https://energytransition.github.
       <xsd:documentation>ProfileElement describes a single profile element describing a range and a value which is valid for this range. From-field is inclusive, To-field is exclusive, allowing you to describe ranges such as 1-1-2017T00:00:00.000 to 1-1-2018T00:00:00.000 instead of 31-12-2017T23:59:59:999. The to-field may be ommitted, meaning this value is valid for all time after the specified to-datetime.
 Examples: The heat demand of a municipality in 2013 is 20 PJ. The range you define is then from 1-1-2013T to 1-1-2014T and the value 20 and ProfileType ENERGY_IN_PJ</xsd:documentation>
     </xsd:annotation>
-    <xsd:attribute name="from" type="ecore:EDate" use="required">
+    <xsd:attribute name="from" type="ecore:EDate">
       <xsd:annotation>
-        <xsd:documentation>including the value itself</xsd:documentation>
+        <xsd:documentation>Start datetime of the profile element, the given datetime is part of the period. At least one of the attributes from/to must be given (so one, or both).</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
     <xsd:attribute name="to" type="ecore:EDate">
       <xsd:annotation>
-        <xsd:documentation>exclusive the value itself</xsd:documentation>
+        <xsd:documentation>Start endtime of the profile element, the given datetime is NOT part of the period. At least one of the attributes from/to must be given (so one, or both).</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
     <xsd:attribute ecore:unsettable="false" name="value" type="ecore:EDouble" use="required"/>
@@ -2289,6 +2328,8 @@ When a model queries for a value from a certain date (and to a certain date), th
         <xsd:documentation>Unique identifier for the CostInformation collection</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    <xsd:attribute name="name" type="ecore:EString"/>
+    <xsd:attribute name="description" type="ecore:EString"/>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="SpecificLabelDistribution">
     <xsd:annotation>
@@ -2623,7 +2664,7 @@ When a model queries for a value from a certain date (and to a certain date), th
             <xsd:documentation>The amount of emission (CO2, NOx) produced when a fuel is burned. The unit must be defined by the emissionUnit attribute.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="renewableFactor" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="renewableFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Describes to what extent this commodity is generated using renewable energy. Example: ElectricityCommodity.renewableFactor = 0.24 means that 24% of this electricity was generated using renewable energy.</xsd:documentation>
           </xsd:annotation>
@@ -2637,7 +2678,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Commodity">
-        <xsd:attribute ecore:unsettable="false" name="pressure" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="pressure" nl.tno.esdl.attribute.unit:unit="Pa" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The pressure of the gas commodity (in Pa)</xsd:documentation>
           </xsd:annotation>
@@ -2651,12 +2692,12 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Commodity">
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="supplyTemperature" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="supplyTemperature" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The supply temperature used in the heat system (in degrees Celcius)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="returnTemperature" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="returnTemperature" nl.tno.esdl.attribute.unit:unit="°C" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The return temperature used in the heat system (in degrees Celcius)</xsd:documentation>
           </xsd:annotation>
@@ -2670,7 +2711,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Commodity">
-        <xsd:attribute ecore:unsettable="false" name="voltage" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="voltage" nl.tno.esdl.attribute.unit:unit="V" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The voltage of the electricity commodity (in Volt)</xsd:documentation>
           </xsd:annotation>
@@ -2773,6 +2814,8 @@ When a model queries for a value from a certain date (and to a certain date), th
         <xsd:documentation>Unique identifier for the Profiles collection</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    <xsd:attribute name="name" type="ecore:EString"/>
+    <xsd:attribute name="description" type="ecore:EString"/>
   </xsd:complexType>
   <xsd:complexType name="Parties">
     <xsd:annotation>
@@ -2790,6 +2833,8 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="dataSource" type="esdl:DataSource"/>
     </xsd:sequence>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
+    <xsd:attribute name="name" type="ecore:EString"/>
+    <xsd:attribute name="description" type="ecore:EString"/>
   </xsd:complexType>
   <xsd:complexType name="DataSource">
     <xsd:annotation>
@@ -2982,6 +3027,8 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="dataSource" type="esdl:AbstractDataSource"/>
     </xsd:sequence>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
+    <xsd:attribute name="name" type="ecore:EString"/>
+    <xsd:attribute name="description" type="ecore:EString"/>
   </xsd:complexType>
   <xsd:complexType name="VehicleFuelEfficiency">
     <xsd:annotation>
@@ -3025,10 +3072,26 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:complexContent>
       <xsd:extension base="esdl:PowerToX">
         <xsd:attribute ecore:unsettable="false" name="outputPressure" nl.tno.esdl.attribute.unit:unit="bar" type="ecore:EDouble"/>
-        <xsd:attribute ecore:unsettable="false" name="maxLoad" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EInt"/>
-        <xsd:attribute ecore:unsettable="false" name="minLoad" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EInt"/>
-        <xsd:attribute ecore:unsettable="false" name="effMaxLoad" type="ecore:EDouble"/>
-        <xsd:attribute ecore:unsettable="false" name="effMinLoad" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="maxLoad" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EInt">
+          <xsd:annotation>
+            <xsd:documentation>The maximum allowed load in Watt</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="minLoad" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EInt">
+          <xsd:annotation>
+            <xsd:documentation>The minimum allowed load in Watt</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="effMaxLoad" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The efficiency of the electrolyzer at maximum load (unitless)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="effMinLoad" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The efficiency of the electrolyzer at minimum load (unitless)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="powerFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). </xsd:documentation>
@@ -3043,14 +3106,14 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Storage">
-        <xsd:attribute ecore:unsettable="false" name="minStoragePressure" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="minStoragePressure" nl.tno.esdl.attribute.unit:unit="Pa" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>minimum pressure of the gas that can be stored</xsd:documentation>
+            <xsd:documentation>minimum pressure of the gas that can be stored (in Pa)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="maxStoragePressure" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="maxStoragePressure" nl.tno.esdl.attribute.unit:unit="Pa" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>maximum pressure of the gas that can be stored</xsd:documentation>
+            <xsd:documentation>maximum pressure of the gas that can be stored (in Pa)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="volume" nl.tno.esdl.attribute.unit:unit="m³" type="ecore:EDouble">
@@ -3074,6 +3137,8 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="service" type="esdl:Service"/>
     </xsd:sequence>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
+    <xsd:attribute name="name" type="ecore:EString"/>
+    <xsd:attribute name="description" type="ecore:EString"/>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="ControlStrategy">
     <xsd:annotation>
@@ -3274,6 +3339,11 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:sequence>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="quantityAndUnit" type="esdl:AbstractQuantityAndUnit"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="kpi" type="esdl:KPI">
+        <xsd:annotation>
+          <xsd:documentation>Sub KPIs of the parent KPI.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
     <xsd:attribute name="id" type="ecore:EString">
       <xsd:annotation>
@@ -3284,6 +3354,22 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:annotation>
         <xsd:documentation>The name of the KPI.</xsd:documentation>
       </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="description" type="ecore:EString"/>
+    <xsd:attribute ecore:reference="esdl:Sector" name="sector">
+      <xsd:simpleType>
+        <xsd:list itemType="xsd:anyURI"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute ecore:reference="esdl:Carrier" name="carrier">
+      <xsd:simpleType>
+        <xsd:list itemType="xsd:anyURI"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute ecore:reference="esdl:Matter" name="matter">
+      <xsd:simpleType>
+        <xsd:list itemType="xsd:anyURI"/>
+      </xsd:simpleType>
     </xsd:attribute>
   </xsd:complexType>
   <xsd:complexType name="QuantityAndUnits">
@@ -3298,6 +3384,8 @@ When a model queries for a value from a certain date (and to a certain date), th
         <xsd:documentation>Unique identifier for the QuantityAndUnits collection</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    <xsd:attribute name="name" type="ecore:EString"/>
+    <xsd:attribute name="description" type="ecore:EString"/>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="AbstractQuantityAndUnit">
     <xsd:annotation>
@@ -3354,8 +3442,22 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="UNDEFINED"/>
-      <xsd:enumeration value="SMR"/>
-      <xsd:enumeration value="ATR"/>
+      <xsd:enumeration value="SMR">
+        <xsd:annotation>
+          <xsd:documentation>Steam Methane Reforming</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="ATR">
+        <xsd:annotation>
+          <xsd:documentation>Autothermal reforming
+</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="METHANATION">
+        <xsd:annotation>
+          <xsd:documentation>Methanation is the conversion of carbon monoxide and carbon dioxide (COx) to methane (CH4) through hydrogenation.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:complexType abstract="true" name="Parameters">
@@ -3445,7 +3547,11 @@ When a model queries for a value from a certain date (and to a certain date), th
     <xsd:complexContent>
       <xsd:extension base="esdl:PVPanel">
         <xsd:attribute ecore:unsettable="false" name="type" type="esdl:PVInstallationTypeEnum"/>
-        <xsd:attribute ecore:unsettable="false" name="numberOfPanels" type="ecore:EInt"/>
+        <xsd:attribute ecore:unsettable="false" name="numberOfPanels" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EInt">
+          <xsd:annotation>
+            <xsd:documentation>The number of solar panels of the PV installation (unitless)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -3461,6 +3567,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:enumeration value="ROAD"/>
       <xsd:enumeration value="FIELD"/>
       <xsd:enumeration value="WATER"/>
+      <xsd:enumeration value="CONCENTRATED_SOLAR"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="WindTurbineTypeEnum">
@@ -3542,6 +3649,8 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="dataSource" type="esdl:AbstractDataSource"/>
     </xsd:sequence>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
+    <xsd:attribute name="name" type="ecore:EString"/>
+    <xsd:attribute name="description" type="ecore:EString"/>
   </xsd:complexType>
   <xsd:complexType name="Sector">
     <xsd:annotation>
@@ -3549,6 +3658,11 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:sequence>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="dataSource" type="esdl:AbstractDataSource"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="sector" type="esdl:Sector">
+        <xsd:annotation>
+          <xsd:documentation>Subsectors of the parent sector.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
     <xsd:attribute name="name" type="ecore:EString"/>
@@ -3650,8 +3764,16 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractGTPotential">
-        <xsd:attribute ecore:unsettable="false" name="depth" type="ecore:EInt"/>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="value" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="depth" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EInt">
+          <xsd:annotation>
+            <xsd:documentation>the depth at which the geothermal energy potential is located (in meters)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="value" nl.tno.esdl.attribute.unit:unit="J" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The potential energy that can be extracted from this potential geothermal source (in Joules)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -3824,7 +3946,7 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:Asset">
-        <xsd:attribute ecore:unsettable="false" name="uWindow" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="uWindow" nl.tno.esdl.attribute.unit:unit="W/m²K" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The u-value of the window (thermal isolation) in W/m².K</xsd:documentation>
           </xsd:annotation>
@@ -4122,6 +4244,8 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:element>
     </xsd:sequence>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
+    <xsd:attribute name="name" type="ecore:EString"/>
+    <xsd:attribute name="description" type="ecore:EString"/>
   </xsd:complexType>
   <xsd:complexType name="BuildingTypeDistribution">
     <xsd:annotation>
@@ -4389,9 +4513,9 @@ When a model queries for a value from a certain date (and to a certain date), th
   <xsd:complexType name="PressureReducingValve">
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractTransformer">
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="valveCoefficient" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="valveCoefficient" nl.tno.esdl.attribute.unit:unit="m³/h" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>The valve coefficient of a valve describes the relationship between the pressure drop across the valve and the corresponding flow rate</xsd:documentation>
+            <xsd:documentation>The valve coefficient of a valve describes the relationship between the pressure drop across the valve and the corresponding flow rate. It is defined as the flow rate in cubic meters per hour [m³/h] of water at a temperature of 16º celsius with a pressure drop across the valve of 1 bar.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -4479,7 +4603,11 @@ Examples of layered Matters
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:PVPanel">
-        <xsd:attribute ecore:unsettable="false" name="numberOfPanels" type="ecore:EInt"/>
+        <xsd:attribute ecore:unsettable="false" name="numberOfPanels" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EInt">
+          <xsd:annotation>
+            <xsd:documentation>The number of solar panels in the solar park (unitless)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -4489,7 +4617,11 @@ Examples of layered Matters
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:WindTurbine">
-        <xsd:attribute ecore:unsettable="false" name="numberOfTurbines" type="ecore:EInt"/>
+        <xsd:attribute ecore:unsettable="false" name="numberOfTurbines" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EInt">
+          <xsd:annotation>
+            <xsd:documentation>The number of turbines in the wind park (unitless)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -4591,6 +4723,9 @@ Examples of layered Matters
     <xsd:sequence>
       <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="assetTemplate" type="esdl:AssetTemplate"/>
     </xsd:sequence>
+    <xsd:attribute name="id" type="ecore:EString"/>
+    <xsd:attribute name="name" type="ecore:EString"/>
+    <xsd:attribute name="description" type="ecore:EString"/>
   </xsd:complexType>
   <xsd:complexType name="AssetTemplate">
     <xsd:annotation>
@@ -4731,14 +4866,14 @@ Examples of layered Matters
   <xsd:complexType name="BuildingStructureInformation">
     <xsd:complexContent>
       <xsd:extension base="esdl:BuildingInformation">
-        <xsd:attribute ecore:unsettable="false" name="slantedRoofArea" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="slantedRoofArea" nl.tno.esdl.attribute.unit:unit="m²" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>in m²</xsd:documentation>
+            <xsd:documentation>Total area of slanted roofs in m².</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="wallArea" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="wallArea" nl.tno.esdl.attribute.unit:unit="m²" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>in m²</xsd:documentation>
+            <xsd:documentation>Total area of all outer walls of the building in m².</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="roofType" type="esdl:RoofTypeEnum">
@@ -4746,14 +4881,14 @@ Examples of layered Matters
             <xsd:documentation>Flat roof, slanted roof, or combination</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="flatRoofArea" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="flatRoofArea" nl.tno.esdl.attribute.unit:unit="m²" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>in m²</xsd:documentation>
+            <xsd:documentation>Total area of flat roofs in m².</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="windowArea" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="windowArea" nl.tno.esdl.attribute.unit:unit="m²" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>in m²</xsd:documentation>
+            <xsd:documentation>Total area of all windows of the building in m².</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="glassType" type="esdl:GlazingTypeEnum">
@@ -4761,24 +4896,24 @@ Examples of layered Matters
             <xsd:documentation>e.g. HR++ glass</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="height" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="height" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>in m</xsd:documentation>
+            <xsd:documentation>Height of the building in m.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="orientation" type="ecore:EInt">
+        <xsd:attribute ecore:unsettable="false" name="orientation" nl.tno.esdl.attribute.unit:unit="°" type="ecore:EInt">
           <xsd:annotation>
-            <xsd:documentation>(experimental, no usage yet) in degrees</xsd:documentation>
+            <xsd:documentation>(experimental, no usage yet) in degrees with respect to north in degrees.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="rcWall" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="rcWall" nl.tno.esdl.attribute.unit:unit="m²K/W" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>in m2K/W</xsd:documentation>
+            <xsd:documentation>Thermal insulation value of the walls in m²K/W.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="rcRoof" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="rcRoof" nl.tno.esdl.attribute.unit:unit="m²K/W" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>in m2K/W</xsd:documentation>
+            <xsd:documentation>Thermal insulation value of the roof in m²K/W.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="ventilationType" type="esdl:VentilationTypeEnum">
@@ -4786,23 +4921,31 @@ Examples of layered Matters
             <xsd:documentation>Type of ventilation used in building, e.g. mechanical ventilation</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="rcFloor" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="rcFloor" nl.tno.esdl.attribute.unit:unit="m²K/W" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>in m2K/W</xsd:documentation>
+            <xsd:documentation>Thermal insulation value of the floor in m²K/W.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="uWindow" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="uWindow" nl.tno.esdl.attribute.unit:unit="W/m²K" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>in W/m2K</xsd:documentation>
+            <xsd:documentation>Heat transfer coefficient of the windows in W/m²K.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="perimeter" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="perimeter" nl.tno.esdl.attribute.unit:unit="m" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>in m</xsd:documentation>
+            <xsd:documentation>Total perimeter of the building footprint in m.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="doorArea" type="ecore:EDouble"/>
-        <xsd:attribute ecore:unsettable="false" name="uDoor" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="doorArea" nl.tno.esdl.attribute.unit:unit="m²" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Total area of all doors of the building in m².</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="uDoor" nl.tno.esdl.attribute.unit:unit="W/m²K" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>Heat transfer coefficient of the doors in W/m²K.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -4873,7 +5016,11 @@ Examples of layered Matters
   <xsd:complexType abstract="true" name="AbstractActiveSwitch">
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractSwitch">
-        <xsd:attribute ecore:unsettable="false" name="position" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="position" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>position of the switch</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -4912,6 +5059,8 @@ Examples of layered Matters
         <xsd:documentation>Unique identifier for the Notes collection</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    <xsd:attribute name="name" type="ecore:EString"/>
+    <xsd:attribute name="description" type="ecore:EString"/>
   </xsd:complexType>
   <xsd:complexType name="Note">
     <xsd:annotation>
@@ -5008,6 +5157,8 @@ Examples of layered Matters
       <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="matter" type="esdl:Matter"/>
     </xsd:sequence>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
+    <xsd:attribute name="name" type="ecore:EString"/>
+    <xsd:attribute name="description" type="ecore:EString"/>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="AbstractMatter">
     <xsd:annotation>
@@ -5072,6 +5223,8 @@ Examples of layered Matters
         <xsd:documentation>Unique identifier for the EnvironmentalProfiles collection</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    <xsd:attribute name="name" type="ecore:EString"/>
+    <xsd:attribute name="description" type="ecore:EString"/>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="AbstractBehaviour">
     <xsd:annotation>
@@ -5346,12 +5499,12 @@ Examples of layered Matters
             <xsd:documentation>The ambient temperature of the aquifer at mid depth in degrees Celcius</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="aquiferNetToGross" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="aquiferNetToGross" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The ratio of the total thickness of the aquifer contributing to production over the total thickness of the aquifer (usually calculated by applying a minimum porosity and maximum clay volume cutoff). The net thickness of the aquifer is determined by multiplying the gross thickness with the net-to-gross ratio.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="aquiferPorosity" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="aquiferPorosity" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The percentage of pore volume or void space within a rock or unconsolidated sediment, restricted to those pores that can contribute to fluid flow (effective porosity)  It is expressed as a fraction between 0 and 1.</xsd:documentation>
           </xsd:annotation>
@@ -5361,7 +5514,7 @@ Examples of layered Matters
             <xsd:documentation>Measure of the ability or ease of a volume of rock to transmit fluids, expressed in millidarcys (md)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="aquiferAnisotropy" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="aquiferAnisotropy" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The directional variation of the ratio between vertical and horizontal permeability of a volume of rock or unconsolidated sand</xsd:documentation>
           </xsd:annotation>
@@ -5395,9 +5548,9 @@ Examples of layered Matters
             <xsd:documentation>Thermal output power of the gasheater part of the hybrid heatpump (in Watts)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="gasHeaterEfficiency" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="gasHeaterEfficiency" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>Efficiency of the gasheater part of the hybrid heatpump (in Watts)</xsd:documentation>
+            <xsd:documentation>Efficiency of the gasheater part of the hybrid heatpump (unitless)</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute default="0.0" ecore:unsettable="false" name="heatPumpThermalPower" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
@@ -5405,9 +5558,9 @@ Examples of layered Matters
             <xsd:documentation>Thermal output power of the electric heatpump part of the hybrid heatpump (in Watts) used for heating</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="heatPumpCOP" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="heatPumpCOP" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>COP of the electric heatpump part of the hybrid heatpump (in Watts) used for heating</xsd:documentation>
+            <xsd:documentation>COP of the electric heatpump part of the hybrid heatpump (unitless) used for heating</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute default="0.0" ecore:unsettable="false" name="heatPumpCoolingPower" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
@@ -5415,9 +5568,9 @@ Examples of layered Matters
             <xsd:documentation>output power of the electric heatpump part of the hybrid heatpump (in Watts) used for cooling</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute default="0.0" ecore:unsettable="false" name="heatPumpCoolingCOP" type="ecore:EDouble">
+        <xsd:attribute default="0.0" ecore:unsettable="false" name="heatPumpCoolingCOP" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>COP of the electric heatpump part of the hybrid heatpump (in Watts) used for cooling</xsd:documentation>
+            <xsd:documentation>COP of the electric heatpump part of the hybrid heatpump (unitless) used for cooling</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="powerFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
@@ -5439,9 +5592,9 @@ Examples of layered Matters
             <xsd:documentation>Maximum power / capacity in Watt</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="efficiency" type="ecore:EDouble">
+        <xsd:attribute ecore:unsettable="false" name="efficiency" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>The efficiency of the conversion asset. Allows to specify conversion losses as a percentage</xsd:documentation>
+            <xsd:documentation>The efficiency of the conversion asset. Allows to specify conversion losses as a ratio</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -5538,7 +5691,27 @@ Examples of layered Matters
         <xsd:sequence>
           <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="dataSource" type="esdl:DataSource"/>
         </xsd:sequence>
+        <xsd:attribute name="name" type="ecore:EString"/>
+        <xsd:attribute name="description" type="ecore:EString"/>
       </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType name="PowerPlantTypeEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="STEAM_TURBINE"/>
+      <xsd:enumeration value="INTERNAL_COMBUSTION"/>
+      <xsd:enumeration value="COMBINED_CYCLE_GAS_TURBINE"/>
+      <xsd:enumeration value="OPEN_CYCLE_GAS_TURBINE"/>
+      <xsd:enumeration value="INTEGRARED_COMBUSTION_COMBINED_CYCLE"/>
+      <xsd:enumeration value="SUPER_CRITICAL_STEAM_TURBINE"/>
+      <xsd:enumeration value="NUCLEAR_2ND_GENERATION"/>
+      <xsd:enumeration value="NUCLEAR_3RD_GENERATION"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="ElectricBoiler">
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractBasicConversion"/>
     </xsd:complexContent>
   </xsd:complexType>
 </xsd:schema>
