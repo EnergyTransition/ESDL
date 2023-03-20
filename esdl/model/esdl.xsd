@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2211" targetNamespace="http://www.tno.nl/esdl">
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2303" targetNamespace="http://www.tno.nl/esdl">
   <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
   <xsd:annotation>
     <xsd:documentation># Energy System Description Language
@@ -350,6 +350,16 @@ A browseable version of this model is found at [https://energytransition.github.
             <xsd:documentation>Maximum power / capacity in Watt</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="operationalHours" type="ecore:EInt">
+          <xsd:annotation>
+            <xsd:documentation>Defines the amount of time it is operational in hours during the year (e.g. the consumer is not in maintenance and not actively turned off)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="fullLoadHours" type="ecore:EInt">
+          <xsd:annotation>
+            <xsd:documentation>An annual number of full-load hours is the time it will take a given Consumer to yield its annual consumption if it is able to consume with its installed capacity all of the time. The capacity is defined by the 'power' attribute</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -438,6 +448,16 @@ A browseable version of this model is found at [https://energytransition.github.
         <xsd:attribute ecore:unsettable="false" name="efficiency" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The efficiency of the transport asset. Allows to specify transmission losses as a ratio</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="operationalHours" type="ecore:EInt">
+          <xsd:annotation>
+            <xsd:documentation>The amount of hours per year the transport asset is operational</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="fullLoadHours" type="ecore:EInt">
+          <xsd:annotation>
+            <xsd:documentation>An annual number of full-load hours is the time it will take a given transport asset to yield its annual transport if it is able to transport with its installed capacity all of the time.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -2330,6 +2350,11 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:attribute>
     <xsd:attribute name="name" type="ecore:EString"/>
     <xsd:attribute name="description" type="ecore:EString"/>
+    <xsd:attribute ecore:unsettable="false" name="referenceYear" type="ecore:EInt">
+      <xsd:annotation>
+        <xsd:documentation>The year for which the costs are given.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="SpecificLabelDistribution">
     <xsd:annotation>
@@ -5707,6 +5732,8 @@ Examples of layered Matters
       <xsd:enumeration value="SUPER_CRITICAL_STEAM_TURBINE"/>
       <xsd:enumeration value="NUCLEAR_2ND_GENERATION"/>
       <xsd:enumeration value="NUCLEAR_3RD_GENERATION"/>
+      <xsd:enumeration value="NUCLEAR_4TH_GENERATION"/>
+      <xsd:enumeration value="WASTE_INCENERATION"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:complexType name="ElectricBoiler">

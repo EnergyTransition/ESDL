@@ -5,7 +5,7 @@
     <details key="documentation" value="# Energy System Description Language&#xD;&#xA;&#xD;&#xA;The Energy System Description Language (ESDL) is a modelling language created for modelling the components in an energy system and their relations towards each other. Furthermore ESDL is capable of expressing the dynamic behaviour of components in the energy system. For instance the power consumption of an neighbourhood. ESDL describes components by their basic functionality (so called Energy Capabilities), these are modelled in 5 abstract categories: Production, Consumption, Storage, Transport and Conversion. ESDL enables energy modelers to model a complex energy system in a generic way. The language is machine readable so makers of energy transition calculation tools and GIS applications can support ESDL in order to enforce the interoperability of their products.&#xD;&#xA;&#xD;&#xA;ESDL is currently developed by [TNO](https://www.tno.nl), and is open source. &#xD;&#xA;The Github repository is at [https://github.com/EnergyTransition/ESDL](https://github.com/EnergyTransition/ESDL)&#xD;&#xA;&#xD;&#xA;For more information about ESDL, see the [ESDL gitbook](https://energytransition.gitbook.io/esdl)&#xD;&#xA;A browseable version of this model is found at [https://energytransition.github.io/](https://energytransition.github.io/)&#xD;&#xA;"/>
   </eAnnotations>
   <eAnnotations source="http://www.tno.nl/esdl/version">
-    <details key="version" value="v2211"/>
+    <details key="version" value="v2303"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyAsset" abstract="true" eSuperTypes="#//ConnectableAsset">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -65,6 +65,16 @@
       </eAnnotations>
       <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
         <details key="unit" value="W"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationalHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Defines the amount of time it is operational in hours during the year (e.g. the consumer is not in maintenance and not actively turned off)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullLoadHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An annual number of full-load hours is the time it will take a given Consumer to yield its annual consumption if it is able to consume with its installed capacity all of the time. The capacity is defined by the 'power' attribute"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -184,6 +194,16 @@
       </eAnnotations>
       <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
         <details key="unit" value="-"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationalHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The amount of hours per year the transport asset is operational"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullLoadHours" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="An annual number of full-load hours is the time it will take a given transport asset to yield its annual transport if it is able to transport with its installed capacity all of the time."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -2042,6 +2062,11 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referenceYear" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The year for which the costs are given."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SpecificLabelDistribution" abstract="true"
       eSuperTypes="#//GenericDistribution">
@@ -5034,6 +5059,8 @@
     <eLiterals name="SUPER_CRITICAL_STEAM_TURBINE" value="6"/>
     <eLiterals name="NUCLEAR_2ND_GENERATION" value="7"/>
     <eLiterals name="NUCLEAR_3RD_GENERATION" value="8"/>
+    <eLiterals name="NUCLEAR_4TH_GENERATION" value="9"/>
+    <eLiterals name="WASTE_INCENERATION" value="10"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ElectricBoiler" eSuperTypes="#//AbstractBasicConversion"/>
 </ecore:EPackage>
