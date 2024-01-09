@@ -69,6 +69,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AreaScopeEnum/STATE"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AreaScopeEnum/COUNTRY"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AreaScopeEnum/CONTINENT"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//AreaScopeEnum/SERVICE_AREA"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//ProfileTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/UNDEFINED"/>
@@ -716,6 +717,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/geometry"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/measures"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Area/sector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Area/logicalGroup"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//Port">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Port/id"/>
