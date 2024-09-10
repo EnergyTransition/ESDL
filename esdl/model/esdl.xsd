@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2401" targetNamespace="http://www.tno.nl/esdl">
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2409" targetNamespace="http://www.tno.nl/esdl">
   <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
   <xsd:annotation>
     <xsd:documentation># Energy System Description Language
@@ -295,6 +295,7 @@ A browseable version of this model is found at [https://energytransition.github.
   <xsd:element ecore:ignore="true" name="CAES" type="esdl:CAES"/>
   <xsd:element ecore:ignore="true" name="DataSourceList" type="esdl:DataSourceList"/>
   <xsd:element ecore:ignore="true" name="ElectricBoiler" type="esdl:ElectricBoiler"/>
+  <xsd:element ecore:ignore="true" name="InstanceYear" type="esdl:InstanceYear"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -2351,6 +2352,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="fixedOperationalCosts" type="esdl:GenericProfile"/>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="variableMaintenanceCosts" type="esdl:GenericProfile"/>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="developmentCosts" type="esdl:GenericProfile"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="decommissioningCosts" type="esdl:GenericProfile"/>
     </xsd:sequence>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString">
       <xsd:annotation>
@@ -2766,12 +2768,17 @@ When a model queries for a value from a certain date (and to a certain date), th
   </xsd:complexType>
   <xsd:complexType name="Range">
     <xsd:annotation>
-      <xsd:documentation>Defines a range between two values</xsd:documentation>
+      <xsd:documentation>Defines a range between two values. Optionally a mid value can be specified as for example a mean value or most plausible value.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:StaticProfile">
         <xsd:attribute ecore:unsettable="false" name="minValue" type="ecore:EDouble"/>
         <xsd:attribute ecore:unsettable="false" name="maxValue" type="ecore:EDouble"/>
+        <xsd:attribute ecore:unsettable="false" name="midValue" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>A value in between the min and max value. Can for example be the mean value, or the most plausible value (based on an expert judgement). </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -3852,7 +3859,11 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractInstanceDate">
-        <xsd:attribute name="date" type="ecore:EDate"/>
+        <xsd:attribute name="date" type="ecore:EDate">
+          <xsd:annotation>
+            <xsd:documentation>The date for which the instance was created</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -3862,8 +3873,16 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractInstanceDate">
-        <xsd:attribute name="fromDate" type="ecore:EDate"/>
-        <xsd:attribute name="toDate" type="ecore:EDate"/>
+        <xsd:attribute name="fromDate" type="ecore:EDate">
+          <xsd:annotation>
+            <xsd:documentation>The start date of the period for which the instance was created</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="toDate" type="ecore:EDate">
+          <xsd:annotation>
+            <xsd:documentation>The end date of the period for which the instance was created</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -5753,6 +5772,20 @@ Examples of layered Matters
   <xsd:complexType name="ElectricBoiler">
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractBasicConversion"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="InstanceYear">
+    <xsd:annotation>
+      <xsd:documentation>Describes the year of the validity of the data that is used in this instance </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractInstanceDate">
+        <xsd:attribute ecore:unsettable="false" name="year" type="ecore:EInt">
+          <xsd:annotation>
+            <xsd:documentation>The year for which the instance was created</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
 </xsd:schema>

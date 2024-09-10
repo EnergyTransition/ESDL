@@ -1079,6 +1079,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CostInformation/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CostInformation/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//CostInformation/referenceYear"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//CostInformation/decommissioningCosts"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esdl.ecore#//SpecificLabelDistribution"/>
     <genClasses ecoreClass="esdl.ecore#//StringLabelDistribution">
@@ -1173,6 +1174,7 @@
     <genClasses ecoreClass="esdl.ecore#//Range">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Range/minValue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Range/maxValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Range/midValue"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//SolarPotential">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//SolarPotential/value"/>
@@ -1845,5 +1847,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataSourceList/description"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//ElectricBoiler"/>
+    <genClasses ecoreClass="esdl.ecore#//InstanceYear">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//InstanceYear/year"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>
