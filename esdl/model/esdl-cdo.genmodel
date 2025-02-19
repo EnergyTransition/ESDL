@@ -426,6 +426,7 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/NEWTON"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/AMPERE"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/DEGREES"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UnitEnum/TONNE"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//TimeUnitEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//TimeUnitEnum/NONE"/>
@@ -670,6 +671,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystem/version"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/templates"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//EnergySystem/esdlVersion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystem/group"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//WindTurbine">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//WindTurbine/rotorDiameter"/>
@@ -1849,6 +1851,23 @@
     <genClasses ecoreClass="esdl.ecore#//ElectricBoiler"/>
     <genClasses ecoreClass="esdl.ecore#//InstanceYear">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//InstanceYear/year"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//PriorityStrategy">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PriorityStrategy/priority"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//Group">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Group/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Group/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Group/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Group/member"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//AbstractGroupMember">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractGroupMember/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractGroupMember/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractGroupMember/description"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//Plan">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Plan/element"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
