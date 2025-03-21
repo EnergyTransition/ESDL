@@ -617,6 +617,24 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PowerPlantTypeEnum/NUCLEAR_4TH_GENERATION"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//PowerPlantTypeEnum/WASTE_INCENERATION"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//DatabaseTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//DatabaseTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//DatabaseTypeEnum/SQL"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//DatabaseTypeEnum/POSTGRESQL"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//DatabaseTypeEnum/MYSQL"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//DatabaseTypeEnum/MSSQL"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//DatabaseTypeEnum/DUCKDB"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//DatabaseTypeEnum/INFLUXDB"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//DatabaseTypeEnum/TIMESCALE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//FileTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//FileTypeEnum/UNDEFINED"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//FileTypeEnum/CSV"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//FileTypeEnum/EXCEL"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//FileTypeEnum/PARQUET"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//FileTypeEnum/NETCDF"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//FileTypeEnum/S3"/>
+    </genEnums>
     <genClasses image="false" ecoreClass="esdl.ecore#//EnergyAsset">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/port"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergyAsset/controlStrategy"/>
@@ -1004,6 +1022,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/notes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/matters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/environmentalProfiles"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//EnergySystemInformation/dataconfigurations"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Pump">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Pump/pumpCapacity"/>
@@ -1138,11 +1157,11 @@
     <genClasses ecoreClass="esdl.ecore#//URIProfile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//URIProfile/URI"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="esdl.ecore#//DatabaseProfile">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseProfile/host"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseProfile/port"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseProfile/database"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseProfile/filters"/>
+    <genClasses image="false" ecoreClass="esdl.ecore#//LegacyAbstractDatabaseProfile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//LegacyAbstractDatabaseProfile/host"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//LegacyAbstractDatabaseProfile/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//LegacyAbstractDatabaseProfile/database"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//LegacyAbstractDatabaseProfile/filters"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//InfluxDBProfile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//InfluxDBProfile/measurement"/>
@@ -1870,6 +1889,35 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Plan">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Plan/element"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//DataTableProfile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataTableProfile/tableName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataTableProfile/columnName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataTableProfile/timeColumnName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataTableProfile/filter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataTableProfile/schema"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//DataTableProfile/configuration"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//AbstractDataConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractDataConfiguration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractDataConfiguration/id"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//DatabaseConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseConfiguration/database"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseConfiguration/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseConfiguration/host"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseConfiguration/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DatabaseConfiguration/tls"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//FileConfiguration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//FileConfiguration/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//FileConfiguration/type"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//DataConfigurations">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//DataConfigurations/configurations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataConfigurations/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataConfigurations/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataConfigurations/description"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
