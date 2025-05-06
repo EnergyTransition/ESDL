@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2502" targetNamespace="http://www.tno.nl/esdl">
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2505" targetNamespace="http://www.tno.nl/esdl">
   <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
   <xsd:annotation>
     <xsd:documentation># Energy System Description Language
@@ -117,7 +117,7 @@ A browseable version of this model is found at [https://energytransition.github.
   <xsd:element ecore:ignore="true" name="CHP" type="esdl:CHP"/>
   <xsd:element ecore:ignore="true" name="Party" type="esdl:Party"/>
   <xsd:element ecore:ignore="true" name="URIProfile" type="esdl:URIProfile"/>
-  <xsd:element ecore:ignore="true" name="DatabaseProfile" type="esdl:DatabaseProfile"/>
+  <xsd:element ecore:ignore="true" name="LegacyAbstractDatabaseProfile" type="esdl:LegacyAbstractDatabaseProfile"/>
   <xsd:element ecore:ignore="true" name="InfluxDBProfile" type="esdl:InfluxDBProfile"/>
   <xsd:element ecore:ignore="true" name="Line" type="esdl:Line"/>
   <xsd:element ecore:ignore="true" name="Geometry" type="esdl:Geometry"/>
@@ -300,6 +300,12 @@ A browseable version of this model is found at [https://energytransition.github.
   <xsd:element ecore:ignore="true" name="Group" type="esdl:Group"/>
   <xsd:element ecore:ignore="true" name="AbstractGroupMember" type="esdl:AbstractGroupMember"/>
   <xsd:element ecore:ignore="true" name="Plan" type="esdl:Plan"/>
+  <xsd:element ecore:ignore="true" name="DataTableProfile" type="esdl:DataTableProfile"/>
+  <xsd:element ecore:ignore="true" name="AbstractDataConfiguration" type="esdl:AbstractDataConfiguration"/>
+  <xsd:element ecore:ignore="true" name="DatabaseConfiguration" type="esdl:DatabaseConfiguration"/>
+  <xsd:element ecore:ignore="true" name="FileConfiguration" type="esdl:FileConfiguration"/>
+  <xsd:element ecore:ignore="true" name="DataConfigurations" type="esdl:DataConfigurations"/>
+  <xsd:element ecore:ignore="true" name="ProfileConstraint" type="esdl:ProfileConstraint"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -337,7 +343,7 @@ A browseable version of this model is found at [https://energytransition.github.
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="power" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>Maximum (output) power in Watt. This attribute specifies the rated output power of the producer.</xsd:documentation>
+            <xsd:documentation>Maximum output power in Watt. This attribute specifies the rated output power of the producer.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -352,7 +358,7 @@ A browseable version of this model is found at [https://energytransition.github.
         <xsd:attribute default="PRIMARY" ecore:unsettable="false" name="consType" type="esdl:ConsTypeEnum"/>
         <xsd:attribute ecore:unsettable="false" name="power" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>Maximum power / capacity in Watt</xsd:documentation>
+            <xsd:documentation>Maximum input power / capacity in Watt</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="operationalHours" type="ecore:EInt">
@@ -950,7 +956,7 @@ A browseable version of this model is found at [https://energytransition.github.
               <xsd:documentation/>
             </xsd:annotation>
           </xsd:element>
-          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="constraint" type="esdl:Constraint"/>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="w" type="esdl:Constraint"/>
         </xsd:sequence>
         <xsd:attribute ecore:unsettable="false" name="surfaceArea" nl.tno.esdl.attribute.unit:unit="m²" type="ecore:EInt">
           <xsd:annotation>
@@ -2138,6 +2144,7 @@ A browseable version of this model is found at [https://energytransition.github.
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="notes" type="esdl:Notes"/>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="matters" type="esdl:Matters"/>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="environmentalProfiles" type="esdl:EnvironmentalProfiles"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="dataconfigurations" type="esdl:DataConfigurations"/>
     </xsd:sequence>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
   </xsd:complexType>
@@ -2554,7 +2561,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType abstract="true" name="DatabaseProfile">
+  <xsd:complexType abstract="true" name="LegacyAbstractDatabaseProfile">
     <xsd:annotation>
       <xsd:documentation>Describes the fields of a generic database-based profile</xsd:documentation>
     </xsd:annotation>
@@ -2576,7 +2583,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Describes a profile based on a measurement and field as part of an InfluxDB timeseries query</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:DatabaseProfile">
+      <xsd:extension base="esdl:LegacyAbstractDatabaseProfile">
         <xsd:attribute name="measurement" type="ecore:EString"/>
         <xsd:attribute name="field" type="ecore:EString"/>
       </xsd:extension>
@@ -5661,7 +5668,7 @@ Examples of layered Matters
       <xsd:extension base="esdl:Conversion">
         <xsd:attribute ecore:unsettable="false" name="power" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
           <xsd:annotation>
-            <xsd:documentation>Maximum power / capacity in Watt</xsd:documentation>
+            <xsd:documentation>Maximum output power / capacity in Watt</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="efficiency" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
@@ -5704,7 +5711,7 @@ Examples of layered Matters
       <xsd:extension base="esdl:Item">
         <xsd:attribute name="attributeReference" type="ecore:EString">
           <xsd:annotation>
-            <xsd:documentation>Allows to explicitly create the contraint on a specific attribute of the asset in case this is ambiguous, e.g. a power constraint on the output power of a hybrid heatpump (gasheater power or heatpump power)</xsd:documentation>
+            <xsd:documentation>Allows to explicitly create the contraint on a specific attribute of the asset in case this is ambiguous, e.g. a power constraint on the output power of a hybrid heat pump (gas heater power or heat pump power). Use the attribute name as a value for attributeReference.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -5870,6 +5877,170 @@ Examples of layered Matters
             <xsd:list itemType="xsd:anyURI"/>
           </xsd:simpleType>
         </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="DataTableProfile">
+    <xsd:annotation>
+      <xsd:documentation>Define timeseries data based on a data table structure, such as relational databases or file formats that store data in a table-like structure such as Parquet or Excel files.
+The information defined in this data table should be sufficient to build a query using one of the supported database or file types (see AbstractDataConfiguration).</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:ExternalProfile">
+        <xsd:attribute name="tableName" type="ecore:EString" use="required">
+          <xsd:annotation>
+            <xsd:documentation>Name of the table in the database (or sheet of an Excel file) to query.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="columnName" type="ecore:EString" use="required">
+          <xsd:annotation>
+            <xsd:documentation>Column in the table to select for data.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute default="time" ecore:unsettable="false" name="timeColumnName" type="ecore:EString">
+          <xsd:annotation>
+            <xsd:documentation>Name of the column that contains the time date that is related to the data in the column defined by columnName. Defaults to 'time'</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="filter" type="ecore:EString">
+          <xsd:annotation>
+            <xsd:documentation>An optional filter to apply to the data in SQL language (i.e. the WHERE clause).</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="schema" type="ecore:EString">
+          <xsd:annotation>
+            <xsd:documentation>The database schema to use (optional, as not all databases support this)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:reference="esdl:AbstractDataConfiguration" name="configuration" type="xsd:anyURI" use="required">
+          <xsd:annotation>
+            <xsd:documentation>LInks a TableBasedProfile to a specific data(base) configuration, such as a relational database or file</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="AbstractDataConfiguration">
+    <xsd:annotation>
+      <xsd:documentation>Defines a data configuration (a file or database configuration) with a name and ID. ID can be used to match or override specific settings of a DatabaseConfiguration in the client.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="name" type="ecore:EString" use="required"/>
+    <xsd:attribute name="id" type="ecore:EString" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="DatabaseConfiguration">
+    <xsd:annotation>
+      <xsd:documentation>Defines a configuration to access a database that contains one or more tables that is described by one or more TableBasedProfiles, in terms of the name of the database, its type and host and port. Host an port are optional and can also be defined by the client application and can be looked up by the ID of this database definition. TLS defines if the connection is secured by TLS/SSL.
+Username and password required to connect to the database are to be provided by the client application, as it should not be stored in an ESDL.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractDataConfiguration">
+        <xsd:attribute name="database" type="ecore:EString" use="required"/>
+        <xsd:attribute ecore:unsettable="false" name="type" type="esdl:DatabaseTypeEnum" use="required">
+          <xsd:annotation>
+            <xsd:documentation>Defines what type of database is used, to allow clients to select the correct protocol. E.g. Postgresql or MySQL</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="host" type="ecore:EString">
+          <xsd:annotation>
+            <xsd:documentation>Hostname or IP address of the database server</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="port" type="ecore:EInt">
+          <xsd:annotation>
+            <xsd:documentation>Network port on which the database is listening for connections</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="tls" type="ecore:EBoolean">
+          <xsd:annotation>
+            <xsd:documentation>True when TLS encryption is required (e.g. SSL) to connect to the database</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType name="DatabaseTypeEnum">
+    <xsd:annotation>
+      <xsd:documentation>Defines a list of database technologies that can be used by DatabaseConfiguration when configuring a DataTableProfile.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="SQL"/>
+      <xsd:enumeration value="POSTGRESQL"/>
+      <xsd:enumeration value="MYSQL"/>
+      <xsd:enumeration value="MSSQL"/>
+      <xsd:enumeration value="DUCKDB"/>
+      <xsd:enumeration value="INFLUXDB">
+        <xsd:annotation>
+          <xsd:documentation>For InfluxDB, use tableName for the measurement or bucket.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="TIMESCALE">
+        <xsd:annotation>
+          <xsd:documentation>PostgreSQL with Timescale extension enabled</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="FileConfiguration">
+    <xsd:annotation>
+      <xsd:documentation>Configures a path to a file that can be used for one or more TableBasedProfiles. Path can be a file location or an uri that defines how to find this file.
+Keep in mind that for portability one should not refer to local files that others cannot access. In those cases a (public) database should be used, e.g. the EDR.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractDataConfiguration">
+        <xsd:attribute name="path" type="ecore:EString" use="required">
+          <xsd:annotation>
+            <xsd:documentation>path or URI to the file. Could be a remote file e.g. retrieved via https or via S3 object store.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="type" type="esdl:FileTypeEnum" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:simpleType name="FileTypeEnum">
+    <xsd:annotation>
+      <xsd:documentation>Defines a list of file types that are supported by FileConfigurations when configuring a DataTableProfile</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="CSV">
+        <xsd:annotation>
+          <xsd:documentation>CSV, default comma separated files, UTF-8 encoded, text borders defined by double quotes.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="EXCEL">
+        <xsd:annotation>
+          <xsd:documentation>Excel file format, the sheet can be selected by using the tableName field.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="PARQUET"/>
+      <xsd:enumeration value="NETCDF"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="DataConfigurations">
+    <xsd:annotation>
+      <xsd:documentation>Defines a list of configurations to connect to data tables stored in databases or files for retrieving profile information. E.g. when profiles are stored in a relational database, a DatabaseConfiguration can be used to point DataTableProfiles to a specific database or file.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="configurations" type="esdl:AbstractDataConfiguration"/>
+    </xsd:sequence>
+    <xsd:attribute name="id" type="ecore:EString"/>
+    <xsd:attribute name="name" type="ecore:EString"/>
+    <xsd:attribute name="description" type="ecore:EString"/>
+  </xsd:complexType>
+  <xsd:complexType name="ProfileConstraint">
+    <xsd:annotation>
+      <xsd:documentation>Allow to specify a certain constraint as a profile (varying over time)</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Constraint">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="profile" type="esdl:GenericProfile">
+            <xsd:annotation>
+              <xsd:documentation>profile that will be used as the constraint</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>

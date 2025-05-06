@@ -776,7 +776,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/material"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Asset/manufacturer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/bufferDistance"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/constraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/w"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/containingAsset"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GenericConsumer"/>
@@ -1915,6 +1915,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataConfigurations/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataConfigurations/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataConfigurations/description"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//ProfileConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//ProfileConstraint/profile"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
