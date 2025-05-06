@@ -5278,9 +5278,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FileConfiguration" eSuperTypes="#//AbstractDataConfiguration">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Configures a path to a file that can be used for one or more TableBasedProfiles. Path can be a file location or an uri that defines how to find this file.&#xD;&#xA;Keep in mind that for portability one should not refer to local files that others cannot access. In those cases a (public) database should be used, e.g. the EDR."/>
+      <details key="documentation" value="Configures an uri to a file that can be used for one or more TableBasedProfiles. Path can be a file location or an uri that defines how to find this file, e.g. using https:// or s3:// to identify the protocol scheme.&#xD;&#xA;Keep in mind that for portability one should not refer to local files that others cannot access. In those cases a (public) database should be used, e.g. the EDR."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uri" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="path or URI to the file. Could be a remote file e.g. retrieved via https or via S3 object store."/>
       </eAnnotations>
