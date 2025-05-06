@@ -752,8 +752,8 @@
         <details key="documentation" value=""/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="w" upperBound="-1" eType="#//Constraint"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" upperBound="-1"
+        eType="#//Constraint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containingAsset" eType="#//CompoundAsset"
         eOpposite="#//CompoundAsset/asset"/>
   </eClassifiers>

@@ -956,7 +956,7 @@ A browseable version of this model is found at [https://energytransition.github.
               <xsd:documentation/>
             </xsd:annotation>
           </xsd:element>
-          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="w" type="esdl:Constraint"/>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="constraint" type="esdl:Constraint"/>
         </xsd:sequence>
         <xsd:attribute ecore:unsettable="false" name="surfaceArea" nl.tno.esdl.attribute.unit:unit="m²" type="ecore:EInt">
           <xsd:annotation>
