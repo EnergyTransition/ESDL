@@ -1917,7 +1917,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataConfigurations/description"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//ProfileConstraint">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//ProfileConstraint/profile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//ProfileConstraint/minimum"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//ProfileConstraint/maximum"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
