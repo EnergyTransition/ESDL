@@ -71,34 +71,8 @@
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//ProfileTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/UNDEFINED"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/SOLARIRRADIANCE_IN_W_PER_M2"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/WINDSPEED_IN_M_PER_S"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/STATEOFCHARGE_IN_WS"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/ENERGY_IN_WH"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/ENERGY_IN_KWH"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/ENERGY_IN_MWH"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/ENERGY_IN_GWH"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/ENERGY_IN_J"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/ENERGY_IN_KJ"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/ENERGY_IN_MJ"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/ENERGY_IN_GJ"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/ENERGY_IN_TJ"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/ENERGY_IN_PJ"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/TEMPERATURE_IN_C"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/TEMPERATURE_IN_K"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/POWER_IN_W"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/POWER_IN_KW"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/POWER_IN_MW"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/POWER_IN_GW"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/POWER_IN_TW"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/MONEY_IN_EUR"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/MONEY_IN_KEUR"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/MONEY_IN_MEUR"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/PERCENTAGE"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/MONEY_IN_EUR_PER_KW"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/MONEY_IN_EUR_PER_KWH"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/VOLUME_IN_M3"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/VOLUME_IN_LITERS"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/INPUT"/>
+      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//ProfileTypeEnum/OUTPUT"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//DurationUnitEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//DurationUnitEnum/SECOND"/>
@@ -1892,7 +1866,7 @@
     <genClasses ecoreClass="esdl.ecore#//DataTableProfile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataTableProfile/tableName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataTableProfile/columnName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataTableProfile/timeColumnName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataTableProfile/datetimeColumnName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataTableProfile/filter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataTableProfile/schema"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//DataTableProfile/configuration"/>

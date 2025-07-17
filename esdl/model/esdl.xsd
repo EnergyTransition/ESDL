@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v250501" targetNamespace="http://www.tno.nl/esdl">
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2507" targetNamespace="http://www.tno.nl/esdl">
   <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
   <xsd:annotation>
     <xsd:documentation># Energy System Description Language
@@ -856,38 +856,20 @@ A browseable version of this model is found at [https://energytransition.github.
   </xsd:simpleType>
   <xsd:simpleType name="ProfileTypeEnum">
     <xsd:annotation>
-      <xsd:documentation>(deprecated in future version, to be replaced with Quantity and Units)</xsd:documentation>
+      <xsd:documentation>Indicates if a profile is an input to a model or a result of a model calculation</xsd:documentation>
     </xsd:annotation>
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="UNDEFINED"/>
-      <xsd:enumeration value="SOLARIRRADIANCE_IN_W_PER_M2"/>
-      <xsd:enumeration value="WINDSPEED_IN_M_PER_S"/>
-      <xsd:enumeration value="STATEOFCHARGE_IN_WS"/>
-      <xsd:enumeration value="ENERGY_IN_WH"/>
-      <xsd:enumeration value="ENERGY_IN_KWH"/>
-      <xsd:enumeration value="ENERGY_IN_MWH"/>
-      <xsd:enumeration value="ENERGY_IN_GWH"/>
-      <xsd:enumeration value="ENERGY_IN_J"/>
-      <xsd:enumeration value="ENERGY_IN_KJ"/>
-      <xsd:enumeration value="ENERGY_IN_MJ"/>
-      <xsd:enumeration value="ENERGY_IN_GJ"/>
-      <xsd:enumeration value="ENERGY_IN_TJ"/>
-      <xsd:enumeration value="ENERGY_IN_PJ"/>
-      <xsd:enumeration value="TEMPERATURE_IN_C"/>
-      <xsd:enumeration value="TEMPERATURE_IN_K"/>
-      <xsd:enumeration value="POWER_IN_W"/>
-      <xsd:enumeration value="POWER_IN_KW"/>
-      <xsd:enumeration value="POWER_IN_MW"/>
-      <xsd:enumeration value="POWER_IN_GW"/>
-      <xsd:enumeration value="POWER_IN_TW"/>
-      <xsd:enumeration value="MONEY_IN_EUR"/>
-      <xsd:enumeration value="MONEY_IN_KEUR"/>
-      <xsd:enumeration value="MONEY_IN_MEUR"/>
-      <xsd:enumeration value="PERCENTAGE"/>
-      <xsd:enumeration value="MONEY_IN_EUR_PER_KW"/>
-      <xsd:enumeration value="MONEY_IN_EUR_PER_KWH"/>
-      <xsd:enumeration value="VOLUME_IN_M3"/>
-      <xsd:enumeration value="VOLUME_IN_LITERS"/>
+      <xsd:enumeration value="INPUT">
+        <xsd:annotation>
+          <xsd:documentation>Indicating a profile is meant as an input to a model</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="OUTPUT">
+        <xsd:annotation>
+          <xsd:documentation>Indicating a profile represents an output (result) of a model</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="DurationUnitEnum">
@@ -5897,9 +5879,9 @@ The information defined in this data table should be sufficient to build a query
             <xsd:documentation>Column in the table to select for data.</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute default="time" ecore:unsettable="false" name="timeColumnName" type="ecore:EString">
+        <xsd:attribute default="datetime" ecore:unsettable="false" name="datetimeColumnName" type="ecore:EString">
           <xsd:annotation>
-            <xsd:documentation>Name of the column that contains the time date that is related to the data in the column defined by columnName. Defaults to 'time'</xsd:documentation>
+            <xsd:documentation>Name of the column that contains the date and time applicable to the data in the column defined by columnName. Defaults to 'datetime'</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute name="filter" type="ecore:EString">

@@ -5,7 +5,7 @@
     <details key="documentation" value="# Energy System Description Language&#xD;&#xA;&#xD;&#xA;The Energy System Description Language (ESDL) is a modelling language created for modelling the components in an energy system and their relations towards each other. Furthermore ESDL is capable of expressing the dynamic behaviour of components in the energy system. For instance the power consumption of an neighbourhood. ESDL describes components by their basic functionality (so called Energy Capabilities), these are modelled in 5 abstract categories: Production, Consumption, Storage, Transport and Conversion. ESDL enables energy modelers to model a complex energy system in a generic way. The language is machine readable so makers of energy transition calculation tools and GIS applications can support ESDL in order to enforce the interoperability of their products.&#xD;&#xA;&#xD;&#xA;ESDL is currently developed by [TNO](https://www.tno.nl), and is open source. &#xD;&#xA;The Github repository is at [https://github.com/EnergyTransition/ESDL](https://github.com/EnergyTransition/ESDL)&#xD;&#xA;&#xD;&#xA;For more information about ESDL, see the [ESDL gitbook](https://energytransition.gitbook.io/esdl)&#xD;&#xA;A browseable version of this model is found at [https://energytransition.github.io/](https://energytransition.github.io/)&#xD;&#xA;"/>
   </eAnnotations>
   <eAnnotations source="http://www.tno.nl/esdl/version">
-    <details key="version" value="v250501"/>
+    <details key="version" value="v2507"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyAsset" abstract="true" eSuperTypes="#//ConnectableAsset">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -606,37 +606,19 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ProfileTypeEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="(deprecated in future version, to be replaced with Quantity and Units)"/>
+      <details key="documentation" value="Indicates if a profile is an input to a model or a result of a model calculation"/>
     </eAnnotations>
     <eLiterals name="UNDEFINED"/>
-    <eLiterals name="SOLARIRRADIANCE_IN_W_PER_M2" value="1"/>
-    <eLiterals name="WINDSPEED_IN_M_PER_S" value="2"/>
-    <eLiterals name="STATEOFCHARGE_IN_WS" value="3"/>
-    <eLiterals name="ENERGY_IN_WH" value="4"/>
-    <eLiterals name="ENERGY_IN_KWH" value="5"/>
-    <eLiterals name="ENERGY_IN_MWH" value="6"/>
-    <eLiterals name="ENERGY_IN_GWH" value="7"/>
-    <eLiterals name="ENERGY_IN_J" value="8"/>
-    <eLiterals name="ENERGY_IN_KJ" value="9"/>
-    <eLiterals name="ENERGY_IN_MJ" value="10"/>
-    <eLiterals name="ENERGY_IN_GJ" value="11"/>
-    <eLiterals name="ENERGY_IN_TJ" value="12"/>
-    <eLiterals name="ENERGY_IN_PJ" value="13"/>
-    <eLiterals name="TEMPERATURE_IN_C" value="14"/>
-    <eLiterals name="TEMPERATURE_IN_K" value="15"/>
-    <eLiterals name="POWER_IN_W" value="16"/>
-    <eLiterals name="POWER_IN_KW" value="17"/>
-    <eLiterals name="POWER_IN_MW" value="18"/>
-    <eLiterals name="POWER_IN_GW" value="19"/>
-    <eLiterals name="POWER_IN_TW" value="20"/>
-    <eLiterals name="MONEY_IN_EUR" value="21"/>
-    <eLiterals name="MONEY_IN_KEUR" value="22"/>
-    <eLiterals name="MONEY_IN_MEUR" value="23"/>
-    <eLiterals name="PERCENTAGE" value="24"/>
-    <eLiterals name="MONEY_IN_EUR_PER_KW" value="25"/>
-    <eLiterals name="MONEY_IN_EUR_PER_KWH" value="26"/>
-    <eLiterals name="VOLUME_IN_M3" value="27"/>
-    <eLiterals name="VOLUME_IN_LITERS" value="28"/>
+    <eLiterals name="INPUT" value="1">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Indicating a profile is meant as an input to a model"/>
+      </eAnnotations>
+    </eLiterals>
+    <eLiterals name="OUTPUT" value="2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Indicating a profile represents an output (result) of a model"/>
+      </eAnnotations>
+    </eLiterals>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DurationUnitEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -5198,10 +5180,10 @@
         <details key="documentation" value="Column in the table to select for data."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeColumnName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="time">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="datetimeColumnName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="datetime">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Name of the column that contains the time date that is related to the data in the column defined by columnName. Defaults to 'time'"/>
+        <details key="documentation" value="Name of the column that contains the date and time applicable to the data in the column defined by columnName. Defaults to 'datetime'"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
