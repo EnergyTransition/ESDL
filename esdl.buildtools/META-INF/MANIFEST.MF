@@ -3,23 +3,22 @@ Automatic-Module-Name: build
 Bundle-ManifestVersion: 2
 Bundle-Name: esdl.buildtools
 Bundle-Vendor: TNO
-Bundle-Version: 2.25.7
+Bundle-Version: 2.25.7.cdo
 Bundle-SymbolicName: esdl.buildtools; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase,
- org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.equinox.common,
  org.eclipse.xtext.ecore,
- org.eclipse.core.runtime;bundle-version="3.15.200",
+ org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtext.util,
  org.eclipse.emf.common,
  org.apache.log4j,
- org.eclipse.jgit;bundle-version="5.3.0",
- org.slf4j.api,
+ org.eclipse.jgit,
  org.eclipse.xtext.xtext.generator,
  org.eclipse.emf.mwe2.lib
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Import-Package: org.apache.log4j
 Export-Package: nl.tno.esdl
