@@ -4,7 +4,7 @@
     editDirectory="/esdl.edit/src-gen" editorDirectory="/esdl.editor/src-gen" modelPluginID="esdl"
     modelName="Esdl" rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     reflectiveDelegation="true" testsDirectory="" importerID="org.eclipse.emf.importer.ecore"
-    featureDelegation="Reflective" complianceLevel="8.0" providerRootExtendsClass="org.eclipse.emf.cdo.edit.CDOItemProviderAdapter"
+    featureDelegation="Reflective" complianceLevel="17.0" providerRootExtendsClass="org.eclipse.emf.cdo.edit.CDOItemProviderAdapter"
     operationReflection="true" importOrganizing="true" decoration="Live" autoResizeProperties="true"
     findAction="true" expandAllAction="true" collapseAllAction="true" revertAction="true">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.uml2.uml.ecore.exporter">
@@ -812,7 +812,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalSource/geothermalSourceType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalSource/COP"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalSource/aquiferTemperature"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalSource/flowRate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalSource/maximumFlowRate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalSource/pumpPower"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//GeothermalSource/geothermalPotential"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//GeothermalSource/powerFactor"/>
@@ -1803,6 +1803,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ATES/salinity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ATES/wellCasingSize"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ATES/wellDistance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//ATES/maximumFlowRate"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HybridHeatPump">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HybridHeatPump/gasHeaterThermalPower"/>
@@ -1893,6 +1894,10 @@
     <genClasses ecoreClass="esdl.ecore#//ProfileConstraint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//ProfileConstraint/minimum"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//ProfileConstraint/maximum"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//PipeDiameterConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PipeDiameterConstraint/minimum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PipeDiameterConstraint/maximum"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

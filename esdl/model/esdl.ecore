@@ -6,7 +6,7 @@
     <details key="complianceLevel" value="17.0"/>
   </eAnnotations>
   <eAnnotations source="http://www.tno.nl/esdl/version">
-    <details key="version" value="v2507"/>
+    <details key="version" value="v2602"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyAsset" abstract="true" eSuperTypes="#//ConnectableAsset">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1020,12 +1020,13 @@
         <details key="unit" value="°C"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="flowRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximumFlowRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="0.0">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="in kg/s"/>
+        <details key="documentation" value="in m3/h"/>
       </eAnnotations>
       <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
-        <details key="unit" value="kg/s"/>
+        <details key="unit" value="m3/h"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pumpPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
@@ -4939,6 +4940,14 @@
         <details key="documentation" value="The distance between the hot and the cold well at aquifer level in meters"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximumFlowRate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="in m3/h"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="m3/h"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HybridHeatPump" eSuperTypes="#//Conversion">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -5209,7 +5218,8 @@
       <details key="documentation" value="Defines a data configuration (a file or database configuration) with a name and ID. ID can be used to match or override specific settings of a DatabaseConfiguration in the client."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DatabaseConfiguration" eSuperTypes="#//AbstractDataConfiguration">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -5294,7 +5304,8 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
         eType="#//AbstractDataConfiguration" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -5314,5 +5325,9 @@
         <details key="documentation" value="profile that contrains the maximum values of the specified attribute"/>
       </eAnnotations>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PipeDiameterConstraint" eSuperTypes="#//Constraint">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimum" eType="#//PipeDiameterEnum"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximum" eType="#//PipeDiameterEnum"/>
   </eClassifiers>
 </ecore:EPackage>
