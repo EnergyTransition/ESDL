@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2602" targetNamespace="http://www.tno.nl/esdl">
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2603" targetNamespace="http://www.tno.nl/esdl">
   <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
   <xsd:annotation>
     <xsd:documentation># Energy System Description Language
@@ -2884,7 +2884,11 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:extension base="esdl:AbstractDataSource">
         <xsd:attribute name="name" type="ecore:EString"/>
         <xsd:attribute name="description" type="ecore:EString"/>
-        <xsd:attribute name="reference" type="ecore:EString"/>
+        <xsd:attribute name="reference" type="ecore:EString">
+          <xsd:annotation>
+            <xsd:documentation>Reference to a datasource (document, dataset or model)</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
         <xsd:attribute name="attribution" type="ecore:EString"/>
         <xsd:attribute name="releaseDate" type="ecore:EDate"/>
         <xsd:attribute name="version" type="ecore:EString"/>
@@ -2897,6 +2901,11 @@ When a model queries for a value from a certain date (and to a certain date), th
         <xsd:attribute name="contactDetails" type="ecore:EString">
           <xsd:annotation>
             <xsd:documentation>Email address, phone number, etc.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute ecore:unsettable="false" name="type" type="esdl:DataSourceTypeEnum">
+          <xsd:annotation>
+            <xsd:documentation>The type of the data source, DOCUMENT for documents, reports, papers, DATASET for datasets in Excel, CSV, or any other format, and MODEL to indicate the source of this data is a specific model</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -6045,4 +6054,12 @@ Keep in mind that for portability one should not refer to local files that other
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
+  <xsd:simpleType name="DataSourceTypeEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="UNDEFINED"/>
+      <xsd:enumeration value="DOCUMENT"/>
+      <xsd:enumeration value="DATASET"/>
+      <xsd:enumeration value="MODEL"/>
+    </xsd:restriction>
+  </xsd:simpleType>
 </xsd:schema>
