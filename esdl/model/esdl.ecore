@@ -6,7 +6,7 @@
     <details key="complianceLevel" value="17.0"/>
   </eAnnotations>
   <eAnnotations source="http://www.tno.nl/esdl/version">
-    <details key="version" value="v2603"/>
+    <details key="version" value="v2605"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyAsset" abstract="true" eSuperTypes="#//ConnectableAsset">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -739,6 +739,12 @@
         eType="#//Constraint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="containingAsset" eType="#//CompoundAsset"
         eOpposite="#//CompoundAsset/asset"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="measures" eType="#//Measures"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Measures collection for a specific asset. Allows you to specify different possibilities for different assets or buildings."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenericConsumer" eSuperTypes="#//Consumer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1574,12 +1580,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="potential" upperBound="-1"
         eType="#//Potential" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="measures" eType="#//Measures"
-        containment="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Measures collection for a specific building. Allows you to specify different possibilities for different buildings (or building types)."/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Instance">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1699,7 +1699,7 @@
         eType="#//AbstractBuilding"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfBuildings" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="(to be removed) Is replaced by the asset parameter aggregationCount"/>
+        <details key="documentation" value="[deprecated] Is replaced by the asset parameter aggregationCount"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="energyLabelDistribution"
@@ -2397,9 +2397,19 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cost" eType="#//GenericProfile"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="[Deprecated] cost profile for the carrier (e.g. dynamic electricity prices). Is replaced by the &quot;profile&quot; relation (use a QuantiryAndUnit to indicate &quot;COST in EUR&quot;)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataSource" eType="#//AbstractDataSource"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="profile" upperBound="-1"
+        eType="#//GenericProfile" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Allows for specifying certain information as a profile for the carrier (e.g. dynamic electricity prices, changing seasonal temperature in a district heating network). Use a QuantityAndUnit to specify the meaning of the profile information"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Range" eSuperTypes="#//StaticProfile">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3414,21 +3424,6 @@
         <details key="documentation" value="The amount of biomass in Joule"/>
       </eAnnotations>
     </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BiomassHeater" eSuperTypes="#//AbstractBasicConversion">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Converts biomass into heat and/or electricity"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="BiomassHeaterTypeEnum">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Specifies the type of the BiomassHeater, such as CHP"/>
-    </eAnnotations>
-    <eLiterals name="UNDEFINED"/>
-    <eLiterals name="FULLY_AUTOMATED" value="1"/>
-    <eLiterals name="SEMI_AUTOMATED" value="2"/>
-    <eLiterals name="PELLET_FIRED" value="3"/>
-    <eLiterals name="CHP" value="4"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="UTESPotentialTypeEnum">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -5344,5 +5339,25 @@
     <eLiterals name="DOCUMENT" value="1"/>
     <eLiterals name="DATASET" value="2"/>
     <eLiterals name="MODEL" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProductionPlant" eSuperTypes="#//Conversion">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Industrial plant that produces one or more products (like steel, glass, chemicals, paper, food, fuels, metals, minerals, ...) by performing a series of specific processes (like refining, cracking, pyrolysis, melting, drying, cleaning, ...)&#xD;&#xA;"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Heater" eSuperTypes="#//AbstractBasicConversion">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Industrial production of heat through fuel combustion or electric heating, typically generating moderate temperature increases for heating up liquids or materials.&#xD;&#xA;"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Furnace" eSuperTypes="#//AbstractBasicConversion">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Industrial production of heat through fuel combustion or electric heating, typically generating very high temperatures (>400 degrees C).&#xD;&#xA;"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Boiler" eSuperTypes="#//AbstractBasicConversion">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Industrial production of steam by addition of thermal energy through fuel combustion or electric heating.&#xD;&#xA;"/>
+    </eAnnotations>
   </eClassifiers>
 </ecore:EPackage>

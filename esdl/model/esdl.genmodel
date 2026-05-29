@@ -470,13 +470,6 @@
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//RoomHeaterTypeEnum/ELECTRIC"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//RoomHeaterTypeEnum/INFRARED_PANEL"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//BiomassHeaterTypeEnum">
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BiomassHeaterTypeEnum/UNDEFINED"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BiomassHeaterTypeEnum/FULLY_AUTOMATED"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BiomassHeaterTypeEnum/SEMI_AUTOMATED"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BiomassHeaterTypeEnum/PELLET_FIRED"/>
-      <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//BiomassHeaterTypeEnum/CHP"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esdl.ecore#//UTESPotentialTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESPotentialTypeEnum/UNDEFINED"/>
       <genEnumLiterals ecoreEnumLiteral="esdl.ecore#//UTESPotentialTypeEnum/HEAT_OPEN"/>
@@ -760,6 +753,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/bufferDistance"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/constraint"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/containingAsset"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Asset/measures"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//GenericConsumer"/>
     <genClasses ecoreClass="esdl.ecore#//GenericProducer"/>
@@ -929,7 +923,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AbstractBuilding/asset"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AbstractBuilding/buildingUsage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AbstractBuilding/potential"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//AbstractBuilding/measures"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Instance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Instance/id"/>
@@ -1172,6 +1165,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Carrier/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Carrier/cost"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Carrier/dataSource"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Carrier/profile"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Range">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Range/minValue"/>
@@ -1436,7 +1430,6 @@
     <genClasses ecoreClass="esdl.ecore#//BiomassPotential">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//BiomassPotential/value"/>
     </genClasses>
-    <genClasses ecoreClass="esdl.ecore#//BiomassHeater"/>
     <genClasses ecoreClass="esdl.ecore#//UTES">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//UTES/type"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//UTES/UTESPotential"/>
@@ -1908,5 +1901,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PipeDiameterConstraint/minimum"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//PipeDiameterConstraint/maximum"/>
     </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//ProductionPlant"/>
+    <genClasses ecoreClass="esdl.ecore#//Heater"/>
+    <genClasses ecoreClass="esdl.ecore#//Furnace"/>
+    <genClasses ecoreClass="esdl.ecore#//Boiler"/>
   </genPackages>
 </genmodel:GenModel>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2603" targetNamespace="http://www.tno.nl/esdl">
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2605" targetNamespace="http://www.tno.nl/esdl">
   <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
   <xsd:annotation>
     <xsd:documentation># Energy System Description Language
@@ -190,7 +190,6 @@ A browseable version of this model is found at [https://energytransition.github.
   <xsd:element ecore:ignore="true" name="InstancePeriod" type="esdl:InstancePeriod"/>
   <xsd:element ecore:ignore="true" name="RoomHeater" type="esdl:RoomHeater"/>
   <xsd:element ecore:ignore="true" name="BiomassPotential" type="esdl:BiomassPotential"/>
-  <xsd:element ecore:ignore="true" name="BiomassHeater" type="esdl:BiomassHeater"/>
   <xsd:element ecore:ignore="true" name="UTES" type="esdl:UTES"/>
   <xsd:element ecore:ignore="true" name="WaterBuffer" type="esdl:WaterBuffer"/>
   <xsd:element ecore:ignore="true" name="Glazing" type="esdl:Glazing"/>
@@ -307,6 +306,10 @@ A browseable version of this model is found at [https://energytransition.github.
   <xsd:element ecore:ignore="true" name="DataConfigurations" type="esdl:DataConfigurations"/>
   <xsd:element ecore:ignore="true" name="ProfileConstraint" type="esdl:ProfileConstraint"/>
   <xsd:element ecore:ignore="true" name="PipeDiameterConstraint" type="esdl:PipeDiameterConstraint"/>
+  <xsd:element ecore:ignore="true" name="ProductionPlant" type="esdl:ProductionPlant"/>
+  <xsd:element ecore:ignore="true" name="Heater" type="esdl:Heater"/>
+  <xsd:element ecore:ignore="true" name="Furnace" type="esdl:Furnace"/>
+  <xsd:element ecore:ignore="true" name="Boiler" type="esdl:Boiler"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -940,6 +943,11 @@ A browseable version of this model is found at [https://energytransition.github.
             </xsd:annotation>
           </xsd:element>
           <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="constraint" type="esdl:Constraint"/>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="measures" type="esdl:Measures">
+            <xsd:annotation>
+              <xsd:documentation>Measures collection for a specific asset. Allows you to specify different possibilities for different assets or buildings.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
         </xsd:sequence>
         <xsd:attribute ecore:unsettable="false" name="surfaceArea" nl.tno.esdl.attribute.unit:unit="m²" type="ecore:EInt">
           <xsd:annotation>
@@ -1832,11 +1840,6 @@ A browseable version of this model is found at [https://energytransition.github.
           <xsd:element ecore:opposite="containingBuilding" ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="asset" type="esdl:Asset"/>
           <xsd:element ecore:resolveProxies="true" minOccurs="0" name="buildingUsage" type="esdl:AbstractBuildingUsage"/>
           <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="potential" type="esdl:Potential"/>
-          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="measures" type="esdl:Measures">
-            <xsd:annotation>
-              <xsd:documentation>Measures collection for a specific building. Allows you to specify different possibilities for different buildings (or building types).</xsd:documentation>
-            </xsd:annotation>
-          </xsd:element>
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -1982,7 +1985,7 @@ A browseable version of this model is found at [https://energytransition.github.
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="numberOfBuildings" type="ecore:EInt">
           <xsd:annotation>
-            <xsd:documentation>(to be removed) Is replaced by the asset parameter aggregationCount</xsd:documentation>
+            <xsd:documentation>[deprecated] Is replaced by the asset parameter aggregationCount</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="floorArea" type="ecore:EDouble"/>
@@ -2759,8 +2762,17 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Abstract class to define the carrier of energy, e.g. a energy carrier or a commodity (such as electricity)</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="cost" type="esdl:GenericProfile"/>
+      <xsd:element ecore:resolveProxies="true" minOccurs="0" name="cost" type="esdl:GenericProfile">
+        <xsd:annotation>
+          <xsd:documentation>[Deprecated] cost profile for the carrier (e.g. dynamic electricity prices). Is replaced by the "profile" relation (use a QuantiryAndUnit to indicate "COST in EUR")</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element ecore:resolveProxies="true" minOccurs="0" name="dataSource" type="esdl:AbstractDataSource"/>
+      <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="profile" type="esdl:GenericProfile">
+        <xsd:annotation>
+          <xsd:documentation>Allows for specifying certain information as a profile for the carrier (e.g. dynamic electricity prices, changing seasonal temperature in a district heating network). Use a QuantityAndUnit to specify the meaning of the profile information</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
     <xsd:attribute name="name" type="ecore:EString"/>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
@@ -3935,26 +3947,6 @@ When a model queries for a value from a certain date (and to a certain date), th
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
-  <xsd:complexType name="BiomassHeater">
-    <xsd:annotation>
-      <xsd:documentation>Converts biomass into heat and/or electricity</xsd:documentation>
-    </xsd:annotation>
-    <xsd:complexContent>
-      <xsd:extension base="esdl:AbstractBasicConversion"/>
-    </xsd:complexContent>
-  </xsd:complexType>
-  <xsd:simpleType name="BiomassHeaterTypeEnum">
-    <xsd:annotation>
-      <xsd:documentation>Specifies the type of the BiomassHeater, such as CHP</xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:string">
-      <xsd:enumeration value="UNDEFINED"/>
-      <xsd:enumeration value="FULLY_AUTOMATED"/>
-      <xsd:enumeration value="SEMI_AUTOMATED"/>
-      <xsd:enumeration value="PELLET_FIRED"/>
-      <xsd:enumeration value="CHP"/>
-    </xsd:restriction>
-  </xsd:simpleType>
   <xsd:simpleType name="UTESPotentialTypeEnum">
     <xsd:annotation>
       <xsd:documentation>Defines the type of the UTES potential, such as an open source for heat or cold.</xsd:documentation>
@@ -6062,4 +6054,40 @@ Keep in mind that for portability one should not refer to local files that other
       <xsd:enumeration value="MODEL"/>
     </xsd:restriction>
   </xsd:simpleType>
+  <xsd:complexType name="ProductionPlant">
+    <xsd:annotation>
+      <xsd:documentation>Industrial plant that produces one or more products (like steel, glass, chemicals, paper, food, fuels, metals, minerals, ...) by performing a series of specific processes (like refining, cracking, pyrolysis, melting, drying, cleaning, ...)
+</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Conversion"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Heater">
+    <xsd:annotation>
+      <xsd:documentation>Industrial production of heat through fuel combustion or electric heating, typically generating moderate temperature increases for heating up liquids or materials.
+</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractBasicConversion"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Furnace">
+    <xsd:annotation>
+      <xsd:documentation>Industrial production of heat through fuel combustion or electric heating, typically generating very high temperatures (&gt;400 degrees C).
+</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractBasicConversion"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Boiler">
+    <xsd:annotation>
+      <xsd:documentation>Industrial production of steam by addition of thermal energy through fuel combustion or electric heating.
+</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractBasicConversion"/>
+    </xsd:complexContent>
+  </xsd:complexType>
 </xsd:schema>
