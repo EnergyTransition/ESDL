@@ -6,7 +6,7 @@
     <details key="complianceLevel" value="17.0"/>
   </eAnnotations>
   <eAnnotations source="http://www.tno.nl/esdl/version">
-    <details key="version" value="v2605"/>
+    <details key="version" value="v2606"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyAsset" abstract="true" eSuperTypes="#//ConnectableAsset">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -4214,7 +4214,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="AbstractMeasure" abstract="true" eSuperTypes="#//Item"/>
   <eClassifiers xsi:type="ecore:EClass" name="MeasureReference" eSuperTypes="#//AbstractMeasure">
     <eStructuralFeatures xsi:type="ecore:EReference" name="reference" lowerBound="1"
-        eType="#//Measure"/>
+        eType="#//Measure">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="the reference to the Measure"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Building" eSuperTypes="#//GenericBuilding">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -5359,5 +5363,33 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Industrial production of steam by addition of thermal energy through fuel combustion or electric heating.&#xD;&#xA;"/>
     </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MeasureGroup" eSuperTypes="#//AbstractMeasure">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A grouping of measures. Can be used to represent a catalogue of certain assets"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="measureGroup" upperBound="-1"
+        eType="#//MeasureGroup" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Allows for a hierarchy of MeasureGroups"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="measure" upperBound="-1"
+        eType="#//Measure" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="collection of measures in the group"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MeasureGroupReference" eSuperTypes="#//AbstractMeasure">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="A reference to a MeasureGroup. Can be used to refer to a specific MeasureGroup from an asset. For example an optional Pipe with a reference to the pipe catalogue from which the pipe can be chosen."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" lowerBound="1"
+        eType="#//MeasureGroup">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="the reference to the MeasureGroup"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

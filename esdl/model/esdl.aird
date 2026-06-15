@@ -26,7 +26,7 @@
     <semanticResources>relatedpipes.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_MiCeoLryEeeIKeRLj9tspA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MqgeILryEeeIKeRLj9tspA" name="esdl" repPath="#_MqZJYLryEeeIKeRLj9tspA" changeId="1779370577918">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MqgeILryEeeIKeRLj9tspA" name="esdl" repPath="#_MqZJYLryEeeIKeRLj9tspA" changeId="1781538683587">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="esdl.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -5018,7 +5018,7 @@
           <styles xmi:type="notation:ShapeStyle" xmi:id="_-NPBMdkjEeiAiP44lhTokg" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-NPBMtkjEeiAiP44lhTokg" x="1947" y="3392" width="120" height="126"/>
         </children>
-        <children xmi:type="notation:Shape" xmi:id="_n6pPkOP9Eei-rO52rQ5FJw" type="Note" fontName="Segoe UI" description="Changes since last commit:&#xD;&#xA;- Added profile relation for carrier,  annotated cost profile as deprecated&#xD;&#xA;- Moved measures relation from AbstractBuilding to Asset, such that other assets than Buildings can have measures too.&#xD;&#xA;- Replace BiomassHeater class with more generic (industrial) Heater class&#xD;&#xA;- Added (industrial) Furnace and Boiler classes &#xD;&#xA;- Added (industrial) ProductionPlant asset&#xD;&#xA;- Updated version to v2605&#xD;&#xA;" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+        <children xmi:type="notation:Shape" xmi:id="_n6pPkOP9Eei-rO52rQ5FJw" type="Note" fontName="Segoe UI" description="Changes since last commit:&#xD;&#xA;- Added MeasureGroup and MeasureGroupReference classes&#xD;&#xA;- Updated version to v2606&#xD;&#xA;" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
           <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_n6pPkeP9Eei-rO52rQ5FJw" source="specificStyles">
             <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_n6pPkuP9Eei-rO52rQ5FJw" key="verticalAlignment" value="8"/>
           </eAnnotations>
@@ -6103,7 +6103,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_MpYu1pNjEeqLTNn-CrasyQ"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_MpYu0ZNjEeqLTNn-CrasyQ" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MpYu0pNjEeqLTNn-CrasyQ" x="3908" y="384" width="159" height="100"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MpYu0pNjEeqLTNn-CrasyQ" x="3862" y="384" width="132" height="39"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_qDFJYJnJEeqbZZWui-cBsw" type="2003" element="_p_9j8JnJEeqbZZWui-cBsw">
           <children xmi:type="notation:Node" xmi:id="_qDFwcJnJEeqbZZWui-cBsw" type="5007"/>
@@ -6709,7 +6709,7 @@
             <styles xmi:type="notation:FilteringStyle" xmi:id="_5_yB8lPqEeurYPzhCm9H9w"/>
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_5_r7UVPqEeurYPzhCm9H9w" fontName="Segoe UI" fontHeight="8"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5_r7UlPqEeurYPzhCm9H9w" x="3775" y="487" width="163" height="92"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5_r7UlPqEeurYPzhCm9H9w" x="3784" y="499" width="163" height="92"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_aMU3UJ3sEeuhjvjK77_68A" type="2003" element="_aDtt4J3sEeuhjvjK77_68A">
           <children xmi:type="notation:Node" xmi:id="_aMcMEJ3sEeuhjvjK77_68A" type="5007"/>
@@ -7407,6 +7407,24 @@
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_QgdZcVUYEfG7qZrcXzEZdA" fontName="Segoe UI" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QgdZclUYEfG7qZrcXzEZdA" x="4660" y="2143" width="120" height="61"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_qKAlsGjQEfGP3dlNs-w8YA" type="2003" element="_qCfocGjQEfGP3dlNs-w8YA">
+          <children xmi:type="notation:Node" xmi:id="_qKQdUGjQEfGP3dlNs-w8YA" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_qKTgoGjQEfGP3dlNs-w8YA" type="7004">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_qKTgoWjQEfGP3dlNs-w8YA"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_qKTgomjQEfGP3dlNs-w8YA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_qKAlsWjQEfGP3dlNs-w8YA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qKAlsmjQEfGP3dlNs-w8YA" x="4015" y="384" width="120" height="100"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_tJ0lwGjQEfGP3dlNs-w8YA" type="2003" element="_tEWP4GjQEfGP3dlNs-w8YA">
+          <children xmi:type="notation:Node" xmi:id="_tJ1z4GjQEfGP3dlNs-w8YA" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_tJ1z4WjQEfGP3dlNs-w8YA" type="7004">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_tJ1z4mjQEfGP3dlNs-w8YA"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_tJ1z42jQEfGP3dlNs-w8YA"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_tJ0lwWjQEfGP3dlNs-w8YA" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tJ0lwmjQEfGP3dlNs-w8YA" x="3863" y="430" width="131" height="53"/>
         </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_Mvo1wrryEeeIKeRLj9tspA"/>
         <edges xmi:type="notation:Edge" xmi:id="_5Md00IkqEeqMceH6WPMEtA" type="4001" element="_5KCL4IkqEeqMceH6WPMEtA" source="_1GO_QIkqEeqMceH6WPMEtA" target="_3GS5ULryEeeIKeRLj9tspA">
@@ -12770,17 +12788,17 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_K9X48JNjEeqLTNn-CrasyQ" type="4001" element="_K63XiZNjEeqLTNn-CrasyQ" source="_rGV8MNO6EeieS8oxD9b1aQ" target="_AupbIJNjEeqLTNn-CrasyQ">
           <children xmi:type="notation:Node" xmi:id="_K9X49JNjEeqLTNn-CrasyQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K9X49ZNjEeqLTNn-CrasyQ" x="-104" y="-10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K9X49ZNjEeqLTNn-CrasyQ" x="-102" y="-10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_K9X49pNjEeqLTNn-CrasyQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K9X495NjEeqLTNn-CrasyQ" x="-18" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K9X495NjEeqLTNn-CrasyQ" x="-16" y="12"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_K9X4-JNjEeqLTNn-CrasyQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K9X4-ZNjEeqLTNn-CrasyQ" x="-87" y="-27"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K9X4-ZNjEeqLTNn-CrasyQ" x="-85" y="-27"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_K9X48ZNjEeqLTNn-CrasyQ" routing="Tree"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_K9X48pNjEeqLTNn-CrasyQ" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_K9X485NjEeqLTNn-CrasyQ" points="[0, 0, -162, 188]$[0, -17, -162, 171]$[163, -17, 1, 171]$[163, -139, 1, 49]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_K9X485NjEeqLTNn-CrasyQ" points="[0, 0, -162, 188]$[0, -19, -162, 169]$[163, -19, 1, 169]$[163, -139, 1, 49]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_K9X4-pNjEeqLTNn-CrasyQ" id="(0.4473684210526316,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_K9YgAJNjEeqLTNn-CrasyQ" id="(0.5,0.5)"/>
         </edges>
@@ -12802,18 +12820,18 @@
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_WGC2gJNjEeqLTNn-CrasyQ" type="4001" element="_WDjjQpNjEeqLTNn-CrasyQ" source="_MpYu0JNjEeqLTNn-CrasyQ" target="_rGV8MNO6EeieS8oxD9b1aQ">
           <children xmi:type="notation:Node" xmi:id="_WGDdkJNjEeqLTNn-CrasyQ" type="6001">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WGDdkZNjEeqLTNn-CrasyQ" x="-29" y="-13"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WGDdkZNjEeqLTNn-CrasyQ" x="-2" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_WGDdkpNjEeqLTNn-CrasyQ" type="6002">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WGDdk5NjEeqLTNn-CrasyQ" x="12" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WGDdk5NjEeqLTNn-CrasyQ" x="4" y="10"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_WGDdlJNjEeqLTNn-CrasyQ" type="6003">
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WGDdlZNjEeqLTNn-CrasyQ" x="-3" y="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WGDdlZNjEeqLTNn-CrasyQ" x="-10" y="10"/>
           </children>
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_WGC2gZNjEeqLTNn-CrasyQ" routing="Rectilinear"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_WGC2gpNjEeqLTNn-CrasyQ" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WGC2g5NjEeqLTNn-CrasyQ" points="[0, 36, 64, 37]$[-64, 36, 0, 37]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WGDdlpNjEeqLTNn-CrasyQ" id="(0.0,0.12244897959183673)"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WGC2g5NjEeqLTNn-CrasyQ" points="[0, 19, 18, 20]$[-18, 19, 0, 20]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WGDdlpNjEeqLTNn-CrasyQ" id="(0.0,0.32432432432432434)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WGDdl5NjEeqLTNn-CrasyQ" id="(1.0,0.12244897959183673)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_AdNlgE9jEeuXVO_OH-6_fg" type="4001" element="_x-Ro8NVdEeieS8oxD9b1aQ" source="_x-dPINVdEeieS8oxD9b1aQ" target="_MyG34E9eEeuXVO_OH-6_fg">
@@ -13741,7 +13759,7 @@
           <styles xmi:type="notation:ConnectorStyle" xmi:id="_ZJhOkZNjEeqLTNn-CrasyQ" routing="Tree"/>
           <styles xmi:type="notation:FontStyle" xmi:id="_ZJhOkpNjEeqLTNn-CrasyQ" fontName="Segoe UI" fontHeight="8"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZJhOk5NjEeqLTNn-CrasyQ" points="[0, 0, 45, 188]$[0, -17, 45, 171]$[-103, -17, -58, 171]$[-103, -139, -58, 49]"/>
-          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZJh1ppNjEeqLTNn-CrasyQ" id="(0.5031847133757962,0.0)"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZJh1ppNjEeqLTNn-CrasyQ" id="(0.6076923076923076,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZJh1p5NjEeqLTNn-CrasyQ" id="(1.0,0.5)"/>
         </edges>
         <edges xmi:type="notation:Edge" xmi:id="_gRUDoJnlEeqbZZWui-cBsw" type="4001" element="_gP8LBpnlEeqbZZWui-cBsw" source="_64TaEJnJEeqbZZWui-cBsw" target="_wIscwJnJEeqbZZWui-cBsw">
@@ -14542,6 +14560,86 @@
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7z1Hc1UZEfG7qZrcXzEZdA" points="[-1, 0, -94, 214]$[-1, -188, -94, 26]$[136, -188, 43, 26]$[136, -212, 43, 2]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7z1ugFUZEfG7qZrcXzEZdA" id="(0.8813559322033898,0.0)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7z1ugVUZEfG7qZrcXzEZdA" id="(0.46596858638743455,0.9761904761904762)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_1bPCUGjQEfGP3dlNs-w8YA" type="4001" element="_1Wo2MGjQEfGP3dlNs-w8YA" source="_tJ0lwGjQEfGP3dlNs-w8YA" target="_AupbIJNjEeqLTNn-CrasyQ">
+          <children xmi:type="notation:Node" xmi:id="_1bSssGjQEfGP3dlNs-w8YA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1bSssWjQEfGP3dlNs-w8YA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1bVI8GjQEfGP3dlNs-w8YA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1bVI8WjQEfGP3dlNs-w8YA" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_1bWXEGjQEfGP3dlNs-w8YA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1bWXEWjQEfGP3dlNs-w8YA" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_1bPCUWjQEfGP3dlNs-w8YA" routing="Tree"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_1bPCUmjQEfGP3dlNs-w8YA" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1bPCU2jQEfGP3dlNs-w8YA" points="[0, 0, 0, 186]$[0, -186, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1bYzUGjQEfGP3dlNs-w8YA" id="(0.4573643410852713,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1bYzUWjQEfGP3dlNs-w8YA" id="(1.0,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_2RbDcGjQEfGP3dlNs-w8YA" type="4001" element="_2NMqwGjQEfGP3dlNs-w8YA" source="_qKAlsGjQEfGP3dlNs-w8YA" target="_AupbIJNjEeqLTNn-CrasyQ">
+          <children xmi:type="notation:Node" xmi:id="_2RbqgGjQEfGP3dlNs-w8YA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2RbqgWjQEfGP3dlNs-w8YA" x="-102" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2RbqgmjQEfGP3dlNs-w8YA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2Rbqg2jQEfGP3dlNs-w8YA" x="-33" y="-12"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_2RbqhGjQEfGP3dlNs-w8YA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2RbqhWjQEfGP3dlNs-w8YA" x="-66" y="26"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_2RbDcWjQEfGP3dlNs-w8YA" routing="Tree"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_2RbDcmjQEfGP3dlNs-w8YA" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_2RbDc2jQEfGP3dlNs-w8YA" points="[0, 0, 95, 189]$[0, -20, 95, 169]$[-153, -20, -58, 169]$[-153, -140, -58, 49]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2RbqhmjQEfGP3dlNs-w8YA" id="(0.635593220338983,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2Rbqh2jQEfGP3dlNs-w8YA" id="(1.0,0.5)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_8HmzsGjQEfGP3dlNs-w8YA" type="4001" element="_8DjaOGjQEfGP3dlNs-w8YA" source="_tJ0lwGjQEfGP3dlNs-w8YA" target="_qKAlsGjQEfGP3dlNs-w8YA">
+          <children xmi:type="notation:Node" xmi:id="_8HmztGjQEfGP3dlNs-w8YA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8HmztWjQEfGP3dlNs-w8YA" x="12" y="-2"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_8HnawGjQEfGP3dlNs-w8YA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8HnawWjQEfGP3dlNs-w8YA" x="10" y="1"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_8HnawmjQEfGP3dlNs-w8YA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8Hnaw2jQEfGP3dlNs-w8YA" x="-4" y="5"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_8HmzsWjQEfGP3dlNs-w8YA" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_8HmzsmjQEfGP3dlNs-w8YA" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8Hmzs2jQEfGP3dlNs-w8YA" points="[0, 0, -41, -4]$[9, 0, -32, -4]$[9, 5, -32, 1]$[23, 5, -18, 1]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8HnaxGjQEfGP3dlNs-w8YA" id="(1.0,0.5098039215686274)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8HnaxWjQEfGP3dlNs-w8YA" id="(0.15254237288135594,0.7755102040816326)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_KgY3IGjREfGP3dlNs-w8YA" type="4001" element="_Kc43MGjREfGP3dlNs-w8YA" source="_qKAlsGjQEfGP3dlNs-w8YA" target="_qKAlsGjQEfGP3dlNs-w8YA">
+          <children xmi:type="notation:Node" xmi:id="_KgZeMGjREfGP3dlNs-w8YA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KgZeMWjREfGP3dlNs-w8YA" x="4" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_KgZeMmjREfGP3dlNs-w8YA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KgZeM2jREfGP3dlNs-w8YA" x="-14"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_KgZeNGjREfGP3dlNs-w8YA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KgZeNWjREfGP3dlNs-w8YA" x="-15" y="1"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_KgY3IWjREfGP3dlNs-w8YA" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_KgY3ImjREfGP3dlNs-w8YA" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KgY3I2jREfGP3dlNs-w8YA" points="[-2, 0, 28, 0]$[-2, 38, 28, 38]$[-26, 38, 4, 38]$[-26, 0, 4, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_KgZeNmjREfGP3dlNs-w8YA" id="(0.9067796610169492,1.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_KgZeN2jREfGP3dlNs-w8YA" id="(0.652542372881356,1.0)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_SGzO4GjREfGP3dlNs-w8YA" type="4001" element="_RIHZH2jREfGP3dlNs-w8YA" source="_qKAlsGjQEfGP3dlNs-w8YA" target="_rGV8MNO6EeieS8oxD9b1aQ">
+          <children xmi:type="notation:Node" xmi:id="_SGz18GjREfGP3dlNs-w8YA" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SGz18WjREfGP3dlNs-w8YA" x="-67" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_SGz18mjREfGP3dlNs-w8YA" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SGz182jREfGP3dlNs-w8YA" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_SG0dAGjREfGP3dlNs-w8YA" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SG0dAWjREfGP3dlNs-w8YA" y="-10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_SGzO4WjREfGP3dlNs-w8YA" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_SGzO4mjREfGP3dlNs-w8YA" fontColor="7490599" fontName="Segoe UI" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SGzO42jREfGP3dlNs-w8YA" points="[-7, 0, 249, 7]$[-7, 11, 249, 18]$[-255, 11, 1, 18]$[-255, -1, 1, 6]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SG2SMGjREfGP3dlNs-w8YA" id="(0.3813559322033898,1.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_SG2SMWjREfGP3dlNs-w8YA" id="(0.7368421052631579,0.9387755102040817)"/>
         </edges>
       </data>
     </ownedAnnotationEntries>
@@ -24079,7 +24177,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_rDpNgNO6EeieS8oxD9b1aQ" name="Measure" tooltipText="" outgoingEdges="_yRAMENO6EeieS8oxD9b1aQ _YebwcNO7EeieS8oxD9b1aQ _AS9QYG6SEeqqkKbSp8OGaA _K63XiZNjEeqLTNn-CrasyQ _o9pQxtsDEeqI18tIOWpfmA" incomingEdges="_WDjjQpNjEeqLTNn-CrasyQ" width="12" height="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_rDpNgNO6EeieS8oxD9b1aQ" name="Measure" tooltipText="" outgoingEdges="_yRAMENO6EeieS8oxD9b1aQ _YebwcNO7EeieS8oxD9b1aQ _AS9QYG6SEeqqkKbSp8OGaA _K63XiZNjEeqLTNn-CrasyQ _o9pQxtsDEeqI18tIOWpfmA" incomingEdges="_WDjjQpNjEeqLTNn-CrasyQ _RIHZH2jREfGP3dlNs-w8YA" width="12" height="10">
       <target xmi:type="ecore:EClass" href="esdl.ecore#//Measure"/>
       <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//Measure"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -27925,7 +28023,7 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_Aq48gJNjEeqLTNn-CrasyQ" name="AbstractMeasure" tooltipText="" outgoingEdges="_9hsD-dsAEeqI18tIOWpfmA" incomingEdges="_DFiaDJNjEeqLTNn-CrasyQ _K63XiZNjEeqLTNn-CrasyQ _ZHLsQJNjEeqLTNn-CrasyQ" width="12" height="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_Aq48gJNjEeqLTNn-CrasyQ" name="AbstractMeasure" tooltipText="" outgoingEdges="_9hsD-dsAEeqI18tIOWpfmA" incomingEdges="_DFiaDJNjEeqLTNn-CrasyQ _K63XiZNjEeqLTNn-CrasyQ _ZHLsQJNjEeqLTNn-CrasyQ _1Wo2MGjQEfGP3dlNs-w8YA _2NMqwGjQEfGP3dlNs-w8YA" width="12" height="10">
       <target xmi:type="ecore:EClass" href="esdl.ecore#//AbstractMeasure"/>
       <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//AbstractMeasure"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
@@ -31716,6 +31814,75 @@
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_7ycAklUZEfG7qZrcXzEZdA" showIcon="false"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_qCfocGjQEfGP3dlNs-w8YA" name="MeasureGroup" tooltipText="" outgoingEdges="_2NMqwGjQEfGP3dlNs-w8YA _Kc43MGjREfGP3dlNs-w8YA _RIHZH2jREfGP3dlNs-w8YA" incomingEdges="_8DjaOGjQEfGP3dlNs-w8YA _Kc43MGjREfGP3dlNs-w8YA" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//MeasureGroup"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//MeasureGroup"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_qCiEsGjQEfGP3dlNs-w8YA" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_tEWP4GjQEfGP3dlNs-w8YA" name="MeasureGroupReference" tooltipText="" outgoingEdges="_1Wo2MGjQEfGP3dlNs-w8YA _8DjaOGjQEfGP3dlNs-w8YA" width="12" height="10">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//MeasureGroupReference"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//MeasureGroupReference"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_tEW28GjQEfGP3dlNs-w8YA" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_1Wo2MGjQEfGP3dlNs-w8YA" sourceNode="_tEWP4GjQEfGP3dlNs-w8YA" targetNode="_Aq48gJNjEeqLTNn-CrasyQ">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//MeasureGroupReference"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//MeasureGroupReference"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_1WqEUGjQEfGP3dlNs-w8YA" targetArrow="InputClosedArrow" routingStyle="tree">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_1WqEUWjQEfGP3dlNs-w8YA" showIcon="false">
+          <labelFormat>italic</labelFormat>
+        </beginLabelStyle>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_1WqEUmjQEfGP3dlNs-w8YA" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_2NMqwGjQEfGP3dlNs-w8YA" sourceNode="_qCfocGjQEfGP3dlNs-w8YA" targetNode="_Aq48gJNjEeqLTNn-CrasyQ">
+      <target xmi:type="ecore:EClass" href="esdl.ecore#//MeasureGroup"/>
+      <semanticElements xmi:type="ecore:EClass" href="esdl.ecore#//MeasureGroup"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_2NNR0GjQEfGP3dlNs-w8YA" targetArrow="InputClosedArrow" routingStyle="tree">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_2NNR0WjQEfGP3dlNs-w8YA" showIcon="false">
+          <labelFormat>italic</labelFormat>
+        </beginLabelStyle>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_2NNR0mjQEfGP3dlNs-w8YA" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_8DjaOGjQEfGP3dlNs-w8YA" name="[1..1] reference" sourceNode="_tEWP4GjQEfGP3dlNs-w8YA" targetNode="_qCfocGjQEfGP3dlNs-w8YA">
+      <target xmi:type="ecore:EReference" href="esdl.ecore#//MeasureGroupReference/reference"/>
+      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//MeasureGroupReference/reference"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_CtuMHGjREfGP3dlNs-w8YA" description="_Q_WdAIXNEei38bikTrOUvA" routingStyle="manhattan" strokeColor="0,0,0">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_CtuMHmjREfGP3dlNs-w8YA" showIcon="false">
+          <labelFormat>bold</labelFormat>
+        </centerLabelStyle>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_CtuMHWjREfGP3dlNs-w8YA" labelSize="6" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_Kc43MGjREfGP3dlNs-w8YA" name="[0..*] measureGroup" sourceNode="_qCfocGjQEfGP3dlNs-w8YA" targetNode="_qCfocGjQEfGP3dlNs-w8YA">
+      <target xmi:type="ecore:EReference" href="esdl.ecore#//MeasureGroup/measureGroup"/>
+      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//MeasureGroup/measureGroup"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_Kc43MWjREfGP3dlNs-w8YA" description="_-krrUMB1EeeJ9PYBAF2PgA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_Kc43M2jREfGP3dlNs-w8YA" showIcon="false"/>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_Kc43MmjREfGP3dlNs-w8YA" labelSize="6" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_RIHZH2jREfGP3dlNs-w8YA" name="[0..*] measure" sourceNode="_qCfocGjQEfGP3dlNs-w8YA" targetNode="_rDpNgNO6EeieS8oxD9b1aQ">
+      <target xmi:type="ecore:EReference" href="esdl.ecore#//MeasureGroup/measure"/>
+      <semanticElements xmi:type="ecore:EReference" href="esdl.ecore#//MeasureGroup/measure"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RIHZIGjREfGP3dlNs-w8YA" description="_-krrUMB1EeeJ9PYBAF2PgA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_RIHZImjREfGP3dlNs-w8YA" showIcon="false"/>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_RIHZIWjREfGP3dlNs-w8YA" labelSize="6" showIcon="false" labelColor="39,76,114"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_MqZwc7ryEeeIKeRLj9tspA"/>
@@ -38402,7 +38569,7 @@
         <intersectionMapping xmi:type="description_2:IntersectionMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@intersection.0"/>
       </cells>
     </lines>
-    <columns xmi:type="table:DTargetColumn" uid="_XjYH2rsmEeeZZezrcapb6w" label="Domain Documentation" cells="_jVUEoFFVEemdwPTMMldKDA _2a4nUFFVEemdwPTMMldKDA _3fZYUFFVEemdwPTMMldKDA _ZlhJEFFWEemdwPTMMldKDA _ugducFFVEemdwPTMMldKDA _eMabsFFWEemdwPTMMldKDA _c9HMULsmEeeZZezrcapb6w _-VaqYFFUEemdwPTMMldKDA _ok4EUFFWEemdwPTMMldKDA _ktzsIFFWEemdwPTMMldKDA _-VeUwFFUEemdwPTMMldKDA _rqOrsFFWEemdwPTMMldKDA _AwmogFFXEemdwPTMMldKDA _J4eL8FFXEemdwPTMMldKDA _Q7_5EFFXEemdwPTMMldKDA _ocPQQFFXEemdwPTMMldKDA _k95hIFFXEemdwPTMMldKDA _yGJw0FFXEemdwPTMMldKDA _L9gJUFFYEemdwPTMMldKDA _AX7NUFFYEemdwPTMMldKDA _jcfjUFFYEemdwPTMMldKDA _oPeKIFFYEemdwPTMMldKDA _w_q0cFFYEemdwPTMMldKDA _tOEyIFFYEemdwPTMMldKDA _POSkoFFYEemdwPTMMldKDA _MBzlEFFZEemdwPTMMldKDA _TY5ucFFZEemdwPTMMldKDA _aryGMFFZEemdwPTMMldKDA _eT6DcFFZEemdwPTMMldKDA _yhE80FFYEemdwPTMMldKDA _7WsdMFFZEemdwPTMMldKDA _89teUFFZEemdwPTMMldKDA _VkZgMFFaEemdwPTMMldKDA _ZX9RYFFaEemdwPTMMldKDA _qa4m4FFaEemdwPTMMldKDA _usmTsFFaEemdwPTMMldKDA _7jJIUFFaEemdwPTMMldKDA _C6DrgFFbEemdwPTMMldKDA _GcPY0FFbEemdwPTMMldKDA _MEYtEFFbEemdwPTMMldKDA _nyxfsFFbEemdwPTMMldKDA _SScKwFFbEemdwPTMMldKDA _ZP66QFFbEemdwPTMMldKDA _5dXSIFFbEemdwPTMMldKDA _xgQHEFFaEemdwPTMMldKDA _MvqpQFFcEemdwPTMMldKDA _OT6qQFFcEemdwPTMMldKDA _PePvYFFcEemdwPTMMldKDA _Quuf0FFcEemdwPTMMldKDA _R10DsFFcEemdwPTMMldKDA _YAO-kFFcEemdwPTMMldKDA _noqsAFFcEemdwPTMMldKDA _o0-uIFFcEemdwPTMMldKDA _v-D0MFFdEemdwPTMMldKDA _FkS80FFeEemdwPTMMldKDA _g9W_sFFeEemdwPTMMldKDA _ioz04FFeEemdwPTMMldKDA _jZIekFFeEemdwPTMMldKDA _ll-woFFeEemdwPTMMldKDA _mhrj4FFeEemdwPTMMldKDA _nh7f8FFeEemdwPTMMldKDA _oiu1oFFeEemdwPTMMldKDA _pqg9EFFeEemdwPTMMldKDA _wSZ3EFFeEemdwPTMMldKDA _pBkGsFFeEemdwPTMMldKDA _yL-AwFFeEemdwPTMMldKDA _ofn6cFFiEemdwPTMMldKDA _0JHp8FFeEemdwPTMMldKDA _5UF6AFFeEemdwPTMMldKDA _FmSrcFFfEemdwPTMMldKDA _1N79gFuREem-Ctg6fJChmg _i8w2MFFfEemdwPTMMldKDA _-b-PQFFdEemdwPTMMldKDA _5Nva8FuREem-Ctg6fJChmg _ene4AFFfEemdwPTMMldKDA _5HB48FFfEemdwPTMMldKDA _74ei4FuREem-Ctg6fJChmg _AgOUEFFgEemdwPTMMldKDA _Ef2LUFFgEemdwPTMMldKDA _NiHTEFuSEem-Ctg6fJChmg _JDf8sFFgEemdwPTMMldKDA _QynkgFFgEemdwPTMMldKDA _eUbZsFuSEem-Ctg6fJChmg _i7w7MFFgEemdwPTMMldKDA _k_gUkFFgEemdwPTMMldKDA _i-vMsFuSEem-Ctg6fJChmg _vQp0QFFgEemdwPTMMldKDA _wo6AoFFgEemdwPTMMldKDA _BPspwFuTEem-Ctg6fJChmg _SnvToFuTEem-Ctg6fJChmg _snDUwFFgEemdwPTMMldKDA _aEziIFuTEem-Ctg6fJChmg _5fcjgFFgEemdwPTMMldKDA _cDD-kFuTEem-Ctg6fJChmg _-nWRcFFgEemdwPTMMldKDA _WUe1sFuUEem-Ctg6fJChmg _AQcWMFFhEemdwPTMMldKDA _ZAaQcFuUEem-Ctg6fJChmg _BKxQcFFhEemdwPTMMldKDA _fCWkwFuUEem-Ctg6fJChmg _HcQcoFFhEemdwPTMMldKDA _p7USYFuUEem-Ctg6fJChmg _KFiMAFFhEemdwPTMMldKDA _yW9pAFuUEem-Ctg6fJChmg _NgOxQFFhEemdwPTMMldKDA _5gM8kFuUEem-Ctg6fJChmg _4QutoVFgEemdwPTMMldKDA _9ID0EFuUEem-Ctg6fJChmg _YOEM8FFhEemdwPTMMldKDA _ba0A4FuVEem-Ctg6fJChmg _db9OIFFhEemdwPTMMldKDA _rlanQFuVEem-Ctg6fJChmg _hIdVEFFhEemdwPTMMldKDA _v_ZfQFuVEem-Ctg6fJChmg _TUmjoFFhEemdwPTMMldKDA _1HwgMFuVEem-Ctg6fJChmg _uVc60FFhEemdwPTMMldKDA _3iO-kFuVEem-Ctg6fJChmg _wyPtYFFhEemdwPTMMldKDA _8WQuQFuVEem-Ctg6fJChmg _ylWpwFFhEemdwPTMMldKDA _9-BWQFuVEem-Ctg6fJChmg _626QQFFhEemdwPTMMldKDA _mPuJ0FFhEemdwPTMMldKDA _F795IFFiEemdwPTMMldKDA _N31jgFFiEemdwPTMMldKDA _lYACMFFiEemdwPTMMldKDA _frQAMF9XEemf2fuoUiMDyQ _i8lOEF9XEemf2fuoUiMDyQ _lbL-gF9XEemf2fuoUiMDyQ _I2sN0F9YEemf2fuoUiMDyQ _avtBUF9ZEemf2fuoUiMDyQ _b43BwF9ZEemf2fuoUiMDyQ _lZGo8F9ZEemf2fuoUiMDyQ _vRGBwF9ZEemf2fuoUiMDyQ _xZ3FEF9ZEemf2fuoUiMDyQ _yD45gF9ZEemf2fuoUiMDyQ _07hN8F9ZEemf2fuoUiMDyQ _1u-bwFuWEem-Ctg6fJChmg _5Lj3YFuWEem-Ctg6fJChmg _MZkz0F9aEemf2fuoUiMDyQ __36aoFuWEem-Ctg6fJChmg _BexDsFuXEem-Ctg6fJChmg _OgjucF9aEemf2fuoUiMDyQ _DmN4YFuXEem-Ctg6fJChmg _-Ve70VFUEemdwPTMMldKDA _Ukm7kF9aEemf2fuoUiMDyQ _Jy7SQFuXEem-Ctg6fJChmg _bhLsIF9aEemf2fuoUiMDyQ _ORIi8FuXEem-Ctg6fJChmg _la-bwF9aEemf2fuoUiMDyQ _xit2sFuWEem-Ctg6fJChmg _o_KUMF9aEemf2fuoUiMDyQ _vfJ2cF9aEemf2fuoUiMDyQ _y8SrsF9aEemf2fuoUiMDyQ _0zZXQF9aEemf2fuoUiMDyQ _9uXHIF9aEemf2fuoUiMDyQ _GctXUF9bEemf2fuoUiMDyQ _LLdlcF9bEemf2fuoUiMDyQ _U3BEwF9bEemf2fuoUiMDyQ _aN1YcF9bEemf2fuoUiMDyQ _nBTNwFuTEem-Ctg6fJChmg _jEP_gF9bEemf2fuoUiMDyQ _oFCisFuTEem-Ctg6fJChmg _oPqUcF9bEemf2fuoUiMDyQ _qRmg4FuTEem-Ctg6fJChmg _snB9UF9bEemf2fuoUiMDyQ _ySP9kFuTEem-Ctg6fJChmg _3NTiUFuTEem-Ctg6fJChmg _Ix1JAFuUEem-Ctg6fJChmg _OCyFQFuUEem-Ctg6fJChmg _e5agoFuTEem-Ctg6fJChmg _wfAUcF9bEemf2fuoUiMDyQ _-qEE8F9bEemf2fuoUiMDyQ _RwAbEF9cEemf2fuoUiMDyQ _bLlksF9cEemf2fuoUiMDyQ _gyXnAF9cEemf2fuoUiMDyQ _utoA8F9cEemf2fuoUiMDyQ _2BnzAF9cEemf2fuoUiMDyQ _gbEr4F9dEemf2fuoUiMDyQ _rfSAMF9dEemf2fuoUiMDyQ _xRE_sF9dEemf2fuoUiMDyQ _zVZn4F9dEemf2fuoUiMDyQ _3aX5MF9dEemf2fuoUiMDyQ _PXv4UF9eEemf2fuoUiMDyQ _XoDhoF9eEemf2fuoUiMDyQ _-Ve701FUEemdwPTMMldKDA _Y9d1YF9eEemf2fuoUiMDyQ _-Ve71VFUEemdwPTMMldKDA _Z84rAF9eEemf2fuoUiMDyQ _-Vfi4FFUEemdwPTMMldKDA _rjD3gF9eEemf2fuoUiMDyQ _-Ve711FUEemdwPTMMldKDA _6F_VcF9eEemf2fuoUiMDyQ _-Vfi5FFUEemdwPTMMldKDA _7klaYF9eEemf2fuoUiMDyQ _-Vfi5lFUEemdwPTMMldKDA _-Vfi4lFUEemdwPTMMldKDA _-VgJ8FFUEemdwPTMMldKDA _-Vfi6FFUEemdwPTMMldKDA _-VgJ8lFUEemdwPTMMldKDA _IjoqwF9fEemf2fuoUiMDyQ _Mkt6kF9fEemf2fuoUiMDyQ _OWuDsF9fEemf2fuoUiMDyQ _Q6m8wF9fEemf2fuoUiMDyQ _S_p9sF9fEemf2fuoUiMDyQ _VlO40F9fEemf2fuoUiMDyQ _niiy8F9fEemf2fuoUiMDyQ _pqNqEF9fEemf2fuoUiMDyQ _uzpCAF9fEemf2fuoUiMDyQ _4k7V4F9fEemf2fuoUiMDyQ _9ni7MF9fEemf2fuoUiMDyQ _-edVEF9fEemf2fuoUiMDyQ _HrTfIF9gEemf2fuoUiMDyQ _K2RmUF9gEemf2fuoUiMDyQ _QDJT0F9gEemf2fuoUiMDyQ _Z6ArQF9gEemf2fuoUiMDyQ _bT2zEF9gEemf2fuoUiMDyQ _bkIDsF9gEemf2fuoUiMDyQ _b9HygF9gEemf2fuoUiMDyQ _hcEHcF9gEemf2fuoUiMDyQ _-VgJ9FFUEemdwPTMMldKDA _-VgJ-FFUEemdwPTMMldKDA _-VgJ9lFUEemdwPTMMldKDA _-VgxAVFUEemdwPTMMldKDA _n-ggwF9gEemf2fuoUiMDyQ _qxTYgF9gEemf2fuoUiMDyQ _u9Y-cF9gEemf2fuoUiMDyQ _zDQAkF9gEemf2fuoUiMDyQ _gdS8oF9hEemf2fuoUiMDyQ _vftL4F9hEemf2fuoUiMDyQ _AtcqQF9iEemf2fuoUiMDyQ _FZoskF9iEemf2fuoUiMDyQ _IEIj8F9iEemf2fuoUiMDyQ _lFXegF9iEemf2fuoUiMDyQ _pR0Q0F9iEemf2fuoUiMDyQ _UHoVkF9jEemf2fuoUiMDyQ _35kkYF9iEemf2fuoUiMDyQ _6JLPgF9iEemf2fuoUiMDyQ _79bbYF9iEemf2fuoUiMDyQ __j39oF9iEemf2fuoUiMDyQ _ZGVOwF9kEemf2fuoUiMDyQ _ixGD4F9kEemf2fuoUiMDyQ _AkuW0HCfEem-IvGAVOB1ag _klwfcF9kEemf2fuoUiMDyQ _8Q5fEF9kEemf2fuoUiMDyQ _NSQuUF9lEemf2fuoUiMDyQ _GnmNIF9lEemf2fuoUiMDyQ _VQESYF9lEemf2fuoUiMDyQ _Gep-oHCfEem-IvGAVOB1ag _eGTlYHCfEem-IvGAVOB1ag _rFjDAHCfEem-IvGAVOB1ag _FbkUgHCgEem-IvGAVOB1ag _OCCbEHCgEem-IvGAVOB1ag _T9Y_MHCgEem-IvGAVOB1ag _YGfikHCgEem-IvGAVOB1ag _bLYP4HCgEem-IvGAVOB1ag _fVzB4HCgEem-IvGAVOB1ag _26QxwHCgEem-IvGAVOB1ag _-RGccHCgEem-IvGAVOB1ag _EKuiQHChEem-IvGAVOB1ag _Njav8HChEem-IvGAVOB1ag _daR68HChEem-IvGAVOB1ag _M0oXUHChEem-IvGAVOB1ag _hAt2IHChEem-IvGAVOB1ag _igbVYHChEem-IvGAVOB1ag _pFSwkHChEem-IvGAVOB1ag _NcLDAHCiEem-IvGAVOB1ag _z8x3gHChEem-IvGAVOB1ag _1OU-8HChEem-IvGAVOB1ag _NVP7oHCiEem-IvGAVOB1ag _XPxEAHCiEem-IvGAVOB1ag _a4mL4HCiEem-IvGAVOB1ag _gnjSwHCiEem-IvGAVOB1ag _uk5XYHCiEem-IvGAVOB1ag _wynMIHCiEem-IvGAVOB1ag _y87uoHCiEem-IvGAVOB1ag _Ksn3EHCjEem-IvGAVOB1ag _W8rTcHCjEem-IvGAVOB1ag _ZTINcHCjEem-IvGAVOB1ag _c7s2oHCjEem-IvGAVOB1ag _f8jYgHCjEem-IvGAVOB1ag _hH5KQHCjEem-IvGAVOB1ag _uinC8HCjEem-IvGAVOB1ag _0x4BkHCjEem-IvGAVOB1ag _6Dj9oHCjEem-IvGAVOB1ag _D1piwHCkEem-IvGAVOB1ag _KjLKsHCkEem-IvGAVOB1ag _MdTVEHCkEem-IvGAVOB1ag _oS7_MHCkEem-IvGAVOB1ag _tozQoHCkEem-IvGAVOB1ag _84wMoHCkEem-IvGAVOB1ag _-OBWcHCkEem-IvGAVOB1ag _JfKTgHClEem-IvGAVOB1ag _LN2p8HClEem-IvGAVOB1ag _M7Fn0HClEem-IvGAVOB1ag _OVPRoHClEem-IvGAVOB1ag _Q32_YHClEem-IvGAVOB1ag _SnaRcHClEem-IvGAVOB1ag _jCotwHClEem-IvGAVOB1ag _tce2cHClEem-IvGAVOB1ag _yMPxMHClEem-IvGAVOB1ag _3mvD8HClEem-IvGAVOB1ag _a4nLQHCoEem-IvGAVOB1ag _CDevoHCmEem-IvGAVOB1ag _8hjGMHCnEem-IvGAVOB1ag _HWl9IHCoEem-IvGAVOB1ag _LadbMHCoEem-IvGAVOB1ag _05zcQHCoEem-IvGAVOB1ag _8rtSUHCoEem-IvGAVOB1ag __r67AHCoEem-IvGAVOB1ag _N6pDgHCpEem-IvGAVOB1ag _WfOTsHCpEem-IvGAVOB1ag _cFmGUHCpEem-IvGAVOB1ag _rnIhkHCpEem-IvGAVOB1ag _2c2G4HCpEem-IvGAVOB1ag _Pv-YAHCqEem-IvGAVOB1ag _jx7DYHCqEem-IvGAVOB1ag _7P6F4HCsEem-IvGAVOB1ag _GMWlUHCtEem-IvGAVOB1ag _LjBIAHCtEem-IvGAVOB1ag _bVuy0HCtEem-IvGAVOB1ag _cwpRoHCtEem-IvGAVOB1ag _TS0lgKbVEemB37tvy2fp_g _edIBkHCtEem-IvGAVOB1ag _TS4P4KbVEemB37tvy2fp_g _pkYp4HCtEem-IvGAVOB1ag _TS428abVEemB37tvy2fp_g _y8rO8HCtEem-IvGAVOB1ag _brXk0KbVEemB37tvy2fp_g _3VYNwKbVEemB37tvy2fp_g _6WE-oKbVEemB37tvy2fp_g _MZaoQKbWEemB37tvy2fp_g _PGSeMKbWEemB37tvy2fp_g _SCctUKbWEemB37tvy2fp_g _aQfFwKbWEemB37tvy2fp_g _uWOsAKbWEemB37tvy2fp_g _-VgxA1FUEemdwPTMMldKDA _woZi8KbWEemB37tvy2fp_g _-VgxBVFUEemdwPTMMldKDA _8L9swKbWEemB37tvy2fp_g _-VgxCVFUEemdwPTMMldKDA _-VgxB1FUEemdwPTMMldKDA _I3WaQKbXEemB37tvy2fp_g _IBILjHC3Eem-IvGAVOB1ag _RMF3oKbXEemB37tvy2fp_g _V0PHcKbXEemB37tvy2fp_g _Jh_isXC3Eem-IvGAVOB1ag _a2oqUKbXEemB37tvy2fp_g _-VhYEVFUEemdwPTMMldKDA _fVWRUKbXEemB37tvy2fp_g _T_2b1HC2Eem-IvGAVOB1ag _hekAkKbXEemB37tvy2fp_g _GpXF4HC3Eem-IvGAVOB1ag _lVhEAKbXEemB37tvy2fp_g _F1W2EHC3Eem-IvGAVOB1ag _wF9HwKbXEemB37tvy2fp_g _6eQYUKbXEemB37tvy2fp_g _8XKasKbXEemB37tvy2fp_g _83sU4KbXEemB37tvy2fp_g _-9hY8KbXEemB37tvy2fp_g _2BIswKbXEemB37tvy2fp_g _DugbsKbYEemB37tvy2fp_g _Ezd4oKbYEemB37tvy2fp_g _FPa00KbYEemB37tvy2fp_g _FfXVUKbYEemB37tvy2fp_g _Fvp0EKbYEemB37tvy2fp_g _GCJ5UKbYEemB37tvy2fp_g _GT-CEKbYEemB37tvy2fp_g _GrOrgKbYEemB37tvy2fp_g _G9Jh8KbYEemB37tvy2fp_g _BS5U4KbYEemB37tvy2fp_g _RNLnUKbYEemB37tvy2fp_g _PKJYkKbYEemB37tvy2fp_g _VJlygKbYEemB37tvy2fp_g _ZKJd4KbYEemB37tvy2fp_g _k1fDoKbYEemB37tvy2fp_g _ThArIKbYEemB37tvy2fp_g _7qfFcKbYEemB37tvy2fp_g _-TfvEKbYEemB37tvy2fp_g _K4lnUKbZEemB37tvy2fp_g _H0iAcKbZEemB37tvy2fp_g _f9rKsKbZEemB37tvy2fp_g _dXX20KbZEemB37tvy2fp_g _lNF14KbZEemB37tvy2fp_g _wmRUoKbZEemB37tvy2fp_g _nQYjUKbZEemB37tvy2fp_g _1zwtMKbZEemB37tvy2fp_g _zLbZAKbZEemB37tvy2fp_g _-nz8wKbZEemB37tvy2fp_g _9i14wKbZEemB37tvy2fp_g __PRlYKbZEemB37tvy2fp_g _FlKJYKbaEemB37tvy2fp_g _G-TGkKbaEemB37tvy2fp_g _NBYDUKbaEemB37tvy2fp_g _ZFPd0KbaEemB37tvy2fp_g _TS5eAqbVEemB37tvy2fp_g _TS5eBKbVEemB37tvy2fp_g _IltJQKbaEemB37tvy2fp_g _TS5eAKbVEemB37tvy2fp_g _TS5eBqbVEemB37tvy2fp_g" width="1001">
+    <columns xmi:type="table:DTargetColumn" uid="_XjYH2rsmEeeZZezrcapb6w" label="Domain Documentation" cells="_jVUEoFFVEemdwPTMMldKDA _2a4nUFFVEemdwPTMMldKDA _3fZYUFFVEemdwPTMMldKDA _ZlhJEFFWEemdwPTMMldKDA _ugducFFVEemdwPTMMldKDA _eMabsFFWEemdwPTMMldKDA _c9HMULsmEeeZZezrcapb6w _-VaqYFFUEemdwPTMMldKDA _ok4EUFFWEemdwPTMMldKDA _ktzsIFFWEemdwPTMMldKDA _-VeUwFFUEemdwPTMMldKDA _rqOrsFFWEemdwPTMMldKDA _AwmogFFXEemdwPTMMldKDA _J4eL8FFXEemdwPTMMldKDA _Q7_5EFFXEemdwPTMMldKDA _ocPQQFFXEemdwPTMMldKDA _k95hIFFXEemdwPTMMldKDA _yGJw0FFXEemdwPTMMldKDA _L9gJUFFYEemdwPTMMldKDA _AX7NUFFYEemdwPTMMldKDA _jcfjUFFYEemdwPTMMldKDA _oPeKIFFYEemdwPTMMldKDA _w_q0cFFYEemdwPTMMldKDA _tOEyIFFYEemdwPTMMldKDA _POSkoFFYEemdwPTMMldKDA _MBzlEFFZEemdwPTMMldKDA _TY5ucFFZEemdwPTMMldKDA _aryGMFFZEemdwPTMMldKDA _eT6DcFFZEemdwPTMMldKDA _yhE80FFYEemdwPTMMldKDA _7WsdMFFZEemdwPTMMldKDA _89teUFFZEemdwPTMMldKDA _VkZgMFFaEemdwPTMMldKDA _ZX9RYFFaEemdwPTMMldKDA _qa4m4FFaEemdwPTMMldKDA _usmTsFFaEemdwPTMMldKDA _7jJIUFFaEemdwPTMMldKDA _C6DrgFFbEemdwPTMMldKDA _GcPY0FFbEemdwPTMMldKDA _MEYtEFFbEemdwPTMMldKDA _nyxfsFFbEemdwPTMMldKDA _SScKwFFbEemdwPTMMldKDA _ZP66QFFbEemdwPTMMldKDA _5dXSIFFbEemdwPTMMldKDA _xgQHEFFaEemdwPTMMldKDA _MvqpQFFcEemdwPTMMldKDA _OT6qQFFcEemdwPTMMldKDA _PePvYFFcEemdwPTMMldKDA _Quuf0FFcEemdwPTMMldKDA _R10DsFFcEemdwPTMMldKDA _YAO-kFFcEemdwPTMMldKDA _noqsAFFcEemdwPTMMldKDA _o0-uIFFcEemdwPTMMldKDA _v-D0MFFdEemdwPTMMldKDA _FkS80FFeEemdwPTMMldKDA _g9W_sFFeEemdwPTMMldKDA _ioz04FFeEemdwPTMMldKDA _jZIekFFeEemdwPTMMldKDA _ll-woFFeEemdwPTMMldKDA _mhrj4FFeEemdwPTMMldKDA _nh7f8FFeEemdwPTMMldKDA _oiu1oFFeEemdwPTMMldKDA _pqg9EFFeEemdwPTMMldKDA _wSZ3EFFeEemdwPTMMldKDA _pBkGsFFeEemdwPTMMldKDA _yL-AwFFeEemdwPTMMldKDA _ofn6cFFiEemdwPTMMldKDA _0JHp8FFeEemdwPTMMldKDA _5UF6AFFeEemdwPTMMldKDA _FmSrcFFfEemdwPTMMldKDA _1N79gFuREem-Ctg6fJChmg _i8w2MFFfEemdwPTMMldKDA _-b-PQFFdEemdwPTMMldKDA _5Nva8FuREem-Ctg6fJChmg _ene4AFFfEemdwPTMMldKDA _5HB48FFfEemdwPTMMldKDA _74ei4FuREem-Ctg6fJChmg _AgOUEFFgEemdwPTMMldKDA _Ef2LUFFgEemdwPTMMldKDA _NiHTEFuSEem-Ctg6fJChmg _JDf8sFFgEemdwPTMMldKDA _QynkgFFgEemdwPTMMldKDA _eUbZsFuSEem-Ctg6fJChmg _i7w7MFFgEemdwPTMMldKDA _k_gUkFFgEemdwPTMMldKDA _i-vMsFuSEem-Ctg6fJChmg _vQp0QFFgEemdwPTMMldKDA _wo6AoFFgEemdwPTMMldKDA _BPspwFuTEem-Ctg6fJChmg _SnvToFuTEem-Ctg6fJChmg _snDUwFFgEemdwPTMMldKDA _aEziIFuTEem-Ctg6fJChmg _5fcjgFFgEemdwPTMMldKDA _cDD-kFuTEem-Ctg6fJChmg _-nWRcFFgEemdwPTMMldKDA _WUe1sFuUEem-Ctg6fJChmg _AQcWMFFhEemdwPTMMldKDA _ZAaQcFuUEem-Ctg6fJChmg _BKxQcFFhEemdwPTMMldKDA _fCWkwFuUEem-Ctg6fJChmg _HcQcoFFhEemdwPTMMldKDA _p7USYFuUEem-Ctg6fJChmg _KFiMAFFhEemdwPTMMldKDA _yW9pAFuUEem-Ctg6fJChmg _NgOxQFFhEemdwPTMMldKDA _5gM8kFuUEem-Ctg6fJChmg _4QutoVFgEemdwPTMMldKDA _9ID0EFuUEem-Ctg6fJChmg _YOEM8FFhEemdwPTMMldKDA _ba0A4FuVEem-Ctg6fJChmg _db9OIFFhEemdwPTMMldKDA _rlanQFuVEem-Ctg6fJChmg _hIdVEFFhEemdwPTMMldKDA _v_ZfQFuVEem-Ctg6fJChmg _TUmjoFFhEemdwPTMMldKDA _1HwgMFuVEem-Ctg6fJChmg _uVc60FFhEemdwPTMMldKDA _3iO-kFuVEem-Ctg6fJChmg _wyPtYFFhEemdwPTMMldKDA _8WQuQFuVEem-Ctg6fJChmg _ylWpwFFhEemdwPTMMldKDA _9-BWQFuVEem-Ctg6fJChmg _626QQFFhEemdwPTMMldKDA _mPuJ0FFhEemdwPTMMldKDA _F795IFFiEemdwPTMMldKDA _N31jgFFiEemdwPTMMldKDA _lYACMFFiEemdwPTMMldKDA _frQAMF9XEemf2fuoUiMDyQ _i8lOEF9XEemf2fuoUiMDyQ _lbL-gF9XEemf2fuoUiMDyQ _I2sN0F9YEemf2fuoUiMDyQ _avtBUF9ZEemf2fuoUiMDyQ _b43BwF9ZEemf2fuoUiMDyQ _lZGo8F9ZEemf2fuoUiMDyQ _vRGBwF9ZEemf2fuoUiMDyQ _xZ3FEF9ZEemf2fuoUiMDyQ _yD45gF9ZEemf2fuoUiMDyQ _07hN8F9ZEemf2fuoUiMDyQ _1u-bwFuWEem-Ctg6fJChmg _5Lj3YFuWEem-Ctg6fJChmg _MZkz0F9aEemf2fuoUiMDyQ __36aoFuWEem-Ctg6fJChmg _BexDsFuXEem-Ctg6fJChmg _OgjucF9aEemf2fuoUiMDyQ _DmN4YFuXEem-Ctg6fJChmg _-Ve70VFUEemdwPTMMldKDA _Ukm7kF9aEemf2fuoUiMDyQ _Jy7SQFuXEem-Ctg6fJChmg _bhLsIF9aEemf2fuoUiMDyQ _ORIi8FuXEem-Ctg6fJChmg _la-bwF9aEemf2fuoUiMDyQ _xit2sFuWEem-Ctg6fJChmg _o_KUMF9aEemf2fuoUiMDyQ _vfJ2cF9aEemf2fuoUiMDyQ _y8SrsF9aEemf2fuoUiMDyQ _0zZXQF9aEemf2fuoUiMDyQ _9uXHIF9aEemf2fuoUiMDyQ _GctXUF9bEemf2fuoUiMDyQ _LLdlcF9bEemf2fuoUiMDyQ _U3BEwF9bEemf2fuoUiMDyQ _aN1YcF9bEemf2fuoUiMDyQ _nBTNwFuTEem-Ctg6fJChmg _jEP_gF9bEemf2fuoUiMDyQ _oFCisFuTEem-Ctg6fJChmg _oPqUcF9bEemf2fuoUiMDyQ _qRmg4FuTEem-Ctg6fJChmg _snB9UF9bEemf2fuoUiMDyQ _ySP9kFuTEem-Ctg6fJChmg _3NTiUFuTEem-Ctg6fJChmg _Ix1JAFuUEem-Ctg6fJChmg _OCyFQFuUEem-Ctg6fJChmg _e5agoFuTEem-Ctg6fJChmg _wfAUcF9bEemf2fuoUiMDyQ _-qEE8F9bEemf2fuoUiMDyQ _RwAbEF9cEemf2fuoUiMDyQ _bLlksF9cEemf2fuoUiMDyQ _gyXnAF9cEemf2fuoUiMDyQ _utoA8F9cEemf2fuoUiMDyQ _2BnzAF9cEemf2fuoUiMDyQ _gbEr4F9dEemf2fuoUiMDyQ _rfSAMF9dEemf2fuoUiMDyQ _xRE_sF9dEemf2fuoUiMDyQ _zVZn4F9dEemf2fuoUiMDyQ _3aX5MF9dEemf2fuoUiMDyQ _PXv4UF9eEemf2fuoUiMDyQ _XoDhoF9eEemf2fuoUiMDyQ _-Ve701FUEemdwPTMMldKDA _Y9d1YF9eEemf2fuoUiMDyQ _-Ve71VFUEemdwPTMMldKDA _Z84rAF9eEemf2fuoUiMDyQ _-Vfi4FFUEemdwPTMMldKDA _rjD3gF9eEemf2fuoUiMDyQ _-Ve711FUEemdwPTMMldKDA _6F_VcF9eEemf2fuoUiMDyQ _-Vfi5FFUEemdwPTMMldKDA _7klaYF9eEemf2fuoUiMDyQ _-Vfi5lFUEemdwPTMMldKDA _-Vfi4lFUEemdwPTMMldKDA _-VgJ8FFUEemdwPTMMldKDA _-Vfi6FFUEemdwPTMMldKDA _-VgJ8lFUEemdwPTMMldKDA _IjoqwF9fEemf2fuoUiMDyQ _Mkt6kF9fEemf2fuoUiMDyQ _OWuDsF9fEemf2fuoUiMDyQ _Q6m8wF9fEemf2fuoUiMDyQ _S_p9sF9fEemf2fuoUiMDyQ _VlO40F9fEemf2fuoUiMDyQ _niiy8F9fEemf2fuoUiMDyQ _pqNqEF9fEemf2fuoUiMDyQ _uzpCAF9fEemf2fuoUiMDyQ _4k7V4F9fEemf2fuoUiMDyQ _9ni7MF9fEemf2fuoUiMDyQ _-edVEF9fEemf2fuoUiMDyQ _HrTfIF9gEemf2fuoUiMDyQ _K2RmUF9gEemf2fuoUiMDyQ _QDJT0F9gEemf2fuoUiMDyQ _Z6ArQF9gEemf2fuoUiMDyQ _bT2zEF9gEemf2fuoUiMDyQ _bkIDsF9gEemf2fuoUiMDyQ _b9HygF9gEemf2fuoUiMDyQ _hcEHcF9gEemf2fuoUiMDyQ _-VgJ9FFUEemdwPTMMldKDA _-VgJ-FFUEemdwPTMMldKDA _-VgJ9lFUEemdwPTMMldKDA _-VgxAVFUEemdwPTMMldKDA _n-ggwF9gEemf2fuoUiMDyQ _qxTYgF9gEemf2fuoUiMDyQ _u9Y-cF9gEemf2fuoUiMDyQ _zDQAkF9gEemf2fuoUiMDyQ _gdS8oF9hEemf2fuoUiMDyQ _vftL4F9hEemf2fuoUiMDyQ _AtcqQF9iEemf2fuoUiMDyQ _FZoskF9iEemf2fuoUiMDyQ _IEIj8F9iEemf2fuoUiMDyQ _lFXegF9iEemf2fuoUiMDyQ _pR0Q0F9iEemf2fuoUiMDyQ _UHoVkF9jEemf2fuoUiMDyQ _35kkYF9iEemf2fuoUiMDyQ _6JLPgF9iEemf2fuoUiMDyQ _79bbYF9iEemf2fuoUiMDyQ __j39oF9iEemf2fuoUiMDyQ _ZGVOwF9kEemf2fuoUiMDyQ _ixGD4F9kEemf2fuoUiMDyQ _AkuW0HCfEem-IvGAVOB1ag _klwfcF9kEemf2fuoUiMDyQ _8Q5fEF9kEemf2fuoUiMDyQ _NSQuUF9lEemf2fuoUiMDyQ _GnmNIF9lEemf2fuoUiMDyQ _VQESYF9lEemf2fuoUiMDyQ _Gep-oHCfEem-IvGAVOB1ag _eGTlYHCfEem-IvGAVOB1ag _rFjDAHCfEem-IvGAVOB1ag _FbkUgHCgEem-IvGAVOB1ag _OCCbEHCgEem-IvGAVOB1ag _T9Y_MHCgEem-IvGAVOB1ag _YGfikHCgEem-IvGAVOB1ag _bLYP4HCgEem-IvGAVOB1ag _fVzB4HCgEem-IvGAVOB1ag _26QxwHCgEem-IvGAVOB1ag _-RGccHCgEem-IvGAVOB1ag _EKuiQHChEem-IvGAVOB1ag _Njav8HChEem-IvGAVOB1ag _daR68HChEem-IvGAVOB1ag _M0oXUHChEem-IvGAVOB1ag _hAt2IHChEem-IvGAVOB1ag _igbVYHChEem-IvGAVOB1ag _pFSwkHChEem-IvGAVOB1ag _NcLDAHCiEem-IvGAVOB1ag _z8x3gHChEem-IvGAVOB1ag _1OU-8HChEem-IvGAVOB1ag _NVP7oHCiEem-IvGAVOB1ag _XPxEAHCiEem-IvGAVOB1ag _a4mL4HCiEem-IvGAVOB1ag _gnjSwHCiEem-IvGAVOB1ag _uk5XYHCiEem-IvGAVOB1ag _wynMIHCiEem-IvGAVOB1ag _y87uoHCiEem-IvGAVOB1ag _Ksn3EHCjEem-IvGAVOB1ag _W8rTcHCjEem-IvGAVOB1ag _ZTINcHCjEem-IvGAVOB1ag _c7s2oHCjEem-IvGAVOB1ag _f8jYgHCjEem-IvGAVOB1ag _hH5KQHCjEem-IvGAVOB1ag _uinC8HCjEem-IvGAVOB1ag _0x4BkHCjEem-IvGAVOB1ag _6Dj9oHCjEem-IvGAVOB1ag _D1piwHCkEem-IvGAVOB1ag _KjLKsHCkEem-IvGAVOB1ag _MdTVEHCkEem-IvGAVOB1ag _oS7_MHCkEem-IvGAVOB1ag _tozQoHCkEem-IvGAVOB1ag _84wMoHCkEem-IvGAVOB1ag _-OBWcHCkEem-IvGAVOB1ag _JfKTgHClEem-IvGAVOB1ag _LN2p8HClEem-IvGAVOB1ag _M7Fn0HClEem-IvGAVOB1ag _OVPRoHClEem-IvGAVOB1ag _Q32_YHClEem-IvGAVOB1ag _SnaRcHClEem-IvGAVOB1ag _jCotwHClEem-IvGAVOB1ag _tce2cHClEem-IvGAVOB1ag _yMPxMHClEem-IvGAVOB1ag _3mvD8HClEem-IvGAVOB1ag _a4nLQHCoEem-IvGAVOB1ag _CDevoHCmEem-IvGAVOB1ag _8hjGMHCnEem-IvGAVOB1ag _HWl9IHCoEem-IvGAVOB1ag _LadbMHCoEem-IvGAVOB1ag _05zcQHCoEem-IvGAVOB1ag _8rtSUHCoEem-IvGAVOB1ag __r67AHCoEem-IvGAVOB1ag _N6pDgHCpEem-IvGAVOB1ag _WfOTsHCpEem-IvGAVOB1ag _cFmGUHCpEem-IvGAVOB1ag _rnIhkHCpEem-IvGAVOB1ag _2c2G4HCpEem-IvGAVOB1ag _Pv-YAHCqEem-IvGAVOB1ag _jx7DYHCqEem-IvGAVOB1ag _7P6F4HCsEem-IvGAVOB1ag _GMWlUHCtEem-IvGAVOB1ag _LjBIAHCtEem-IvGAVOB1ag _bVuy0HCtEem-IvGAVOB1ag _cwpRoHCtEem-IvGAVOB1ag _TS0lgKbVEemB37tvy2fp_g _edIBkHCtEem-IvGAVOB1ag _TS4P4KbVEemB37tvy2fp_g _pkYp4HCtEem-IvGAVOB1ag _TS428abVEemB37tvy2fp_g _y8rO8HCtEem-IvGAVOB1ag _brXk0KbVEemB37tvy2fp_g _3VYNwKbVEemB37tvy2fp_g _MZaoQKbWEemB37tvy2fp_g _PGSeMKbWEemB37tvy2fp_g _SCctUKbWEemB37tvy2fp_g _aQfFwKbWEemB37tvy2fp_g _uWOsAKbWEemB37tvy2fp_g _-VgxA1FUEemdwPTMMldKDA _woZi8KbWEemB37tvy2fp_g _-VgxBVFUEemdwPTMMldKDA _8L9swKbWEemB37tvy2fp_g _-VgxCVFUEemdwPTMMldKDA _-VgxB1FUEemdwPTMMldKDA _I3WaQKbXEemB37tvy2fp_g _IBILjHC3Eem-IvGAVOB1ag _RMF3oKbXEemB37tvy2fp_g _V0PHcKbXEemB37tvy2fp_g _Jh_isXC3Eem-IvGAVOB1ag _a2oqUKbXEemB37tvy2fp_g _-VhYEVFUEemdwPTMMldKDA _fVWRUKbXEemB37tvy2fp_g _T_2b1HC2Eem-IvGAVOB1ag _hekAkKbXEemB37tvy2fp_g _GpXF4HC3Eem-IvGAVOB1ag _lVhEAKbXEemB37tvy2fp_g _F1W2EHC3Eem-IvGAVOB1ag _wF9HwKbXEemB37tvy2fp_g _6eQYUKbXEemB37tvy2fp_g _8XKasKbXEemB37tvy2fp_g _83sU4KbXEemB37tvy2fp_g _-9hY8KbXEemB37tvy2fp_g _2BIswKbXEemB37tvy2fp_g _DugbsKbYEemB37tvy2fp_g _Ezd4oKbYEemB37tvy2fp_g _FPa00KbYEemB37tvy2fp_g _FfXVUKbYEemB37tvy2fp_g _Fvp0EKbYEemB37tvy2fp_g _GCJ5UKbYEemB37tvy2fp_g _GT-CEKbYEemB37tvy2fp_g _GrOrgKbYEemB37tvy2fp_g _G9Jh8KbYEemB37tvy2fp_g _BS5U4KbYEemB37tvy2fp_g _RNLnUKbYEemB37tvy2fp_g _PKJYkKbYEemB37tvy2fp_g _VJlygKbYEemB37tvy2fp_g _ZKJd4KbYEemB37tvy2fp_g _k1fDoKbYEemB37tvy2fp_g _ThArIKbYEemB37tvy2fp_g _7qfFcKbYEemB37tvy2fp_g _-TfvEKbYEemB37tvy2fp_g _K4lnUKbZEemB37tvy2fp_g _H0iAcKbZEemB37tvy2fp_g _f9rKsKbZEemB37tvy2fp_g _dXX20KbZEemB37tvy2fp_g _lNF14KbZEemB37tvy2fp_g _wmRUoKbZEemB37tvy2fp_g _nQYjUKbZEemB37tvy2fp_g _1zwtMKbZEemB37tvy2fp_g _zLbZAKbZEemB37tvy2fp_g _-nz8wKbZEemB37tvy2fp_g _9i14wKbZEemB37tvy2fp_g __PRlYKbZEemB37tvy2fp_g _FlKJYKbaEemB37tvy2fp_g _G-TGkKbaEemB37tvy2fp_g _NBYDUKbaEemB37tvy2fp_g _ZFPd0KbaEemB37tvy2fp_g _TS5eAqbVEemB37tvy2fp_g _TS5eBKbVEemB37tvy2fp_g _IltJQKbaEemB37tvy2fp_g _TS5eBqbVEemB37tvy2fp_g _TS5eAKbVEemB37tvy2fp_g" width="1001">
       <target xmi:type="ecore:EPackage" href="esdl.ecore#/"/>
       <semanticElements xmi:type="ecore:EPackage" href="esdl.ecore#/"/>
       <originMapping xmi:type="description_2:ElementColumnMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Review']/@ownedRepresentations[name='Documentation']/@ownedColumnMappings.0"/>

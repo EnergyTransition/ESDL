@@ -1903,5 +1903,12 @@
     <genClasses ecoreClass="esdl.ecore#//Heater"/>
     <genClasses ecoreClass="esdl.ecore#//Furnace"/>
     <genClasses ecoreClass="esdl.ecore#//Boiler"/>
+    <genClasses ecoreClass="esdl.ecore#//MeasureGroup">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MeasureGroup/measureGroup"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//MeasureGroup/measure"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//MeasureGroupReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//MeasureGroupReference/reference"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

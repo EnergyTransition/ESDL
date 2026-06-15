@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2605" targetNamespace="http://www.tno.nl/esdl">
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2606" targetNamespace="http://www.tno.nl/esdl">
   <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
   <xsd:annotation>
     <xsd:documentation># Energy System Description Language
@@ -310,6 +310,8 @@ A browseable version of this model is found at [https://energytransition.github.
   <xsd:element ecore:ignore="true" name="Heater" type="esdl:Heater"/>
   <xsd:element ecore:ignore="true" name="Furnace" type="esdl:Furnace"/>
   <xsd:element ecore:ignore="true" name="Boiler" type="esdl:Boiler"/>
+  <xsd:element ecore:ignore="true" name="MeasureGroup" type="esdl:MeasureGroup"/>
+  <xsd:element ecore:ignore="true" name="MeasureGroupReference" type="esdl:MeasureGroupReference"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -4896,7 +4898,11 @@ Examples of layered Matters
   <xsd:complexType name="MeasureReference">
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractMeasure">
-        <xsd:attribute ecore:reference="esdl:Measure" name="reference" type="xsd:anyURI" use="required"/>
+        <xsd:attribute ecore:reference="esdl:Measure" name="reference" type="xsd:anyURI" use="required">
+          <xsd:annotation>
+            <xsd:documentation>the reference to the Measure</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -6088,6 +6094,41 @@ Keep in mind that for portability one should not refer to local files that other
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractBasicConversion"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="MeasureGroup">
+    <xsd:annotation>
+      <xsd:documentation>A grouping of measures. Can be used to represent a catalogue of certain assets</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractMeasure">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="measureGroup" type="esdl:MeasureGroup">
+            <xsd:annotation>
+              <xsd:documentation>Allows for a hierarchy of MeasureGroups</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element ecore:resolveProxies="true" maxOccurs="unbounded" minOccurs="0" name="measure" type="esdl:Measure">
+            <xsd:annotation>
+              <xsd:documentation>collection of measures in the group</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="MeasureGroupReference">
+    <xsd:annotation>
+      <xsd:documentation>A reference to a MeasureGroup. Can be used to refer to a specific MeasureGroup from an asset. For example an optional Pipe with a reference to the pipe catalogue from which the pipe can be chosen.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:AbstractMeasure">
+        <xsd:attribute ecore:reference="esdl:MeasureGroup" name="reference" type="xsd:anyURI" use="required">
+          <xsd:annotation>
+            <xsd:documentation>the reference to the MeasureGroup</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
 </xsd:schema>
