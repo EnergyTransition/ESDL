@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2606" targetNamespace="http://www.tno.nl/esdl">
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:esdl="http://www.tno.nl/esdl" xmlns:nl.tno.esdl.attribute.unit="http://www.tno.nl/esdl/attribute/unit" xmlns:nl.tno.esdl.version="http://www.tno.nl/esdl/version" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ecore:nsPrefix="esdl" ecore:package="esdl" nl.tno.esdl.version:version="v2609" targetNamespace="http://www.tno.nl/esdl">
   <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.xsd"/>
   <xsd:annotation>
     <xsd:documentation># Energy System Description Language
@@ -312,6 +312,9 @@ A browseable version of this model is found at [https://energytransition.github.
   <xsd:element ecore:ignore="true" name="Boiler" type="esdl:Boiler"/>
   <xsd:element ecore:ignore="true" name="MeasureGroup" type="esdl:MeasureGroup"/>
   <xsd:element ecore:ignore="true" name="MeasureGroupReference" type="esdl:MeasureGroupReference"/>
+  <xsd:element ecore:ignore="true" name="AbstractProductionPotential" type="esdl:AbstractProductionPotential"/>
+  <xsd:element ecore:ignore="true" name="AbstractStoragePotential" type="esdl:AbstractStoragePotential"/>
+  <xsd:element ecore:ignore="true" name="CompoundCarrier" type="esdl:CompoundCarrier"/>
   <xsd:complexType abstract="true" name="EnergyAsset">
     <xsd:annotation>
       <xsd:documentation>An abstract class that describes a connectable Asset using ports. EnergyAssets main subclasses contain the 5 capability type: Producer, Consumer, Storage, Conversion and Transport </xsd:documentation>
@@ -778,7 +781,11 @@ A browseable version of this model is found at [https://energytransition.github.
       </xsd:annotation>
     </xsd:attribute>
     <xsd:attribute ecore:reference="esdl:Sector" name="sector" type="xsd:anyURI"/>
-    <xsd:attribute default="FALSE" ecore:unsettable="false" name="logicalGroup" type="ecore:EBoolean"/>
+    <xsd:attribute default="FALSE" ecore:unsettable="false" name="logicalGroup" type="ecore:EBoolean">
+      <xsd:annotation>
+        <xsd:documentation>Indicates an Area is used as a logical group. Logical grouping can be used to group CBS areas (municipalities, districts, .....) and to group DSO service areas. Both groups exist next to eachother in an Area and indicate the members can spatially overlap with members from another group.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="Port">
     <xsd:annotation>
@@ -1387,11 +1394,6 @@ A browseable version of this model is found at [https://energytransition.github.
             <xsd:documentation>Coefficient of performance of this Heat Pump</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute ecore:unsettable="false" name="additionalHeatingSourceType" type="esdl:AdditionalHeatingSourceTypeEnum">
-          <xsd:annotation>
-            <xsd:documentation>(legacy/experimental) In case of hybrid usage</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
         <xsd:attribute ecore:unsettable="false" name="powerFactor" nl.tno.esdl.attribute.unit:unit="-" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). 
@@ -1943,7 +1945,7 @@ A browseable version of this model is found at [https://energytransition.github.
       <xsd:documentation>Defines the potential for wind energy. This class can be used instead of 'SearchAreaWind' in case there is more information available.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Potential">
+      <xsd:extension base="esdl:AbstractProductionPotential">
         <xsd:attribute ecore:unsettable="false" name="value" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Can be used to express the amount of potential energy that can be harvested in this area. Attach a 'QuantityAndUnit' instance to express the unit of energy (e.g. ENERGY in GJ)</xsd:documentation>
@@ -2778,6 +2780,14 @@ When a model queries for a value from a certain date (and to a certain date), th
     </xsd:sequence>
     <xsd:attribute name="name" type="ecore:EString"/>
     <xsd:attribute ecore:id="true" name="id" type="ecore:EString"/>
+    <xsd:attribute ecore:opposite="carrier" ecore:reference="esdl:CompoundCarrier" name="compoundCarrier">
+      <xsd:annotation>
+        <xsd:documentation>List of carriers belonging to each other and grouped in this CompoundCarrier</xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:list itemType="xsd:anyURI"/>
+      </xsd:simpleType>
+    </xsd:attribute>
   </xsd:complexType>
   <xsd:complexType name="Range">
     <xsd:annotation>
@@ -2800,7 +2810,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Defines the potential for solar energy. This class can be used instead of 'SearchAreaSolar' in case there is more information available.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Potential">
+      <xsd:extension base="esdl:AbstractProductionPotential">
         <xsd:attribute default="0.0" ecore:unsettable="false" name="value" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>Can be used to express the amount of potential energy that can be harvested in this area. Attach a 'QuantityAndUnit' instance to express the unit of energy (e.g. ENERGY in GJ)</xsd:documentation>
@@ -2979,7 +2989,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Defines the residual heat potential in a specific area.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Potential">
+      <xsd:extension base="esdl:AbstractProductionPotential">
         <xsd:attribute default="0.0" ecore:unsettable="false" name="value" type="ecore:EDouble"/>
         <xsd:attribute ecore:unsettable="false" name="type" type="esdl:ResidualHeatSourceTypeEnum"/>
         <xsd:attribute ecore:opposite="residualHeatSourcePotential" ecore:reference="esdl:Conversion" name="associatedConversionAsset" type="xsd:anyURI"/>
@@ -3850,7 +3860,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Abstract class to describe geothermal potential</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Potential">
+      <xsd:extension base="esdl:AbstractProductionPotential">
         <xsd:attribute ecore:opposite="geothermalPotential" ecore:reference="esdl:GeothermalSource" name="geothermalSource">
           <xsd:simpleType>
             <xsd:list itemType="xsd:anyURI"/>
@@ -3864,7 +3874,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Defines the potential for underground thermal energy storage (UTES). E.g. ATES or BTES potential</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Potential">
+      <xsd:extension base="esdl:AbstractStoragePotential">
         <xsd:attribute ecore:unsettable="false" name="value" type="ecore:EDouble"/>
         <xsd:attribute ecore:unsettable="false" name="type" type="esdl:UTESPotentialTypeEnum"/>
         <xsd:attribute ecore:name="UTES" ecore:opposite="UTESPotential" ecore:reference="esdl:UTES" name="UTES">
@@ -3940,7 +3950,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Defines the biomass potential in a specific area.</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Potential">
+      <xsd:extension base="esdl:AbstractProductionPotential">
         <xsd:attribute default="0.0" ecore:unsettable="false" name="value" type="ecore:EDouble">
           <xsd:annotation>
             <xsd:documentation>The amount of biomass in Joule</xsd:documentation>
@@ -4063,7 +4073,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Specifies search areas for wind turbines. Search areas are a kind of 'legal' areas that have been appointed by the (local) government as possible areas for wind installations. Further research should give insight in the real potential (in terms of energy).</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Potential">
+      <xsd:extension base="esdl:AbstractProductionPotential">
         <xsd:attribute ecore:unsettable="false" name="fullLoadHours" type="ecore:EInt">
           <xsd:annotation>
             <xsd:documentation>Specifies expected full load hours in this search area</xsd:documentation>
@@ -4087,7 +4097,7 @@ When a model queries for a value from a certain date (and to a certain date), th
       <xsd:documentation>Specifies search areas for solar installations. Search areas are a kind of 'legal' areas that have been appointed by the (local) government as possible areas for solar installations. Further research should give insight in the real potential (in terms of energy).</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="esdl:Potential">
+      <xsd:extension base="esdl:AbstractProductionPotential">
         <xsd:attribute ecore:unsettable="false" name="fullLoadHours" type="ecore:EInt">
           <xsd:annotation>
             <xsd:documentation>Specifies expected full load hours in this search area</xsd:documentation>
@@ -5867,6 +5877,23 @@ Examples of layered Matters
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="esdl:AbstractGroupMember">
+        <xsd:sequence>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="geometry" type="esdl:Geometry">
+            <xsd:annotation>
+              <xsd:documentation>Geometry for the plan</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element ecore:name="KPIs" ecore:resolveProxies="true" minOccurs="0" name="KPIs" type="esdl:KPIs">
+            <xsd:annotation>
+              <xsd:documentation>KPIs related to the plan</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element ecore:resolveProxies="true" minOccurs="0" name="costInformation" type="esdl:CostInformation">
+            <xsd:annotation>
+              <xsd:documentation>Cost information related to the plan as a whole. Individual plan elements can also have cost information.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
         <xsd:attribute ecore:reference="esdl:Item" name="element">
           <xsd:simpleType>
             <xsd:list itemType="xsd:anyURI"/>
@@ -6127,6 +6154,56 @@ Keep in mind that for portability one should not refer to local files that other
           <xsd:annotation>
             <xsd:documentation>the reference to the MeasureGroup</xsd:documentation>
           </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="AbstractProductionPotential">
+    <xsd:annotation>
+      <xsd:documentation>Abstract class for all potentials that relate to production of energy</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Potential">
+        <xsd:attribute ecore:unsettable="false" name="power" nl.tno.esdl.attribute.unit:unit="W" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The potential power in Watt</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="AbstractStoragePotential">
+    <xsd:annotation>
+      <xsd:documentation>Abstract class for all potentials that relate to storage of energy</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Potential">
+        <xsd:attribute ecore:unsettable="false" name="capacity" nl.tno.esdl.attribute.unit:unit="J" type="ecore:EDouble">
+          <xsd:annotation>
+            <xsd:documentation>The potential capacity in Joules</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CompoundCarrier">
+    <xsd:annotation>
+      <xsd:documentation>The CompoundCarrier class provides a means to group carriers, for example the carriers with different temperatures in a heating network.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="esdl:Carrier">
+        <xsd:attribute ecore:opposite="compoundCarrier" ecore:reference="esdl:Carrier" name="carrier">
+          <xsd:simpleType>
+            <xsd:list itemType="xsd:anyURI"/>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute ecore:reference="esdl:CompoundCarrier" name="alternative">
+          <xsd:annotation>
+            <xsd:documentation>List of alternative CompoundCarriers. Can for example be used by an optimization algorithm to chose between different temperature regimes in a district heating network.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:list itemType="xsd:anyURI"/>
+          </xsd:simpleType>
         </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>

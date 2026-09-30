@@ -832,7 +832,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/source"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/stages"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/COP"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/additionalHeatingSourceType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//HeatPump/powerFactor"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//HeatingDemand">
@@ -1166,6 +1165,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Carrier/cost"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Carrier/dataSource"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Carrier/profile"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Carrier/compoundCarrier"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Range">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//Range/minValue"/>
@@ -1863,6 +1863,9 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//Plan">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//Plan/element"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Plan/geometry"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Plan/KPIs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esdl.ecore#//Plan/costInformation"/>
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//DataTableProfile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//DataTableProfile/tableName"/>
@@ -1911,6 +1914,16 @@
     </genClasses>
     <genClasses ecoreClass="esdl.ecore#//MeasureGroupReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//MeasureGroupReference/reference"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//AbstractProductionPotential">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractProductionPotential/power"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//AbstractStoragePotential">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esdl.ecore#//AbstractStoragePotential/capacity"/>
+    </genClasses>
+    <genClasses ecoreClass="esdl.ecore#//CompoundCarrier">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//CompoundCarrier/carrier"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esdl.ecore#//CompoundCarrier/alternative"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

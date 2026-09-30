@@ -6,7 +6,7 @@
     <details key="complianceLevel" value="17.0"/>
   </eAnnotations>
   <eAnnotations source="http://www.tno.nl/esdl/version">
-    <details key="version" value="v2606"/>
+    <details key="version" value="v2609"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="EnergyAsset" abstract="true" eSuperTypes="#//ConnectableAsset">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -525,7 +525,11 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sector" eType="#//Sector"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="logicalGroup" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="FALSE"/>
+        defaultValueLiteral="FALSE">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Indicates an Area is used as a logical group. Logical grouping can be used to group CBS areas (municipalities, districts, .....) and to group DSO service areas. Both groups exist next to eachother in an Area and indicate the members can spatially overlap with members from another group."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1134,12 +1138,6 @@
         <details key="unit" value="-"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="additionalHeatingSourceType"
-        eType="#//AdditionalHeatingSourceTypeEnum">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="(legacy/experimental) In case of hybrid usage"/>
-      </eAnnotations>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="powerFactor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The power factor is defined as the ratio of active power (measured in Watts) to the apparent power (measured in VA). &#xD;&#xA;"/>
@@ -1666,7 +1664,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="aggregationCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="WindPotential" eSuperTypes="#//Potential">
+  <eClassifiers xsi:type="ecore:EClass" name="WindPotential" eSuperTypes="#//AbstractProductionPotential">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines the potential for wind energy. This class can be used instead of 'SearchAreaWind' in case there is more information available."/>
     </eAnnotations>
@@ -2410,6 +2408,12 @@
         <details key="documentation" value="Allows for specifying certain information as a profile for the carrier (e.g. dynamic electricity prices, changing seasonal temperature in a district heating network). Use a QuantityAndUnit to specify the meaning of the profile information"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="compoundCarrier" upperBound="-1"
+        eType="#//CompoundCarrier" eOpposite="#//CompoundCarrier/carrier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of carriers belonging to each other and grouped in this CompoundCarrier"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Range" eSuperTypes="#//StaticProfile">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2423,7 +2427,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SolarPotential" eSuperTypes="#//Potential">
+  <eClassifiers xsi:type="ecore:EClass" name="SolarPotential" eSuperTypes="#//AbstractProductionPotential">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines the potential for solar energy. This class can be used instead of 'SearchAreaSolar' in case there is more information available."/>
     </eAnnotations>
@@ -2578,7 +2582,7 @@
       <details key="documentation" value="Defines a plant fuelled by biomass"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ResidualHeatSourcePotential" eSuperTypes="#//Potential">
+  <eClassifiers xsi:type="ecore:EClass" name="ResidualHeatSourcePotential" eSuperTypes="#//AbstractProductionPotential">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines the residual heat potential in a specific area."/>
     </eAnnotations>
@@ -3352,14 +3356,14 @@
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractGTPotential" abstract="true"
-      eSuperTypes="#//Potential">
+      eSuperTypes="#//AbstractProductionPotential">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Abstract class to describe geothermal potential"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="geothermalSource" upperBound="-1"
         eType="#//GeothermalSource" eOpposite="#//GeothermalSource/geothermalPotential"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UTESPotential" eSuperTypes="#//Potential">
+  <eClassifiers xsi:type="ecore:EClass" name="UTESPotential" eSuperTypes="#//AbstractStoragePotential">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines the potential for underground thermal energy storage (UTES). E.g. ATES or BTES potential"/>
     </eAnnotations>
@@ -3414,7 +3418,7 @@
     <eLiterals name="ELECTRIC" value="3"/>
     <eLiterals name="INFRARED_PANEL" value="4"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BiomassPotential" eSuperTypes="#//Potential">
+  <eClassifiers xsi:type="ecore:EClass" name="BiomassPotential" eSuperTypes="#//AbstractProductionPotential">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Defines the biomass potential in a specific area."/>
     </eAnnotations>
@@ -3515,7 +3519,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SearchAreaWind" eSuperTypes="#//Potential">
+  <eClassifiers xsi:type="ecore:EClass" name="SearchAreaWind" eSuperTypes="#//AbstractProductionPotential">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Specifies search areas for wind turbines. Search areas are a kind of 'legal' areas that have been appointed by the (local) government as possible areas for wind installations. Further research should give insight in the real potential (in terms of energy)."/>
     </eAnnotations>
@@ -3535,7 +3539,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SearchAreaSolar" eSuperTypes="#//Potential">
+  <eClassifiers xsi:type="ecore:EClass" name="SearchAreaSolar" eSuperTypes="#//AbstractProductionPotential">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Specifies search areas for solar installations. Search areas are a kind of 'legal' areas that have been appointed by the (local) government as possible areas for solar installations. Further research should give insight in the real potential (in terms of energy)."/>
     </eAnnotations>
@@ -5181,6 +5185,23 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" upperBound="-1"
         eType="#//Item"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="geometry" eType="#//Geometry"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Geometry for the plan"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="KPIs" eType="#//KPIs" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="KPIs related to the plan"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="costInformation" eType="#//CostInformation"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Cost information related to the plan as a whole. Individual plan elements can also have cost information."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataTableProfile" eSuperTypes="#//ExternalProfile">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -5389,6 +5410,47 @@
         eType="#//MeasureGroup">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="the reference to the MeasureGroup"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractProductionPotential" abstract="true"
+      eSuperTypes="#//Potential">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract class for all potentials that relate to production of energy"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="power" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The potential power in Watt"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="W"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractStoragePotential" abstract="true"
+      eSuperTypes="#//Potential">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Abstract class for all potentials that relate to storage of energy"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The potential capacity in Joules"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.tno.nl/esdl/attribute/unit">
+        <details key="unit" value="J"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompoundCarrier" eSuperTypes="#//Carrier">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="The CompoundCarrier class provides a means to group carriers, for example the carriers with different temperatures in a heating network."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="carrier" upperBound="-1"
+        eType="#//Carrier" eOpposite="#//Carrier/compoundCarrier"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="alternative" upperBound="-1"
+        eType="#//CompoundCarrier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="List of alternative CompoundCarriers. Can for example be used by an optimization algorithm to chose between different temperature regimes in a district heating network."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
